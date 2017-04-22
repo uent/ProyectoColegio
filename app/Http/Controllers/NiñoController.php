@@ -31,5 +31,18 @@ class NiñoController extends Controller
       NiñoController::agregar($data);
 
       return redirect()->to('Mi_menu');
+
     }
+
+    public function MostrarNiñosParaLlamar()
+    {
+      //muestra una lista de niños que cumplan la condicion de que aun no sean contactados
+      return Niño::MostrarNiñosParaLlamar();
+
+    }
+
+
+
+
+
 }

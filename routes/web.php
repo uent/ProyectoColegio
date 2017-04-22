@@ -21,4 +21,6 @@ Route::get('Mi_menu', function () {
 
 Route::get('ingresar_niño', 'NiñoController@index');
 
+Route::get('Contactos_pendiente','NiñoController@MostrarNiñosParaLlamar');
+
 Route::post('ingresar_niño', 'NiñoController@crear');

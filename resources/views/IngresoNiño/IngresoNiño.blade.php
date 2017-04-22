@@ -34,6 +34,6 @@ echo "Ingreso solicitud de diagnostico";
 				<input name="Rut" class="form-control" placeholder="Rut del brocacochi"></input>
 		</div>
 
-		<button type="submit" class="btn btn-primary">Enviar</button>
+		<button type="submit" onClick="this.form.submit(); this.disabled=true; this.value='Sending…'; " class="btn btn-primary">Enviar</button>
 </form>
 @endsection

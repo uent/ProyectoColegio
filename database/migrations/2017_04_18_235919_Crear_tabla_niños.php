@@ -18,6 +18,7 @@ class CrearTablaNiños extends Migration
 
           $table->string('Nombre');
           $table->string('Rut');
+          $table->boolean('contactado');  //se asigna false cuando se crea la tabla, cuando es contactado cambia a true
 
           $table->timestamps();
         });
