@@ -23,12 +23,19 @@ class Niño extends Model
     {
       //Retorna una lista de niños que cumplan la condicion de que aun no sean contactados
 
-      $tablas = Niño::where('contactado','=', 'false')->get();
-      var_dump(['users' => $tablas]);
-      //foreach ($tablas as $niño)
-      //{
-      //$niño);
-      //}
+      $tablas = Niño::select('Nombre','Rut')->where('contactado','=', 'false')->get();
+      //var_dump($tablas->Nombre);
+
+      $i = 0;
+        foreach ($tablas as $t)
+        {
+          $datos[$i]["nombre"] = $t->Nombre;
+          $datos[$i]["rut"] = $t->Rut;
+          $i++;
+        }
+
+
+      return $datos;
 
     }
 

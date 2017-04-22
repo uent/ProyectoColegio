@@ -19,8 +19,8 @@ Route::get('Mi_menu', function () {
     return view('Menu');
 });
 
-Route::get('ingresar_niño', 'NiñoController@index');
+Route::get('ingresar_niño', 'NiñoController@pagCrear');
 
-Route::get('Contactos_pendiente','NiñoController@MostrarNiñosParaLlamar');
+Route::get('contactos_pendientes', 'NiñoController@MostrarNiñosParaLlamar');
 
 Route::post('ingresar_niño', 'NiñoController@crear');

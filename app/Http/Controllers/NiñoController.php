@@ -4,15 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Niño;
 
+use resources\views;
+
+use View;
+
 use Illuminate\Http\Request;
 
 class NiñoController extends Controller
 {
 
-    public function index()
+    public function pagCrear()
     {
       return view ('IngresoNiño\IngresoNiño');
     }
+
+
 
     public function agregar($data)
     {
@@ -37,8 +43,11 @@ class NiñoController extends Controller
     public function MostrarNiñosParaLlamar()
     {
       //muestra una lista de niños que cumplan la condicion de que aun no sean contactados
-      return Niño::MostrarNiñosParaLlamar();
+      $datos = Niño::MostrarNiñosParaLlamar();
 
+
+      return View::make('ContactosPendientes.NiñosPendientes')->with("datos", $datos);
+      //return redirect()->to('NiñosPendientes',$datos);
     }
 
 
