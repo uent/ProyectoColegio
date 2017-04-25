@@ -20,12 +20,12 @@ class NiñoController extends Controller
 
 
 
-    public function agregar($data)
+    private function Agregar($data)
     {
       Niño::agregar($data['Nombre'],$data['Rut']);
     }
 
-    public function crear()
+    public function Crear()
     {
         $this->validate(request(), [
             'Nombre' => ['required', 'max:200'],
@@ -34,7 +34,7 @@ class NiñoController extends Controller
 
       $data = request()->all();
 
-      NiñoController::agregar($data);
+      NiñoController::Agregar($data);
 
       return redirect()->to('Mi_menu');
 
@@ -50,7 +50,19 @@ class NiñoController extends Controller
       //return redirect()->to('NiñosPendientes',$datos);
     }
 
+    public function Contactar()
+    {
+      $this->validate(request(), [
+          'id' => ['required', 'max:200'],
+      ]);
 
+    $data = request()->all();
+
+      $datos = Niño::MostrarDatosNiño($data["id"]);
+
+      return View::make('ContactosPendientes.DatosNiño')->with("datos", $datos);
+
+    }
 
 
 

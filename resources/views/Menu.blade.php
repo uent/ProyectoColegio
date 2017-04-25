@@ -27,8 +27,5 @@ echo "Colegio";
 
 
 @section('content2')
-<?php
-#2 seccion
-echo "hola2";
-?>
+
 @endsection

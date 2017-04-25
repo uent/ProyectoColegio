@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Niño extends Model
 {
-    protected $table = 'niños'; #?????
+    //protected $table = 'niños'; #?????
 
     public static function agregar($nombre, $rut)
     {
@@ -23,23 +23,38 @@ class Niño extends Model
     {
       //Retorna una lista de niños que cumplan la condicion de que aun no sean contactados
 
-      $tablas = Niño::select('Nombre','Rut')->where('contactado','=', 'false')->get();
-      //var_dump($tablas->Nombre);
+      $tablas = Niño::select('id','Nombre','Rut')->where('contactado','=', 'false')->get();
 
       $i = 0;
+      if(count($tablas) == 0) $datos = NULL;
+      else
+      {
         foreach ($tablas as $t)
         {
+          $datos[$i]["id"] = $t->id;
           $datos[$i]["nombre"] = $t->Nombre;
           $datos[$i]["rut"] = $t->Rut;
           $i++;
         }
-
-
+      }
       return $datos;
 
     }
 
+    public static function MostrarDatosNiño($id)
+    {
 
+      $tablas = Niño::select('id','Nombre','Rut')->where('id', '=',$id)->first();
+
+      if(count($tablas) == 0) $datos = NULL;
+      else
+      {
+          $datos["id"] = $tablas->id;
+          $datos["nombre"] = $tablas->Nombre;
+          $datos["rut"] = $tablas->Rut;
+      }
+      return $datos;
+    }
 
 
 

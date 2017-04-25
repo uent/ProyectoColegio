@@ -16,28 +16,30 @@ echo "Niños pendientes para contacto";
 
 @section('content2')
 
-
-
- <table class="table">
-				<thead>
-					<tr>
-						<th>
-							Nombre
-						</th>
-						<th>
-							Rut
-						</th>
-					</tr>
-				</thead>
-
-				<tbody>
-          <?php
+        <?php
+          if($datos != NULL)
+          {
             foreach ($datos as $arreglo)
             {
               echo
-              "<tr>
-                <td>
-                  TB - w";
+              "<table class='table'>
+             				<thead>
+             					<tr>
+             						<th>
+             							Nombre
+             						</th>
+             						<th>
+             							Rut
+             						</th>
+                        <th>
+                          Accion
+                        </th>
+             					</tr>
+             				</thead>
+
+             				<tbody>
+                    <tr>
+                <td>";
                   echo $arreglo["nombre"];
                   echo
                 "</td>
@@ -45,9 +47,21 @@ echo "Niños pendientes para contacto";
                   echo $arreglo["rut"];
                 echo
                 "</td>
-              </tr>";
+                <td>
+              <form method='get' action='Contactar_niño'>
+                <input type='submit' name='action' value='Contactar'/>
+                <input type='hidden' name='id' value='",$arreglo["id"],"'/>
+              </form>
+
+                </td>
+              </tr>
+
+              </tbody>
+            </table>";
             }
+          } else echo "No hay datos";
+        
          ?>
-				</tbody>
-			</table>
+
+
 @endsection
