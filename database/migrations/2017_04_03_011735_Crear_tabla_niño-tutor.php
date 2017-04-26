@@ -21,6 +21,8 @@ class CrearTablaNiñoTutor extends Migration
             $table->integer('idTutor')->unsigned();
             $table->foreign('idTutor')
             ->references('idTutor')->on('Tutor');
+            $table->timestamps();
+
         });
     }
 

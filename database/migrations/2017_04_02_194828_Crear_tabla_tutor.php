@@ -21,6 +21,8 @@ class CrearTablaTutor extends Migration
             $table->string('apellidos',45);
             $table->string('parentesco',45);
             $table->string('mail',45);
+            $table->timestamps();
+
         });
     }
 

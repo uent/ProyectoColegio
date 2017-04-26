@@ -4,16 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Niño extends Model
+class Niños extends Model
 {
-    //protected $table = 'niños'; #?????
+    protected $table = 'Niños'; #?????
 
-    public static function agregar($nombre, $rut)
+    public static function agregar($nombre,$apellido, $rut)
     {
-      $niño = new Niño;
+      $niño = new Niños;
 
-      $niño->Nombre = $nombre;
-      $niño->Rut  = $rut;
+      $niño->nombre = $nombre;
+      $niño->rut  = $rut;
+      $niño->apellidos  = $apellido;
       $niño->contactado = false;  //se asigna false para que se considere "no contactado"
 
       $niño->save();
@@ -23,7 +24,7 @@ class Niño extends Model
     {
       //Retorna una lista de niños que cumplan la condicion de que aun no sean contactados
 
-      $tablas = Niño::select('id','Nombre','Rut')->where('contactado','=', 'false')->get();
+      $tablas = Niños::select('idNiño','nombre','rut')->where('contactado','=', 'false')->get();
 
       $i = 0;
       if(count($tablas) == 0) $datos = NULL;
@@ -31,7 +32,7 @@ class Niño extends Model
       {
         foreach ($tablas as $t)
         {
-          $datos[$i]["id"] = $t->id;
+          $datos[$i]["id"] = $t->idNiño;
           $datos[$i]["nombre"] = $t->Nombre;
           $datos[$i]["rut"] = $t->Rut;
           $i++;
@@ -44,22 +45,30 @@ class Niño extends Model
     public static function MostrarDatosNiño($id)
     {
 
-      $tablas = Niño::select('id','Nombre','Rut')->where('id', '=',$id)->first();
+      $tablas = Niños::select('idNiño','Nombre','Rut')->where('idNiño', '=',$id)->first();
 
       if(count($tablas) == 0) $datos = NULL;
       else
       {
-          $datos["id"] = $tablas->id;
+          $datos["id"] = $tablas->idNiño;
           $datos["nombre"] = $tablas->Nombre;
           $datos["rut"] = $tablas->Rut;
       }
       return $datos;
     }
 
+    public static function ExisteRut($Rut)
+    {
+      $tablas = Niños::select('idNiño')->where('rut', '=',$Rut)->first();
 
-
-
-
+      if(count($tablas) == 0) return false;
+      else
+      {
+          return true;
+      }
+      return $datos;
+    }
+    
 
 
 }

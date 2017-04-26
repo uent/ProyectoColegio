@@ -16,9 +16,12 @@ class CrearTablaNiños extends Migration
         Schema::create('Niños', function (Blueprint $table) {
           $table->increments('idNiño');
           $table->string('nombre',45);
-          $table->string('rut',45);
-          $table->char('dv');
           $table->string('apellidos',45);
+          $table->string('rut',45);
+          $table->boolean('contactado');  //
+          //$table->char('dv');
+          $table->timestamps();
+
         });
     }
 

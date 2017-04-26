@@ -14,7 +14,7 @@ class NiñosSeed extends Seeder
     {
       $faker = Faker::create();
 for ($i=0; $i < 50; $i++) {
-    \DB::table('niños')->insert([
+    \DB::table('Niños')->insert([
         'Nombre' => $faker->firstNameFemale,
         'Rut' => $faker->randomNumber,
         'Contactado' => $faker->randomElement([0,1])

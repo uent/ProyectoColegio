@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Niño;
+use App\Niños;
 
 use resources\views;
 
@@ -18,32 +18,42 @@ class NiñoController extends Controller
       return view ('IngresoNiño\IngresoNiño');
     }
 
-
-
     private function Agregar($data)
     {
-      Niño::agregar($data['Nombre'],$data['Rut']);
+      if(Niños::ExisteRut($data["Rut"]) == false)
+      {
+        Niños::agregar($data['Nombre'],$data['Apellidos'],$data['Rut']);
+        return true;
+      }
+      else return false;
     }
 
     public function Crear()
     {
         $this->validate(request(), [
             'Nombre' => ['required', 'max:200'],
+            'Apellidos' => ['required', 'max:200'],
             'Rut' => ['required', 'max:200']
         ]);
 
       $data = request()->all();
 
-      NiñoController::Agregar($data);
 
-      return redirect()->to('Mi_menu');
+      $resultado = NiñoController::Agregar($data);
+      if ($resultado == true)
+      {
+        return redirect()->to('Mi_menu');
+      }
+      else echo "ya existe niño";
+
+
 
     }
 
     public function MostrarNiñosParaLlamar()
     {
       //muestra una lista de niños que cumplan la condicion de que aun no sean contactados
-      $datos = Niño::MostrarNiñosParaLlamar();
+      $datos = Niños::MostrarNiñosParaLlamar();
 
 
       return View::make('ContactosPendientes.NiñosPendientes')->with("datos", $datos);
@@ -58,7 +68,7 @@ class NiñoController extends Controller
 
     $data = request()->all();
 
-      $datos = Niño::MostrarDatosNiño($data["id"]);
+      $datos = Niños::MostrarDatosNiño($data["id"]);
 
       return View::make('ContactosPendientes.DatosNiño')->with("datos", $datos);
 

@@ -19,6 +19,8 @@ class CrearTablaAnamnesis extends Migration
             $table->foreign('idOrden')
             ->references('idOrdenDiagnostico')->on('OrdenDiagnostico');
             $table->string('datos',45);
+            $table->timestamps();
+
         });
     }
 

@@ -19,6 +19,7 @@ echo "Niños pendientes para contacto";
         <?php
           if($datos != NULL)
           {
+            
             foreach ($datos as $arreglo)
             {
               echo
@@ -60,7 +61,7 @@ echo "Niños pendientes para contacto";
             </table>";
             }
           } else echo "No hay datos";
-        
+
          ?>
 
 

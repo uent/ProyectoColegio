@@ -30,6 +30,8 @@ class CrearTablaCitas extends Migration
             ->references('idNiño')->on('Niños');
             $table->string('fecha',45);
             $table->string('reporte',5000);
+            $table->timestamps();
+
         });
     }
 

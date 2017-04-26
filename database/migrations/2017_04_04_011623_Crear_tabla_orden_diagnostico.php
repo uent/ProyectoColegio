@@ -22,6 +22,8 @@ class CrearTablaOrdenDiagnostico extends Migration
             $table->string('prioridad',45);
             $table->string('antecedentes',45);
             $table->integer('idTutor');
+            $table->timestamps();
+
         });
     }
 

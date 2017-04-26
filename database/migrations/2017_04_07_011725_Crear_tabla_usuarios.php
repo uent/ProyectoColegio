@@ -20,6 +20,8 @@ class CrearTablaUsuarios extends Migration
             $table->string('Nombre',45);
             $table->string('Apellido',45);
             $table->string('Profesion',45);
+            $table->timestamps();
+
         });
     }
 
