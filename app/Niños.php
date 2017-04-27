@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support\Facades\DB;
+
 class Niños extends Model
 {
     protected $table = 'Niños'; #?????
@@ -86,6 +88,14 @@ class Niños extends Model
       }
     }
 
+    public static function CambiarStatusContacto($id)
+    {
+      DB::table('Niños')
+            ->where('idNiño', $id)
+            ->update(['contactado' => true]);
 
+      return true;      
+
+    }
 
 }

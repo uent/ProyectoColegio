@@ -41,7 +41,7 @@ class NiñoController extends Controller
       $data = request()->all();
 
 
-      $resultado = NiñoController::Agregar($data);
+      $resultado = Agregar($data);
 
       if ($resultado == true)
       {
@@ -72,10 +72,10 @@ class NiñoController extends Controller
     public function Contactar()
     {
       $this->validate(request(), [
-          'id' => ['required', 'max:200'],
+          'id' => ['required', 'max:200']
       ]);
 
-    $data = request()->all();
+      $data = request()->all();
 
       $datosNiño = Niños::MostrarDatosNiño($data["id"]);
 
@@ -86,9 +86,25 @@ class NiñoController extends Controller
 
       return View::make('ContactosPendientes.DatosNiño')->with("datos", $datos);
 
+        echo "ads";
+
     }
 
+    public function CambiarStatusContacto() //asigna el estado de contactado a un niño
+                                            //y crea la orden de diagnostico
+    {
+      $this->validate(request(), [
+          'id' => ['required', 'max:200']
+      ]);
 
+      $data = request()->all();
+
+      Niños::CambiarStatusContacto($data["id"]);
+
+      OrdenDiagnosticoController::NuevaOrden($data["id"],"normal");
+
+      return redirect()->to('Mi_menu');
+    }
 
 
 }

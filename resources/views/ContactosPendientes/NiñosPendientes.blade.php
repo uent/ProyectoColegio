@@ -19,27 +19,27 @@ echo "Niños pendientes para contacto";
         <?php
           if($datos != NULL)
           {
-
+            echo
+            "<table class='table'>
+                  <thead>
+                    <tr>
+                      <th>
+                        Nombre
+                      </th>
+                      <th>
+                        Apellidos
+                      </th>
+                      <th>
+                        Rut
+                      </th>
+                      <th>
+                        Accion
+                      </th>
+                    </tr>
+                  </thead>";
             foreach ($datos as $arreglo)
             {
-              echo
-              "<table class='table'>
-             				<thead>
-             					<tr>
-             						<th>
-             							Nombre
-             						</th>
-                        <th>
-                          Apellidos
-                        </th>
-             						<th>
-             							Rut
-             						</th>
-                        <th>
-                          Accion
-                        </th>
-             					</tr>
-             				</thead>
+                echo "
 
              				<tbody>
                     <tr>
@@ -57,16 +57,16 @@ echo "Niños pendientes para contacto";
                 "</td>
                 <td>
               <form method='get' action='Contactar_niño'>
-                <input type='submit' name='action' value='Contactar'/>
+                <input type='submit' name='action' value='Ver Datos'/>
                 <input type='hidden' name='id' value='",$arreglo["id"],"'/>
               </form>
 
                 </td>
-              </tr>
+              </tr>";
 
-              </tbody>
-            </table>";
             }
+            echo " </tbody>
+                        </table>";
           } else echo "No hay datos";
 
          ?>

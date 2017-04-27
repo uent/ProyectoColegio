@@ -19,9 +19,14 @@ class CrearTablaOrdenDiagnostico extends Migration
             $table->foreign('idNiño')
             ->references('idNiño')->on('Niños');
             $table->string('estado',45);
+            //estados  "asignar": aun hace falta asignar alguna o todas las citas
+            //  "finalizado": ya finalizo la entrega de los documentos al tutor
+            //   "evaluando": aun faltan por finalizar las citas y sus respectivos informes
+            //    "falta_anamnesis": las citas fueron completadas pero falta crear la anamnesis
             $table->string('prioridad',45);
+            // "alto" o "normal"
             $table->string('antecedentes',45);
-            $table->integer('idTutor');
+            //$table->integer('idTutor');
             $table->timestamps();
 
         });
