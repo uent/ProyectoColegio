@@ -25,4 +25,6 @@ Route::get('contactos_pendientes', 'NiñoController@MostrarNiñosParaLlamar');
 
 Route::post('ingresar_niño', 'NiñoController@Crear');
 
+Route::post('ingresar_tutor', 'TutorController@InsertarDatos');
+
 Route::get('Contactar_niño', 'NiñoController@Contactar');

@@ -18,26 +18,33 @@ class Niños extends Model
       $niño->contactado = false;  //se asigna false para que se considere "no contactado"
 
       $niño->save();
+
+      return $id = Niños::select('idNiño')->where('rut','=', $rut)->get();
+
     }
 
     public static function MostrarNiñosParaLlamar()
     {
       //Retorna una lista de niños que cumplan la condicion de que aun no sean contactados
 
-      $tablas = Niños::select('idNiño','nombre','rut')->where('contactado','=', 'false')->get();
+      $tablas = Niños::select('idNiño','nombre','apellidos','rut')->where('contactado','=', 'false')->get();
 
       $i = 0;
       if(count($tablas) == 0) $datos = NULL;
       else
       {
+
         foreach ($tablas as $t)
         {
+
           $datos[$i]["id"] = $t->idNiño;
-          $datos[$i]["nombre"] = $t->Nombre;
-          $datos[$i]["rut"] = $t->Rut;
+          $datos[$i]["nombre"] = $t->nombre;
+          $datos[$i]["apellidos"] = $t->apellidos;
+          $datos[$i]["rut"] = $t->rut;
           $i++;
         }
       }
+      //var_dump($datos);
       return $datos;
 
     }
@@ -66,9 +73,19 @@ class Niños extends Model
       {
           return true;
       }
-      return $datos;
     }
-    
+
+    public static function BuscarPorRut($Rut)
+    {
+      $tablas = Niños::select('idNiño')->where('rut', '=',$Rut)->first();
+
+      if(count($tablas) == 0) return Null;
+      else
+      {
+          return $tablas->idNiño;
+      }
+    }
+
 
 
 }

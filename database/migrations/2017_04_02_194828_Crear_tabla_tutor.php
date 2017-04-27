@@ -16,7 +16,7 @@ class CrearTablaTutor extends Migration
         Schema::create('Tutor',function(Blueprint $table){
             $table->increments('idTutor');
             $table->string('rut',45);
-            $table->string('dv',45);
+            //$table->string('dv',45);
             $table->string('nombre',45);
             $table->string('apellidos',45);
             $table->string('parentesco',45);

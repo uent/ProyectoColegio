@@ -13,7 +13,7 @@ class CrearTablaNiñoTutor extends Migration
      */
     public function up()
     {
-        Schema::create('Niño-tutor',function(Blueprint $table){
+        Schema::create('Niño_tutor',function(Blueprint $table){
             $table->increments('idNiñoTutor');
             $table->integer('idNiño')->unsigned();
             $table->foreign('idNiño')

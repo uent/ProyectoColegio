@@ -19,7 +19,7 @@ echo "Niños pendientes para contacto";
         <?php
           if($datos != NULL)
           {
-            
+
             foreach ($datos as $arreglo)
             {
               echo
@@ -29,6 +29,9 @@ echo "Niños pendientes para contacto";
              						<th>
              							Nombre
              						</th>
+                        <th>
+                          Apellidos
+                        </th>
              						<th>
              							Rut
              						</th>
@@ -43,6 +46,10 @@ echo "Niños pendientes para contacto";
                 <td>";
                   echo $arreglo["nombre"];
                   echo
+                "</td>
+                <td>";
+                  echo $arreglo["apellidos"];
+                echo
                 "</td>
                 <td>";
                   echo $arreglo["rut"];

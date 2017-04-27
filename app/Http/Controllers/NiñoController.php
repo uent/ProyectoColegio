@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Niños;
+use App\Niño_tutor;
+use App\Tutor;
 
 use resources\views;
 
@@ -22,10 +24,10 @@ class NiñoController extends Controller
     {
       if(Niños::ExisteRut($data["Rut"]) == false)
       {
-        Niños::agregar($data['Nombre'],$data['Apellidos'],$data['Rut']);
-        return true;
+        return Niños::agregar($data['Nombre'],$data['Apellidos'],$data['Rut']);
+
       }
-      else return false;
+      else return NULL;
     }
 
     public function Crear()
@@ -40,13 +42,21 @@ class NiñoController extends Controller
 
 
       $resultado = NiñoController::Agregar($data);
+
       if ($resultado == true)
       {
-        return redirect()->to('Mi_menu');
+        $idNiño = Niños::BuscarPorRut($data['Rut']);
+        $idTutor = Niño_tutor::BuscarIdTutorPorIdNiño($idNiño);
+        if($idTutor == NULL)
+        {
+          return View::make('IngresoNiño.IngresarTutor')->with("idNiño",$idNiño );
+        }
+        else echo "El niño ya tiene tutor";
+
       }
       else echo "ya existe niño";
 
-
+      //return redirect()->to('Mi_menu');
 
     }
 
@@ -54,7 +64,6 @@ class NiñoController extends Controller
     {
       //muestra una lista de niños que cumplan la condicion de que aun no sean contactados
       $datos = Niños::MostrarNiñosParaLlamar();
-
 
       return View::make('ContactosPendientes.NiñosPendientes')->with("datos", $datos);
       //return redirect()->to('NiñosPendientes',$datos);
@@ -68,11 +77,17 @@ class NiñoController extends Controller
 
     $data = request()->all();
 
-      $datos = Niños::MostrarDatosNiño($data["id"]);
+      $datosNiño = Niños::MostrarDatosNiño($data["id"]);
+
+      $idTutores = Tutor::TutoresNiñoPorIdNiño($data["id"]);
+
+      $datos[0] = $datosNiño;
+      $datos[1] = $idTutores;
 
       return View::make('ContactosPendientes.DatosNiño')->with("datos", $datos);
 
     }
+
 
 
 

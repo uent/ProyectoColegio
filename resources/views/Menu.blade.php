@@ -15,9 +15,7 @@ echo "Colegio";
     <button name="subject" class="btn btn-default" >Ingresar niño</button>
   </form>
 
-<form action="contactos_pendientes" method="get">
-  <button name="subject" class="btn btn-default" >Contactos pendientes</button>
-</form>
+
 
 
 
@@ -28,5 +26,8 @@ echo "Colegio";
 
 
 @section('content2')
+<form action="contactos_pendientes" method="get">
+  <button name="subject" class="btn btn-default" >Contactos pendientes</button>
+</form>
 
 @endsection

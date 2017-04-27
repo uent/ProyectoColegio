@@ -30,7 +30,7 @@ echo "Ingreso solicitud de diagnostico";
 
 		<div class="form-group">
 			<label for="exampleInputEmail1">
-				Apellidos
+				Apellidos niño
 			</label>
 				<input name="Apellidos" class="form-control" placeholder="Apellidos"></input>
 		</div>
