@@ -14,13 +14,6 @@ echo "Colegio";
   <button name="subject" class="btn btn-default" >Asignar citas</button>
 </form>
 
-
-
-
-
-
-
-
 @endsection
 
 

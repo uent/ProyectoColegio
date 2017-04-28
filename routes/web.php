@@ -32,3 +32,5 @@ Route::get('Contactar_niño', 'NiñoController@Contactar');
 Route::get('Cambiar_status_contacto', 'NiñoController@CambiarStatusContacto');
 
 Route::get('asignar_Citas', 'OrdenDiagnosticoController@MostrarCitasPendientes');
+
+Route::get('asignar_Citas', 'OrdenDiagnosticoController@');

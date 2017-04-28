@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+
 use App\OrdenDiagnostico;
 
+use View;
+use resources\views;
 
 class OrdenDiagnosticoController extends Controller
 {
@@ -15,7 +19,7 @@ class OrdenDiagnosticoController extends Controller
 
     }
 
-    public static asignarCitas($idNiño) //muestra una pantalla con todas las citas faltantes
+    public function PantallaAsignarCitasNiño($idNiño) //muestra una pantalla con todas las citas faltantes
     {
       $idOrden = OrdenDiagnostico::obtenerIdPorIdNiño($idNiño);
 
@@ -38,12 +42,14 @@ class OrdenDiagnosticoController extends Controller
         }
       }
 
-      $citasPendientes = NULL;
-
-      if($citaTipo1 == 0) $citasPendientes["citaTipo1"];
-      if($citaTipo2 == 0) $citasPendientes["citaTipo2"];
-      if($citaTipo3 == 0) $citasPendientes["citaTipo3"];
-      if($citaTipo4 == 0) $citasPendientes["citaTipo4"];
+      if($citaTipo1 == 0) $citasPendientes["citaTipo1"] = false;
+      else $citasPendientes["citaTipo1"] = true;
+      if($citaTipo2 == 0) $citasPendientes["citaTipo2"] = false;
+      else $citasPendientes["citaTipo2"] = true;
+      if($citaTipo3 == 0) $citasPendientes["citaTipo3"] = false;
+      else $citasPendientes["citaTipo3"] = true;
+      if($citaTipo4 == 0) $citasPendientes["citaTipo4"] = false;
+      else $citasPendientes["citaTipo4"] = true;
 
       return $citasPendientes;
 

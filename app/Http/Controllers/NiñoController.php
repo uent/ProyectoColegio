@@ -41,7 +41,7 @@ class NiñoController extends Controller
       $data = request()->all();
 
 
-      $resultado = Agregar($data);
+      $resultado = Niños::Agregar($data['Nombre'],$data['Apellidos'],$data['Rut']);
 
       if ($resultado == true)
       {

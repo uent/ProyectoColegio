@@ -94,7 +94,7 @@ class Niños extends Model
             ->where('idNiño', $id)
             ->update(['contactado' => true]);
 
-      return true;      
+      return true;
 
     }
 
