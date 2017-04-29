@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('Base');
+    return view('Menu');
 });
 
 Route::get('Mi_menu', function () {
@@ -31,6 +31,8 @@ Route::get('Contactar_niño', 'NiñoController@Contactar');
 
 Route::get('Cambiar_status_contacto', 'NiñoController@CambiarStatusContacto');
 
-Route::get('asignar_Citas', 'OrdenDiagnosticoController@MostrarCitasPendientes');
+Route::get('pantalla_asignar_Citas', 'OrdenDiagnosticoController@MostrarCitasPendientes');
 
-Route::get('asignar_Citas', 'OrdenDiagnosticoController@');
+Route::get('mostrar_citas_niño', 'OrdenDiagnosticoController@PantallaMostrarCitasNiño');
+
+Route::get('crear_cita', 'CitaController@PantallaAsignarCitasNiño');

@@ -23,6 +23,7 @@ class CrearTablaCitas extends Migration
             ->references('idUsuario')->on('Usuarios');
             $table->string('tipoEvaluacion',45);
             $table->string('Estado',45);
+            //"completado" o "pendiente"
             $table->string('Hora',45);
             $table->string('Comentarios',45);
             $table->integer('idNiño')->unsigned();

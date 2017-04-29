@@ -10,7 +10,7 @@ echo "Colegio";
 
 @section('content1')
 
-<form action="asignar_Citas" method="get">
+<form action="pantalla_asignar_Citas" method="get">
   <button name="subject" class="btn btn-default" >Asignar citas</button>
 </form>
 

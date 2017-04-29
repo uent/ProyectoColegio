@@ -10,6 +10,8 @@ use App\OrdenDiagnostico;
 use View;
 use resources\views;
 
+use App\Citas;
+
 class OrdenDiagnosticoController extends Controller
 {
 
@@ -19,41 +21,53 @@ class OrdenDiagnosticoController extends Controller
 
     }
 
-    public function PantallaAsignarCitasNiño($idNiño) //muestra una pantalla con todas las citas faltantes
+    public function PantallaMostrarCitasNiño() //muestra una pantalla con todas las citas faltantes
     {
-      $idOrden = OrdenDiagnostico::obtenerIdPorIdNiño($idNiño);
+      $this->validate(request(), [
+          'idOrden' => ['required', 'max:200']
+      ]);
+
+    $data = request()->all();
+
+    $idOrden = $data["idOrden"];
 
       $citas = Citas::obtenerCitasPorIdOrden($idOrden);
+      //falta agregar datos niños
 
       //se evaluara que citas ya estan asignadas para esta orden
-      $citaTipo1 = 0;
-      $citaTipo2 = 0;
-      $citaTipo3 = 0;
-      $citaTipo4 = 0;
 
-      if(count($tablas) == 0) $datos = NULL;
+      $statusCitas["citaTipo1"]["existe"] = false;
+      $statusCitas["citaTipo2"]["existe"] = false;
+      $statusCitas["citaTipo3"]["existe"] = false;
+      $statusCitas["citaTipo4"]["existe"] = false;
+
+      $statusCitas["datos"]["idOrden"] = $idOrden;
+      $statusCitas["datos"]["idNiño"] = $citas["idNiño"];
+
+
+
+      if(count($citas) == 0) ;
       else {
         foreach ($citas as $c)
         {
-          if($c->tipoEvaluacion == "citaTipo1") $citaTipo1 = 1;
-          if($c->tipoEvaluacion == "citaTipo2") $citaTipo2 = 1;
-          if($c->tipoEvaluacion == "citaTipo3") $citaTipo3 = 1;
-          if($c->tipoEvaluacion == "citaTipo4") $citaTipo4 = 1;
+          if($c->tipoEvaluacion == "citaTipo1")
+          {
+            $statusCitas["citaTipo1"]["existe"] = true;
+            $statusCitas["citaTipo1"]["estado"] = $c->Estado;
+            $statusCitas["citaTipo1"]["hora"] = $c->hora;
+            $statusCitas["citaTipo1"]["fecha"] = $c->fecha;
+
+          }
         }
       }
 
-      if($citaTipo1 == 0) $citasPendientes["citaTipo1"] = false;
-      else $citasPendientes["citaTipo1"] = true;
-      if($citaTipo2 == 0) $citasPendientes["citaTipo2"] = false;
-      else $citasPendientes["citaTipo2"] = true;
-      if($citaTipo3 == 0) $citasPendientes["citaTipo3"] = false;
-      else $citasPendientes["citaTipo3"] = true;
-      if($citaTipo4 == 0) $citasPendientes["citaTipo4"] = false;
-      else $citasPendientes["citaTipo4"] = true;
+        //si un campo de $statusCitas queda con el valor false es porque aun no a sido asignada esa cita al niño
 
-      return $citasPendientes;
+      return View::make('CitasPendientes.AsignarCitasPendientes')->with("Citas",$statusCitas );
 
     }
+
+
 
     public function MostrarCitasPendientes()
     {
@@ -61,4 +75,7 @@ class OrdenDiagnosticoController extends Controller
 
         return View::make('CitasPendientes.DatosOrdenesNiños')->with("datos", $ordenes);
     }
+
+
+
 }
