@@ -46,8 +46,12 @@ echo "Datos de contacto del niño";
     foreach($tiposCitas as $t)
     {
 
+
+
       if($Citas[$t]["existe"] == false) //no asignada
       {
+
+
       echo "
 
           <tbody>
@@ -67,7 +71,6 @@ echo "Datos de contacto del niño";
       <input type='submit' name='action' value='asignar Cita'/>
       <input type='hidden' name='tipoCita' value='",$t,"'/>
       <input type='hidden' name='idOrden' value='",$Citas["datos"]["idOrden"],"'/>
-      <input type='hidden' name='idNiño' value='",$Citas["datos"]["idNiño"],"'/>
     </form>
 
       </td>

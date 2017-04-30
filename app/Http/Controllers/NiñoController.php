@@ -86,7 +86,7 @@ class NiñoController extends Controller
 
       return View::make('ContactosPendientes.DatosNiño')->with("datos", $datos);
 
-        echo "ads";
+  
 
     }
 

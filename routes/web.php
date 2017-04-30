@@ -36,3 +36,7 @@ Route::get('pantalla_asignar_Citas', 'OrdenDiagnosticoController@MostrarCitasPen
 Route::get('mostrar_citas_niño', 'OrdenDiagnosticoController@PantallaMostrarCitasNiño');
 
 Route::get('crear_cita', 'CitaController@PantallaAsignarCitasNiño');
+
+Route::get('ingreso_profesional', 'UsuarioController@IngresoProfesional');
+
+Route::post('crear_Profesional', 'UsuarioController@CrearProfesional');

@@ -2,8 +2,7 @@
 
 @section('cabecera')
 <?php
-#cabecera
-echo "Asignacion de Citas";
+echo "Datos de contacto del niño";
 ?>
 @endsection
 
@@ -13,40 +12,88 @@ echo "Asignacion de Citas";
 
 
 
-
 @endsection
 
+
+
 @section('content2')
-<p> Datos Niño <p>
+<?php
+
+    echo
+    "<table class='table'>
+          <thead>
+            <tr>
+
+            <th>
+              Tipo Cita
+            </th>
+              <th>
+                Profesional
+              </th>
+              <th>
+                Dia
+              </th>
+              <th>
+                Hora
+              </th>
+              <th>
+                Accion
+              </th>
+
+            </tr>
+          </thead>";
 
 
-  <div class="container-fluid">
-  	<div class="row">
-  		<div class="col-md-12">
-  			<div class="btn-group">
+      echo "<tbody>
+          <tr>
 
-  				<button class="btn btn-default">
-  					Action
-  				</button>
-  				<button data-toggle="dropdown" class="btn btn-default dropdown-toggle">
-  					<span class="caret"></span>
-  				</button>
-  				<ul class="dropdown-menu">
-  					<li>
-  						<a href="#">Action</a>
-  					</li>
-  					<li class="disabled">
-  						<a href="#">Another action</a>
-  					</li>
-  					<li class="divider">
-  					</li>
-  					<li>
-  						<a href="#">Something else here</a>
-  					</li>
-  				</ul>
-  			</div>
-  		</div>
-  	</div>
-  </div>
+          <td>";
+          	echo $datos["tipoCita"];
+          echo "</td>";
 
+          echo "<td>
+            <select name='profesional' form='formulario'>
+      <option value='proFalso1'>proFalso1</option>
+      <option value='proFalso2'>proFalso2</option>
+
+    </select>;
+
+      <td>
+        <select name='Dia' form='formulario'>
+  <option value='Lunes'>Lunes</option>
+  <option value='Martes'>Martes</option>
+  <option value='Miercoles'>Miercoles</option>
+  <option value='Jueves'>Jueves</option>
+  <option value='Viernes'>Viernes</option>
+</select>";
+        echo
+      "</td>;
+
+      <td>
+        <select name='Hora' form='formulario'>
+      <option value='800'>8:00</option>
+      <option value='900'>9:00</option>
+      <option value='1000'>10:00</option>
+      <option value='1100'>11:00</option>
+      <option value='1200'>12:00</option>
+      </select>";
+        echo
+      "</td>
+        <td>
+      <form method='get' action='crear_cita' id='formulario'>
+        <input type='submit' name='action' value='asignar Cita'/>
+        <input type='hidden' name='idOrden' value='",$datos["tipoCita"],"'/>
+      </form>";
+
+        echo
+      "</td>
+
+    </tr>";
+    echo "</tbody>";
+
+            echo "</tbody>
+                        </table>";
+
+
+ ?>
 @endsection

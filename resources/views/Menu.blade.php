@@ -29,4 +29,8 @@ echo "Colegio";
   <button name="subject" class="btn btn-default" >Contactos pendientes</button>
 </form>
 
+<form action="ingreso_profesional" method="get">
+  <button name="subject" class="btn btn-default" >Crear Profesional</button>
+</form>
+
 @endsection
