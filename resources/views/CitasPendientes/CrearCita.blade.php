@@ -48,17 +48,32 @@ echo "Datos de contacto del niño";
           <tr>
 
           <td>";
-          	echo $datos["tipoCita"];
+          	echo $datos["datos"]["tipoCita"];
           echo "</td>";
 
-          echo "<td>
-            <select name='profesional' form='formulario'>
-      <option value='proFalso1'>proFalso1</option>
-      <option value='proFalso2'>proFalso2</option>
+  					if($datos["Profesionales"] != NULL)
+  					{
+  						echo
+  						"<div class='form-group'>
+              <select name='profesional' form='formulario'>";
 
-    </select>;
+  						foreach ($datos["Profesionales"] as $d)
+  						{
+  							echo "<option value='",$d["apellido"],"'>",$d["apellido"],"</option>";
 
-      <td>
+  						}
+  						echo
+  						"</select>";
+  					}
+            else
+            {
+                echo "<td>";
+                echo "No hay profesionales
+                </td>";
+            }
+
+            echo
+      "<td>
         <select name='Dia' form='formulario'>
   <option value='Lunes'>Lunes</option>
   <option value='Martes'>Martes</option>
@@ -82,7 +97,7 @@ echo "Datos de contacto del niño";
         <td>
       <form method='get' action='crear_cita' id='formulario'>
         <input type='submit' name='action' value='asignar Cita'/>
-        <input type='hidden' name='idOrden' value='",$datos["tipoCita"],"'/>
+        <input type='hidden' name='idOrden' value='",$datos["datos"]["tipoCita"],"'/>
       </form>";
 
         echo

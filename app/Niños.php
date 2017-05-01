@@ -21,7 +21,7 @@ class Niños extends Model
 
       $niño->save();
 
-      return $id = Niños::select('idNiño')->where('rut','=', $rut)->get();
+      return Niños::select('idNiño')->where('rut','=', $rut)->get();
 
     }
 

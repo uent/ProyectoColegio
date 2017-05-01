@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use View;
 
+use App\Usuarios;
+
 class CitaController extends Controller
 {
     public function PantallaAsignarCitasNiño()
@@ -15,9 +17,10 @@ class CitaController extends Controller
           'idOrden' => ['required', 'max:200']
       ]);
 
-    $data = request()->all();
+    $data["datos"] = request()->all();
 
-    //var_dump($data);
+    $data["Profesionales"] = Usuarios::BuscarProfesionalesPorTipoCita($data["datos"]["tipoCita"]);
+
 
     return View::make('CitasPendientes.CrearCita')->with("datos",$data );
 

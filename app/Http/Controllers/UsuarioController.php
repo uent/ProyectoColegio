@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use View;
 
+use App\Perfil;
 use App\Usuarios;
 
 use Illuminate\Http\Request;
@@ -12,7 +13,8 @@ class UsuarioController extends Controller
 {
     public function IngresoProfesional()
     {
-      return view ('CrearProfesional\IngresoProfesional');
+      $datos = Perfil::TiposPerfiles();
+      return View::make('CrearProfesional.IngresoProfesional')->with("datos",$datos );
     }
 
     public function CrearProfesional()
@@ -26,7 +28,6 @@ class UsuarioController extends Controller
 
       $data = request()->all();
 
-
       $resultado = Usuarios::Agregar($data['Nombre'],$data['Apellidos'],$data['Rut'],$data['Profesion']);
 
       if ($resultado == true)
@@ -35,7 +36,6 @@ class UsuarioController extends Controller
       }
       else echo "ya existe usuario";
 
-      //return redirect()->to('Mi_menu');
     }
 
     private function Agregar($data)

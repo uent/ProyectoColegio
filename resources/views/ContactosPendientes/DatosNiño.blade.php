@@ -89,7 +89,7 @@ echo "Datos de contacto del niño";
                 Rut
               </th>
               <th>
-                Mail
+                Mail //salta agregar telefono
               </th>
             </tr>
           </thead>

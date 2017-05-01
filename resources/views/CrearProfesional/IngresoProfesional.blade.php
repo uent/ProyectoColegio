@@ -19,7 +19,7 @@ echo "Ingreso de profesional";
 @section('content2')
 <p> Datos Profesional <p>
 
-<form method="POST" action="{{ url('crear_Profesional') }}" class="form">
+<form method="POST" id="formulario" action="{{ url('crear_Profesional') }}" class="form">
 		{!! csrf_field() !!}
 		<div class="form-group">
 			<label for="exampleInputEmail1">
@@ -42,13 +42,32 @@ echo "Ingreso de profesional";
 				<input name="Rut" class="form-control" placeholder="Rut"></input>
 		</div>
 
+
 		<div class="form-group">
 			<label for="exampleInputEmail1">
-				Profesion	//cambiar por combox //quizas tenga mas de una profesion
+				Profesion	 //quizas tenga mas de una profesion 
 			</label>
-				<input name="Profesion" class="form-control" placeholder="Profesion"></input>
+			<td>
+				<?php
+					if($datos != NULL)
+					{
+						echo
+						"<div class='form-group'>
+						<select name='Profesion' form='formulario'>";
+
+						foreach ($datos as $d)
+						{
+							echo "<option value='",$d["nombrePerfil"],"'>",$d["nombrePerfil"],"</option>";
+
+						}
+						echo
+						"</select>";
+					}
+				?>
+
+		</div>
 		</div>
 
-		<button type="submit" onClick="this.form.submit(); this.disabled=true; this.value='Sending…'; " class="btn btn-primary">Enviar</button>
+		<button type="submit"  onClick="this.form.submit(); this.disabled=true; this.value='Sending…'; " class="btn btn-primary">Enviar</button>
 </form>
 @endsection

@@ -30,6 +30,7 @@ echo "Datos de contacto del niño";
               </th>
               <th>
                 Tipo evaluacion
+                //?pasar los tipo evaluacion a la BD?
               </th>
               <th>
                 Accion
