@@ -29,38 +29,36 @@ class OrdenDiagnosticoController extends Controller
 
     $data = request()->all();
 
-    $idOrden = $data["idOrden"];
+      $orden = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
 
-      $citas = Citas::obtenerCitasPorIdOrden($idOrden);
+      $citas = Citas::obtenerCitasPorIdOrden($orden["idOrdenDiagnostico"]);
       //falta agregar datos niños
 
       //se evaluara que citas ya estan asignadas para esta orden
 
-      $statusCitas["citaTipo1"]["existe"] = false;
-      $statusCitas["citaTipo2"]["existe"] = false;
-      $statusCitas["citaTipo3"]["existe"] = false;
-      $statusCitas["citaTipo4"]["existe"] = false;
-
-      $statusCitas["datos"]["idOrden"] = $idOrden;
-      $statusCitas["datos"]["idNiño"] = $citas["idNiño"];
+      $statusCitas["Fonoaudiologo"]["existe"] = false;
+      $statusCitas["Neurolinguístico"]["existe"] = false;
 
 
+      $statusCitas["datos"]["idOrden"] = $orden["idOrdenDiagnostico"];
+      $statusCitas["datos"]["idNiño"] = $orden["idNiño"];
 
-      if(count($citas) == 0) ;
-      else {
+
+      if(count($citas) != 0)
+      {
         foreach ($citas as $c)
         {
-          if($c->tipoEvaluacion == "citaTipo1")
+
+          if($c["tipoEvaluacion"] == "Fonoaudiologo")
           {
-            $statusCitas["citaTipo1"]["existe"] = true;
-            $statusCitas["citaTipo1"]["estado"] = $c->Estado;
-            $statusCitas["citaTipo1"]["hora"] = $c->hora;
-            $statusCitas["citaTipo1"]["fecha"] = $c->fecha;
+            $statusCitas["Fonoaudiologo"]["existe"] = true;
+            $statusCitas["Fonoaudiologo"]["estado"] = $c->Estado;
+            $statusCitas["Fonoaudiologo"]["hora"] = $c->hora;
+            $statusCitas["Fonoaudiologo"]["fecha"] = $c->fecha;
 
           }
         }
       }
-
         //si un campo de $statusCitas queda con el valor false es porque aun no a sido asignada esa cita al niño
 
       return View::make('CitasPendientes.AsignarCitasPendientes')->with("Citas",$statusCitas );

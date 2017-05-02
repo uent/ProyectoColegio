@@ -41,22 +41,26 @@ class Usuarios extends Model
 
   public static function BuscarProfesionalesPorTipoCita($tipoCita)
   {
-    $tutores = DB::table('Usuarios')
+    $datos = DB::table('Usuarios')
             ->join('Perfil_Usuario', 'Usuarios.idUsuario', '=', 'Perfil_Usuario.idUsuario')
             ->join('Perfil', 'Perfil_Usuario.idPerfil', '=', 'Perfil.idPerfil')
             ->where('Perfil.nombrePerfil', '=',$tipoCita)
             ->get();
 
-      if($tutores != NULL)
+      if(count($datos) != 0)
       {
         $i=0;
-        foreach ($tutores as $t)
+        foreach ($datos as $t)
         {
-          $datos[i]["nombre"] = $t->Nombre;
-          $datos[i]["apellidos"] = $t->Apellidos;
+          $tutores[$i]["idUsuario"] = $t->idUsuario;
+          $tutores[$i]["nombre"] = $t->Nombre;
+          $tutores[$i]["apellidos"] = $t->Apellidos;
           $i++;
         }
+
       }else $tutores=NULL;
+
+      return $tutores;
   }
 
 }

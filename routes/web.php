@@ -40,3 +40,5 @@ Route::get('crear_cita', 'CitaController@PantallaAsignarCitasNiño');
 Route::get('ingreso_profesional', 'UsuarioController@IngresoProfesional');
 
 Route::post('crear_Profesional', 'UsuarioController@CrearProfesional');
+
+Route::post('insertar_cita', 'CitaController@InsertarCita');

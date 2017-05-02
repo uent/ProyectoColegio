@@ -51,19 +51,21 @@ echo "Datos de contacto del niño";
           	echo $datos["datos"]["tipoCita"];
           echo "</td>";
 
-  					if($datos["Profesionales"] != NULL)
+  					if($datos["profesionales"] != NULL)
   					{
   						echo
   						"<div class='form-group'>
-              <select name='profesional' form='formulario'>";
+              <td>
+              <select name='idUsuario' form='formulario'>";
 
-  						foreach ($datos["Profesionales"] as $d)
+  						foreach ($datos["profesionales"] as $d)
   						{
-  							echo "<option value='",$d["apellido"],"'>",$d["apellido"],"</option>";
+  							echo "<option value='",$d["idUsuario"],"'>",$d["apellidos"],"</option>";
 
   						}
   						echo
-  						"</select>";
+  						"</select>
+            </td>;";
   					}
             else
             {
@@ -74,7 +76,7 @@ echo "Datos de contacto del niño";
 
             echo
       "<td>
-        <select name='Dia' form='formulario'>
+        <select name='dia' form='formulario'>
   <option value='Lunes'>Lunes</option>
   <option value='Martes'>Martes</option>
   <option value='Miercoles'>Miercoles</option>
@@ -82,10 +84,10 @@ echo "Datos de contacto del niño";
   <option value='Viernes'>Viernes</option>
 </select>";
         echo
-      "</td>;
+      "</td>
 
       <td>
-        <select name='Hora' form='formulario'>
+        <select name='hora' form='formulario'>
       <option value='800'>8:00</option>
       <option value='900'>9:00</option>
       <option value='1000'>10:00</option>
@@ -94,11 +96,20 @@ echo "Datos de contacto del niño";
       </select>";
         echo
       "</td>
-        <td>
-      <form method='get' action='crear_cita' id='formulario'>
-        <input type='submit' name='action' value='asignar Cita'/>
-        <input type='hidden' name='idOrden' value='",$datos["datos"]["tipoCita"],"'/>
-      </form>";
+        <td>";
+      if($datos["profesionales"] != NULL && $datos["datos"] != NULL)
+      {
+        echo
+        "<form method='post' action='insertar_cita' id='formulario'>";?>
+          {!! csrf_field() !!}
+          <?php
+          echo
+          "<input type='submit' name='action' value='asignar Cita'/>
+          <input type='hidden' name='tipoCita' value='",$datos["datos"]["tipoCita"],"'/>
+          <input type='hidden' name='idOrden' value='",$datos["datos"]["idOrden"],"'/>
+        </form>";
+      }else echo "Imposible realizar la cita";
+
 
         echo
       "</td>

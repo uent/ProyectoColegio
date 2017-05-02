@@ -52,4 +52,9 @@ class OrdenDiagnostico extends Model
 
 
     }
+
+    public static function BuscarPorId($idOrden)
+    {
+      return OrdenDiagnostico::select()->where('idOrdenDiagnostico','=', $idOrden)->first();
+    }
 }

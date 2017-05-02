@@ -2,7 +2,7 @@
 
 @section('cabecera')
 <?php
-echo "Datos de contacto del niño";
+echo "Asignar Citas del Niño";
 ?>
 @endsection
 
@@ -30,7 +30,7 @@ echo "Datos de contacto del niño";
               </th>
               <th>
                 Tipo evaluacion
-                //?pasar los tipo evaluacion a la BD?
+
               </th>
               <th>
                 Accion
@@ -39,15 +39,12 @@ echo "Datos de contacto del niño";
             </tr>
           </thead>";
 
-          $tiposCitas[0] = "citaTipo1";
-          $tiposCitas[1] = "citaTipo2";
-          $tiposCitas[2] = "citaTipo3";
-          $tiposCitas[3] = "citaTipo4";
+          $tiposCitas[0] = "Fonoaudiologo";
+          $tiposCitas[1] = "Neurolinguístico";
+
 
     foreach($tiposCitas as $t)
     {
-
-
 
       if($Citas[$t]["existe"] == false) //no asignada
       {
@@ -85,10 +82,31 @@ echo "Datos de contacto del niño";
 
               foreach($tiposCitas as $t)
               {
+                $flag = true;
+                if($Citas[$t]["existe"] == true) //cita asignada
+                {
+                  if($flag == true)
+                  {
+                    $flag = false;
+                    echo
+                    "<table class='table'>
+                          <thead>
+                            <tr>
 
-              if($Citas[$t]["existe"] == true) //cita asignada
-              {
-                echo "
+                              <th>
+                                Estado
+                              </th>
+                              <th>
+                                Tipo evaluacion
+
+                              </th>
+
+
+                            </tr>
+                          </thead>";
+
+                        }
+                  echo "
 
                     <tbody>
                     <tr>

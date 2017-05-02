@@ -22,10 +22,10 @@ class CrearTablaCitas extends Migration
             $table->foreign('idProfesional')
             ->references('idUsuario')->on('Usuarios');
             $table->string('tipoEvaluacion',45);
-            $table->string('Estado',45);
+            $table->string('estado',45);
             //"completado" o "pendiente"
-            $table->string('Hora',45);
-            $table->string('Comentarios',45);
+            $table->string('hora',45);
+            $table->string('comentarios',45);
             $table->integer('idNiño')->unsigned();
             $table->foreign('idNiño')
             ->references('idNiño')->on('Niños');
