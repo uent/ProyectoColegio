@@ -50,6 +50,8 @@ class CitaController extends Controller
 
       Citas::InsertarCita($data);
 
+      OrdenDiagnostico::ActualizarEstadoPorId($data["idOrden"]);
+
       return redirect()->to('Mi_menu');
 
     }

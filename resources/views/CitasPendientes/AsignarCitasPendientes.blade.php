@@ -103,13 +103,14 @@ echo "Asignar Citas del Niño";
 
 
                             </tr>
-                          </thead>";
+                          </thead>
+
+                        <tbody>
+                      <tr>";
 
                         }
                   echo "
 
-                    <tbody>
-                    <tr>
 
                 <td>";
                   echo $Citas[$t]["estado"];

@@ -57,4 +57,53 @@ class OrdenDiagnostico extends Model
     {
       return OrdenDiagnostico::select()->where('idOrdenDiagnostico','=', $idOrden)->first();
     }
+
+
+    public static function ActualizarEstadoPorId($idOrden)
+    {
+
+      $orden = OrdenDiagnostico::BuscarPorId($idOrden);
+
+      if($orden["estado"] == "asignar")
+      {
+        $citas = Citas::obtenerCitasPorIdOrden($idOrden);
+
+        $statusCitas["Fonoaudiologo"] = 0;
+        $statusCitas["Neurolinguístico"] = 0;
+        foreach($citas as $c)
+        {
+          //aqui van todos los tipos de citas necesarios para cambiar el estado de
+          //"asignar" a "evaluando"
+
+          if($c["tipoEvaluacion"] == "Fonoaudiologo")
+          {
+            $statusCitas["Fonoaudiologo"] = 1;
+          }
+          if($c["tipoEvaluacion"] == "Neurolinguístico")
+          {
+            $statusCitas["Neurolinguístico"] = 1;
+          }
+
+          //procedera a sumar los valores del arreglo anterior
+          //si la suma es igual a la cantidad de tipos diferentes para las citas
+          //se procedera a cambiar el estado de la orden a evaluando
+          $i = 0;
+          foreach($statusCitas as $sc)
+          {
+            $i = $i + $sc;
+          }
+          if($i == 2)
+          {
+
+            $orden = OrdenDiagnostico::where('idOrdenDiagnostico', $idOrden)
+          ->update(['estado' => "evaluando"]);
+
+            OrdenDiagnostico::ActualizarEstadoPorId($idOrden);
+          }
+        }
+      }
+      //aqui van los otros condicionales para cambiar el estado de ordenDiagnostico
+
+
+    }
 }

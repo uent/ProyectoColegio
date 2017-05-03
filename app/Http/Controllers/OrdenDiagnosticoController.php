@@ -32,7 +32,7 @@ class OrdenDiagnosticoController extends Controller
       $orden = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
 
       $citas = Citas::obtenerCitasPorIdOrden($orden["idOrdenDiagnostico"]);
-      //falta agregar datos niños
+      //quizas falte agregar datos niños
 
       //se evaluara que citas ya estan asignadas para esta orden
 
@@ -57,6 +57,14 @@ class OrdenDiagnosticoController extends Controller
             $statusCitas["Fonoaudiologo"]["fecha"] = $c->fecha;
 
           }
+          if($c["tipoEvaluacion"] == "Neurolinguístico")
+          {
+            $statusCitas["Neurolinguístico"]["existe"] = true;
+            $statusCitas["Neurolinguístico"]["estado"] = $c->Estado;
+            $statusCitas["Neurolinguístico"]["hora"] = $c->hora;
+            $statusCitas["Neurolinguístico"]["fecha"] = $c->fecha;
+
+          }
         }
       }
         //si un campo de $statusCitas queda con el valor false es porque aun no a sido asignada esa cita al niño
@@ -73,6 +81,7 @@ class OrdenDiagnosticoController extends Controller
 
         return View::make('CitasPendientes.DatosOrdenesNiños')->with("datos", $ordenes);
     }
+
 
 
 
