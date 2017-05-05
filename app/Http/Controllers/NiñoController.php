@@ -79,14 +79,14 @@ class NiñoController extends Controller
 
       $datosNiño = Niños::MostrarDatosNiño($data["id"]);
 
-      $idTutores = Tutor::TutoresNiñoPorIdNiño($data["id"]);
+      $Tutores = Tutor::TutoresNiñoPorIdNiño($data["id"]);
 
       $datos[0] = $datosNiño;
-      $datos[1] = $idTutores;
+      $datos[1] = $Tutores;
 
       return View::make('ContactosPendientes.DatosNiño')->with("datos", $datos);
 
-  
+
 
     }
 
@@ -94,14 +94,18 @@ class NiñoController extends Controller
                                             //y crea la orden de diagnostico
     {
       $this->validate(request(), [
-          'id' => ['required', 'max:200']
+          'id' => ['required', 'max:200'],
+          'prioridad' => ['required', 'max:200']
       ]);
 
       $data = request()->all();
 
+      if($data["prioridad"] == "alta") $prioridad = "alta";
+      else $prioridad = "normal";
+
       Niños::CambiarStatusContacto($data["id"]);
 
-      OrdenDiagnosticoController::NuevaOrden($data["id"],"normal");
+      OrdenDiagnosticoController::NuevaOrden($data["id"],$prioridad);
 
       return redirect()->to('Mi_menu');
     }

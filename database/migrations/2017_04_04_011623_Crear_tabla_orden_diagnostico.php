@@ -24,7 +24,7 @@ class CrearTablaOrdenDiagnostico extends Migration
             //   "evaluando": aun faltan por finalizar las citas y sus respectivos informes
             //    "falta_anamnesis": las citas fueron completadas pero falta crear la anamnesis
             $table->string('prioridad',45);
-            // "alto" o "normal"
+            // "alta" o "normal"
             $table->string('antecedentes',45);
             //$table->integer('idTutor');
             $table->timestamps();

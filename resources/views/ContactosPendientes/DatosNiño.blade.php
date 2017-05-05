@@ -57,8 +57,10 @@ echo "Datos de contacto del niño";
         "</td>
         <td>
       <form method='get' action='Cambiar_status_contacto'>
-        <input type='submit' name='action' value='Ya fue contactado?'/>
+        <input type='hidden' name='prioridad' value='normal'/>
+        <input type='checkbox' name='prioridad' value = 'alta' /> Caso de prioridad?
         <input type='hidden' name='id' value='",$datos[0]["id"],"'/>
+        <input type='submit' name='action' value='Ya fue contactado?'/>
       </form>
 
         </td>
@@ -89,7 +91,7 @@ echo "Datos de contacto del niño";
                 Rut
               </th>
               <th>
-                Mail //salta agregar telefono
+                Mail //falta agregar telefono
               </th>
             </tr>
           </thead>

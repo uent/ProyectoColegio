@@ -21,7 +21,7 @@ class CrearTablaPerfilUsuario extends Migration
 
           $table->integer('idUsuario')->unsigned();
           $table->foreign('idUsuario')
-          ->references('idUsuario')->on('Usuario');
+          ->references('idUsuario')->on('Usuarios');
 
 
           $table->timestamps();

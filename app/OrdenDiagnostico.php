@@ -28,7 +28,7 @@ class OrdenDiagnostico extends Model
       $tablas = DB::table('OrdenDiagnostico')
             ->join('Niños', 'OrdenDiagnostico.idNiño', '=', 'Niños.idNiño')
             ->where('OrdenDiagnostico.estado', '=', "asignar")
-            ->select('Niños.idNiño','OrdenDiagnostico.idOrdenDiagnostico','Niños.nombre','Niños.apellidos','Niños.rut')
+            ->select('Niños.idNiño','OrdenDiagnostico.idOrdenDiagnostico','OrdenDiagnostico.prioridad','Niños.nombre','Niños.apellidos','Niños.rut')
             ->get();
 
         $i = 0;
@@ -43,6 +43,7 @@ class OrdenDiagnostico extends Model
             $datos[$i]["nombre"] = $t->nombre;
             $datos[$i]["apellidos"] = $t->apellidos;
             $datos[$i]["rut"] = $t->rut;
+            $datos[$i]["prioridad"] = $t->prioridad;
 
             $i++;
           }

@@ -18,31 +18,41 @@ echo "Asignacion de citas";
 @section('content2')
 
         <?php
+          $flag = true;
+
           if($datos != NULL)
           {
-            echo
-            "<table class='table'>
-                  <thead>
-                    <tr>
-                      <th>
-                        Nombre
-                      </th>
-                      <th>
-                        Apellidos
-                      </th>
-                      <th>
-                        Rut
-                      </th>
-                      <th>
-                        Accion
-                      </th>
-                    </tr>
-                  </thead>";
             foreach ($datos as $arreglo)
             {
+              if($arreglo["prioridad"] == "alta")
+              {
+                if($flag == true)
+                {
+                  $flag = false;
+
+                  echo
+                  "<p> Atenciones prioritarias <p>
+                  <table class='table'>
+                        <thead>
+                          <tr>
+                            <th>
+                              Nombre
+                            </th>
+                            <th>
+                              Apellidos
+                            </th>
+                            <th>
+                              Rut
+                            </th>
+                            <th>
+                              Accion
+                            </th>
+                          </tr>
+                        </thead>";
+                }
                 echo "
 
-             				<tbody>
+                    <tbody>
                     <tr>
                 <td>";
                   echo $arreglo["nombre"];
@@ -65,10 +75,73 @@ echo "Asignacion de citas";
                 </td>
               </tr>";
 
+              }
             }
             echo " </tbody>
                         </table>";
-          } else echo "No hay datos";
+          }
+
+          $flag = true;
+
+          if($datos != NULL)
+          {
+            foreach ($datos as $arreglo)
+            {
+              if($arreglo["prioridad"] == "normal")
+              {
+                if($flag == true)
+                {
+                  $flag = false;
+
+                  echo
+                  "<p> Atenciones normales <p>
+                  <table class='table'>
+                        <thead>
+                          <tr>
+                            <th>
+                              Nombre
+                            </th>
+                            <th>
+                              Apellidos
+                            </th>
+                            <th>
+                              Rut
+                            </th>
+                            <th>
+                              Accion
+                            </th>
+                          </tr>
+                        </thead>";
+                }
+                echo "
+
+                    <tbody>
+                    <tr>
+                <td>";
+                  echo $arreglo["nombre"];
+                  echo
+                "</td>
+                <td>";
+                  echo $arreglo["apellidos"];
+                echo
+                "</td>
+                <td>";
+                  echo $arreglo["rut"];
+                echo
+                "</td>
+                <td>
+              <form method='get' action='mostrar_citas_niño'>
+                <input type='submit' name='action' value='Asignar Citas'/>
+                <input type='hidden' name='idOrden' value='",$arreglo["idOrden"],"'/>
+              </form>
+
+                </td>
+              </tr>";
+
+              }
+            }
+          }
+          else echo "No hay datos";
 
          ?>
 
