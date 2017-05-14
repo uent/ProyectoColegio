@@ -2,7 +2,8 @@
 
 @section('cabecera')
 <?php
-echo "Asignar Citas del Nino";
+#cabecera
+echo "Citas pendientes";
 ?>
 @endsection
 
@@ -11,10 +12,7 @@ echo "Asignar Citas del Nino";
 
 
 
-
 @endsection
-
-
 
 @section('content2')
 <?php

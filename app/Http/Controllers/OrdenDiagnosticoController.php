@@ -15,13 +15,13 @@ use App\Citas;
 class OrdenDiagnosticoController extends Controller
 {
 
-    public static Function NuevaOrden($idNiño,$prioridad)  //crea una nueva tabla diagnostico para el id del niño recibido
+    public static Function NuevaOrden($idNino,$prioridad)  //crea una nueva tabla diagnostico para el id del nino recibido
     {
-      OrdenDiagnostico::crear($idNiño,$prioridad);
+      OrdenDiagnostico::crear($idNino,$prioridad);
 
     }
 
-    public function PantallaMostrarCitasNiño() //muestra una pantalla con todas las citas faltantes
+    public function PantallaMostrarCitasNino() //muestra una pantalla con todas las citas faltantes
     {
       $this->validate(request(), [
           'idOrden' => ['required', 'max:200']
@@ -32,7 +32,7 @@ class OrdenDiagnosticoController extends Controller
       $orden = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
 
       $citas = Citas::obtenerCitasPorIdOrden($orden["idOrdenDiagnostico"]);
-      //quizas falte agregar datos niños
+      //quizas falte agregar datos ninos
 
       //se evaluara que citas ya estan asignadas para esta orden
 
@@ -41,7 +41,7 @@ class OrdenDiagnosticoController extends Controller
 
 
       $statusCitas["datos"]["idOrden"] = $orden["idOrdenDiagnostico"];
-      $statusCitas["datos"]["idNiño"] = $orden["idNiño"];
+      $statusCitas["datos"]["idNino"] = $orden["idNino"];
 
 
       if(count($citas) != 0)
@@ -67,7 +67,7 @@ class OrdenDiagnosticoController extends Controller
           }
         }
       }
-        //si un campo de $statusCitas queda con el valor false es porque aun no a sido asignada esa cita al niño
+        //si un campo de $statusCitas queda con el valor false es porque aun no a sido asignada esa cita al nino
 
       return View::make('CitasPendientes.AsignarCitasPendientes')->with("Citas",$statusCitas );
 
@@ -77,9 +77,9 @@ class OrdenDiagnosticoController extends Controller
 
     public function MostrarCitasPendientes()
     {
-        $ordenes = OrdenDiagnostico::OrdenesPendientesDeCitasMasDatosNiños();
+        $ordenes = OrdenDiagnostico::OrdenesPendientesDeCitasMasDatosNinos();
 
-        return View::make('CitasPendientes.DatosOrdenesNiños')->with("datos", $ordenes);
+        return View::make('CitasPendientes.DatosOrdenesNinos')->with("datos", $ordenes);
     }
 
 

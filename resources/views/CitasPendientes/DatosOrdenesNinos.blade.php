@@ -67,7 +67,7 @@ echo "Asignacion de citas";
                 echo
                 "</td>
                 <td>
-              <form method='get' action='mostrar_citas_niño'>
+              <form method='get' action='mostrar_citas_nino'>
                 <input type='submit' name='action' value='Asignar Citas'/>
                 <input type='hidden' name='idOrden' value='",$arreglo["idOrden"],"'/>
               </form>
@@ -130,7 +130,7 @@ echo "Asignacion de citas";
                 echo
                 "</td>
                 <td>
-              <form method='get' action='mostrar_citas_niño'>
+              <form method='get' action='mostrar_citas_nino'>
                 <input type='submit' name='action' value='Asignar Citas'/>
                 <input type='hidden' name='idOrden' value='",$arreglo["idOrden"],"'/>
               </form>

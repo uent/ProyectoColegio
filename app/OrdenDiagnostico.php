@@ -10,11 +10,11 @@ class OrdenDiagnostico extends Model
 {
   protected $table = 'OrdenDiagnostico';
 
-    public static function crear($idNiño,$prioridad)
+    public static function crear($idNino,$prioridad)
     {
       $orden = new OrdenDiagnostico;
 
-      $orden->idNiño = $idNiño;
+      $orden->idNino = $idNino;
       $orden->estado = "asignar";
       $orden->prioridad = $prioridad;
       $orden->antecedentes = "";    //cambiar tipo dato
@@ -22,13 +22,13 @@ class OrdenDiagnostico extends Model
       $orden->save();
     }
 
-    public static function OrdenesPendientesDeCitasMasDatosNiños()
+    public static function OrdenesPendientesDeCitasMasDatosNinos()
     {
 
       $tablas = DB::table('OrdenDiagnostico')
-            ->join('Niños', 'OrdenDiagnostico.idNiño', '=', 'Niños.idNiño')
+            ->join('Ninos', 'OrdenDiagnostico.idNino', '=', 'Ninos.idNino')
             ->where('OrdenDiagnostico.estado', '=', "asignar")
-            ->select('Niños.idNiño','OrdenDiagnostico.idOrdenDiagnostico','OrdenDiagnostico.prioridad','Niños.nombre','Niños.apellidos','Niños.rut')
+            ->select('Ninos.idNino','OrdenDiagnostico.idOrdenDiagnostico','OrdenDiagnostico.prioridad','Ninos.nombre','Ninos.apellidos','Ninos.rut')
             ->get();
 
         $i = 0;
@@ -38,7 +38,7 @@ class OrdenDiagnostico extends Model
         {
           foreach ($tablas as $t)
           {
-            $datos[$i]["idNiño"] = $t->idNiño;
+            $datos[$i]["idNino"] = $t->idNino;
             $datos[$i]["idOrden"] = $t->idOrdenDiagnostico;
             $datos[$i]["nombre"] = $t->nombre;
             $datos[$i]["apellidos"] = $t->apellidos;

@@ -6,14 +6,15 @@ use Illuminate\Http\Request;
 
 use View;
 
-use App\Usuarios;
+use App\User;
 use App\Citas;
 use App\OrdenDiagnostico;
+use Illuminate\Support\Facades\Auth;
 
 
 class CitaController extends Controller
 {
-    public function PantallaAsignarCitasNiño()
+    public function PantallaAsignarCitasNino()
     {
       $this->validate(request(), [
           'tipoCita' => ['required', 'max:200'],
@@ -22,7 +23,7 @@ class CitaController extends Controller
 
     $data["datos"] = request()->all();
 
-    $data["profesionales"] = Usuarios::BuscarProfesionalesPorTipoCita($data["datos"]["tipoCita"]);
+    $data["profesionales"] = User::BuscarProfesionalesPorTipoCita($data["datos"]["tipoCita"]);
 
 
     return View::make('CitasPendientes.CrearCita')->with("datos",$data );
@@ -32,7 +33,7 @@ class CitaController extends Controller
     public function InsertarCita()
     {
       $this->validate(request(), [
-          'idUsuario' => ['required', 'max:200'],
+          'id' => ['required', 'max:200'],
           'dia' => ['required', 'max:200'],
           'tipoCita' => ['required', 'max:200'],
           'hora' => ['required', 'max:200'],
@@ -46,7 +47,7 @@ class CitaController extends Controller
       $data["reporte"] = "";
 
       $aux = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
-      $data["idNiño"] = $aux["idNiño"];
+      $data["idNino"] = $aux["idNino"];
 
       Citas::InsertarCita($data);
 
@@ -55,4 +56,28 @@ class CitaController extends Controller
       return redirect()->to('Mi_menu');
 
     }
+
+    public function CitasPendientesPorUsuario()
+    {
+      $id = Auth::user()->id;
+
+      $citas = Citas::ObtenerDatosCitasPendientesPorIdUsuario($id);
+
+      if($citas != null)
+      {
+        $i=0;
+        foreach($citas as $c)
+        {
+          $datos[$i]["idNino"] = $c->idNino;
+          $datos[$i]["idcitas"] = $c->idcitas;
+          $datos[$i]["nombre"] = $c->nombre;
+          $datos[$i]["apellidos"] = $c->apellidos;
+          $datos[$i]["rut"] = $c->rut;
+        }
+      }
+
+      return View::make('EvaluarCitas.MostrarCitasendientes')->with("datos",$data );
+
+    }
+
 }

@@ -4,7 +4,7 @@
 <?php
 #cabecera
 
-echo "Niños pendientes para contacto";
+echo "Ninos pendientes para contacto";
 ?>
 @endsection
 
@@ -56,7 +56,7 @@ echo "Niños pendientes para contacto";
                 echo
                 "</td>
                 <td>
-              <form method='get' action='Contactar_niño'>
+              <form method='get' action='Contactar_nino'>
                 <input type='submit' name='action' value='Ver Datos'/>
                 <input type='hidden' name='id' value='",$arreglo["id"],"'/>
               </form>

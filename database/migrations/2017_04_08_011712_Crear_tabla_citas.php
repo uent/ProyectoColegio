@@ -20,15 +20,15 @@ class CrearTablaCitas extends Migration
             ->references('idOrdenDiagnostico')->on('OrdenDiagnostico');
             $table->integer('idProfesional')->unsigned();
             $table->foreign('idProfesional')
-            ->references('idUsuario')->on('Usuarios');
+            ->references('id')->on('Users');
+            $table->integer('idNino')->unsigned();
+            $table->foreign('idNino')
+            ->references('idNino')->on('Ninos');
             $table->string('tipoEvaluacion',45);
             $table->string('estado',45);
             //"completado" o "pendiente"
             $table->string('hora',45);
             $table->string('comentarios',45);
-            $table->integer('idNiño')->unsigned();
-            $table->foreign('idNiño')
-            ->references('idNiño')->on('Niños');
             $table->string('fecha',45);
             $table->string('reporte',5000);
             $table->timestamps();

@@ -2,7 +2,7 @@
 
 @section('cabecera')
 <?php
-echo "Datos de contacto del niño";
+echo "Datos de contacto del nino";
 ?>
 @endsection
 
@@ -18,13 +18,13 @@ echo "Datos de contacto del niño";
 
 @section('content2')
 <?php
-  if($datos[0] != NULL) //datos niño
+  if($datos[0] != NULL) //datos nino
   {    echo
     "<div class='container-fluid'>
 	<div class='row'>
 		<div class='col-md-12'>
 			<h3>
-				Datos Niño
+				Datos Nino
 			</h3>
 		</div>
 	</div>

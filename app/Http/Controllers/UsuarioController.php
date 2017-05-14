@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use View;
 
 use App\Perfil;
-use App\Usuarios;
+use App\User;
 
 use Illuminate\Http\Request;
 
@@ -23,12 +23,16 @@ class UsuarioController extends Controller
             'Nombre' => ['required', 'max:200'],
             'Apellidos' => ['required', 'max:200'],
             'Rut' => ['required', 'max:200'],
-            'Profesion' => ['required', 'max:200']
+            'Profesion' => ['required', 'max:200'],
+            'Email' => ['required', 'max:200'],
+            'Password' => ['required', 'max:200']
+
         ]);
 
       $data = request()->all();
 
-      $resultado = Usuarios::Agregar($data['Nombre'],$data['Apellidos'],$data['Rut'],$data['Profesion']);
+      $resultado = User::Agregar($data['Nombre'],$data['Apellidos'],
+                                  $data['Rut'],$data['Profesion'],$data['Email'],$data['Password']);
 
       if ($resultado == true)
       {
@@ -38,14 +42,14 @@ class UsuarioController extends Controller
 
     }
 
-    private function Agregar($data)
+    /*private function Agregar($data)
     {
-      if(Usuario::ExisteRut($data["Rut"]) == false)
+      if(User::ExisteRut($data["Rut"]) == false)
       {
-        return Usuario::agregar($data['Nombre'],$data['Apellidos'],$data['Rut']);
+        return User::agregar($data['Nombre'],$data['Apellidos'],$data['Rut']);
 
       }
       else return NULL;
-    }
+    }*/
 
 }

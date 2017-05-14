@@ -25,13 +25,13 @@ class Perfil extends Model
        return $datos;
     }
 
-    public static function crearPerfil($idUsuario,$profesion)
+    public static function crearPerfil($id,$profesion)
     {
       $tablas = Perfil::select('idPerfil')->where('nombrePerfil','=',$profesion)->first();
 
       if(count($tablas) != 0)
       {
-        Perfil_Usuario::agregar($idUsuario,$tablas->idPerfil);
+        Perfil_Usuario::agregar($id,$tablas->idPerfil);
       }
       else echo "No existe esa profesion";
     }

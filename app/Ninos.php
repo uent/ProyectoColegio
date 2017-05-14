@@ -6,30 +6,30 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Support\Facades\DB;
 
-class Niños extends Model
+class Ninos extends Model
 {
-    protected $table = 'Niños'; #?????
+    protected $table = 'Ninos'; #?????
 
     public static function agregar($nombre,$apellido, $rut)
     {
-      $niño = new Niños;
+      $nino = new Ninos;
 
-      $niño->nombre = $nombre;
-      $niño->rut  = $rut;
-      $niño->apellidos  = $apellido;
-      $niño->contactado = false;  //se asigna false para que se considere "no contactado"
+      $nino->nombre = $nombre;
+      $nino->rut  = $rut;
+      $nino->apellidos  = $apellido;
+      $nino->contactado = false;  //se asigna false para que se considere "no contactado"
 
-      $niño->save();
+      $nino->save();
 
-      return Niños::select('idNiño')->where('rut','=', $rut)->get();
+      return Ninos::select('idNino')->where('rut','=', $rut)->get();
 
     }
 
-    public static function MostrarNiñosParaLlamar()
+    public static function MostrarNinosParaLlamar()
     {
-      //Retorna una lista de niños que cumplan la condicion de que aun no sean contactados
+      //Retorna una lista de ninos que cumplan la condicion de que aun no sean contactados
 
-      $tablas = Niños::select('idNiño','nombre','apellidos','rut')->where('contactado','=', 'false')->get();
+      $tablas = Ninos::select('idNino','nombre','apellidos','rut')->where('contactado','=', 'false')->get();
 
       $i = 0;
       if(count($tablas) == 0) $datos = NULL;
@@ -39,7 +39,7 @@ class Niños extends Model
         foreach ($tablas as $t)
         {
 
-          $datos[$i]["id"] = $t->idNiño;
+          $datos[$i]["id"] = $t->idNino;
           $datos[$i]["nombre"] = $t->nombre;
           $datos[$i]["apellidos"] = $t->apellidos;
           $datos[$i]["rut"] = $t->rut;
@@ -51,15 +51,15 @@ class Niños extends Model
 
     }
 
-    public static function MostrarDatosNiño($id)
+    public static function MostrarDatosNino($id)
     {
 
-      $tablas = Niños::select('idNiño','Nombre','Rut')->where('idNiño', '=',$id)->first();
+      $tablas = Ninos::select('idNino','Nombre','Rut')->where('idNino', '=',$id)->first();
 
       if(count($tablas) == 0) $datos = NULL;
       else
       {
-          $datos["id"] = $tablas->idNiño;
+          $datos["id"] = $tablas->idNino;
           $datos["nombre"] = $tablas->Nombre;
           $datos["rut"] = $tablas->Rut;
       }
@@ -68,7 +68,7 @@ class Niños extends Model
 
     public static function ExisteRut($Rut)
     {
-      $tablas = Niños::select('idNiño')->where('rut', '=',$Rut)->first();
+      $tablas = Ninos::select('idNino')->where('rut', '=',$Rut)->first();
 
       if(count($tablas) == 0) return false;
       else
@@ -79,19 +79,19 @@ class Niños extends Model
 
     public static function BuscarPorRut($Rut)
     {
-      $tablas = Niños::select('idNiño')->where('rut', '=',$Rut)->first();
+      $tablas = Ninos::select('idNino')->where('rut', '=',$Rut)->first();
 
       if(count($tablas) == 0) return Null;
       else
       {
-          return $tablas->idNiño;
+          return $tablas->idNino;
       }
     }
 
     public static function CambiarStatusContacto($id)
     {
-      DB::table('Niños')
-            ->where('idNiño', $id)
+      DB::table('Ninos')
+            ->where('idNino', $id)
             ->update(['contactado' => true]);
 
       return true;

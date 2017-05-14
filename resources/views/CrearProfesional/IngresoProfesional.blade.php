@@ -45,27 +45,26 @@ echo "Ingreso de profesional";
 
 		<div class="form-group">
 			<label for="exampleInputEmail1">
-				Profesion	 //quizas tenga mas de una profesion 
+				Profesion	 //quizas tenga mas de una profesion
 			</label>
-			<td>
-				<?php
-					if($datos != NULL)
-					{
-						echo
-						"<div class='form-group'>
-						<select name='Profesion' form='formulario'>";
-
-						foreach ($datos as $d)
-						{
-							echo "<option value='",$d["nombrePerfil"],"'>",$d["nombrePerfil"],"</option>";
-
-						}
-						echo
-						"</select>";
-					}
-				?>
-
+				<input name="Profesion" class="form-control" placeholder="Profesion"></input>
 		</div>
+
+		<div class="form-group">
+			<label for="exampleInputEmail1">
+				Email
+			</label>
+				<input name="Email" class="form-control" placeholder="Email"></input>
+		</div>
+
+
+<div class="form-group">
+	<label for="exampleInputEmail1">
+		Password
+	</label>
+		<input name="Password" class="form-control" placeholder="Password"></input>
+</div>
+
 		</div>
 
 		<button type="submit"  onClick="this.form.submit(); this.disabled=true; this.value='Sending…'; " class="btn btn-primary">Enviar</button>

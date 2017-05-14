@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Niños;
-use App\Niño_tutor;
+use App\Ninos;
+use App\Nino_tutor;
 use App\Tutor;
 
 use resources\views;
@@ -12,19 +12,19 @@ use View;
 
 use Illuminate\Http\Request;
 
-class NiñoController extends Controller
+class NinoController extends Controller
 {
 
     public function pagCrear()
     {
-      return view ('IngresoNiño\IngresoNiño');
+      return view ('IngresoNino\IngresoNino');
     }
 
     private function Agregar($data)
     {
-      if(Niños::ExisteRut($data["Rut"]) == false)
+      if(Ninos::ExisteRut($data["Rut"]) == false)
       {
-        return Niños::agregar($data['Nombre'],$data['Apellidos'],$data['Rut']);
+        return Ninos::agregar($data['Nombre'],$data['Apellidos'],$data['Rut']);
 
       }
       else return NULL;
@@ -41,32 +41,32 @@ class NiñoController extends Controller
       $data = request()->all();
 
 
-      $resultado = Niños::Agregar($data['Nombre'],$data['Apellidos'],$data['Rut']);
+      $resultado = Ninos::Agregar($data['Nombre'],$data['Apellidos'],$data['Rut']);
 
       if ($resultado == true)
       {
-        $idNiño = Niños::BuscarPorRut($data['Rut']);
-        $idTutor = Niño_tutor::BuscarIdTutorPorIdNiño($idNiño);
+        $idNino = Ninos::BuscarPorRut($data['Rut']);
+        $idTutor = Nino_tutor::BuscarIdTutorPorIdNino($idNino);
         if($idTutor == NULL)
         {
-          return View::make('IngresoNiño.IngresarTutor')->with("idNiño",$idNiño );
+          return View::make('IngresoNino.IngresarTutor')->with("idNino",$idNino );
         }
-        else echo "El niño ya tiene tutor";
+        else echo "El nino ya tiene tutor";
 
       }
-      else echo "ya existe niño";
+      else echo "ya existe nino";
 
       //return redirect()->to('Mi_menu');
 
     }
 
-    public function MostrarNiñosParaLlamar()
+    public function MostrarNinosParaLlamar()
     {
-      //muestra una lista de niños que cumplan la condicion de que aun no sean contactados
-      $datos = Niños::MostrarNiñosParaLlamar();
+      //muestra una lista de ninos que cumplan la condicion de que aun no sean contactados
+      $datos = Ninos::MostrarNinosParaLlamar();
 
-      return View::make('ContactosPendientes.NiñosPendientes')->with("datos", $datos);
-      //return redirect()->to('NiñosPendientes',$datos);
+      return View::make('ContactosPendientes.NinosPendientes')->with("datos", $datos);
+      //return redirect()->to('NinosPendientes',$datos);
     }
 
     public function Contactar()
@@ -77,20 +77,20 @@ class NiñoController extends Controller
 
       $data = request()->all();
 
-      $datosNiño = Niños::MostrarDatosNiño($data["id"]);
+      $datosNino = Ninos::MostrarDatosNino($data["id"]);
 
-      $Tutores = Tutor::TutoresNiñoPorIdNiño($data["id"]);
+      $Tutores = Tutor::TutoresNinoPorIdNino($data["id"]);
 
-      $datos[0] = $datosNiño;
+      $datos[0] = $datosNino;
       $datos[1] = $Tutores;
 
-      return View::make('ContactosPendientes.DatosNiño')->with("datos", $datos);
+      return View::make('ContactosPendientes.DatosNino')->with("datos", $datos);
 
 
 
     }
 
-    public function CambiarStatusContacto() //asigna el estado de contactado a un niño
+    public function CambiarStatusContacto() //asigna el estado de contactado a un nino
                                             //y crea la orden de diagnostico
     {
       $this->validate(request(), [
@@ -103,7 +103,7 @@ class NiñoController extends Controller
       if($data["prioridad"] == "alta") $prioridad = "alta";
       else $prioridad = "normal";
 
-      Niños::CambiarStatusContacto($data["id"]);
+      Ninos::CambiarStatusContacto($data["id"]);
 
       OrdenDiagnosticoController::NuevaOrden($data["id"],$prioridad);
 

@@ -19,26 +19,38 @@ Route::get('Mi_menu', function () {
     return view('Menu');
 });
 
-Route::get('ingresar_niño', 'NiñoController@pagCrear');
 
-Route::get('contactos_pendientes', 'NiñoController@MostrarNiñosParaLlamar');
+Route::group(['middleware' => 'auth'], function() {
 
-Route::post('ingresar_niño', 'NiñoController@Crear');
+  Route::get('ingresar_nino', 'NinoController@pagCrear');
 
-Route::post('ingresar_tutor', 'TutorController@InsertarDatos');
+  Route::get('contactos_pendientes', 'NinoController@MostrarNinosParaLlamar');
 
-Route::get('Contactar_niño', 'NiñoController@Contactar');
+  Route::post('ingresar_nino', 'NinoController@Crear');
 
-Route::get('Cambiar_status_contacto', 'NiñoController@CambiarStatusContacto');
+  Route::post('ingresar_tutor', 'TutorController@InsertarDatos');
 
-Route::get('pantalla_asignar_Citas', 'OrdenDiagnosticoController@MostrarCitasPendientes');
+  Route::get('Contactar_nino', 'NinoController@Contactar');
 
-Route::get('mostrar_citas_niño', 'OrdenDiagnosticoController@PantallaMostrarCitasNiño');
+  Route::get('Cambiar_status_contacto', 'NinoController@CambiarStatusContacto');
 
-Route::get('crear_cita', 'CitaController@PantallaAsignarCitasNiño');
+  Route::get('pantalla_asignar_Citas', 'OrdenDiagnosticoController@MostrarCitasPendientes');
+
+  Route::get('mostrar_citas_nino', 'OrdenDiagnosticoController@PantallaMostrarCitasNino');
+
+  Route::get('crear_cita', 'CitaController@PantallaAsignarCitasNino');
+
+  Route::post('insertar_cita', 'CitaController@InsertarCita');
+
+  Route::get('citas_pendientes_profesional', 'CitaController@CitasPendientesPorUsuario');
+
+});
+
 
 Route::get('ingreso_profesional', 'UsuarioController@IngresoProfesional');
 
 Route::post('crear_Profesional', 'UsuarioController@CrearProfesional');
 
-Route::post('insertar_cita', 'CitaController@InsertarCita');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -19,9 +19,9 @@ class CrearTablaPerfilUsuario extends Migration
           $table->foreign('idPerfil')
           ->references('idPerfil')->on('Perfil');
 
-          $table->integer('idUsuario')->unsigned();
-          $table->foreign('idUsuario')
-          ->references('idUsuario')->on('Usuarios');
+          $table->integer('id')->unsigned();
+          $table->foreign('id')
+          ->references('id')->on('Users');
 
 
           $table->timestamps();
@@ -36,7 +36,7 @@ class CrearTablaPerfilUsuario extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('Niños');
+    Schema::dropIfExists('Ninos');
       Schema::dropIfExists('OrdenDiagnostico');
   }
 }

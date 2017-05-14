@@ -15,9 +15,9 @@ class CrearTablaOrdenDiagnostico extends Migration
     {
         Schema::create('OrdenDiagnostico',function(Blueprint $table){
             $table->increments('idOrdenDiagnostico');
-            $table->integer('idNiño')->unsigned();
-            $table->foreign('idNiño')
-            ->references('idNiño')->on('Niños');
+            $table->integer('idNino')->unsigned();
+            $table->foreign('idNino')
+            ->references('idNino')->on('Ninos');
             $table->string('estado',45);
             //estados  "asignar": aun hace falta asignar alguna o todas las citas
             //  "finalizado": ya finalizo la entrega de los documentos al tutor
@@ -39,7 +39,7 @@ class CrearTablaOrdenDiagnostico extends Migration
      */
     public function down()
     {
-      Schema::dropIfExists('Niños');
+      Schema::dropIfExists('Ninos');
         Schema::dropIfExists('OrdenDiagnostico');
     }
 }

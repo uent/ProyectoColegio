@@ -51,15 +51,18 @@
           </button>
           <a class="navbar-brand" href="#">@yield('cabecera')</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
+        <div id="navbar" align="right" class="navbar-collapse collapse">
+          <form action="login" method="get">
+            <button name="subject" class="btn btn-default" >login</button>
+          </form>
+
+          <form action="register" method="get">
+            <button name="subject" class="btn btn-default" >register</button>
+          </form>
+
+          <form action="logout" method="post">
+            {{ csrf_field() }}
+            <button name="subject" class="btn btn-default" >logout</button>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
@@ -68,6 +71,8 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
+
+
         @yield('content1')
       </div>
     </div>

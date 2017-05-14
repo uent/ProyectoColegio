@@ -54,7 +54,7 @@ echo "Ingreso solicitud de diagnostico";
         <input name="Mail" class="form-control" placeholder="Mail">
     </div>
 
-    <input type="hidden" name="idNiño" class="form-control" value="<?php echo $idNiño;?>">
+    <input type="hidden" name="idNino" class="form-control" value="<?php echo $idNino;?>">
 
 		<button type="submit" onClick="this.form.submit(); this.disabled=true; this.value='Sending…'; " class="btn btn-primary">Enviar</button>
 </form>

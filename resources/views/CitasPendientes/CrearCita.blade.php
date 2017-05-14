@@ -2,7 +2,7 @@
 
 @section('cabecera')
 <?php
-echo "Datos de contacto del niño";
+echo "Datos de contacto del nino";
 ?>
 @endsection
 
@@ -56,11 +56,11 @@ echo "Datos de contacto del niño";
   						echo
   						"<div class='form-group'>
               <td>
-              <select name='idUsuario' form='formulario'>";
+              <select name='id' form='formulario'>";
 
   						foreach ($datos["profesionales"] as $d)
   						{
-  							echo "<option value='",$d["idUsuario"],"'>",$d["apellidos"],"</option>";
+  							echo "<option value='",$d["id"],"'>",$d["apellidos"],"</option>";
 
   						}
   						echo

@@ -119,7 +119,7 @@ Junto con saludarlos y agradeciendo su confianza les solicitamos completar este 
 
 		<div class="form-group"><label for="p43">¿Cómo fue el parto? (parto normal o cesárea, inducción del parto, fórceps). </label><input type="text" class="form-control" name="p43" placeholder=""></div>
 
-		<div class="form-group"><label for="p44">¿Cómo transcurrió el primer año de vida de su hijo/a? (datos relevantes, salud, medicamentos)</label><input type="text" class="form-control" name="p44" placeholder=""></div>
+		<div class="form-group"><label for="p44">¿Cómo transcurrió el primer ano de vida de su hijo/a? (datos relevantes, salud, medicamentos)</label><input type="text" class="form-control" name="p44" placeholder=""></div>
 
 		<div class="form-group"><label for="p45">Su hijo/a ¿Ha tenido o tiene enfermedades relevantes? Especifique enfermedad, medicamento y dosis. </label><input type="text" class="form-control" name="p45" placeholder=""></div>
 
@@ -133,13 +133,13 @@ Junto con saludarlos y agradeciendo su confianza les solicitamos completar este 
 		
 		<div class="form-group"><label for="p54">Habilidades motrices finas, ejemplo: tomar el lápiz, manejar los cubiertos, etc.</label><input type="text" class="form-control" name="p54" placeholder=""></div>
 
-		<div class="form-group"><label for="p55">Adquisición del lenguaje. Señale si el desarrollo del lenguaje ha sido normal, rápido o con dificultades.</label><input type="text" class="form-control" name="p55" placeholder=""></div>
+		<div class="form-group"><label for="p55">Adquisición del lenguaje. Senale si el desarrollo del lenguaje ha sido normal, rápido o con dificultades.</label><input type="text" class="form-control" name="p55" placeholder=""></div>
 
 		<div class="form-group"><label for="p56">¿Qué dificultades ha presentado en el ámbito del lenguaje? (comprensión, expresión, etc.)</label><input type="text" class="form-control" name="p56" placeholder=""></div>
 		
 		<div class="form-group"><label for="p57">Desarrollo social ¿Cómo se relaciona su hijo/a con personas adultas?</label><input type="text" class="form-control" name="p57" placeholder=""></div>
 
-		<div class="form-group"><label for="p58">Desarrollo social ¿Cómo se relaciona su hijo/a con otros niños?</label><input type="text" class="form-control" name="p58" placeholder=""></div>
+		<div class="form-group"><label for="p58">Desarrollo social ¿Cómo se relaciona su hijo/a con otros ninos?</label><input type="text" class="form-control" name="p58" placeholder=""></div>
 		
 		<div class="form-group"><label for="p59">¿Qué tan autónomo/a es para las siguientes actividades? Marque a continuación</label><input type="text" class="form-control" name="p59" placeholder=""></div>
 
@@ -152,12 +152,12 @@ Junto con saludarlos y agradeciendo su confianza les solicitamos completar este 
 		<div class="form-group"><label for="p63">¿Es flexible en cuanto a las actividades o tiene rutinas? (ej. prefiere mantener ciertas actividades en algún orden determinado) ¿Cuáles?</label><input type="text" class="form-control" name="p63" placeholder=""></div>
 		<div class="form-group"><label for="p64">¿Tiene intereses claros por algunos objetos o actividades? Reitera en ellos de manera normal o exagerada?</label><input type="text" class="form-control" name="p64" placeholder=""></div>
 		<div class="form-group"><label for="p65">¿Tiene miedos muy intensos? Cuáles.</label><input type="text" class="form-control" name="p65" placeholder=""></div>
-		<div class="form-group"><label for="p66">¿Cómo son sus hábitos de sueño?</label><input type="text" class="form-control" name="p66" placeholder=""></div>
+		<div class="form-group"><label for="p66">¿Cómo son sus hábitos de sueno?</label><input type="text" class="form-control" name="p66" placeholder=""></div>
 
 		<h3>Historia Escolar</h3>
 		
-		<div class="form-group"><label for="p71"> Inicio de escolaridad (año y establecimiento) </label><input type="text" class="form-control" name="p71" placeholder=""></div>
-		<div class="form-group"><label for="p72">Otros establecimientos posteriores (año y lugar)</label><input type="text" class="form-control" name="p72" placeholder=""></div>
+		<div class="form-group"><label for="p71"> Inicio de escolaridad (ano y establecimiento) </label><input type="text" class="form-control" name="p71" placeholder=""></div>
+		<div class="form-group"><label for="p72">Otros establecimientos posteriores (ano y lugar)</label><input type="text" class="form-control" name="p72" placeholder=""></div>
 		<div class="form-group"><label for="p73">Establecimiento actual</label><input type="text" class="form-control" name="p73" placeholder=""></div>
 		<div class="form-group"><label for="p74">Nivel / Curso actual</label><input type="text" class="form-control" name="p74" placeholder=""></div>
 		<div class="form-group"><label for="p75">Repitencias</label><input type="text" class="form-control" name="p75" placeholder=""></div>

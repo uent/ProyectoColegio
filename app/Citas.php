@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support\Facades\DB;
+
 class Citas extends Model
 {
   protected $table = 'Citas'; #?????
@@ -19,8 +21,8 @@ class Citas extends Model
     $Citas = new Citas;
 
     $Citas->idOrden = $datos["idOrden"];
-    $Citas->idProfesional = $datos["idUsuario"];
-    $Citas->idNiño = $datos["idNiño"];
+    $Citas->idProfesional = $datos["id"];
+    $Citas->idNino = $datos["idNino"];
     $Citas->tipoEvaluacion = $datos["tipoCita"];
     $Citas->estado = $datos["estado"];
     $Citas->idOrden = $datos["idOrden"];
@@ -33,6 +35,15 @@ class Citas extends Model
 
     return Citas::select('idCitas')->where('idOrden','=', $datos["idOrden"])
             ->where('tipoEvaluacion','=', $datos["tipoCita"])->first();
+  }
+
+  public static function ObtenerDatosCitasPendientesPorIdUsuario($idUsuario)
+  {
+    return DB::table('citas')
+          ->join('Ninos', 'citas.idNino', '=', 'Ninos.idNino')
+          ->where('citas.estado', '=', "pendiente")
+          ->select('Ninos.idNino','citas.idcitas','Ninos.nombre','Ninos.apellidos','Ninos.rut')
+          ->get();
   }
 
 }

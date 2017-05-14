@@ -8,17 +8,17 @@ class Perfil_Usuario extends Model
 {
   protected $table = 'Perfil_Usuario';
 
-    public static function agregar($idUsuario,$idPerfil)
+    public static function agregar($id,$idPerfil)
     {
 
       $datos = Perfil_Usuario::select('idPerfilUsuario')->where
-                                ('idUsuario','=', $idUsuario)
+                                ('id','=', $id)
                                 ->where('idPerfil', '=', $idPerfil)->get();
       if(count($datos) == 0)
       {
         $PerfilUsuario = new Perfil_Usuario;
 
-        $PerfilUsuario->idUsuario = $idUsuario;
+        $PerfilUsuario->id = $id;
         $PerfilUsuario->idPerfil  = $idPerfil;
 
         $PerfilUsuario->save();
