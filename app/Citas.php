@@ -16,6 +16,12 @@ class Citas extends Model
 
   }
 
+  public static function BuscarPorId($idCita)
+  {
+    return Citas::select()->where('idCitas','=', $idCita)->first();
+
+  }
+
   public static function InsertarCita($datos)
   {
     $Citas = new Citas;
@@ -42,8 +48,15 @@ class Citas extends Model
     return DB::table('citas')
           ->join('Ninos', 'citas.idNino', '=', 'Ninos.idNino')
           ->where('citas.estado', '=', "pendiente")
-          ->select('Ninos.idNino','citas.idcitas','Ninos.nombre','Ninos.apellidos','Ninos.rut')
+          ->select('Ninos.idNino','citas.idcitas','citas.tipoEvaluacion','Ninos.nombre','Ninos.apellidos','Ninos.rut')
           ->get();
+  }
+
+  public static function agregarReporte($idCita,$reporte)
+  {
+      Citas::where('idCitas', $idCita)->update(['reporte' => $reporte]);
+
+      Citas::where('idCitas', $idCita)->update(['estado' => "completado"]);
   }
 
 }

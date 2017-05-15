@@ -54,16 +54,10 @@ class Ninos extends Model
     public static function MostrarDatosNino($id)
     {
 
-      $tablas = Ninos::select('idNino','Nombre','Rut')->where('idNino', '=',$id)->first();
+      $tablas = Ninos::select()->where('idNino', '=',$id)->first();
 
-      if(count($tablas) == 0) $datos = NULL;
-      else
-      {
-          $datos["id"] = $tablas->idNino;
-          $datos["nombre"] = $tablas->Nombre;
-          $datos["rut"] = $tablas->Rut;
-      }
-      return $datos;
+      if($tablas == null) $datos = NULL;
+      else return $tablas;
     }
 
     public static function ExisteRut($Rut)

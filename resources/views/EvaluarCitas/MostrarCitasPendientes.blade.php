@@ -3,10 +3,10 @@
 @section('cabecera')
 <?php
 #cabecera
+
 echo "Citas pendientes";
 ?>
 @endsection
-
 
 @section('content1')
 
@@ -15,121 +15,68 @@ echo "Citas pendientes";
 @endsection
 
 @section('content2')
-<?php
-  if($Citas != NULL) //datos nino
-  {
-    echo
-    "<table class='table'>
-          <thead>
-            <tr>
 
-              <th>
-                Estado
-              </th>
-              <th>
-                Tipo evaluacion
+        <?php
+          if($datos != NULL)
+          {
+            echo
+            "<table class='table'>
+                  <thead>
+                    <tr>
+                      <th>
+                        Nombre
+                      </th>
+                      <th>
+                        Apellidos
+                      </th>
+                      <th>
+                        Rut
+                      </th>
+                      <th>
+                        Tipo Evaluacion
+                      </th>
+                      <th>
+                        Accion
+                      </th>
+                    </tr>
+                  </thead>";
+            foreach ($datos as $arreglo)
+            {
+                echo "
 
-              </th>
-              <th>
-                Accion
-              </th>
-
-            </tr>
-          </thead>";
-
-          $tiposCitas[0] = "Fonoaudiologo";
-          $tiposCitas[1] = "Neurolinguístico";
-
-
-    foreach($tiposCitas as $t)
-    {
-
-      if($Citas[$t]["existe"] == false) //no asignada
-      {
-
-
-      echo "
-
-          <tbody>
-          <tr>
-
-      <td>";
-        echo "No asignada";
-        echo
-      "</td>
-      <td>";
-        echo $t;
-      echo
-      "</td>
-
-      <td>
-    <form method='get' action='crear_cita'>
-      <input type='submit' name='action' value='asignar Cita'/>
-      <input type='hidden' name='tipoCita' value='",$t,"'/>
-      <input type='hidden' name='idOrden' value='",$Citas["datos"]["idOrden"],"'/>
-    </form>
-
-      </td>
-    </tr>";
-
-    }
-  }
-
-  echo "</tbody>
-              </table>";
-
-              foreach($tiposCitas as $t)
-              {
-                $flag = true;
-                if($Citas[$t]["existe"] == true) //cita asignada
-                {
-                  if($flag == true)
-                  {
-                    $flag = false;
-                    echo
-                    "<table class='table'>
-                          <thead>
-                            <tr>
-
-                              <th>
-                                Estado
-                              </th>
-                              <th>
-                                Tipo evaluacion
-
-                              </th>
-
-
-                            </tr>
-                          </thead>
-
-                        <tbody>
-                      <tr>";
-
-                        }
-                  echo "
-
-
+             				<tbody>
+                    <tr>
                 <td>";
-                  echo $Citas[$t]["estado"];
+                  echo $arreglo["nombre"];
                   echo
                 "</td>
                 <td>";
-                  echo $t;
+                  echo $arreglo["apellidos"];
                 echo
                 "</td>
-
-                <td>
-
+                <td>";
+                  echo $arreglo["rut"];
+                echo
+                "</td>
+                <td>";
+                echo $arreglo["tipoEvaluacion"];
+              echo
+              "</td>
+              <td>
+              <form method='get' action='Llenar_informe_cita'>
+                <input type='submit' name='action' value='Ver Datos'/>
+                <input type='hidden' name='idCita' value='",$arreglo["idcitas"],"'/>
+              </form>
 
                 </td>
               </tr>";
-              }
 
             }
-            echo "</tbody>
+            echo " </tbody>
                         </table>";
-  } else echo "No hay datos";
+          } else echo "No hay datos";
 
- ?>
+         ?>
+
+
 @endsection

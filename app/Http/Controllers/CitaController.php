@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use View;
 
 use App\User;
+use App\Ninos;
 use App\Citas;
 use App\OrdenDiagnostico;
 use Illuminate\Support\Facades\Auth;
@@ -57,7 +58,7 @@ class CitaController extends Controller
 
     }
 
-    public function CitasPendientesPorUsuario()
+    public function CitasPendientesPorUsuarioActual()
     {
       $id = Auth::user()->id;
 
@@ -73,11 +74,56 @@ class CitaController extends Controller
           $datos[$i]["nombre"] = $c->nombre;
           $datos[$i]["apellidos"] = $c->apellidos;
           $datos[$i]["rut"] = $c->rut;
+          $datos[$i]["tipoEvaluacion"] = $c->tipoEvaluacion;
         }
       }
 
-      return View::make('EvaluarCitas.MostrarCitasendientes')->with("datos",$data );
+      return View::make('EvaluarCitas.MostrarCitasPendientes')->with("datos",$datos );
 
     }
 
+    public function FormularioInformeCita()
+    {
+      $this->validate(request(), [
+          'idCita' => ['required', 'max:200'],
+      ]);
+
+      $data = request()->all();
+
+      $cita = Citas::BuscarPorId($data["idCita"]);
+
+      if($cita != null)
+      {
+        $niño = Ninos::MostrarDatosNino($cita->idNino);
+
+        if($niño != null)
+        {
+          $datos["idCita"] = $cita->idCitas;
+          $datos["idNino"] = $cita->idNino;
+          $datos["comentarios"] = $cita->comentarios;
+          $datos["estado"] = $cita->estado;
+          $datos["nombre"] = $niño["nombre"];
+          $datos["apellidos"] = $niño["apellidos"];
+          $datos["rut"] = $niño["rut"];
+
+          return View::make('EvaluarCitas.FormularioCita')->with("datos",$datos);
+        }
+      }
+      echo "No existe cita";
+    }
+
+    public function AgregarReporteCita()
+    {
+
+      $this->validate(request(), [
+          'idCita' => ['required', 'max:200'],
+          'reporte' => ['required', 'max:10000'],
+      ]);
+
+      $data = request()->all();
+
+      Citas::agregarReporte($data["idCita"],$data["reporte"]);
+
+      return redirect()->to('Mi_menu');
+    }
 }
