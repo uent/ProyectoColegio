@@ -1,20 +1,14 @@
-@extends('Layout\Layout')
+@extends ('layouts.admin')
 
-@section('cabecera')
-<?php
-#cabecera
 
-echo "Ninos pendientes para contacto";
-?>
+
+@section('nombrePagina')
+ Pendientes
 @endsection
 
-@section('content1')
 
 
-
-@endsection
-
-@section('content2')
+@section('contenido')
 
         <?php
           if($datos != NULL)

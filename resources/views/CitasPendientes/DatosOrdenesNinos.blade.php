@@ -1,21 +1,15 @@
-@extends('Layout\Layout')
 
-@section('cabecera')
-<?php
-echo "Asignacion de citas";
-?>
-@endsection
-
-
-@section('content1')
+@extends ('layouts.admin')
 
 
 
+@section('nombrePagina')
+  Asignar Citas Datos
 @endsection
 
 
 
-@section('content2')
+@section('contenido')
 
         <?php
           $flag = true;

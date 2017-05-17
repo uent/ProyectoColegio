@@ -1,20 +1,15 @@
-@extends('Layout\Layout')
 
-@section('cabecera')
-<?php
-#cabecera
-echo "Ingreso solicitud de diagnostico";
-?>
+@extends ('layouts.admin')
+
+
+
+@section('nombrePagina')
+  Ingreso | Datos Tutor
 @endsection
 
 
-@section('content1')
 
-
-
-@endsection
-
-@section('content2')
+@section('contenido')
 <p> Datos Tutor <p>
 
 <form method="POST" action="{{ url('ingresar_tutor') }}" class="form">

@@ -1,20 +1,14 @@
-@extends('Layout\Layout')
+@extends ('layouts.admin')
 
-@section('cabecera')
-<?php
-#cabecera
 
-echo "Cita";
-?>
+
+@section('nombrePagina')
+  Formulario Citas
 @endsection
 
-@section('content1')
 
 
-
-@endsection
-
-@section('content2')
+@section('contenido')
 
 <div class="container-fluid">
 <div class="row">

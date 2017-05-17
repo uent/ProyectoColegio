@@ -1,22 +1,14 @@
-@extends('Layout\Layout')
+@extends ('layouts.admin')
 
-@section('cabecera')
-<?php
-#cabecera
-echo "Encuesta Coevaluacion Familiar";
-?>
+
+
+@section('nombrePagina')
+  Encuesta
 @endsection
 
 
-@section('content1')
 
-
-
-
-
-@endsection
-
-@section('content2')
+@section('contenido')
 <h2>Proceso de Coevaluacion Familiar</h2>
 <p>Estimada Familia
 Junto con saludarlos y agradeciendo su confianza les solicitamos completar este cuestionario con la mayor fidelidad posible. Su propósito es favorecer el proceso de evaluación que está por comenzar junto a su hijo/a.<p>

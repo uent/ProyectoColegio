@@ -1,22 +1,15 @@
-@extends('Layout\Layout')
 
-@section('cabecera')
-<?php
-echo "Datos de contacto del nino";
-?>
-@endsection
-
-
-@section('content1')
+@extends ('layouts.admin')
 
 
 
-
+@section('nombrePagina')
+  Asignar Citas | Crear
 @endsection
 
 
 
-@section('content2')
+@section('contenido')
 <?php
 
     echo

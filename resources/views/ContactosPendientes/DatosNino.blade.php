@@ -1,22 +1,14 @@
-@extends('Layout\Layout')
-
-@section('cabecera')
-<?php
-echo "Datos de contacto del nino";
-?>
-@endsection
-
-
-@section('content1')
+@extends ('layouts.admin')
 
 
 
-
+@section('nombrePagina')
+  Datos
 @endsection
 
 
 
-@section('content2')
+@section('contenido')
 <?php
   if($datos[0] != NULL) //datos nino
   {    echo

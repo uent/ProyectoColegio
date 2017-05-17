@@ -1,22 +1,14 @@
-@extends('Layout\Layout')
+@extends ('layouts.admin')
 
-@section('cabecera')
-<?php
-#cabecera
-echo "Ingreso de profesional";
-?>
+
+
+@section('nombrePagina')
+  Ingreso | Profesional
 @endsection
 
 
-@section('content1')
 
-
-
-
-
-@endsection
-
-@section('content2')
+@section('contenido')
 <p> Datos Profesional <p>
 
 <form method="POST" id="formulario" action="{{ url('crear_Profesional') }}" class="form">

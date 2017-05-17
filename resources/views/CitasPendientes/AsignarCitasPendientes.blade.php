@@ -1,22 +1,16 @@
-@extends('Layout\Layout')
 
-@section('cabecera')
-<?php
-echo "Asignar Citas del Nino";
-?>
-@endsection
-
-
-@section('content1')
+@extends ('layouts.admin')
 
 
 
-
+@section('nombrePagina')
+  Asignar Citas | Pendientes
 @endsection
 
 
 
-@section('content2')
+@section('contenido')
+
 <?php
   if($Citas != NULL) //datos nino
   {
