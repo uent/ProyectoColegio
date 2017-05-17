@@ -59,7 +59,7 @@ echo "Datos de contacto del nino";
       <form method='get' action='Cambiar_status_contacto'>
         <input type='hidden' name='prioridad' value='normal'/>
         <input type='checkbox' name='prioridad' value = 'alta' /> Caso de prioridad?
-        <input type='hidden' name='id' value='",$datos[0]["id"],"'/>
+        <input type='hidden' name='id' value='",$datos[0]["idNino"],"'/>
         <input type='submit' name='action' value='Ya fue contactado?'/>
       </form>
 

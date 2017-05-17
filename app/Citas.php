@@ -48,7 +48,7 @@ class Citas extends Model
     return DB::table('citas')
           ->join('Ninos', 'citas.idNino', '=', 'Ninos.idNino')
           ->where('citas.estado', '=', "pendiente")
-          ->select('Ninos.idNino','citas.idcitas','citas.tipoEvaluacion','Ninos.nombre','Ninos.apellidos','Ninos.rut')
+          ->select('Ninos.idNino','citas.idcitas','citas.tipoEvaluacion','citas.comentarios','Ninos.nombre','Ninos.apellidos','Ninos.rut')
           ->get();
   }
 

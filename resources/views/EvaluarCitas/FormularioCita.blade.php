@@ -41,11 +41,12 @@ echo "Cita";
   <?php  if($datos["comentarios"] != "")
   {
     echo"
-    <dt>",
-      $datos["comentarios"]
-    ,"</dt>
-    <dd>
-      Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+    <dt>
+      Comentarios
+    </dt>
+    <dd>";
+      echo $datos["comentarios"];
+      echo "
     </dd>";
   }?>
 

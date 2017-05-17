@@ -38,13 +38,13 @@ class CitaController extends Controller
           'dia' => ['required', 'max:200'],
           'tipoCita' => ['required', 'max:200'],
           'hora' => ['required', 'max:200'],
+          'comentarios' => ['required', 'max:200'],
           'idOrden' => ['required', 'max:200']
       ]);
 
       $data = request()->all();
-
+      echo $data["comentarios"];
       $data["estado"] = "pendiente";
-      $data["comentarios"] = "";
       $data["reporte"] = "";
 
       $aux = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
@@ -64,6 +64,8 @@ class CitaController extends Controller
 
       $citas = Citas::ObtenerDatosCitasPendientesPorIdUsuario($id);
 
+      $datos = null;
+
       if($citas != null)
       {
         $i=0;
@@ -78,7 +80,7 @@ class CitaController extends Controller
         }
       }
 
-      return View::make('EvaluarCitas.MostrarCitasPendientes')->with("datos",$datos );
+      return View::make('EvaluarCitas.MostrarCitasPendientes')->with("datos",$datos);
 
     }
 

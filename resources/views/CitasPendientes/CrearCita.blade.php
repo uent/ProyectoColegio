@@ -37,6 +37,9 @@ echo "Datos de contacto del nino";
                 Hora
               </th>
               <th>
+                Comentarios
+              </th>
+              <th>
                 Accion
               </th>
 
@@ -96,7 +99,14 @@ echo "Datos de contacto del nino";
       </select>";
         echo
       "</td>
-        <td>";
+        <td>
+        <div class='form-group'>
+
+          <input class='form-control' name='comentarios' form='formulario'>
+        </div>
+        </td>
+        <td>
+        ";
       if($datos["profesionales"] != NULL && $datos["datos"] != NULL)
       {
         echo
@@ -112,7 +122,8 @@ echo "Datos de contacto del nino";
 
 
         echo
-      "</td>
+      "
+      </td>
 
     </tr>";
     echo "</tbody>";
@@ -120,6 +131,6 @@ echo "Datos de contacto del nino";
             echo "</tbody>
                         </table>";
 
-
  ?>
+
 @endsection

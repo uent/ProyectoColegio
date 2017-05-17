@@ -54,6 +54,8 @@ Route::get('ingreso_profesional', 'UsuarioController@IngresoProfesional');
 
 Route::post('crear_Profesional', 'UsuarioController@CrearProfesional');
 
+Route::get('cosa', 'GoogleApiPCControler@login');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home'); //borrar??
