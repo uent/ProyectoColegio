@@ -82,7 +82,25 @@ class OrdenDiagnosticoController extends Controller
         return View::make('CitasPendientes.DatosOrdenesNinos')->with("datos", $ordenes);
     }
 
+    public function PdfReportes() {
 
+      $this->validate(request(), [
+          'idOrden' => ['required', 'max:200']
+      ]);
+
+    $data = request()->all();
+
+      $orden = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
+
+      if($orden["estado"] == "falta_anamnesis"){
+
+        $citas = Citas::obtenerCitasPorIdOrden($orden["idOrdenDiagnostico"]);
+
+        $pdf = PDF::loadView('pdf.reportes', ['citas' => $citas]);
+        return $pdf->stream('reporte');
+      }
+
+    }
 
 
 }
