@@ -7,36 +7,34 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 use App\Nino_tutor;
+use App\User;
 
 class Tutor extends Model
 {
   protected $table = 'Tutor'; #?????
 
-  public static function agregar($nombre,$apellido, $rut,$parentesco,$mail)
+  public static function agregar($nombre,$apellido,$parentesco, $rut,$mail)
   {
-    $tutor = new Tutor;
 
-    $tutor->nombre = $nombre;
-    $tutor->rut  = $rut;
-    $tutor->apellidos  = $apellido;
-    $tutor->parentesco  = $parentesco;
-    $tutor->mail  = $mail;
 
-    $tutor->save();
+    User::agregar($nombre,$apellido, $rut,"Tutor",$mail,rand());
+
+
   }
 
   public static function IdTutorPorRutTutor($rut)
   {
+    //falta verificar que sea tutor real!!!!!!!!!!!
     if ($rut != NULL)
     {
-      $tablas = Tutor::select('idTutor')->where('rut', '=',$rut)->get();
+      $tablas = User::select('id')->where('rut','=', $rut)->get();
 
       if(count($tablas) == 0) $datos = NULL;
       else
       {
         foreach ($tablas as $t)
         {
-          $datos = $t->idTutor;
+          $datos = $t->id;
           return $datos;
         }
       }
@@ -47,7 +45,7 @@ class Tutor extends Model
   public static function TutoresNinoPorIdNino($idNino) //retorna todos los tutores que tengan una relacion con un nino particular
   {
     $tutores = DB::table('Nino_tutor')
-            ->join('Tutor', 'Tutor.idTutor', '=', 'Nino_tutor.idTutor')
+            ->join('Users', 'Users.id', '=', 'Nino_tutor.idTutor')
             ->where('Nino_tutor.idNino', '=',$idNino)
             ->get();
 

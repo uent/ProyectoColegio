@@ -15,5 +15,3 @@
 		@endforeach
 	</table>
 </html>
-
-

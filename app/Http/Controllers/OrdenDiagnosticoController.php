@@ -84,21 +84,15 @@ class OrdenDiagnosticoController extends Controller
 
     public function PdfReportes() {
 
-      $this->validate(request(), [
-          'idOrden' => ['required', 'max:200']
-      ]);
+      $orden = OrdenDiagnostico::BuscarPorId(4);
 
-    $data = request()->all();
+        $citas = Citas::obtenerCitasPorIdOrden(4);
 
-      $orden = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
+        $view =  \View::make('pdf.reportes')->with("citas",$citas )->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream('invoice');
 
-      if($orden["estado"] == "falta_anamnesis"){
-
-        $citas = Citas::obtenerCitasPorIdOrden($orden["idOrdenDiagnostico"]);
-
-        $pdf = PDF::loadView('pdf.reportes', ['citas' => $citas]);
-        return $pdf->stream('reporte');
-      }
 
     }
 

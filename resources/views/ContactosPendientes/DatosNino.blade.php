@@ -94,7 +94,7 @@
           {
             echo
             "<td>";
-            echo $t->nombre;
+            echo $t->name;
             echo
             "</td>
             <td>";
@@ -102,7 +102,7 @@
             echo
             "</td>
             <td>";
-            echo $t->mail;
+            echo $t->email;
             echo
             "</td>";
           }

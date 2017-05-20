@@ -1,0 +1,187 @@
+#permisos
+InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
+VALUES ("IngresoNino",now(),now());
+
+InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
+VALUES ("AsignarCitas",now(),now());
+
+InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
+VALUES ("ingresoProfesional",now(),now());
+
+InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
+VALUES ("ContactosPendientes",now(),now());
+
+InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
+VALUES ("EvaluarCitas",now(),now());
+
+
+
+#perfiles
+
+#Tutor
+InSERT InTO Perfil (nombrePerfil,created_at,updated_at)
+VALUES ("Tutor",now(),now());
+
+InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
+VALUES ("123456789","TutorNombre","TutorApellido","tutormail@gmail.com",
+  "$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe","Tutor",now(),now());
+
+  InSERT InTO Perfil_Usuario (idPerfil,id,created_at,updated_at)
+  SELECT idPerfil, id, now(),now()
+  FROM Users
+  InnER JOIn Perfil
+  where  Perfil.nombrePerfil = "Tutor" and Users.email = "tutormail@gmail.com";
+
+
+
+#Fonoaudiologo
+InSERT InTO Perfil (nombrePerfil,created_at,updated_at)
+VALUES ("Fonoaudiologo",now(),now());
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "IngresoNino" and Perfil.nombrePerfil ="Fonoaudiologo";
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "EvaluarCitas" and Perfil.nombrePerfil ="Fonoaudiologo";
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "AsignarCitas" and Perfil.nombrePerfil ="Fonoaudiologo";
+
+
+InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
+VALUES ("123456789","FonoNombre","FonoApellido","fonomail@gmail.com",
+  "$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe","Fonoaudiologo",now(),now());
+
+  InSERT InTO Perfil_Usuario (idPerfil,id,created_at,updated_at)
+  SELECT idPerfil, id, now(),now()
+  FROM Users
+  InnER JOIn Perfil
+  where  Perfil.nombrePerfil = "Fonoaudiologo" and Users.email = "fonomail@gmail.com";
+
+
+
+
+#Neurolinguístico
+InSERT InTO Perfil (nombrePerfil,created_at,updated_at)
+VALUES ("Neurolinguístico",now(),now());
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "IngresoNino" and Perfil.nombrePerfil ="Neurolinguístico";
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "EvaluarCitas" and Perfil.nombrePerfil ="Neurolinguístico";
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "AsignarCitas" and Perfil.nombrePerfil ="Neurolinguístico";
+
+
+InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
+VALUES ("123456789","NeuroNombre","NeuroApellido","neuromail@gmail.com",
+  "$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe","Neurolinguístico",now(),now());
+
+  InSERT InTO Perfil_Usuario (idPerfil,id,created_at,updated_at)
+  SELECT idPerfil, id, now(),now()
+  FROM Users
+  InnER JOIn Perfil
+  where  Perfil.nombrePerfil = "Neurolinguístico" and Users.email = "neuromail@gmail.com";
+
+
+
+
+#Administrador
+InSERT InTO Perfil (nombrePerfil,created_at,updated_at)
+VALUES ("Administrador",now(),now());
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "IngresoNino" and Perfil.nombrePerfil ="Administrador";
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "IngresoProfesional" and Perfil.nombrePerfil ="Administrador";
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "AsignarCitas" and Perfil.nombrePerfil ="Administrador";
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "Contactospendientes" and Perfil.nombrePerfil ="Administrador";
+
+
+InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
+VALUES ("123456789","AdminNombre","AdminApellido","adminmail@gmail.com",
+  "$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe","Administrador",now(),now());
+
+  InSERT InTO Perfil_Usuario (idPerfil,id,created_at,updated_at)
+  SELECT idPerfil, id, now(),now()
+  FROM Users
+  InnER JOIn Perfil
+  where  Perfil.nombrePerfil = "Administrador" and Users.email = "adminmail@gmail.com";
+
+
+
+#Super Administrador
+InSERT InTO Perfil (nombrePerfil,created_at,updated_at)
+VALUES ("SuperAdministrador",now(),now());
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "IngresoNino" and Perfil.nombrePerfil ="SuperAdministrador";
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "IngresoProfesional" and Perfil.nombrePerfil ="SuperAdministrador";
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "AsignarCitas" and Perfil.nombrePerfil ="SuperAdministrador";
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "Contactospendientes" and Perfil.nombrePerfil ="SuperAdministrador";
+
+
+InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
+VALUES ("123456789","SuperNombre","SuperApellido","supermail@gmail.com",
+  "$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe","SuperAdministrador",now(),now());
+
+  InSERT InTO Perfil_Usuario (idPerfil,id,created_at,updated_at)
+  SELECT idPerfil, id, now(),now()
+  FROM Users
+  InnER JOIn Perfil
+  where  Perfil.nombrePerfil = "SuperAdministrador" and Users.email ="supermail@gmail.com";

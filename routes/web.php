@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => ['auth','ControlPermisos']], function() {
 
   Route::get('ingresar_nino', 'NinoController@pagCrear');
 
@@ -39,8 +39,13 @@ Route::group(['middleware' => 'auth'], function() {
 
   Route::post('Guardar_reporte', 'CitaController@AgregarReporteCita');
 
+
+
 });
 
+Route::get('ingreso_profesional', 'UsuarioController@IngresoProfesional');
+
+Route::post('crear_Profesional', 'UsuarioController@CrearProfesional');
 
 Route::get('/', function () {
     return view('Menu');
@@ -50,12 +55,16 @@ Route::get('Mi_menu', function () {
     return view('Menu');
 });
 
-Route::get('ingreso_profesional', 'UsuarioController@IngresoProfesional');
+Route::get('PantallaFaltaPermisos', function () {
+    return view('FaltaPermisos\FaltaPermisos');
+});
 
-Route::post('crear_Profesional', 'UsuarioController@CrearProfesional');
 
 Route::get('cosa', 'GoogleApiPCControler@login');
 
 Auth::routes();
+
+
+Route::get('pdf', 'OrdenDiagnosticoController@PdfReportes');
 
 Route::get('/home', 'HomeController@index')->name('home'); //borrar??
