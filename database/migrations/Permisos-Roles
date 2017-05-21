@@ -14,7 +14,8 @@ VALUES ("ContactosPendientes",now(),now());
 InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
 VALUES ("EvaluarCitas",now(),now());
 
-
+InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
+VALUES ("IngresoTutor",now(),now());
 
 #perfiles
 
@@ -134,6 +135,11 @@ FROM Permiso
 InnER JOIn Perfil
 where  Permiso.nombrePermiso = "Contactospendientes" and Perfil.nombrePerfil ="Administrador";
 
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "IngresoTutor" and Perfil.nombrePerfil ="Administrador";
 
 InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
 VALUES ("123456789","AdminNombre","AdminApellido","adminmail@gmail.com",
@@ -174,6 +180,13 @@ SELECT idPerfil, idPermiso, now(),now()
 FROM Permiso
 InnER JOIn Perfil
 where  Permiso.nombrePermiso = "Contactospendientes" and Perfil.nombrePerfil ="SuperAdministrador";
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "IngresoTutor" and Perfil.nombrePerfil ="SuperAdministrador";
+
 
 
 InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)

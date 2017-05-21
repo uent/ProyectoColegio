@@ -52,7 +52,7 @@ class OrdenDiagnosticoController extends Controller
           if($c["tipoEvaluacion"] == "Fonoaudiologo")
           {
             $statusCitas["Fonoaudiologo"]["existe"] = true;
-            $statusCitas["Fonoaudiologo"]["estado"] = $c->Estado;
+            $statusCitas["Fonoaudiologo"]["estado"] = $c->estado;
             $statusCitas["Fonoaudiologo"]["hora"] = $c->hora;
             $statusCitas["Fonoaudiologo"]["fecha"] = $c->fecha;
 
@@ -60,7 +60,7 @@ class OrdenDiagnosticoController extends Controller
           if($c["tipoEvaluacion"] == "Neurolinguístico")
           {
             $statusCitas["Neurolinguístico"]["existe"] = true;
-            $statusCitas["Neurolinguístico"]["estado"] = $c->Estado;
+            $statusCitas["Neurolinguístico"]["estado"] = $c->estado;
             $statusCitas["Neurolinguístico"]["hora"] = $c->hora;
             $statusCitas["Neurolinguístico"]["fecha"] = $c->fecha;
 

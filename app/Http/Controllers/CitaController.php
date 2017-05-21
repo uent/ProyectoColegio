@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use View;
+use Route;
 
 use App\User;
 use App\Ninos;
@@ -38,12 +39,14 @@ class CitaController extends Controller
           'dia' => ['required', 'max:200'],
           'tipoCita' => ['required', 'max:200'],
           'hora' => ['required', 'max:200'],
-          'comentarios' => ['required', 'max:200'],
+          'comentarios' => ['nullable', 'max:200'],
           'idOrden' => ['required', 'max:200']
       ]);
 
       $data = request()->all();
-      echo $data["comentarios"];
+
+      if($data["comentarios"] == null) $data["comentarios"] = "";
+
       $data["estado"] = "pendiente";
       $data["reporte"] = "";
 

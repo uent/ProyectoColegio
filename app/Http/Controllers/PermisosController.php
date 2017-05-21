@@ -9,7 +9,9 @@ class PermisosController extends Controller
 {
     public static function PermisoNecesarioRutas($peticion)
     {
-      //recibe una peticion de pantalla y retorna a que tipo de permiso corresponde
+      //recibe una peticion de pantalla en formato 'NinoController@MostrarNinosParaLlamar'
+      //y retorna a que tipo de permiso corresponde
+      //si retorna null es porque no se requiere ningun permiso en especial
 
       if('NinoController@pagCrear' == $peticion) return 'IngresoNino';
 
@@ -17,7 +19,7 @@ class PermisosController extends Controller
 
       if('NinoController@MostrarNinosParaLlamar' == $peticion) return 'ContactosPendientes';
 
-      if('TutorController@InsertarDatos' == $peticion) return null;
+      if('TutorController@InsertarDatos' == $peticion) return 'IngresoTutor';
 
       if('NinoController@Contactar' == $peticion) return 'ContactosPendientes';
 
@@ -35,14 +37,55 @@ class PermisosController extends Controller
 
       if('CitaController@FormularioInformeCita' == $peticion) return 'EvaluarCitas';
 
-      if('CitaController@AgregarReporteCita' == $peticion) return null;
+      if('CitaController@AgregarReporteCita' == $peticion) return 'EvaluarCitas';
+
+      if('UsuarioController@IngresoProfesional' == $peticion) return 'IngresoProfesional';
+
+      if('UsuarioController@CrearProfesional' == $peticion) return 'IngresoProfesional';
+
 
       return null;
     }
 
-    public static function VistasDisponiblesPorIdUsuario($idUsuario)
+
+
+
+    public static function VistasDisponiblesPorIdUsuario($id)
     {
-      //to do
+      //probablemente hay que optimizar esta funcion
+
+      if(PermisosController::VerificarAccesoPorIdUsuario(PermisosController::PermisoNecesarioRutas(
+              'NinoController@MostrarNinosParaLlamar'),$id))
+              {
+                $acceso['NinoController@MostrarNinosParaLlamar'] = true;
+              }else $acceso['NinoController@MostrarNinosParaLlamar'] = false;
+
+      if(PermisosController::VerificarAccesoPorIdUsuario(PermisosController::PermisoNecesarioRutas(
+              'NinoController@Crear'),$id))
+              {
+                $acceso['NinoController@Crear'] = true;
+              }else $acceso['NinoController@Crear'] = false;
+
+      if(PermisosController::VerificarAccesoPorIdUsuario(PermisosController::PermisoNecesarioRutas(
+              'OrdenDiagnosticoController@MostrarCitasPendientes'),$id))
+              {
+                $acceso['OrdenDiagnosticoController@MostrarCitasPendientes'] = true;
+              }else $acceso['OrdenDiagnosticoController@MostrarCitasPendientes'] = false;
+
+        if(PermisosController::VerificarAccesoPorIdUsuario(PermisosController::PermisoNecesarioRutas(
+              'CitaController@CitasPendientesPorUsuarioActual'),$id))
+              {
+              $acceso['CitaController@CitasPendientesPorUsuarioActual'] = true;
+              }else $acceso['CitaController@CitasPendientesPorUsuarioActual'] = false;
+
+        if(PermisosController::VerificarAccesoPorIdUsuario(PermisosController::PermisoNecesarioRutas(
+              'UsuarioController@IngresoProfesional'),$id))
+              {
+              $acceso['UsuarioController@IngresoProfesional'] = true;
+              }else $acceso['UsuarioController@IngresoProfesional'] = false;
+
+
+              return $acceso;
     }
 
     public static function VerificarAccesoPorIdUsuario($permisoNecesario,$idUsuario)
@@ -52,7 +95,6 @@ class PermisosController extends Controller
       {
         foreach($permisos as $p)
         {
-          //echo $p , "<br>";
           if($p == $permisoNecesario) return true;
         }
       }

@@ -23,16 +23,15 @@ class ControlPermisos
         $flag = true;
         while ($flag == true)
         {
-          $pos = strpos($peticion,92);
+          $pos = strpos($peticion,92);  //92 equivale al simbolo \
           if($pos == false)
           {
+            
             $flag = false;
 
             $peticion = substr ($peticion,  $pos);
 
           }else $peticion = substr ($peticion, 1 + $pos);
-
-
         }
 
         $permisoNecesario = PermisosController::PermisoNecesarioRutas($peticion);
