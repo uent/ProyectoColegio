@@ -47,16 +47,24 @@ class Citas extends Model
   {
     return DB::table('citas')
           ->join('Ninos', 'citas.idNino', '=', 'Ninos.idNino')
+          ->where('citas.idProfesional', '=', $idUsuario)
           ->where('citas.estado', '=', "pendiente")
-          ->select('Ninos.idNino','citas.idcitas','citas.tipoEvaluacion','citas.comentarios','Ninos.nombre','Ninos.apellidos','Ninos.rut')
+          ->select('Ninos.idNino','citas.idcitas','citas.tipoEvaluacion',
+          'citas.comentarios','Ninos.nombre','Ninos.apellidos','Ninos.rut')
           ->get();
   }
 
   public static function agregarReporte($idCita,$reporte)
   {
-      Citas::where('idCitas', $idCita)->update(['reporte' => $reporte]);
+      Citas::where('idCitas',"=", $idCita)->update(['reporte' => $reporte]);
 
-      Citas::where('idCitas', $idCita)->update(['estado' => "completado"]);
+      Citas::where('idCitas',"=", $idCita)->update(['estado' => "completado"]);
+
+      $cita = Citas::BuscarPorId($idCita);
+
+      OrdenDiagnostico::ActualizarEstadoPorId($cita["idOrden"]);
+      
   }
+
 
 }

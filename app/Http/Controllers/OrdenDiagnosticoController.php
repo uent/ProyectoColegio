@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 
 use App\OrdenDiagnostico;
-
+use Validator;
 use View;
 use resources\views;
 
@@ -23,10 +23,7 @@ class OrdenDiagnosticoController extends Controller
 
     public function PantallaMostrarCitasNino() //muestra una pantalla con todas las citas faltantes
     {
-      $this->validate(request(), [
-          'idOrden' => ['required', 'max:200']
-      ]);
-
+      //recibe idOrden
     $data = request()->all();
 
       $orden = OrdenDiagnostico::BuscarPorId($data["idOrden"]);

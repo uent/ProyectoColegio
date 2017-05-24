@@ -6,6 +6,7 @@ use App\Ninos;
 use App\Nino_tutor;
 use App\Tutor;
 
+use Validator;
 use resources\views;
 
 use View;
@@ -32,14 +33,23 @@ class NinoController extends Controller
 
     public function Crear()
     {
-        $this->validate(request(), [
-            'Nombre' => ['required', 'max:200'],
-            'Apellidos' => ['required', 'max:200'],
-            'Rut' => ['required', 'max:200']
-        ]);
-
       $data = request()->all();
 
+      $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
+        'Nombre' => ['required', 'max:50'],
+        'Apellidos' => ['required', 'max:50'],
+        'Rut' => ['required','max:30']
+  	    ]);
+  	    $mensaje="";
+          if($validator->fails()){
+              foreach ($validator->errors()->all() as $message) {
+                  $mensaje=$mensaje.$message.'\n';
+              }
+              $json = response()->json(['estado'=>false,'mensaje'=>$mensaje]);
+
+              return response()->json(['estado'=>false,'mensaje'=>$mensaje]);
+          }
+      $data = request()->all();
 
       $resultado = Ninos::Agregar($data['Nombre'],$data['Apellidos'],$data['Rut']);
 
@@ -71,10 +81,7 @@ class NinoController extends Controller
 
     public function Contactar()
     {
-      $this->validate(request(), [
-          'id' => ['required', 'max:200']
-      ]);
-
+      //recibe id niño
       $data = request()->all();
 
       $datosNino = Ninos::MostrarDatosNino($data["id"]);
@@ -86,19 +93,25 @@ class NinoController extends Controller
 
       return View::make('ContactosPendientes.DatosNino')->with("datos", $datos);
 
-
-
     }
 
-    public function CambiarStatusContacto() //asigna el estado de contactado a un nino
-                                            //y crea la orden de diagnostico
+    public function CambiarStatusContacto() //asigna el estado de contactado a un nino                                            //y crea la orden de diagnostico
     {
-      $this->validate(request(), [
-          'id' => ['required', 'max:200'],
-          'prioridad' => ['required', 'max:200']
-      ]);
-
       $data = request()->all();
+      $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
+        'prioridad' => ['required', 'max:10']
+  	    ]);
+  	    $mensaje="";
+          if($validator->fails()){
+              foreach ($validator->errors()->all() as $message) {
+                  $mensaje=$mensaje.$message.'\n';
+              }
+              $json = response()->json(['estado'=>false,'mensaje'=>$mensaje]);
+
+              return response()->json(['estado'=>false,'mensaje'=>$mensaje]);
+          }
+      //recibe id niño y la prioridad de la orden
+
 
       if($data["prioridad"] == "alta") $prioridad = "alta";
       else $prioridad = "normal";

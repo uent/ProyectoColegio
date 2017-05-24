@@ -85,26 +85,60 @@ class OrdenDiagnostico extends Model
             $statusCitas["Neurolinguístico"] = 1;
           }
 
-          //procedera a sumar los valores del arreglo anterior
-          //si la suma es igual a la cantidad de tipos diferentes para las citas
-          //se procedera a cambiar el estado de la orden a evaluando
-          $i = 0;
-          foreach($statusCitas as $sc)
-          {
-            $i = $i + $sc;
-          }
-          if($i == 2)
-          {
 
-            $orden = OrdenDiagnostico::where('idOrdenDiagnostico', $idOrden)
+        }
+        //procedera a sumar los valores del arreglo anterior
+        //si la suma es igual a la cantidad de tipos diferentes para las citas
+        //se procedera a cambiar el estado de la orden a evaluando
+        $i = 0;
+        foreach($statusCitas as $sc)
+        {
+          $i = $i + $sc;
+        }
+        if($i == 2)
+        {
+          $orden = OrdenDiagnostico::where('idOrdenDiagnostico', $idOrden)
           ->update(['estado' => "evaluando"]);
 
-            OrdenDiagnostico::ActualizarEstadoPorId($idOrden);
-          }
+          //llama a este mismo metodo para verificar si se necesita un nuevo
+          //cambio de estado
+          OrdenDiagnostico::ActualizarEstadoPorId($idOrden);
         }
       }
+
+      if($orden["estado"] == "evaluando")
+      {
+        $citas = Citas::obtenerCitasPorIdOrden($idOrden);
+
+        $i=0;
+
+        foreach($citas as $c)
+        {
+          //se busca las condiciones necesarias para cambiar el estado de
+          //"evaluando" a "falta_anamnesis"
+          //se busca que todas las citas esten en estado "completado"
+
+          if($c["estado"] == "completado")
+          {
+            $i++;
+          }
+        }
+
+        //si la suma es igual a la cantidad de tipos diferentes para las citas
+        //se procedera a cambiar el estado de la orden a "falta_anamnesis"
+
+        if($i == 2)
+        {
+          $orden = OrdenDiagnostico::where('idOrdenDiagnostico', $idOrden)
+          ->update(['estado' => "falta_anamnesis"]);
+
+          //llama a este mismo metodo para verificar si se necesita un nuevo
+          //cambio de estado
+          OrdenDiagnostico::ActualizarEstadoPorId($idOrden);
+      }
+
+
       //aqui van los otros condicionales para cambiar el estado de ordenDiagnostico
-
-
     }
+  }
 }

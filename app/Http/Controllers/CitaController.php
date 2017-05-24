@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use View;
 use Route;
-
+use Validator;
 use App\User;
 use App\Ninos;
 use App\Citas;
@@ -18,12 +18,22 @@ class CitaController extends Controller
 {
     public function PantallaAsignarCitasNino()
     {
-      $this->validate(request(), [
-          'tipoCita' => ['required', 'max:200'],
-          'idOrden' => ['required', 'max:200']
-      ]);
+      $data["datos"] = request()->all();
 
-    $data["datos"] = request()->all();
+      $validator=Validator::make($data["datos"], [//reglas de validacion de los campos del formulario
+        'tipoCita' => ['required', 'max:30'],
+        ]);
+        $mensaje="";
+          if($validator->fails()){
+              foreach ($validator->errors()->all() as $message) {
+                  $mensaje=$mensaje.$message.'\n';
+              }
+              $json = response()->json(['estado'=>false,'mensaje'=>$mensaje]);
+
+              return response()->json(['estado'=>false,'mensaje'=>$mensaje]);
+          }
+    //recibe idOrden y tipoCita
+
 
     $data["profesionales"] = User::BuscarProfesionalesPorTipoCita($data["datos"]["tipoCita"]);
 
@@ -34,16 +44,26 @@ class CitaController extends Controller
 
     public function InsertarCita()
     {
-      $this->validate(request(), [
-          'id' => ['required', 'max:200'],
-          'dia' => ['required', 'max:200'],
-          'tipoCita' => ['required', 'max:200'],
-          'hora' => ['required', 'max:200'],
-          'comentarios' => ['nullable', 'max:200'],
-          'idOrden' => ['required', 'max:200']
-      ]);
-
       $data = request()->all();
+
+      $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
+        'dia' => ['required', 'max:30'],
+        'tipoCita' => ['required', 'max:30'],
+        'hora' => ['required', 'max:30'],
+        'comentarios' => ['nullable', 'max:400'],
+        ]);
+        $mensaje="";
+          if($validator->fails()){
+              foreach ($validator->errors()->all() as $message) {
+                  $mensaje=$mensaje.$message.'\n';
+              }
+              $json = response()->json(['estado'=>false,'mensaje'=>$mensaje]);
+
+              return response()->json(['estado'=>false,'mensaje'=>$mensaje]);
+          }
+      //recibe un id??, dia, tipoCita, hora, comentarios, idOrden
+
+
 
       if($data["comentarios"] == null) $data["comentarios"] = "";
 
@@ -66,7 +86,7 @@ class CitaController extends Controller
       $id = Auth::user()->id;
 
       $citas = Citas::ObtenerDatosCitasPendientesPorIdUsuario($id);
-
+  
       $datos = null;
 
       if($citas != null)
@@ -80,6 +100,7 @@ class CitaController extends Controller
           $datos[$i]["apellidos"] = $c->apellidos;
           $datos[$i]["rut"] = $c->rut;
           $datos[$i]["tipoEvaluacion"] = $c->tipoEvaluacion;
+          $i++;
         }
       }
 
@@ -89,10 +110,8 @@ class CitaController extends Controller
 
     public function FormularioInformeCita()
     {
-      $this->validate(request(), [
-          'idCita' => ['required', 'max:200'],
-      ]);
 
+      //recibe id cita
       $data = request()->all();
 
       $cita = Citas::BuscarPorId($data["idCita"]);
@@ -119,13 +138,21 @@ class CitaController extends Controller
 
     public function AgregarReporteCita()
     {
-
-      $this->validate(request(), [
-          'idCita' => ['required', 'max:200'],
-          'reporte' => ['required', 'max:10000'],
-      ]);
-
       $data = request()->all();
+      $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
+        'reporte' => ['required', 'max:10000'],
+        ]);
+        $mensaje="";
+          if($validator->fails()){
+              foreach ($validator->errors()->all() as $message) {
+                  $mensaje=$mensaje.$message.'\n';
+              }
+              $json = response()->json(['estado'=>false,'mensaje'=>$mensaje]);
+
+              return response()->json(['estado'=>false,'mensaje'=>$mensaje]);
+          }
+      //recibe idCitas y reporte
+
 
       Citas::agregarReporte($data["idCita"],$data["reporte"]);
 

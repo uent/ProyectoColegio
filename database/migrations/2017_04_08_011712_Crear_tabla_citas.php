@@ -24,13 +24,13 @@ class CrearTablaCitas extends Migration
             $table->integer('idNino')->unsigned();
             $table->foreign('idNino')
             ->references('idNino')->on('Ninos');
-            $table->string('tipoEvaluacion',45);
+            $table->string('tipoEvaluacion',30);
             $table->string('estado',45);
             //"completado" o "pendiente"
-            $table->string('hora',45);
-            $table->string('comentarios',45);
-            $table->string('fecha',45);
-            $table->string('reporte',5000);
+            $table->string('hora',30);
+            $table->string('comentarios',400);
+            $table->string('fecha',30);
+            $table->string('reporte',10000);
             $table->timestamps();
 
         });

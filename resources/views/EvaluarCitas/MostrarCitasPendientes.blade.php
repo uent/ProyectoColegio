@@ -13,6 +13,7 @@
         <?php
           if($datos != NULL)
           {
+          
             echo
             "<table class='table'>
                   <thead>

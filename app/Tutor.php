@@ -13,7 +13,7 @@ class Tutor extends Model
 {
   protected $table = 'Tutor'; #?????
 
-  public static function agregar($nombre,$apellido,$parentesco, $rut,$mail)
+  public static function agregar($nombre,$apellido, $rut,$mail)
   {
 
 

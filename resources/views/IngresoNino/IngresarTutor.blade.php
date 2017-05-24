@@ -34,14 +34,14 @@
 			</label>
 				<input name="Rut" class="form-control" placeholder="Rut">
 		</div>
-
+<!--
     <div class="form-group">
 			<label for="exampleInputEmail1">
 				Parentesco    //cambiar a un combobox!!!!
 			</label>
 				<input name="Parentesco" class="form-control" placeholder="Parentesco">
 		</div>
-
+-->
     <div class="form-group">
       <label for="exampleInputEmail1">
         Mail

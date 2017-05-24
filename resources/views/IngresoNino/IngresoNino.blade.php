@@ -11,6 +11,43 @@
 
 @section('contenido')
 <p> Ingrese los datos del niño o niña <p>
+<?php
+  if(isset($validaciones) != null)
+  echo
+    "<div class='container-fluid'>
+    	<div class='row'>
+    		<div class='col-md-12'>
+    			<ul>
+    				<li>
+    					Lorem ipsum dolor sit amet
+    				</li>
+    				<li>
+    					Consectetur adipiscing elit
+    				</li>
+    				<li>
+    					Integer molestie lorem at massa
+    				</li>
+    				<li>
+    					Facilisis in pretium nisl aliquet
+    				</li>
+    				<li>
+    					Nulla volutpat aliquam velit
+    				</li>
+    				<li>
+    					Faucibus porta lacus fringilla vel
+    				</li>
+    				<li>
+    					Aenean sit amet erat nunc
+    				</li>
+    				<li>
+    					Eget porttitor lorem
+    				</li>
+    			</ul>
+    		</div>
+    	</div>
+    </div>";
+
+?>
 
 <form method="POST" action="{{ url('ingresar_nino') }}" class="form">
 		{!! csrf_field() !!}

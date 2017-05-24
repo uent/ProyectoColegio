@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use View;
-
+use Validator;
 use App\Perfil;
 use App\User;
 
@@ -20,15 +20,15 @@ class UsuarioController extends Controller
     public function CrearProfesional()
     {
         $this->validate(request(), [
-            'Nombre' => ['required', 'max:200'],
-            'Apellidos' => ['required', 'max:200'],
-            'Rut' => ['required', 'max:200'],
-            'Profesion' => ['required', 'max:200'],
-            'Email' => ['required', 'max:200'],
+            'Nombre' => ['required', 'max:50'],
+            'Apellidos' => ['required', 'max:50'],
+            'Rut' => ['required', 'max:30'],
+            'Profesion' => ['required', 'max:45'],
+            'Email' => ['required', 'max:60'],
             'Password' => ['required', 'max:200']
 
         ]);
-
+      // se recibe  Nombre, Apellidos,  Rut,  Profesion, Email, Password
       $data = request()->all();
 
       $resultado = User::Agregar($data['Nombre'],$data['Apellidos'],

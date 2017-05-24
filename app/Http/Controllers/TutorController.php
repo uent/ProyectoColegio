@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
 use Illuminate\Http\Request;
 use App\Nino_tutor;
 use App\Tutor;
@@ -12,22 +13,32 @@ class TutorController extends Controller
    //relacionado con un niño a travez de la tabla Nino_tutor
     public function InsertarDatos()
     {
-      $this->validate(request(), [
-          'Nombre' => ['required', 'max:200'],
-          'Apellidos' => ['required', 'max:200'],
-          'Rut' => ['required', 'max:200'],
-          'Parentesco' => ['required', 'max:200'],
-          'Mail' => ['required', 'max:200'],
-          'idNino' => ['required', 'max:200']
-      ]);
-
       $data = request()->all();
+
+      $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
+        'Nombre' => ['required', 'max:50'],
+        'Apellidos' => ['required', 'max:50'],
+        'Rut' => ['required', 'max:30'],
+        'Mail' => ['required', 'max:60'],
+        ]);
+        $mensaje="";
+          if($validator->fails()){
+              foreach ($validator->errors()->all() as $message) {
+                  $mensaje=$mensaje.$message.'\n';
+              }
+              $json = response()->json(['estado'=>false,'mensaje'=>$mensaje]);
+
+              return response()->json(['estado'=>false,'mensaje'=>$mensaje]);
+          }
+      //recibe  Nombre, Apellidos, Rut, Parentesco, Mail, idNino
+
+
 
       if($idTutor = Tutor::IdTutorPorRutTutor($data["Rut"]) == NULL)  //comprueba de que no exista un tutor con el mismo rut
       {
-        Tutor::agregar($data["Nombre"],$data["Apellidos"],$data["Parentesco"],
+        Tutor::agregar($data["Nombre"],$data["Apellidos"],
         $data["Rut"] ,$data["Mail"]);
-        
+
         $idTutor = Tutor::IdTutorPorRutTutor($data["Rut"]);
 
         Nino_tutor::agregar($data["idNino"], $idTutor);
