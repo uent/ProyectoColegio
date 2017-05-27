@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\OrdenDiagnostico;
 use Validator;
 use View;
-use resources\views;
+
 
 use App\Citas;
 
@@ -79,17 +79,15 @@ class OrdenDiagnosticoController extends Controller
         return View::make('CitasPendientes.DatosOrdenesNinos')->with("datos", $ordenes);
     }
 
-    public function PdfReportes() {
 
-      $orden = OrdenDiagnostico::BuscarPorId(4);
 
-        $citas = Citas::obtenerCitasPorIdOrden(4);
 
-        $view =  \View::make('pdf.reportes')->with("citas",$citas )->render();
-        $pdf = \App::make('dompdf.wrapper');
-        $pdf->loadHTML($view);
-        return $pdf->stream('invoice');
+    public function OrdenesPendientesDeAnamnesis()
+    {
+      $datos = OrdenDiagnostico::OrdenesPendientesDeAnamnesisMasDatosNinos();
 
+
+      return View::make('AnamnesisPendientes.AnamnesisPendientes')->with("datos",$datos);
 
     }
 

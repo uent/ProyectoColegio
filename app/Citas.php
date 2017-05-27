@@ -56,14 +56,15 @@ class Citas extends Model
 
   public static function agregarReporte($idCita,$reporte)
   {
-      Citas::where('idCitas',"=", $idCita)->update(['reporte' => $reporte]);
 
       Citas::where('idCitas',"=", $idCita)->update(['estado' => "completado"]);
 
-      $cita = Citas::BuscarPorId($idCita);
+      $datoCita = Citas::BuscarPorId($idCita);
 
-      OrdenDiagnostico::ActualizarEstadoPorId($cita["idOrden"]);
-      
+      Anamnesis::ActualizarReportePorIdOrden(
+                      $datoCita["idOrden"],$datoCita["tipoEvaluacion"],$reporte);
+
+      OrdenDiagnostico::ActualizarEstadoPorId($datoCita["idOrden"]);
   }
 
 

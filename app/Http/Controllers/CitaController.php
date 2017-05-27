@@ -86,7 +86,7 @@ class CitaController extends Controller
       $id = Auth::user()->id;
 
       $citas = Citas::ObtenerDatosCitasPendientesPorIdUsuario($id);
-  
+
       $datos = null;
 
       if($citas != null)
@@ -111,7 +111,7 @@ class CitaController extends Controller
     public function FormularioInformeCita()
     {
 
-      //recibe id cita
+      //recibe idCita
       $data = request()->all();
 
       $cita = Citas::BuscarPorId($data["idCita"]);

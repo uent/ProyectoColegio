@@ -35,11 +35,19 @@
 		</div>
 
 
+
 		<div class="form-group">
-			<label for="exampleInputEmail1">
-				Profesion	 //quizas tenga mas de una profesion
+
+			<label >
+				Profesion
 			</label>
-				<input name="Profesion" class="form-control" placeholder="Profesion"></input>
+      <td>
+        
+        <select name='Profesion' form='formulario'>
+            <option value='Administrador'>Administrador</option>
+            <option value='Fonoaudiologo'>Fonoaudiologo</option>
+            <option value='Neurolinguístico'Ad>Neurolinguístico</option>
+        </select>;
 		</div>
 
 		<div class="form-group">

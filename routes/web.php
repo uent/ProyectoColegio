@@ -2,7 +2,7 @@
 
 Route::group(['middleware' => ['auth','ControlPermisos']], function() {
   //los anteriores middleware validan que se este logeado
-  //y que se tengan los permisos nesecarios para accesar
+  //y que se tengan los permisos necesarios para accesar
   Route::get('ingresar_nino', 'NinoController@pagCrear');
   Route::get('contactos_pendientes', 'NinoController@MostrarNinosParaLlamar');
   Route::post('ingresar_nino', 'NinoController@Crear');
@@ -18,6 +18,9 @@ Route::group(['middleware' => ['auth','ControlPermisos']], function() {
   Route::post('Guardar_reporte', 'CitaController@AgregarReporteCita');
   Route::get('ingreso_profesional', 'UsuarioController@IngresoProfesional');
   Route::post('crear_Profesional', 'UsuarioController@CrearProfesional');
+  Route::get('pantalla_generar_anamnesis', 'AnamnesisController@OrdenesPendientesDeAnamnesis');
+  Route::get('generar_anamnesis_nino', 'AnamnesisController@FormularioAnamnesis');
+
 });
 
 Route::get('/', function () {

@@ -23,16 +23,6 @@ if(Auth::check())
 		</li>";
 	}
 
-	if($permisos['UsuarioController@IngresoProfesional'])
-	{
-		echo
-		"	<li class='droplink'>
-				<form name=formIngresoProfesional action='ingreso_profesional' method='get'></form>
-				<a class='waves-effect waves-button' onclick='document.formIngresoProfesional.submit();return false'>
-			    <span class='menu-icon icon-login'></span><p>Ingresar Profesional</p></a>
-			</li>";
-	}
-
 	if($permisos['NinoController@Crear'])
 	{
 		echo
@@ -53,16 +43,6 @@ if(Auth::check())
 		</li>";
 	}
 
-	if($permisos['UsuarioController@IngresoProfesional'])
-	{
-		echo
-		"<li class='droplink'>
-			<form name=formIngresoProfesional action='ingreso_profesional' method='get'></form>
-			<a class='waves-effect waves-button' onclick='document.formIngresoProfesional.submit();return false'>
-		    <span class='menu-icon icon-login'></span><p>Ingresar Profesional</p></a>
-		</li>";
-	}
-
 	if($permisos['CitaController@CitasPendientesPorUsuarioActual'])
 	{
 		echo
@@ -71,8 +51,27 @@ if(Auth::check())
 				<a class='waves-effect waves-button' onclick='document.CitasPendientesProfesional.submit();return false'>
 			    <span class='menu-icon icon-pin'></span><p>Evaluar Citas</p></a>
 			</li>";
-	}
+		}
 
+		if($permisos['AnamnesisController@OrdenesPendientesDeAnamnesis'])
+		{
+			echo
+			"<li class='droplink'>
+				<form name=formGenerarAnamnesis action='pantalla_generar_anamnesis' method='get'></form>
+				<a class='waves-effect waves-button' onclick='document.formGenerarAnamnesis.submit();return false'>
+			    <span class='menu-icon icon-login'></span><p>Generar Anamnesis</p></a>
+			</li>";
+		}
+
+		if($permisos['UsuarioController@IngresoProfesional'])
+		{
+			echo
+			"<li class='droplink'>
+				<form name=formIngresoProfesional action='ingreso_profesional' method='get'></form>
+				<a class='waves-effect waves-button' onclick='document.formIngresoProfesional.submit();return false'>
+			    <span class='menu-icon icon-login'></span><p>Ingresar Profesional</p></a>
+			</li>";
+		}
 
 }else
 {echo "	<li class='droplink'>

@@ -43,6 +43,9 @@ class PermisosController extends Controller
 
       if('UsuarioController@CrearProfesional' == $peticion) return 'IngresoProfesional';
 
+      if('AnamnesisController@OrdenesPendientesDeAnamnesis' == $peticion) return 'GenerarAnamnesis';
+
+      if('AnamnesisController@FormularioAnamnesis' == $peticion) return 'GenerarAnamnesis';
 
       return null;
     }
@@ -83,6 +86,12 @@ class PermisosController extends Controller
               {
               $acceso['UsuarioController@IngresoProfesional'] = true;
               }else $acceso['UsuarioController@IngresoProfesional'] = false;
+
+        if(PermisosController::VerificarAccesoPorIdUsuario(PermisosController::PermisoNecesarioRutas(
+              'AnamnesisController@OrdenesPendientesDeAnamnesis'),$id))
+              {
+              $acceso['AnamnesisController@OrdenesPendientesDeAnamnesis'] = true;
+              }else $acceso['AnamnesisController@OrdenesPendientesDeAnamnesis'] = false;
 
 
               return $acceso;

@@ -60,6 +60,39 @@ class OrdenDiagnostico extends Model
     }
 
 
+    public static function OrdenesPendientesDeAnamnesisMasDatosNinos()
+    {
+
+      $tablas = DB::table('OrdenDiagnostico')
+            ->join('Ninos', 'OrdenDiagnostico.idNino', '=', 'Ninos.idNino')
+            ->where('OrdenDiagnostico.estado', '=', "falta_anamnesis")
+            ->select('Ninos.idNino','OrdenDiagnostico.idOrdenDiagnostico','OrdenDiagnostico.prioridad','Ninos.nombre','Ninos.apellidos','Ninos.rut')
+            ->get();
+
+        $i = 0;
+
+        if(count($tablas) == 0) $datos = NULL;
+        else
+        {
+          foreach ($tablas as $t)
+          {
+            $datos[$i]["idNino"] = $t->idNino;
+            $datos[$i]["idOrden"] = $t->idOrdenDiagnostico;
+            $datos[$i]["nombre"] = $t->nombre;
+            $datos[$i]["apellidos"] = $t->apellidos;
+            $datos[$i]["rut"] = $t->rut;
+            $datos[$i]["prioridad"] = $t->prioridad;
+
+            $i++;
+          }
+        }
+
+        return $datos;
+
+
+    }
+
+
     public static function ActualizarEstadoPorId($idOrden)
     {
 

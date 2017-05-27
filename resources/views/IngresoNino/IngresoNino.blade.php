@@ -12,6 +12,7 @@
 @section('contenido')
 <p> Ingrese los datos del niño o niña <p>
 <?php
+  //borrar si no se logra validad asi!!!!!
   if(isset($validaciones) != null)
   echo
     "<div class='container-fluid'>

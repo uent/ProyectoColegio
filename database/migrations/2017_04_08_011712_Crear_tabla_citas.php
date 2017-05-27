@@ -30,7 +30,7 @@ class CrearTablaCitas extends Migration
             $table->string('hora',30);
             $table->string('comentarios',400);
             $table->string('fecha',30);
-            $table->string('reporte',10000);
+          
             $table->timestamps();
 
         });
