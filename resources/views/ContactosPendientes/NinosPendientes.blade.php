@@ -3,50 +3,47 @@
 
 
 @section('nombrePagina')
- Pendientes
+Contactos Pendientes
 @endsection
 
 
 
 @section('contenido')
-
-        <?php
+<div class="col-md-12">
+  <div class="panel panel-white">
+      <div class="panel-heading clearfix">
+          <h4 class="panel-title">Contactos Pendientes</h4>
+      </div>
+      <div class="panel-body">
+          <?php
           if($datos != NULL)
           {
             echo
-            "<table class='table'>
-                  <thead>
-                    <tr>
-                      <th>
-                        Nombre
-                      </th>
-                      <th>
-                        Apellidos
-                      </th>
-                      <th>
-                        Rut
-                      </th>
-                      <th>
-                        Accion
-                      </th>
-                    </tr>
-                  </thead>";
+            "<table class='table table-striped'>
+              <thead>
+                  <tr>
+                      <th>Nombre</th>
+                      <th>Tutor</th>
+                      <th>Fecha de Solicitud</th>
+                      <th> </th>
+                  </tr>
+              </thead>";
             foreach ($datos as $arreglo)
             {
                 echo "
 
-             				<tbody>
+                    <tbody>
                     <tr>
                 <td>";
-                  echo $arreglo["nombre"];
+                  echo $arreglo["nombre"]." ".$arreglo["apellidos"];
                   echo
                 "</td>
                 <td>";
-                  echo $arreglo["apellidos"];
+                  echo "AQUI VA EL TUTOR ";
                 echo
                 "</td>
                 <td>";
-                  echo $arreglo["rut"];
+                  echo "Aqui va la fecha de solicitud";
                 echo
                 "</td>
                 <td>
@@ -65,5 +62,12 @@
 
          ?>
 
+
+          </div>
+      </div>
+  </div>
+
+
+        
 
 @endsection
