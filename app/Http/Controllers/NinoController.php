@@ -25,7 +25,17 @@ class NinoController extends Controller
     {
       if(Ninos::ExisteRut($data["Rut"]) == false)
       {
-        return Ninos::agregar($data['Nombre'],$data['Apellidos'],$data['Rut']);
+        return Ninos::agregar($data['Nombre'],
+                              $data['Apellidos'],
+                              $data['Rut'],
+                              $data['Edad'],
+                              $data['Diagnostico'],
+                              $data['Derivación'],
+                              $data['Solicitud'],
+                              $data['Escolaridad'],
+                              $data['Observaciones']
+
+          );
 
       }
       else return NULL;
@@ -38,7 +48,15 @@ class NinoController extends Controller
       $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
         'Nombre' => ['required', 'max:50'],
         'Apellidos' => ['required', 'max:50'],
-        'Rut' => ['required','max:30']
+        'Rut' => ['required','max:30'],
+        'Edad' => ['numeric'],
+        'Diagnostico' => ['max:1000'],
+        'Derivación' => ['max:50'],
+        'Solicitud' => ['max:50'],
+        'Escolaridad' => ['max:30'],
+        'Observaciones' => ['max:1000']
+
+
   	    ]);
   	    $mensaje="";
           if($validator->fails()){
@@ -51,7 +69,16 @@ class NinoController extends Controller
           }
       $data = request()->all();
 
-      $resultado = Ninos::Agregar($data['Nombre'],$data['Apellidos'],$data['Rut']);
+      $resultado = Ninos::Agregar($data['Nombre'],
+                                  $data['Apellidos'],
+                                  $data['Rut'],
+                                  $data['Edad'],
+                                  $data['Diagnostico'],
+                                  $data['Derivacion'],
+                                  $data['Solicitud'],
+                                  $data['Escolaridad'],
+                                  $data['Observaciones']
+                                  );
 
       if ($resultado == true)
       {
@@ -61,10 +88,10 @@ class NinoController extends Controller
         {
           return View::make('IngresoNino.IngresarTutor')->with("idNino",$idNino );
         }
-        else echo "El nino ya tiene tutor";
+        else echo "Niño/a ya tiene tutor asignado";
 
       }
-      else echo "ya existe nino";
+      else echo "Niño/a ya se encuentra en el sistema";
 
       //return redirect()->to('Mi_menu');
 

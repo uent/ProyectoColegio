@@ -20,6 +20,9 @@ class TutorController extends Controller
         'Apellidos' => ['required', 'max:50'],
         'Rut' => ['required', 'max:30'],
         'Mail' => ['required', 'max:60'],
+        'Telefono_fijo' => ['numeric'],
+        'Celular' => ['numeric'],
+        'Parentesco' => ['max: 30']
         ]);
         $mensaje="";
           if($validator->fails()){
@@ -36,8 +39,14 @@ class TutorController extends Controller
 
       if($idTutor = Tutor::IdTutorPorRutTutor($data["Rut"]) == NULL)  //comprueba de que no exista un tutor con el mismo rut
       {
-        Tutor::agregar($data["Nombre"],$data["Apellidos"],
-        $data["Rut"] ,$data["Mail"]);
+        Tutor::agregar( $data["Nombre"],
+                        $data["Apellidos"],
+                        $data["Rut"],
+                        $data["Mail"],
+                        $data['Telefono_fijo'],
+                        $data['Celular'],
+                        $data['Parentesco']
+                        );
 
         $idTutor = Tutor::IdTutorPorRutTutor($data["Rut"]);
 
@@ -45,7 +54,7 @@ class TutorController extends Controller
 
         return redirect()->to('Mi_menu');
       }
-      else echo "ya existe tutor";
+      else echo "El tutor ya se encuentra ingresado en el sistema";
 
 
 
