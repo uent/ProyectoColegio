@@ -17,7 +17,7 @@ class Ninos extends Model
       $nino->nombre = $nombre;
       $nino->rut  = $rut;
       $nino->apellidos  = $apellido;
-      $nino->contactado = false;  //se asigna false para que se considere "no contactado"
+
 
       $nino->save();
 
@@ -29,7 +29,10 @@ class Ninos extends Model
     {
       //Retorna una lista de ninos que cumplan la condicion de que aun no sean contactados
 
-      $tablas = Ninos::select('idNino','nombre','apellidos','rut')->where('contactado','=', 'false')->get();
+      $tablas =   DB::table('Ninos')
+                    ->join('OrdenDiagnostico','OrdenDiagnostico.idNino','=','Ninos.idNino')
+                    ->where('OrdenDiagnostico.estado','=','contacto_pendiente')
+                    ->select('Ninos.idNino','nombre','apellidos','rut','OrdenDiagnostico.created_at')->get();
 
       $i = 0;
       if(count($tablas) == 0) $datos = NULL;
@@ -38,11 +41,15 @@ class Ninos extends Model
 
         foreach ($tablas as $t)
         {
+          $datosTutor = Tutor::UnTutorPorNinoPorIdNino($t->idNino);
 
           $datos[$i]["id"] = $t->idNino;
           $datos[$i]["nombre"] = $t->nombre;
           $datos[$i]["apellidos"] = $t->apellidos;
           $datos[$i]["rut"] = $t->rut;
+          $datos[$i]["fecha"] = $t->created_at;
+          $datos[$i]["nombreTutor"] = $datosTutor->name;
+          $datos[$i]["apellidosTutor"] = $datosTutor->apellidos;
           $i++;
         }
       }

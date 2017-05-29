@@ -32,14 +32,15 @@
 											<input name="Telefono_fijo" class="form-control" placeholder="Teléfono Fijo" required autofocus><br>
 											<input name="Celular" class="form-control" placeholder="Celular" required autofocus>
 											<p class="help-block"><small>Parentesco</small></p>
+
 											<select multiple class="form-control" name="Parentesco" placeholder="Parentesco" required autofocus>
-								                <option>Padre/Madre</option>
-								                <option>Abuelo/Abuela</option>
-								                <option>Tío/Tía</option>
-								                <option>Tutor Legal</option>
-								                <option>Otro</option>
+								                <option value = 'Padre/Madre'> Padre/Madre</option>
+								                <option value = 'Abuelo/Abuela'> Abuelo/Abuela</option>
+								                <option value = 'Tío/Tía'> Tío/Tía</option>
+								                <option value = 'Tutor Legal'>Tutor Legal</option>
+								                <option value = 'Otro'>Otro</option>
 								            </select><br>
-								             
+
 										    <input type="hidden" name="idNino" class="form-control" value="<?php echo $idNino;?>"><br>
 
 										<button type="submit" onClick="this.form.submit(); this.disabled=true; this.value='Sending…'; " class="btn btn-primary">Enviar</button>
@@ -49,6 +50,6 @@
                         </div>
                     </div><!-- Row -->
                 </div><!-- Main Wrapper -->
-                
+
             </div><!-- Page Inner -->
 @endsection

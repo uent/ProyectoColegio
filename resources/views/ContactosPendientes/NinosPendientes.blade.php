@@ -39,11 +39,11 @@ Contactos Pendientes
                   echo
                 "</td>
                 <td>";
-                  echo "AQUI VA EL TUTOR ";
+                  echo $arreglo["nombreTutor"]." ".$arreglo["apellidosTutor"];
                 echo
                 "</td>
                 <td>";
-                  echo "Aqui va la fecha de solicitud";
+                  echo $arreglo["fecha"];
                 echo
                 "</td>
                 <td>
@@ -68,6 +68,6 @@ Contactos Pendientes
   </div>
 
 
-        
+
 
 @endsection

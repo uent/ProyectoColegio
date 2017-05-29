@@ -20,9 +20,9 @@ class TutorController extends Controller
         'Apellidos' => ['required', 'max:50'],
         'Rut' => ['required', 'max:30'],
         'Mail' => ['required', 'max:60'],
-        'Telefono_fijo' => ['numeric'],
-        'Celular' => ['numeric'],
-        'Parentesco' => ['max: 30']
+        'Telefono_fijo' => ['required'],//numeric
+        'Celular' => ['required'],//numeric
+        'Parentesco' => ['required','max: 30']
         ]);
         $mensaje="";
           if($validator->fails()){

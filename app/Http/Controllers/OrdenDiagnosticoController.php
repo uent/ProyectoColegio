@@ -8,16 +8,17 @@ use Illuminate\Http\Request;
 use App\OrdenDiagnostico;
 use Validator;
 use View;
-
-
 use App\Citas;
 
 class OrdenDiagnosticoController extends Controller
 {
 
-    public static Function NuevaOrden($idNino,$prioridad)  //crea una nueva tabla diagnostico para el id del nino recibido
+    public static Function NuevaOrden($idNino,$prioridad,
+          $Diagnostico,$Derivacion,$Solicitud,$Escolaridad,$Observaciones)
+          //crea una nueva tabla diagnostico para el id del nino recibido
     {
-      OrdenDiagnostico::crear($idNino,$prioridad);
+      OrdenDiagnostico::crear($idNino,$prioridad,
+            $Diagnostico,$Derivacion,$Solicitud,$Escolaridad,$Observaciones);
 
     }
 

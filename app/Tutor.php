@@ -53,5 +53,16 @@ class Tutor extends Model
     else return NULL;
   }
 
+  public static function UnTutorPorNinoPorIdNino($idNino) //retorna todos los tutores que tengan una relacion con un nino particular
+  {
+    $tutores = DB::table('Nino_tutor')
+            ->join('Users', 'Users.id', '=', 'Nino_tutor.idTutor')
+            ->where('Nino_tutor.idNino', '=',$idNino)
+            ->first();
+
+    if($tutores != NULL) return $tutores;
+    else return NULL;
+  }
+
 
 }

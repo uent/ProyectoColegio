@@ -5,10 +5,9 @@ namespace App\Http\Controllers;
 use App\Ninos;
 use App\Nino_tutor;
 use App\Tutor;
-
+use App\OrdenDiagnostico;
 use Validator;
 use resources\views;
-
 use View;
 
 use Illuminate\Http\Request;
@@ -34,7 +33,6 @@ class NinoController extends Controller
                               $data['Solicitud'],
                               $data['Escolaridad'],
                               $data['Observaciones']
-
           );
 
       }
@@ -49,41 +47,41 @@ class NinoController extends Controller
         'Nombre' => ['required', 'max:50'],
         'Apellidos' => ['required', 'max:50'],
         'Rut' => ['required','max:30'],
-        'Edad' => ['numeric'],
+        'Edad' => ['required'],//numeric
         'Diagnostico' => ['max:1000'],
         'Derivación' => ['max:50'],
         'Solicitud' => ['max:50'],
         'Escolaridad' => ['max:30'],
         'Observaciones' => ['max:1000']
 
-
   	    ]);
-  	    $mensaje="";
-          if($validator->fails()){
-              foreach ($validator->errors()->all() as $message) {
-                  $mensaje=$mensaje.$message.'\n';
-              }
-              $json = response()->json(['estado'=>false,'mensaje'=>$mensaje]);
 
-              return response()->json(['estado'=>false,'mensaje'=>$mensaje]);
-          }
-      $data = request()->all();
+      if ($validator->fails())
+   {
+       return redirect()->back()->withErrors($validator->errors());
+   }
+
 
       $resultado = Ninos::Agregar($data['Nombre'],
                                   $data['Apellidos'],
                                   $data['Rut'],
-                                  $data['Edad'],
-                                  $data['Diagnostico'],
-                                  $data['Derivacion'],
-                                  $data['Solicitud'],
-                                  $data['Escolaridad'],
-                                  $data['Observaciones']
-                                  );
+                                  $data['Edad']);
 
       if ($resultado == true)
       {
+
         $idNino = Ninos::BuscarPorRut($data['Rut']);
+
+        OrdenDiagnosticoController::NuevaOrden($idNino,
+                                          "",
+                                          $data['Diagnostico'],
+                                          $data['Derivacion'],
+                                          $data['Solicitud'],
+                                          $data['Escolaridad'],
+                                          $data['Observaciones']);
+
         $idTutor = Nino_tutor::BuscarIdTutorPorIdNino($idNino);
+
         if($idTutor == NULL)
         {
           return View::make('IngresoNino.IngresarTutor')->with("idNino",$idNino );
@@ -115,15 +113,19 @@ class NinoController extends Controller
 
       $Tutores = Tutor::TutoresNinoPorIdNino($data["id"]);
 
+      $orden = OrdenDiagnostico::BuscarPorIdNino($data["id"]);
+
       $datos[0] = $datosNino;
       $datos[1] = $Tutores;
+      $datos[2] = $orden;
 
       return View::make('ContactosPendientes.DatosNino')->with("datos", $datos);
 
     }
 
-    public function CambiarStatusContacto() //asigna el estado de contactado a un nino                                            //y crea la orden de diagnostico
+    public function CambiarStatusContacto()
     {
+
       $data = request()->all();
       $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
         'prioridad' => ['required', 'max:10']
@@ -137,15 +139,11 @@ class NinoController extends Controller
 
               return response()->json(['estado'=>false,'mensaje'=>$mensaje]);
           }
-      //recibe id niño y la prioridad de la orden
+      //recibe prioridad, idNino y idOrden
 
+      OrdenDiagnostico::AsignarPrioridadPorIdOrden($data["idOrden"],$data["prioridad"]);
 
-      if($data["prioridad"] == "alta") $prioridad = "alta";
-      else $prioridad = "normal";
-
-      Ninos::CambiarStatusContacto($data["id"]);
-
-      OrdenDiagnosticoController::NuevaOrden($data["id"],$prioridad);
+      OrdenDiagnostico::ActualizarEstadoPorId($data["idOrden"]);
 
       return redirect()->to('Mi_menu');
     }

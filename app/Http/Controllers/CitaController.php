@@ -68,7 +68,7 @@ class CitaController extends Controller
       if($data["comentarios"] == null) $data["comentarios"] = "";
 
       $data["estado"] = "pendiente";
-      $data["reporte"] = "";
+      
 
       $aux = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
       $data["idNino"] = $aux["idNino"];

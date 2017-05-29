@@ -25,35 +25,36 @@
         <p class='text-center'>".$datos[0]["edad"]." años </p>
         <hr>
         <ul class='list-unstyled text-center'>
-            <li><p><i class='icon-folder m-r-xs'></i><b>Diagnostico:<b></p> ".$datos[0]["diagnostico"]."</li>                                        
+            <li><p><i class='icon-folder m-r-xs'></i><b>Diagnostico:<b></p> ".$datos[2]["diagnosticoProfesional"]."</li>
         </ul><hr>
         <ul class='list-unstyled text-center'>
-            <li><p><i class=' icon-grid m-r-xs'></i><b>Derivación:<b></p> ".$datos[0]["derivacion"]."</li>                                        
+            <li><p><i class=' icon-grid m-r-xs'></i><b>Derivación:<b></p> ".$datos[2]["derivacion"]."</li>
         </ul><hr>
         <ul class='list-unstyled text-center'>
-            <li><p><i class=' icon-docs m-r-xs'></i><b>Solicitud:<b></p> ".$datos[0]["solicitud"]."</li>                                        
+            <li><p><i class=' icon-docs m-r-xs'></i><b>Solicitud:<b></p> ".$datos[2]["solicitud"]."</li>
         </ul><hr>
         <ul class='list-unstyled text-center'>
-            <li><p><i class=' icon-notebook m-r-xs'></i><b>Escolaridad:<b></p> ".$datos[0]["escolaridad"]."</li>                                        
+            <li><p><i class=' icon-notebook m-r-xs'></i><b>Escolaridad:<b></p> ".$datos[2]["escolaridad"]."</li>
         </ul><hr>
         <form method='get' action='Cambiar_status_contacto'>
           <input type='hidden' name='prioridad' value='normal'/>
           <input type='checkbox' name='prioridad' value = 'alta' /> <h4>Caso de prioridad</h4>
-          <input type='hidden' name='id' value='".$datos[0]["observaciones"]."'/><br><br>
+          <input type='hidden' name='idNino' value='".$datos[0]["idNino"]."'/><br><br>
+          <input type='hidden' name='idOrden' value='".$datos[2]["idOrdenDiagnostico"]."'/><br><br>
           <button type='submit' name='action' class='btn btn-info btn-block'><i class='icon-plus m-r-xs'></i>CONTACTADO</button>
-          
-               
+
+
             </div>
         </div>
     </div>
     <div class='col-md-6'>
-        
+
         <div class='panel panel-white'>
             <div class='panel-heading'>
                 <div class='panel-title'>Observaciones</div>
             </div>
             <div class='panel-body'>
-                <textarea rows='6' cols='65'>".$datos[0]["Observaciones"]."</textarea>
+                <textarea rows='6' cols='65'>".$datos[2]["Observaciones"]."</textarea>
             </div>
         </div>
          </form>
@@ -76,13 +77,13 @@
             $t->name;
             $t->rut;
             $t->email;
-           
+
           }
         }
           echo
         "
 
-               
+
                 <h4 class='text-center m-t-lg'>".$t->name." ".$t->apellidos."</h4>
                 <p class='text-center'>".$t->rut."</p>
                 <hr>
@@ -92,11 +93,11 @@
                     <li><p><i class='icon-call-end m-r-xs'></i>"."AQUI VA EL TELEFONO"."</p></li>
                     <li><p><i class='icon-screen-tablet m-r-xs'></i>"."AQUI VA EL CELULAR"."</p></li>
                 </ul>
-                
+
             </div>
         </div>
     </div>
-    
+
 </div>
 </div>
 

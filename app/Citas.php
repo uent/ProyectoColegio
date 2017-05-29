@@ -35,7 +35,7 @@ class Citas extends Model
     $Citas->hora = $datos["hora"];
     $Citas->fecha = $datos["dia"];
     $Citas->comentarios = $datos["comentarios"];
-    $Citas->reporte = $datos["reporte"];
+  
 
     $Citas->save();
 

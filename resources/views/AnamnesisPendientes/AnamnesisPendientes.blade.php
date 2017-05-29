@@ -4,7 +4,7 @@
 
 
 @section('nombrePagina')
-  Generar Anamnesis | Pendientes
+  Generar Informe | Pendientes
 @endsection
 
 
@@ -50,7 +50,7 @@
 
       <td>
     <form method='get' action='generar_anamnesis_nino'>
-      <input type='submit' name='action' value='Generar anamnesis'/>
+      <input type='submit' name='action' value='Generar Anamnesis'/>
       <input type='hidden' name='idOrden' value='",$d["idOrden"],"'/>
     </form>
 

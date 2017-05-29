@@ -10,14 +10,19 @@ class OrdenDiagnostico extends Model
 {
   protected $table = 'OrdenDiagnostico';
 
-    public static function crear($idNino,$prioridad)
+    public static function crear($idNino,$prioridad,$Diagnostico,
+                                $Derivacion,$Solicitud,$Escolaridad,$Observaciones)
     {
       $orden = new OrdenDiagnostico;
 
       $orden->idNino = $idNino;
-      $orden->estado = "asignar";
+      $orden->estado = "contacto_pendiente";
       $orden->prioridad = $prioridad;
-      $orden->antecedentes = "";    //cambiar tipo dato
+      $orden->diagnosticoProfesional = $Diagnostico;
+      $orden->derivacion = $Derivacion;
+      $orden->solicitud = $Solicitud;
+      $orden->observaciones = $Escolaridad;
+      $orden->escolaridad = $Observaciones;
 
       $orden->save();
     }
@@ -45,6 +50,7 @@ class OrdenDiagnostico extends Model
             $datos[$i]["rut"] = $t->rut;
             $datos[$i]["prioridad"] = $t->prioridad;
 
+
             $i++;
           }
         }
@@ -59,6 +65,16 @@ class OrdenDiagnostico extends Model
       return OrdenDiagnostico::select()->where('idOrdenDiagnostico','=', $idOrden)->first();
     }
 
+    public static function AsignarPrioridadPorIdOrden($idOrden,$prioridad)
+    {
+      OrdenDiagnostico::where('idOrdenDiagnostico','=', $idOrden)
+      ->update(['prioridad' => $prioridad]);
+    }
+
+    public static function BuscarPorIdNino($idNiño)
+    {
+      return OrdenDiagnostico::select()->where('idNino','=', $idNiño)->first();
+    }
 
     public static function OrdenesPendientesDeAnamnesisMasDatosNinos()
     {
@@ -97,6 +113,14 @@ class OrdenDiagnostico extends Model
     {
 
       $orden = OrdenDiagnostico::BuscarPorId($idOrden);
+
+
+      if($orden["estado"] == "contacto_pendiente")
+      {
+        if($orden["prioridad"] != "")
+        $orden = OrdenDiagnostico::where('idOrdenDiagnostico', $idOrden)
+        ->update(['estado' => "asignar"]);
+      }
 
       if($orden["estado"] == "asignar")
       {

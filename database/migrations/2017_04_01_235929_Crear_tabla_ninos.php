@@ -18,7 +18,6 @@ class CrearTablaNinos extends Migration
           $table->string('nombre',50);
           $table->string('apellidos',50);
           $table->string('rut',30);
-          $table->boolean('contactado');  //
           //$table->char('dv');
           $table->timestamps();
 
