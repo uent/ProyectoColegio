@@ -183,8 +183,9 @@
                             <i class="icon-arrow-right"></i>
                         </a>
                     </div>
-                    <div class="logo-box">
-                        <a href="index.html" class="logo-text"><span>Colegio Altavida</span></a>
+                    <div class="logo-box" align="center">
+                        <img src="{{asset('images/altavida-logo.png')}}" style="width:65px;" >
+                        
                     </div><!-- Logo Box -->
                     <div class="search-button">
                         <a href="javascript:void(0);" class="show-search"><i class="icon-magnifier"></i></a>
@@ -381,7 +382,7 @@
                                           <?php echo
                                           "</form>
                                           <a class='waves-effect waves-button' onclick='document.login.submit();return false'>
-                                          <span class='user-name'>Login</span>
+                                          <span class='user-name'></span>
                                          <!-- <img class='img-circle avatar' src='assets/images/avatar1.png' width='40' height='40' alt=''>-->
                                       </a>";
 
