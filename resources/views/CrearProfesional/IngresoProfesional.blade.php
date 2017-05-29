@@ -9,64 +9,34 @@
 
 
 @section('contenido')
-<p> Datos Profesional <p>
-
-<form method="POST" id="formulario" action="{{ url('crear_Profesional') }}" class="form">
+<div class="col-md-12">
+    <div class="panel panel-white">
+        <div class="panel-heading clearfix">
+            <h4 class="panel-title">Ingreso datos nuevo profesional</h4>
+        </div>
+        <div class="panel-body">
+           <form method="POST" id="formulario" action="{{ url('crear_Profesional') }}" class="form">
 		{!! csrf_field() !!}
-		<div class="form-group">
-			<label for="exampleInputEmail1">
-				Nombre profesional
-			</label>
-				<input name="Nombre" class="form-control" placeholder="Nombre"></input>
-		</div>
-
-		<div class="form-group">
-			<label for="exampleInputEmail1">
-				Apellidos profesional
-			</label>
-				<input name="Apellidos" class="form-control" placeholder="Apellidos"></input>
-		</div>
-
-		<div class="form-group">
-			<label for="exampleInputEmail1">
-				Rut profesional
-			</label>
+		
+				<input name="Nombre" class="form-control" placeholder="Nombre"></input><br>
+				<input name="Apellidos" class="form-control" placeholder="Apellidos"></input><br>
 				<input name="Rut" class="form-control" placeholder="Rut"></input>
-		</div>
-
-
-
-		<div class="form-group">
-
-			<label >
-				Profesion
-			</label>
-      <td>
-        
-        <select name='Profesion' form='formulario'>
-            <option value='Administrador'>Administrador</option>
-            <option value='Fonoaudiologo'>Fonoaudiologo</option>
-            <option value='Neurolinguístico'Ad>Neurolinguístico</option>
-        </select>;
-		</div>
-
-		<div class="form-group">
-			<label for="exampleInputEmail1">
-				Email
-			</label>
-				<input name="Email" class="form-control" placeholder="Email"></input>
-		</div>
-
-
-<div class="form-group">
-	<label for="exampleInputEmail1">
-		Password
-	</label>
-		<input name="Password" class="form-control" placeholder="Password"></input>
+				<p class="help-block"><small>Profesión</small></p>
+				<select multiple class="form-control" name="Profesion" placeholder="Parentesco" required autofocus>
+	                <option value="Neurolinguístico">Neurolinguístico</option>
+	                <option value="Fonoaudiologo">Fonoaudiologo</option>
+	                <option value="Administrador">Administrador</option>
+	            </select><br><br>
+				<input name="Email" class="form-control" placeholder="Email"></input><br>
+				<input name="Password" class="form-control" placeholder="Password"></input><br>
+				<button type="submit"  onClick="this.form.submit(); this.disabled=true; this.value='Sending…'; " class="btn btn-primary">Enviar</button>
+			</form>
+        </div>
+    </div>
 </div>
 
-		</div>
 
-		<button type="submit"  onClick="this.form.submit(); this.disabled=true; this.value='Sending…'; " class="btn btn-primary">Enviar</button>
-</form>
+
+
+
 @endsection
