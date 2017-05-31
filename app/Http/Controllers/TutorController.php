@@ -17,22 +17,17 @@ class TutorController extends Controller
 
       $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
         'Nombre' => ['required', 'max:50'],
-        'Apellidos' => ['required', 'max:50'],
-        'Rut' => ['required', 'max:30'],
-        'Mail' => ['required', 'max:60'],
-        'Telefono_fijo' => ['required'],//numeric
-        'Celular' => ['required'],//numeric
+        'Apellidos' => ['required', 'max:70'],
+        'Rut' => ['required','unique:Users,rut','max:30'],
+        'Mail' => ['required','unique:Users,email', 'max:60'],
+        'Telefono_fijo' => ['required','numeric'],
+        'Celular' => ['required','numeric'],
         'Parentesco' => ['required','max: 30']
         ]);
-        $mensaje="";
-          if($validator->fails()){
-              foreach ($validator->errors()->all() as $message) {
-                  $mensaje=$mensaje.$message.'\n';
-              }
-              $json = response()->json(['estado'=>false,'mensaje'=>$mensaje]);
-
-              return response()->json(['estado'=>false,'mensaje'=>$mensaje]);
-          }
+        if ($validator->fails())
+        {
+          return redirect()->back()->withErrors($validator->errors());
+        }
       //recibe  Nombre, Apellidos, Rut, Parentesco, Mail, idNino
 
 

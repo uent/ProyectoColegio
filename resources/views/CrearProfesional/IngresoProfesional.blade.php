@@ -9,6 +9,17 @@
 
 
 @section('contenido')
+
+@if (isset($errors) && count($errors) > 0)
+   <div class="alert alert-danger">
+       <ul>
+           @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+           @endforeach
+       </ul>
+   </div>
+@endif
+
 <div class="col-md-12">
     <div class="panel panel-white">
         <div class="panel-heading clearfix">
@@ -17,7 +28,7 @@
         <div class="panel-body">
            <form method="POST" id="formulario" action="{{ url('crear_Profesional') }}" class="form">
 		{!! csrf_field() !!}
-		
+
 				<input name="Nombre" class="form-control" placeholder="Nombre"></input><br>
 				<input name="Apellidos" class="form-control" placeholder="Apellidos"></input><br>
 				<input name="Rut" class="form-control" placeholder="Rut"></input>

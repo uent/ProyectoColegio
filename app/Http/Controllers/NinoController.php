@@ -45,14 +45,14 @@ class NinoController extends Controller
 
       $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
         'Nombre' => ['required', 'max:50'],
-        'Apellidos' => ['required', 'max:50'],
-        'Rut' => ['required','max:30'],
-        'Edad' => ['required'],//numeric
-        'Diagnostico' => ['max:1000'],
-        'Derivación' => ['max:50'],
-        'Solicitud' => ['max:50'],
-        'Escolaridad' => ['max:30'],
-        'Observaciones' => ['max:1000']
+        'Apellidos' => ['required', 'max:70'],
+        'Rut' => ['required','unique:Ninos,rut','max:30'],
+        'Edad' => ['required','numeric'],
+        'Diagnostico' => ['max:1000','nullable'],
+        'Derivación' => ['max:50','nullable'],
+        'Solicitud' => ['max:50','nullable'],
+        'Escolaridad' => ['max:30','nullable'],
+        'Observaciones' => ['max:1000','nullable']
 
   	    ]);
 
@@ -71,6 +71,13 @@ class NinoController extends Controller
       {
 
         $idNino = Ninos::BuscarPorRut($data['Rut']);
+
+
+        if($data['Diagnostico'] == null)$data['Diagnostico'] = "";
+        if($data['Derivacion'] == null)$data['Derivacion'] = "";
+        if($data['Solicitud'] == null)$data['Solicitud'] = "";
+        if($data['Escolaridad'] == null)$data['Escolaridad'] = "";
+        if($data['Observaciones'] == null)$data['Observaciones'] = "";
 
         OrdenDiagnosticoController::NuevaOrden($idNino,
                                           "",
@@ -130,15 +137,10 @@ class NinoController extends Controller
       $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
         'prioridad' => ['required', 'max:10']
   	    ]);
-  	    $mensaje="";
-          if($validator->fails()){
-              foreach ($validator->errors()->all() as $message) {
-                  $mensaje=$mensaje.$message.'\n';
-              }
-              $json = response()->json(['estado'=>false,'mensaje'=>$mensaje]);
-
-              return response()->json(['estado'=>false,'mensaje'=>$mensaje]);
-          }
+        if ($validator->fails())
+        {
+          return redirect()->back()->withErrors($validator->errors());
+        }
       //recibe prioridad, idNino y idOrden
 
       OrdenDiagnostico::AsignarPrioridadPorIdOrden($data["idOrden"],$data["prioridad"]);

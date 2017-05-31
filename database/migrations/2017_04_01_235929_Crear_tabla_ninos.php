@@ -16,7 +16,7 @@ class CrearTablaNinos extends Migration
         Schema::create('Ninos', function (Blueprint $table) {
           $table->increments('idNino');
           $table->string('nombre',50);
-          $table->string('apellidos',50);
+          $table->string('apellidos',70);
           $table->string('rut',30);
           //$table->char('dv');
           $table->timestamps();

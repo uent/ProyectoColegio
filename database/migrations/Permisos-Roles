@@ -31,7 +31,7 @@ InSERT InTO Perfil (nombrePerfil,created_at,updated_at)
 VALUES ("Tutor",now(),now());
 
 InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
-VALUES ("123456789","TutorNombre","TutorApellido","tutormail@gmail.com",
+VALUES ("12345","TutorNombre","TutorApellido","tutormail@gmail.com",
   "$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe","Tutor",now(),now());
 
   InSERT InTO Perfil_Usuario (idPerfil,id,created_at,updated_at)
@@ -66,7 +66,7 @@ where  Permiso.nombrePermiso = "AsignarCitas" and Perfil.nombrePerfil ="Fonoaudi
 
 
 InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
-VALUES ("123456789","FonoNombre","FonoApellido","fonomail@gmail.com",
+VALUES ("1236789","FonoNombre","FonoApellido","fonomail@gmail.com",
   "$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe","Fonoaudiologo",now(),now());
 
   InSERT InTO Perfil_Usuario (idPerfil,id,created_at,updated_at)
@@ -102,7 +102,7 @@ where  Permiso.nombrePermiso = "AsignarCitas" and Perfil.nombrePerfil ="Neurolin
 
 
 InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
-VALUES ("123456789","NeuroNombre","NeuroApellido","neuromail@gmail.com",
+VALUES ("1456789","NeuroNombre","NeuroApellido","neuromail@gmail.com",
   "$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe","Neurolinguístico",now(),now());
 
   InSERT InTO Perfil_Usuario (idPerfil,id,created_at,updated_at)
@@ -162,7 +162,7 @@ where  Permiso.nombrePermiso = "IngresoProfesional" and Perfil.nombrePerfil ="Ad
 
 
 InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
-VALUES ("123456789","AdminNombre","AdminApellido","adminmail@gmail.com",
+VALUES ("12789","AdminNombre","AdminApellido","adminmail@gmail.com",
   "$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe","Administrador",now(),now());
 
   InSERT InTO Perfil_Usuario (idPerfil,id,created_at,updated_at)
@@ -215,7 +215,7 @@ where  Permiso.nombrePermiso = "IngresoProfesional" and Perfil.nombrePerfil ="Su
 
 
 InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
-VALUES ("123456789","SuperNombre","SuperApellido","supermail@gmail.com",
+VALUES ("1234567893","SuperNombre","SuperApellido","supermail@gmail.com",
   "$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe","SuperAdministrador",now(),now());
 
   InSERT InTO Perfil_Usuario (idPerfil,id,created_at,updated_at)

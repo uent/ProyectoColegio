@@ -48,6 +48,7 @@ class Ninos extends Model
           $datos[$i]["apellidos"] = $t->apellidos;
           $datos[$i]["rut"] = $t->rut;
           $datos[$i]["fecha"] = $t->created_at;
+          var_dump($datosTutor);
           $datos[$i]["nombreTutor"] = $datosTutor->name;
           $datos[$i]["apellidosTutor"] = $datosTutor->apellidos;
           $i++;

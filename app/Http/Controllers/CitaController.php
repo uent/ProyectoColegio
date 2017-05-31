@@ -23,15 +23,11 @@ class CitaController extends Controller
       $validator=Validator::make($data["datos"], [//reglas de validacion de los campos del formulario
         'tipoCita' => ['required', 'max:30'],
         ]);
-        $mensaje="";
-          if($validator->fails()){
-              foreach ($validator->errors()->all() as $message) {
-                  $mensaje=$mensaje.$message.'\n';
-              }
-              $json = response()->json(['estado'=>false,'mensaje'=>$mensaje]);
 
-              return response()->json(['estado'=>false,'mensaje'=>$mensaje]);
-          }
+        if ($validator->fails())
+        {
+          return redirect()->back()->withErrors($validator->errors());
+        }
     //recibe idOrden y tipoCita
 
 
@@ -52,15 +48,10 @@ class CitaController extends Controller
         'hora' => ['required', 'max:30'],
         'comentarios' => ['nullable', 'max:400'],
         ]);
-        $mensaje="";
-          if($validator->fails()){
-              foreach ($validator->errors()->all() as $message) {
-                  $mensaje=$mensaje.$message.'\n';
-              }
-              $json = response()->json(['estado'=>false,'mensaje'=>$mensaje]);
-
-              return response()->json(['estado'=>false,'mensaje'=>$mensaje]);
-          }
+        if ($validator->fails())
+        {
+          return redirect()->back()->withErrors($validator->errors());
+        }
       //recibe un id??, dia, tipoCita, hora, comentarios, idOrden
 
 
@@ -68,7 +59,7 @@ class CitaController extends Controller
       if($data["comentarios"] == null) $data["comentarios"] = "";
 
       $data["estado"] = "pendiente";
-      
+
 
       $aux = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
       $data["idNino"] = $aux["idNino"];
@@ -142,15 +133,10 @@ class CitaController extends Controller
       $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
         'reporte' => ['required', 'max:10000'],
         ]);
-        $mensaje="";
-          if($validator->fails()){
-              foreach ($validator->errors()->all() as $message) {
-                  $mensaje=$mensaje.$message.'\n';
-              }
-              $json = response()->json(['estado'=>false,'mensaje'=>$mensaje]);
-
-              return response()->json(['estado'=>false,'mensaje'=>$mensaje]);
-          }
+        if ($validator->fails())
+        {
+          return redirect()->back()->withErrors($validator->errors());
+        }
       //recibe idCitas y reporte
 
 
