@@ -9,6 +9,8 @@ use App\OrdenDiagnostico;
 use Validator;
 use resources\views;
 use View;
+use Mail;
+use Session;
 
 use Illuminate\Http\Request;
 
@@ -142,10 +144,28 @@ class NinoController extends Controller
           return redirect()->back()->withErrors($validator->errors());
         }
       //recibe prioridad, idNino y idOrden
+        $mail= $data["correoTutor"];
+      $mensaje=null;
+      $datae = array(
+                  'name'=>('nombre'),
+                  'email'=>$mail,
+                  'subject'=>('Hola'),
+                  'msg'=>('nada')
+        );
+      $fromEmail='ad.altavida@gmail.com';
+      $fromName='Equipo Altavida';
+
+      Mail::send('contacto',$datae, function($message) use ($fromName, $fromEmail, $mail){
+          $message->to($mail,$fromName);
+          $message->from($fromEmail,$fromName);
+          $message->subject('Coevaluación Familiar');
+      });
+
 
       OrdenDiagnostico::AsignarPrioridadPorIdOrden($data["idOrden"],$data["prioridad"]);
 
       OrdenDiagnostico::ActualizarEstadoPorId($data["idOrden"]);
+
 
       return redirect()->to('Mi_menu');
     }

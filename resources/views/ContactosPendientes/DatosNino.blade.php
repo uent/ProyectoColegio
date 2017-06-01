@@ -22,7 +22,21 @@
 
 <?php
   if($datos[0] != NULL) //datos nino
-  {    echo"
+  {    
+
+    if($datos[1] != NULL) //datos tutores
+    {
+    
+          foreach ($datos[1] as $t)
+          {
+            $t->name;
+            $t->rut;
+            $t->email;
+
+          }
+        }
+          echo
+        "
 <div id='main-wrapper'>
 <div class='row'>
   <div class='col-md-6'>
@@ -52,8 +66,9 @@
           <input type='checkbox' name='prioridad' value = 'alta' /> <h4>Caso de prioridad</h4>
           <input type='hidden' name='idNino' value='".$datos[0]["idNino"]."'/><br><br>
           <input type='hidden' name='idOrden' value='".$datos[2]["idOrdenDiagnostico"]."'/><br><br>
+          <input type='hidden' name='correoTutor' value='".$t->email."'/><br><br>
           <button type='submit' name='action' class='btn btn-info btn-block'><i class='icon-plus m-r-xs'></i>CONTACTADO</button>
-
+          
 
             </div>
         </div>
@@ -69,30 +84,16 @@
             </div>
         </div>
          </form>
-        ";
-
-    if($datos[1] != NULL) //datos tutores
-    {
-    echo
-    "
+        
     </div>
     <div class='col-md-6'>
         <div class='user-profile-panel panel panel-white'>
             <div class='panel-heading'>
                 <div class='panel-title'>Tutor</div>
             </div>
-            <div class='panel-body'>";
+            <div class='panel-body'>
 
-          foreach ($datos[1] as $t)
-          {
-            $t->name;
-            $t->rut;
-            $t->email;
-
-          }
-        }
-          echo
-        "
+        
 
 
                 <h4 class='text-center m-t-lg'>".$t->name." ".$t->apellidos."</h4>
