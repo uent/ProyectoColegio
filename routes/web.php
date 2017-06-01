@@ -35,3 +35,7 @@ Route::get('PantallaFaltaPermisos', function () {
 Auth::routes();
 Route::get('pdf', 'OrdenDiagnosticoController@PdfReportes');
 Route::get('/home', 'HomeController@index')->name('home'); //borrar??
+
+Route::get('EncuestaCoevaluacionFamiliar', function () {
+    return view('Encuesta\EncuestaCoevaluacionFamiliar');
+  });
