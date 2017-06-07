@@ -1,16 +1,66 @@
 $(document).ready(function() {
     var $validator = $("#wizardForm").validate({
         rules: {
-            exampleInputName: {
+
+            inputNombre: {
                 required: true
             },
-            exampleInputName2: {
+
+            
+            inputApellido: {
                 required: true
 		    },
+            inputRut: {
+                required: true
+            },
+            InputNac: {
+                required: true,
+                date: true
+            },
+            inputCantHrmns: {
+                required: false,
+                number: true
+            },
+            inputLugarHrmns: {
+                required: false
+            },
+
+            inputTelefono: {
+                required: true,
+                number: true
+            },
+
+            motivo4profesional: {
+                required:function(element){
+                    return $("#motivo4").val()!="no";
+                }
+            },
+            motivo4anio: {
+                required:function(element){
+                    return $("#motivo4").val()!="no";
+                }
+            },
+            motivo4motivo: {
+                required:function(element){
+                    return $("#motivo4").val()!="no";
+                }
+            },
+            motivo4diagnostico: {
+                required:function(element){
+                    return $("#motivo4").val()!="no";
+                }
+            },
+            motivo4indicaciones: {
+                required:function(element){
+                    return $("#motivo4").val()!="no";
+                }
+            },
+
 		    exampleInputEmail: {
                 required: true,
                 email: true
 		    },
+
 		    exampleInputPassword1: {
                 required: true
 		    },
