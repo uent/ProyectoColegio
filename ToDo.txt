@@ -1,0 +1,16 @@
+-Menu de navegacion debe estar presente en todas las pantallas
+-generar perfil secretaria
+-secretaria solo debe tener acceso a ingresar nueva ficha
+-secretaria debe ver en su pantalla principal
+-unificar validaciones
+-reparar ingreso niño-tutor (Se puede ingresar un niño sin tener un tutor asignado)
+-parece que no se guarda el tipo de relacion niño-tutor???
+-mostrar campos faltantes en contactar tutor
+-no se guardan los campos telefono para tutor
+-validar que solo se ingresen mail donde corresponde
+-generar los perfiles y modificaciones que faltan
+-se ingresa el campo observaciones y escolaridad si ingresan al revez
+-verificar que los estados cambien correctamente, cumpliendo sus condiciones
+-
+-
+-
