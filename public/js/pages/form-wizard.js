@@ -70,11 +70,72 @@ $(document).ready(function() {
                     return $("#motivo5").val()!="no";
                 }
             },
+            contexto1: {
+                required: true
+            },
+            contexto2: {
+                required: true
+            },
+            antecedentes1: {
+                required: true
+            },
+            antecedentes2: {
+                required: true
+            },
+            antecedentes3: {
+                required: true
+            },
+            antecedentes3peso: {
+                required: true,
+                number: true
+            },
+            antecedentes3talla: {
+                required: true,
+                number: true
+            },
+            antecedentes3apgar: {
+                required: true,
+                number: true
+            },
+            antecedentes4: {
+                required: true
+            },
+            antecedentes5: {
+                required: true
+            },
 
 		    exampleInputEmail: {
                 required: true,
                 email: true
 		    },
+            desarrollo1: {
+                required: true
+            },
+            desarrollo2: {
+                required: true
+            },
+            desarrollo3: {
+                required: true
+            },
+            desarrollo4: {
+                required: true
+            },
+            desarrollo5: {
+                required: true
+            },
+            desarrollo6: {
+                required: true
+            },
+            desarrollo7: {
+                required: true
+            },
+            desarrollo8: {
+                required: true
+            },
+            monto_pago: {
+                required: true,
+                number: true
+            },
 
 		    exampleInputPassword1: {
                 required: true
