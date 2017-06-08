@@ -9,12 +9,15 @@ if(Auth::check())
 {
 	$id = Auth::user()->id;
 
+	$i = 0;
+
 	$permisos = PermisosController::VistasDisponiblesPorIdUsuario($id);
 
 	//var_dump($permisos);
 
 	if($permisos['OrdenDiagnosticoController@MostrarCitasPendientes'])
 	{
+
 		echo
 		"<li>
 			<form name=formAsignarCitas action='pantalla_asignar_Citas' method='get'></form>
@@ -25,6 +28,7 @@ if(Auth::check())
 
 	if($permisos['NinoController@Crear'])
 	{
+
 		echo
 		"<li class='droplink'>
 			<form name=formIngresaNino action='ingresar_nino' method='get'></form>
@@ -35,6 +39,7 @@ if(Auth::check())
 
 	if($permisos['NinoController@MostrarNinosParaLlamar'])
 	{
+
 		echo
 		"<li class='droplink'>
 			<form name=formContactosPendientes action='contactos_pendientes' method='get'></form>
@@ -45,6 +50,7 @@ if(Auth::check())
 
 	if($permisos['CitaController@CitasPendientesPorUsuarioActual'])
 	{
+
 		echo
 		"	<li class='droplink'>
 				<form name=CitasPendientesProfesional action='citas_pendientes_profesional' method='get'></form>
@@ -55,6 +61,7 @@ if(Auth::check())
 
 		if($permisos['AnamnesisController@OrdenesPendientesDeAnamnesis'])
 		{
+
 			echo
 			"<li class='droplink'>
 				<form name=formGenerarAnamnesis action='pantalla_generar_anamnesis' method='get'></form>
@@ -65,11 +72,22 @@ if(Auth::check())
 
 		if($permisos['UsuarioController@IngresoProfesional'])
 		{
+
 			echo
 			"<li class='droplink'>
 				<form name=formIngresoProfesional action='ingreso_profesional' method='get'></form>
 				<a class='waves-effect waves-button' onclick='document.formIngresoProfesional.submit();return false'>
 			    <span class='menu-icon icon-login'></span><p>Ingresar Profesional</p></a>
+			</li>";
+		}
+
+		if($permisos != null)
+		{
+			echo
+			"<li class='droplink'>
+				<form name=formEncuestaCoevaluacionFamiliar action='EncuestaCoevaluacionFamiliar' method='get'></form>
+				<a class='waves-effect waves-button' onclick='document.formEncuestaCoevaluacionFamiliar.submit();return false'>
+			    <span class='menu-icon icon-login'></span><p>Realizar encuesta coevaluacion familiar</p></a>
 			</li>";
 		}
 

@@ -38,7 +38,7 @@ VALUES ("12345","TutorNombre","TutorApellido","tutormail@gmail.com",
   SELECT idPerfil, id, now(),now()
   FROM Users
   InnER JOIn Perfil
-  where  Perfil.nombrePerfil = "Tutor" and Users.email = "tutormail@gmail.com";
+  where  Perfil.nombrePerfil = "Tutor" and Users.email = "tutormail@gmail.com";z
 
 
 
