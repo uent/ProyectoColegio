@@ -55,12 +55,12 @@ class Tutor extends Model
 
   public static function UnTutorPorNinoPorIdNino($idNino)
   {
-    $tutores = DB::table('Nino_tutor')
+    $tutor = DB::table('Nino_tutor')
             ->join('Users', 'Users.id', '=', 'Nino_tutor.idTutor')
             ->where('Nino_tutor.idNino', '=',$idNino)
             ->select()->first();
 
-    if($tutores != NULL) return $tutores;
+    if($tutor != NULL) return $tutor;
     else return NULL;
   }
 

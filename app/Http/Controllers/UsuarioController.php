@@ -20,7 +20,7 @@ class UsuarioController extends Controller
     public function CrearProfesional()
     {
 
-
+        $data = request()->all();
 
             $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
               'Nombre' => ['required', 'max:50'],

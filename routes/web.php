@@ -39,3 +39,8 @@ Route::get('/home', 'HomeController@index')->name('home'); //borrar??
 Route::get('EncuestaCoevaluacionFamiliar', function () {
     return view('Encuesta\EncuestaCoevaluacionFamiliar');
   });
+    Route::get('ajax', function () {
+        return view('VistasMalas\Intento_ajax');
+  });
+
+Route::get('validarRutNinoAjax/{rutNino}', 'AjaxController@validarRutNino');  
