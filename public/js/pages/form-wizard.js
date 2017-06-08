@@ -30,6 +30,16 @@ $(document).ready(function() {
                 number: true
             },
 
+            motivo1:{
+                required: true
+            },
+            motivo2:{
+                required: true
+            },
+            motivo3:{
+                required: true
+            },
+
             motivo4profesional: {
                 required:function(element){
                     return $("#motivo4").val()!="no";
@@ -53,6 +63,11 @@ $(document).ready(function() {
             motivo4indicaciones: {
                 required:function(element){
                     return $("#motivo4").val()!="no";
+                }
+            },
+            motivo5indicacion: {
+                required:function(element){
+                    return $("#motivo5").val()!="no";
                 }
             },
 
