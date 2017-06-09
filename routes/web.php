@@ -43,4 +43,4 @@ Route::get('EncuestaCoevaluacionFamiliar', function () {
         return view('VistasMalas\Intento_ajax');
   });
 
-Route::get('validarRutNinoAjax/{rutNino}', 'AjaxController@validarRutNino');  
+Route::get('validarRutNinoAjax/{rutNino}', 'AjaxController@validarRutNino');

@@ -100,10 +100,9 @@
                 <p class='text-center'>".$t->rut."</p>
                 <hr>
                 <ul class='list-unstyled text-center'>
-                    <li><p><i class='icon-users m-r-xs'></i>"."AQUI VA EL PARENTESCO"."</p></li>
+                    
                     <li><p><i class='icon-envelope-open m-r-xs'></i>".$t->email."</p></li>
-                    <li><p><i class='icon-call-end m-r-xs'></i>"."AQUI VA EL TELEFONO"."</p></li>
-                    <li><p><i class='icon-screen-tablet m-r-xs'></i>"."AQUI VA EL CELULAR"."</p></li>
+                    
                 </ul>
 
             </div>

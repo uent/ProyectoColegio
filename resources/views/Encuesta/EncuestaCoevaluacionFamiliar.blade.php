@@ -18,7 +18,7 @@
 <div class="panel-body">
 <div id="rootwizard">
 <ul class="nav nav-tabs" role="tablist">
-<li role="presentation" class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Identificación</a></li>
+<li role="presentation" class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Identificación niñ@</a></li>
 <li role="presentation"><a href="#tab2" data-toggle="tab"><i class="icon-folder-alt m-r-xs"></i>Motivo de consulta</a></li>
 <li role="presentation"><a href="#tab3" data-toggle="tab"><i class="icon-users m-r-xs"></i>Entorno</a></li>
 <li role="presentation"><a href="#tab4" data-toggle="tab"><i class="fa fa-check m-r-xs"></i>Finalizar</a></li>
@@ -34,23 +34,23 @@
         <div class="col-md-6">
             <div class="row">
                 <div class="form-group col-md-6">
-                    <label for="inputNombre"><small style="color:red">*</small> Nombre</label>
+                    <label for="inputNombre"><small style="color:red">*</small> Nombre de niño/a</label>
                     <input type="text" class="form-control" name="inputNombre" id="inputNombre">
                 </div>
                 <div class="form-group  col-md-6">
-                    <label for="inputApellido"><small style="color:red">*</small>Apellido</label>
+                    <label for="inputApellido"><small style="color:red">*</small>Apellido de niño/a</label>
                     <input type="text" class="form-control col-md-6" name="inputApellido" id="inputApellido">
                 </div>
                 <div class="form-group col-md-12">
-                    <label for="inputRut"><small style="color:red">*</small>RUT</label>
+                    <label for="inputRut"><small style="color:red">*</small>RUT de niño/a</label>
                     <input type="text" class="form-control" name="inputRut" id="inputRut">
                 </div>
                 <div class="form-group col-md-12">
-                    <label for="InputNac"><small style="color:red">*</small>Fecha de Nacimiento</label>
+                    <label for="InputNac"><small style="color:red">*</small>Fecha de Nacimiento de niño/a</label>
                     <input type="text" class="form-control date-picker" name="InputNac" id="InputNac">
                 </div>
                 <div class="form-group col-md-12">
-                    <label for="inputEscolaridad">Escolaridad</label>
+                    <label for="inputEscolaridad">Escolaridad de niño/a</label>
                     <input type="text" class="form-control" name="inputEscolaridad" id="inputEscolaridad" placeholder="Jardín o Colegio / Nivel o Curso">
                 </div><div class="form-group col-md-12">
                     <label for="inputCantHrmns">Número de hermanos</label>
@@ -344,7 +344,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-info" data-toggle="modal"><a href="http://proyectocolegio.dev/public/login" style="color:white">Enviar</a> </button>
+                    <button type="button" class="btn btn-info" data-toggle="modal"><a href="http://proyectocolegio.dev/public/Mi_menu" style="color:white">Enviar</a> </button>
                 </div>
             </div>
         </div>

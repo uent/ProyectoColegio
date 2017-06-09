@@ -81,13 +81,19 @@ if(Auth::check())
 			</li>";
 		}
 
-		if($permisos != null)
+		if($permisos["NinoController@MostrarNinosParaLlamar"] == false &&
+				$permisos["OrdenDiagnosticoController@MostrarCitasPendientes"] == false &&
+				$permisos["CitaController@CitasPendientesPorUsuarioActual"] == false &&
+				$permisos["UsuarioController@IngresoProfesional"] == false &&
+				$permisos["AnamnesisController@OrdenesPendientesDeAnamnesis"] == false &&
+				$permisos["NinoController@Crear"] == false )
+
 		{
 			echo
 			"<li class='droplink'>
 				<form name=formEncuestaCoevaluacionFamiliar action='EncuestaCoevaluacionFamiliar' method='get'></form>
 				<a class='waves-effect waves-button' onclick='document.formEncuestaCoevaluacionFamiliar.submit();return false'>
-			    <span class='menu-icon icon-login'></span><p>Realizar encuesta coevaluacion familiar</p></a>
+			    <span class='menu-icon icon-login'></span><p>Encuesta coevaluacion</p></a>
 			</li>";
 		}
 
