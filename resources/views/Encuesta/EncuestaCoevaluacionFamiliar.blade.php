@@ -27,7 +27,17 @@
 <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
 </div>
 </div>
-<form id="wizardForm">
+@if (isset($errors) && count($errors) > 0)
+   <div class="alert alert-danger">
+       <ul>
+           @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+           @endforeach
+       </ul>
+   </div>
+@endif
+<form id="wizardForm" method="POST" role="form" action="{{ url('Guardar_reporte_tutor') }}" class="form">
+  {!! csrf_field() !!}
 <div class="tab-content">
 <div class="tab-pane fade tab-pane active fade in" id="tab1">
     <div class="row m-b-lg">
@@ -86,8 +96,8 @@
                 </div>
 
                 <div class="form-group col-md-12">
-                    <input type="hidden" class="form-control" name="fechaFicha" id="fechaFicha">
-                </div>                                                
+                    <input type="hidden" class="form-control" value = <?php echo $datos["idOrden"] ?> name="idOrden" id="idOrden">
+                </div>
             </div>
         </div>
         <div class="col-md-6">
@@ -99,7 +109,7 @@
 </div>
 <div class="tab-pane fade " id="tab2">
     <div class="row">
-        
+
         <div class="col-md-12">
             <div class="form-group col-md-12">
                 <label for="motivo1"><small style="color:red">*</small>¿Por qué solicita la evaluación?</label>
@@ -153,7 +163,7 @@
             <div class="form-group col-md-12">
                 <label for="motivo5indicacion">Indique especialidad y frecuencia.</label>
                 <input type="text" style="width:1000px;height:100px" class="form-control" name="motivo5indicacion" id="motivo5indicacion">
-            </div>                    
+            </div>
         </div>
     </div>
 
@@ -279,7 +289,7 @@
             </div>
         </div>
     </div>
-</div>  
+</div>
 <div class="tab-pane fade" id="tab4">
 <div class="row">
     <div class="col-md-6">
@@ -291,7 +301,7 @@
                 <p>Centro de Recursos <br>Lusitania 30 Miraflores Viña del Mar (32)2633320</p>
             </div>
         </div>
-        
+
     </div>
     <div class="col-md-6"><br>
         <div class="form-group col-md-12">
@@ -311,12 +321,12 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h3 class="modal-title" id="myModalLabel">Bienvenido al Servicio de Evaluación ALTAVIDA</h3>
-                   
+
 
                 </div>
 
                 <div class="modal-body">
-                    
+
                     El servicio de Evaluación del Centro de Recursos Altavida, desarrollado por la Institución desde el año 2004, tiene el propósito de orientar a las familias para que estas puedan acceder a una explicación respecto de las dificultades evolutivas observadas en su hijo o hija, a fin de que puedan toar decisiones de manera informada. Con este propósito una vez que la familia solicita nuestro servicio se desarrollan acciones profesionales especificas que permiten acceder a la siguiente información:<br>
                     <ul>
                       <li>Historial evolutivo retrospectivo</li>
@@ -340,17 +350,17 @@
                     <br><br>
                     <p><small>*El Servicio de Evaluación de Altavida contempla las consideraciones técnicas otorgadas por diversos organismos internacionales respecto de buenas prácticas para el proceso de evaluación diagnóstica. Si usted gusta puede acceder al siguiente enlace en buscas de mayor información:
                     <a href="http://aetapi.org/documentos-aetapi-mesa-de-diagnostico-y-evaluacion/">Aetapi | Asociación Española de Profesionales de Autismo</a></small> </p>
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-info" data-toggle="modal"><a href="http://proyectocolegio.dev/public/Mi_menu" style="color:white">Enviar</a> </button>
+                    <button type="submit" class="btn btn-info" data-toggle="modal" onClick="this.form.submit(); this.disabled=true; this.value='Sending…'; style="color:white"" >Enviar</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-    
+
 </div>
 <ul class="pager wizard">
     <li class="previous"><a href="#" class="btn btn-default">Previo</a></li>

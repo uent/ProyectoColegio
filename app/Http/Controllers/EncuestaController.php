@@ -3,87 +3,95 @@
 namespace App\Http\Controllers;
 
 use View;
+use Validator;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EncuestaController extends Controller
 {
-   
+
+    public function MostrarEncuesta()
+    {
+      $idTutor = Auth::user()->id;
+
+      $datosOrden = OrdenDiagnosticoController::UnaOrdenPendienteDeCoevaluacionPorIdTutor($idTutor);
+
+      if($datosOrden /*&& OrdenDiagnostico::VerificarCoEvaluacionCompletoPorId*/)
+      {
+        return View::make('Encuesta\EncuestaCoevaluacionFamiliar')->with("datos",$datosOrden);
+      }
+      else echo "No hay Encuestas por completar";
+    }
 
     public function IngresarEncuesta()
     {
-        $this->validate(request(), [
-            'Nombre' => ['required', 'max:200'],
-            'Rut' => ['required', 'max:200'],
-            'Fnacimiento' => ['required', 'max:200'],
-            'Edad' => ['required', 'max:200'],
-            'Escolaridad' => ['required', 'max:200'],
-            'Nhermanos' => ['required', 'max:200'],
-            'Phermanos' => ['required', 'max:200'],
-            'NomPadre'=>['required','max:200'],
-            'NomMadre'=>['required','max:200'],
-            'Direccion'=>['required','max:200'],
-            'Telefono'=>['required','max:200'],
-            'CorrElec'=>['required','max:200'],
-            'NomCompFicha/Fecha'=>['required','max:200'],
-            'p21'=>['required','max:200'],
-            'p22'=>['required','max:200'],
-            'p23'=>['required','max:200'],
-            'p24'=>['required','max:200'],
-            'p25'=>['required','max:200'],
-            'p31'=>['required','max:200'],
-            'p32'=>['required','max:200'],
-            'p41'=>['required','max:200'],
-            'p42'=>['required','max:200'],
-            'p43'=>['required','max:200'],
-            'p44'=>['required','max:200'],
-            'p45'=>['required','max:200'],
-            'p51'=>['required','max:200'],
-            'p52'=>['required','max:200'],
-            'p53'=>['required','max:200'],
-            'p54'=>['required','max:200'],
-            'p55'=>['required','max:200'],
-            'p56'=>['required','max:200'],
-            'p57'=>['required','max:200'],
-            'p58'=>['required','max:200'],
-            'p59'=>['required','max:200'],
-            'p510'=>['required','max:200'],
-            'p61'=>['required','max:200'],
-            'p62'=>['required','max:200'],
-            'p63'=>['required','max:200'],
-            'p64'=>['required','max:200'],
-            'p65'=>['required','max:200'],
-            'p66'=>['required','max:200'],
-            'p71'=>['required','max:200'],
-            'p72'=>['required','max:200'],
-            'p73'=>['required','max:200'],
-            'p74'=>['required','max:200'],
-            'p75'=>['required','max:200'],
-            'p76'=>['required','max:200'],
-      
-        ]);
-
       $data = request()->all();
 
-      /*$resultado = User::Agregar($data['Nombre'],$data['Apellidos'],
-                                  $data['Rut'],$data['Profesion'],$data['Email'],$data['Password']);
+          $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
+            'inputNombre'=>['required','max:200'],
+            'inputApellido'=>['required','max:200'],
+            'inputRut'=>['required','max:200'],
+            'InputNac'=>['required','max:200'],
+            'inputEscolaridad'=>['required','max:200'],
+            'inputCantHrmns'=>['required','max:200'],
+            'inputLugarHrmns'=>['required','max:200'],
+            'inputNombrePadre'=>['required','max:200'],
+            'inputNombreMadre'=>['required','max:200'],
+            'inputDireccion'=>['required','max:200'],
+            'inputNombreTutor'=>['required','max:200'],
+            'inputTelefono'=>['required','max:200'],
+            'exampleInputEmail'=>['required','max:200'],
+            'motivo1'=>['required','max:200'],
+            'motivo2'=>['required','max:200'],
+            'motivo3'=>['required','max:200'],
+            'motivo4'=>['required','max:200'],//si, no
+            'motivo4profesional'=>['required','max:200'],
+            'motivo4anio'=>['required','max:200'],
+            'motivo4motivo'=>['required','max:200'],
+            'motivo4diagnostico'=>['required','max:200'],
+            'motivo4indicaciones'=>['required','max:200'],
+            'motivo4indicaciones'=>['required','max:200'],
+            'motivo5'=>['required','max:200'],//si,no
+            'motivo5indicacion'=>['required','max:200'],
+            'contexto1'=>['required','max:200'],
+            'contexto2'=>['required','max:200'],
+            'antecedentes1'=>['required','max:200'],
+            'antecedentes2'=>['required','max:200'],
+            'antecedentes3'=>['required','max:200'],
+            'antecedentes3peso'=>['required','max:200'],
+            'antecedentes3talla'=>['required','max:200'],
+            'antecedentes3apgar'=>['required','max:200'],
+            'antecedentes4'=>['required','max:200'],
+            'antecedentes5'=>['required','max:200'],
+            'desarrollo1'=>['required','max:200'],
+            'desarrollo2'=>['required','max:200'],
+            'desarrollo3'=>['required','max:200'],
+            'desarrollo4'=>['required','max:200'],
+            'desarrollo5'=>['required','max:200'],
+            'desarrollo6'=>['required','max:200'],
+            'desarrollo7'=>['required','max:200'],
+            'desarrollo8'=>['required','max:200'],
+            'monto_pago'=>['required','max:200'],
 
-      if ($resultado == true)
-      {
-        return redirect()->to('Mi_menu');
-      }
-      else echo "ya existe usuario";*/
+        ]);
+
+        if ($validator->fails())
+        {
+          return redirect()->back()->withErrors($validator->errors());
+        }
+        //quizas faltan algunas variables !!revisar
+      //recibe idOrden, inputNombre,inputApellido,inputRut,InputNac,inputEscolaridad,inputCantHrmns,
+      //inputLugarHrmns,inputNombrePadre,inputNombreMadre,inputDireccion,inputTelefono,exampleInputEmail,
+      //inputNombreTutor,motivo1,motivo2,motivo3,motivo4,motivo4profesional,motivo4anio,
+      //motivo4motivo,motivo4diagnostico,motivo4indicaciones,motivo5,motivo5indicacion,contexto1,contexto2,
+      //antecedentes1,antecedentes2,antecedentes3,antecedentes3peso,antecedentes3talla,antecedentes3apgar,
+      //antecedentes4,antecedentes5,desarrollo1,desarrollo2,desarrollo3,desarrollo4,desarrollo5,desarrollo6,
+      //desarrollo7,desarrollo8,monto_pago
+
+
+      Encueta::crear($data);
+
 
     }
-
-    /*private function Agregar($data)
-    {
-      if(User::ExisteRut($data["Rut"]) == false)
-      {
-        return User::agregar($data['Nombre'],$data['Apellidos'],$data['Rut']);
-
-      }
-      else return NULL;
-    }*/
-
 }

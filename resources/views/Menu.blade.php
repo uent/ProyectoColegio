@@ -17,7 +17,6 @@ if(Auth::check())
 
 	if($permisos['OrdenDiagnosticoController@MostrarCitasPendientes'])
 	{
-
 		echo
 		"<li>
 			<form name=formAsignarCitas action='pantalla_asignar_Citas' method='get'></form>
@@ -28,7 +27,6 @@ if(Auth::check())
 
 	if($permisos['NinoController@Crear'])
 	{
-
 		echo
 		"<li class='droplink'>
 			<form name=formIngresaNino action='ingresar_nino' method='get'></form>
@@ -39,7 +37,6 @@ if(Auth::check())
 
 	if($permisos['NinoController@MostrarNinosParaLlamar'])
 	{
-
 		echo
 		"<li class='droplink'>
 			<form name=formContactosPendientes action='contactos_pendientes' method='get'></form>
@@ -50,7 +47,6 @@ if(Auth::check())
 
 	if($permisos['CitaController@CitasPendientesPorUsuarioActual'])
 	{
-
 		echo
 		"	<li class='droplink'>
 				<form name=CitasPendientesProfesional action='citas_pendientes_profesional' method='get'></form>
@@ -61,7 +57,6 @@ if(Auth::check())
 
 		if($permisos['AnamnesisController@OrdenesPendientesDeAnamnesis'])
 		{
-
 			echo
 			"<li class='droplink'>
 				<form name=formGenerarAnamnesis action='pantalla_generar_anamnesis' method='get'></form>
@@ -72,7 +67,6 @@ if(Auth::check())
 
 		if($permisos['UsuarioController@IngresoProfesional'])
 		{
-
 			echo
 			"<li class='droplink'>
 				<form name=formIngresoProfesional action='ingreso_profesional' method='get'></form>
@@ -81,13 +75,7 @@ if(Auth::check())
 			</li>";
 		}
 
-		if($permisos["NinoController@MostrarNinosParaLlamar"] == false &&
-				$permisos["OrdenDiagnosticoController@MostrarCitasPendientes"] == false &&
-				$permisos["CitaController@CitasPendientesPorUsuarioActual"] == false &&
-				$permisos["UsuarioController@IngresoProfesional"] == false &&
-				$permisos["AnamnesisController@OrdenesPendientesDeAnamnesis"] == false &&
-				$permisos["NinoController@Crear"] == false )
-
+		if($permisos['EncuestaController@MostrarEncuesta'])
 		{
 			echo
 			"<li class='droplink'>
@@ -98,7 +86,8 @@ if(Auth::check())
 		}
 
 }else
-{echo "	<li class='droplink'>
+{
+	echo "	<li class='droplink'>
 	<form name=logout action='login' method='get'>";?>{{ csrf_field() }}
 <?php echo
 "</form>

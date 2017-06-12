@@ -11,7 +11,7 @@ use resources\views;
 use View;
 use Mail;
 use Session;
-
+use App\Http\Controllers\MailController;
 use Illuminate\Http\Request;
 
 class NinoController extends Controller
@@ -134,8 +134,8 @@ class NinoController extends Controller
 
     public function CambiarStatusContacto()
     {
-
       $data = request()->all();
+
       $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
         'prioridad' => ['required', 'max:10']
   	    ]);
@@ -144,28 +144,29 @@ class NinoController extends Controller
           return redirect()->back()->withErrors($validator->errors());
         }
       //recibe prioridad, idNino y idOrden
-        $mail= $data["correoTutor"];
-      $mensaje=null;
-      $datae = array(
-                  'name'=>('nombre'),
-                  'email'=>$mail,
-                  'subject'=>('Hola'),
-                  'msg'=>('nada')
-        );
-      $fromEmail='ad.altavida@gmail.com';
-      $fromName='Equipo Altavida';
 
-      Mail::send('contacto',$datae, function($message) use ($fromName, $fromEmail, $mail){
-          $message->to($mail,$fromName);
-          $message->from($fromEmail,$fromName);
-          $message->subject('Coevaluación Familiar');
-      });
+      $datosTutor = Tutor::UnTutorPorNinoPorIdNino($data["idNino"]);
 
+      //genera la clave al tutor para que este pueda ingresar
+      $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      $randstring = '';
+
+      $largoFinal = rand(6,10);
+
+      for ($i = 0; $i < $largoFinal; $i++) {
+          $randstring[$i] = $characters[rand(0, (strlen($characters)-1))];
+      }
+
+      $clave = $randstring;
+      $email = $datosTutor->email;
+
+      MailController::MailIngresoTutor($email,$clave);
+
+      Tutor::ModificarClavePorIdTutor($datosTutor->id,$clave);
 
       OrdenDiagnostico::AsignarPrioridadPorIdOrden($data["idOrden"],$data["prioridad"]);
 
       OrdenDiagnostico::ActualizarEstadoPorId($data["idOrden"]);
-
 
       return redirect()->to('Mi_menu');
     }

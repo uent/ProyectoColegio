@@ -11,6 +11,11 @@
 -generar los perfiles y modificaciones que faltan
 -se ingresa el campo observaciones y escolaridad si ingresan al revez
 -verificar que los estados cambien correctamente, cumpliendo sus condiciones
+-verificar consistencia en como se nombra los niñpos (niño/a, niñ@, etc)
+-!!preguntar por como se envian las claves y como se recuperan
 -
--
--
+
+
+
+Notas
+-En las vistas de login hay un metodo para retornar los datos antiguos a los formularios

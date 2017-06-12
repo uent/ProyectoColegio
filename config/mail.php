@@ -55,8 +55,8 @@ return [
     |
     */
 
-    'from' => array('address' => null,
-                    'name' => null),
+    'from' => array('address' => 'ad.altavida@gmail.com',
+                    'name' => 'Equipo Altavida'),
 
     /*
     |--------------------------------------------------------------------------

@@ -119,6 +119,14 @@ class OrdenDiagnostico extends Model
       {
         if($orden["prioridad"] != "")
         $orden = OrdenDiagnostico::where('idOrdenDiagnostico', $idOrden)
+        ->update(['estado' => "falta_coevaluacion"]);
+      }
+
+      if($orden["estado"] == "falta_coevaluacion")
+      {
+
+        if(OrdenDiagnostico::VerificarCoEvaluacionCompletoPorId($orden["idOrden"]))
+        $orden = OrdenDiagnostico::where('idOrdenDiagnostico', $idOrden)
         ->update(['estado' => "asignar"]);
       }
 
@@ -197,5 +205,26 @@ class OrdenDiagnostico extends Model
 
       //aqui van los otros condicionales para cambiar el estado de ordenDiagnostico
     }
+  }
+
+  public static function UnaOrdenPendienteDeCoevaluacionPorIdTutor($idTutor)
+  {
+    //arreglar!!!!!!
+    //
+
+    $tablas = DB::table('OrdenDiagnostico')
+          ->join('Ninos', 'OrdenDiagnostico.idNino', '=', 'Ninos.idNino')
+          ->join('Nino_tutor', 'Ninos.idNino', '=', 'Nino_tutor.idNino')
+          ->join('Users', 'Nino_tutor.idTutor', '=', 'Users.id')
+          ->where('OrdenDiagnostico.estado', '=', "falta_coevaluacion")
+          ->select('Ninos.idNino')
+          ->first();
+    return $tablas;
+  }
+
+  public static function VerificarCoEvaluacionCompletoPorId($idOrden)
+  {
+    //cambiar si se permite que el formulario se pueda guardar sin todos los datos
+    return true;
   }
 }

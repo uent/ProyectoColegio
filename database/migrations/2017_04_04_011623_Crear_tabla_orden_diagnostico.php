@@ -21,6 +21,7 @@ class CrearTablaOrdenDiagnostico extends Migration
             $table->string('estado',45);
             //estados
             //"contacto_pendiente": aun no se a contactado con el tutor del niño
+            //"falta_coevaluacion": el tutor debe llenar la ficha de co-evaluacion
             //"asignar": aun hace falta asignar alguna o todas las citas
             //"finalizado": ya finalizo la entrega de los documentos al tutor
             //"evaluando": aun faltan por finalizar las citas y sus respectivos informes

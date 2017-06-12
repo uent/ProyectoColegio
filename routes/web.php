@@ -20,6 +20,8 @@ Route::group(['middleware' => ['auth','ControlPermisos']], function() {
   Route::post('crear_Profesional', 'UsuarioController@CrearProfesional');
   Route::get('pantalla_generar_anamnesis', 'AnamnesisController@OrdenesPendientesDeAnamnesis');
   Route::get('generar_anamnesis_nino', 'AnamnesisController@FormularioAnamnesis');
+  Route::get('EncuestaCoevaluacionFamiliar', 'EncuestaController@MostrarEncuesta');
+  Route::POST('Guardar_reporte_tutor', 'EncuestaController@IngresarEncuesta');
 
 });
 
@@ -32,15 +34,17 @@ Route::get('Mi_menu', function () {
 Route::get('PantallaFaltaPermisos', function () {
     return view('FaltaPermisos\FaltaPermisos');
 });
+
 Auth::routes();
 Route::get('pdf', 'OrdenDiagnosticoController@PdfReportes');
 Route::get('/home', 'HomeController@index')->name('home'); //borrar??
 
-Route::get('EncuestaCoevaluacionFamiliar', function () {
-    return view('Encuesta\EncuestaCoevaluacionFamiliar');
-  });
+
     Route::get('ajax', function () {
         return view('VistasMalas\Intento_ajax');
   });
 
+//Llamadas ajax
 Route::get('validarRutNinoAjax/{rutNino}', 'AjaxController@validarRutNino');
+//mail
+Route::get('welcome-mail','MailController@MailIngresoTutor');

@@ -47,6 +47,10 @@ class PermisosController extends Controller
 
       if('AnamnesisController@FormularioAnamnesis' == $peticion) return 'GenerarAnamnesis';
 
+      if('EncuestaController@MostrarEncuesta' == $peticion) return 'LlenarInformeTutor';
+
+      if('EncuestaController@IngresarEncuesta' == $peticion) return 'LlenarInformeTutor';
+
       return null;
     }
 
@@ -92,6 +96,13 @@ class PermisosController extends Controller
               {
               $acceso['AnamnesisController@OrdenesPendientesDeAnamnesis'] = true;
               }else $acceso['AnamnesisController@OrdenesPendientesDeAnamnesis'] = false;
+
+        if(PermisosController::VerificarAccesoPorIdUsuario(PermisosController::PermisoNecesarioRutas(
+          'EncuestaController@MostrarEncuesta'),$id))
+          {
+            $acceso['EncuestaController@MostrarEncuesta'] = true;
+          }else $acceso['EncuestaController@MostrarEncuesta'] = false;
+
 
 
               return $acceso;

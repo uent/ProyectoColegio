@@ -16,8 +16,16 @@ class Tutor extends Model
   public static function agregar($nombre,$apellido, $rut,$mail)
   {
 
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $randstring = '';
 
-    User::agregar($nombre,$apellido, $rut,"Tutor",$mail,rand());
+    $largoFinal = rand(6,10);
+
+    for ($i = 0; $i < $largoFinal; $i++) {
+        $randstring[$i] = $characters[rand(0, (strlen($characters)-1))];
+    }
+
+    User::agregar($nombre,$apellido, $rut,"Tutor",$mail,$randstring);
 
 
   }
@@ -64,5 +72,9 @@ class Tutor extends Model
     else return NULL;
   }
 
+  public static function ModificarClavePorIdTutor($idTutor,$clave)
+  {
+    User::where('id',"=", $idTutor)->update(['password' => bcrypt($clave)]);
+  }
 
 }

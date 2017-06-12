@@ -23,6 +23,9 @@ VALUES ("GenerarAnamnesis",now(),now());
 InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
 VALUES ("IngresoProfesional",now(),now());
 
+InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
+VALUES ("LlenarInformeTutor",now(),now());
+
 
 #perfiles
 
@@ -38,7 +41,13 @@ VALUES ("12345","TutorNombre","TutorApellido","tutormail@gmail.com",
   SELECT idPerfil, id, now(),now()
   FROM Users
   InnER JOIn Perfil
-  where  Perfil.nombrePerfil = "Tutor" and Users.email = "tutormail@gmail.com";z
+  where  Perfil.nombrePerfil = "Tutor" and Users.email = "tutormail@gmail.com";
+
+  InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+  SELECT idPerfil, idPermiso, now(),now()
+  FROM Permiso
+  InnER JOIn Perfil
+  where  Permiso.nombrePermiso = "LlenarInformeTutor" and Perfil.nombrePerfil ="Tutor";
 
 
 

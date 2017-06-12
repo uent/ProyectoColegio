@@ -25,7 +25,7 @@ class OrdenDiagnosticoController extends Controller
     public function PantallaMostrarCitasNino() //muestra una pantalla con todas las citas faltantes
     {
       //recibe idOrden
-    $data = request()->all();
+      $data = request()->all();
 
       $orden = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
 
@@ -71,16 +71,12 @@ class OrdenDiagnosticoController extends Controller
 
     }
 
-
-
     public function MostrarCitasPendientes()
     {
         $ordenes = OrdenDiagnostico::OrdenesPendientesDeCitasMasDatosNinos();
 
         return View::make('CitasPendientes.DatosOrdenesNinos')->with("datos", $ordenes);
     }
-
-
 
 
     public function OrdenesPendientesDeAnamnesis()
@@ -92,5 +88,9 @@ class OrdenDiagnosticoController extends Controller
 
     }
 
-
+    public static function OrdenesPendientesDeCoevaluacionPorIdTutor($idTutor)
+    {
+      //en el futuro debe mostrar una lista con todos los niños pendientes, no solo uno
+      return OrdenDiagnostico::OrdenesPendientesDeCoevaluacionPorIdTutor($idTutor);
+    }
 }
