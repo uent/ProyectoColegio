@@ -217,7 +217,7 @@ class OrdenDiagnostico extends Model
           ->join('Nino_tutor', 'Ninos.idNino', '=', 'Nino_tutor.idNino')
           ->join('Users', 'Nino_tutor.idTutor', '=', 'Users.id')
           ->where('OrdenDiagnostico.estado', '=', "falta_coevaluacion")
-          ->select('Ninos.idNino')
+          ->select()
           ->first();
     return $tablas;
   }
