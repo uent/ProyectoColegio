@@ -5957,3 +5957,6 @@ body:not(.small-sidebar):not(.page-horizontal-bar) .menu.accordion-menu,
     cursor: default;
     opacity: 0.6;
 }
+textarea {
+    resize:none;
+}
