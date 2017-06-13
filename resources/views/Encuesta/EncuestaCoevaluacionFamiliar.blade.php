@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="form-group col-md-12">
-                    <input type="hidden" class="form-control" value = <?php echo $datos["idOrden"] ?> name="idOrden" id="idOrden">
+                    <input type="hidden" class="form-control" value = <?php //echo $datos->idOrden ?> name="idOrden" id="idOrden">
                 </div>
             </div>
         </div>

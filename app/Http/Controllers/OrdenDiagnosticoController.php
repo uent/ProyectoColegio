@@ -91,6 +91,13 @@ class OrdenDiagnosticoController extends Controller
     public static function OrdenesPendientesDeCoevaluacionPorIdTutor($idTutor)
     {
       //en el futuro debe mostrar una lista con todos los niños pendientes, no solo uno
-      return OrdenDiagnostico::OrdenesPendientesDeCoevaluacionPorIdTutor($idTutor);
+      return OrdenDiagnostico::UnaOrdenPendienteDeCoevaluacionPorIdTutor($idTutor);
+    }
+
+    public static  function UnaOrdenPendienteDeCoevaluacionPorIdTutor($idTutor)
+    {
+      //repetida
+      //en el futuro debe mostrar una lista con todos los niños pendientes, no solo uno
+      return OrdenDiagnostico::UnaOrdenPendienteDeCoevaluacionPorIdTutor($idTutor);
     }
 }
