@@ -35,7 +35,7 @@
                                 <input type="text" class="form-control m-t-xxs" id="SNP3comment">
                         </div>
                         <div class="form-group">
-                            <label for="SNP4"></label>¿Le provoca más angustia que los otros niños que le corten lasuñas de las manos y pies?<br>
+                            <label for="SNP4">¿Le provoca más angustia que los otros niños que le corten lasuñas de las manos y pies?</label><br>
                                 <b>SI</b><input type="radio" name="SNP4" value="SI"><br>
                                 <b>NO</b><input type="radio" name="SNP4" value="NO"><br>
                                 <input type="text" class="form-control m-t-xxs" id="SNP4comment">
@@ -59,13 +59,13 @@
                                 <input type="text" class="form-control m-t-xxs" id="SNP7comment">
                         </div>
                         <div class="form-group">
-                            <label for="SNP8"></label>¿Se siente más amenazado cuendo lo sorprenden por detrás o cuando no ve facilmente?<br>
+                            <label for="SNP8">¿Se siente más amenazado cuendo lo sorprenden por detrás o cuando no ve facilmente?</label><br>
                                 <b>SI</b><input type="radio" name="SNP8" value="SI"><br>
                                 <b>NO</b><input type="radio" name="SNP8" value="NO"><br>
                                 <input type="text" class="form-control m-t-xxs" id="SNP8comment">
                         </div>
                         <div class="form-group">
-                            <label for="SNP9"></label>¿Se angustia cuando haymucha gente al rededor?<small>(Por ejemplo, estando dentro de una multitud o parado en una fila)</small><br>
+                            <label for="SNP9">¿Se angustia cuando haymucha gente al rededor?<small>(Por ejemplo, estando dentro de una multitud o parado en una fila)</small></label><br>
                                 <b>SI</b><input type="radio" name="SNP9" value="SI"><br>
                                 <b>NO</b><input type="radio" name="SNP9" value="NO"><br>
                                 <input type="text" class="form-control m-t-xxs" id="SNP9comment">
@@ -114,8 +114,13 @@
                             <input type="checkbox" name="CP" value="dificilActividadesMotricidadFina">Le resulta difícil al niño(a) ejecutar actividades de motricidad fina que requiere discriminación táctil y prescisión en los movimientos. <small>por ejemplo, abrochar botones, manipular objetos muy pequeños, tomar correctamente el lápiz</small> <br>
                             <input type="checkbox" name="CP" value="noDiscriminaPresion">El niño no discrimina el nivel de presión que debe aplicar sobre el lápiz para escribir <small>(Aplica mucha presion o muy poca)</small>, al igual quecuánta presión o fuerza debe aplicar al manipular otros objetos <small>(tiente a romper las cosas fácilmente)</small> <br>
                             <input type="checkbox" name="CP" value="dificultadDiferenciarSonidos">Presenta dificultaden diferenciar sonidos <br>
-                            
                         </div>
+                        <div class="form-group">
+                            <label for="SNP10">Comentarios y Observaciones</label><br>
+                                
+                                <input type="text" class="form-control m-t-xxs" id="comment">
+                        </div>
+
                     </form>
                 </div>
             </div>
