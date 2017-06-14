@@ -121,7 +121,27 @@ class CitaController extends Controller
           $datos["apellidos"] = $niño["apellidos"];
           $datos["rut"] = $niño["rut"];
 
+          //determina que vista se cargara en funcion del tipo de cita
+          if($cita["tipoEvaluacion"] == "Fonoaudiologo")
+          {
+            return View::make('FormularioCitas.evaluacionFonoaudiologica')->with("datos",$datos);
+          }
+          else if($cita["tipoEvaluacion"] == "Psicológico")
+          {
+            return View::make('FormularioCitas.evaluacionPsicologica')->with("datos",$datos);
+          }
+          else if($cita["tipoEvaluacion"] == "Psicopedagogica")
+          {
+            return View::make('FormularioCitas.evaluacionPsicopedagogica')->with("datos",$datos);
+          }
+          else if($cita["tipoEvaluacion"] == "TerapiaOcupacional")
+          {
+            return View::make('FormularioCitas.evaluacionTerapiaOcupacional')->with("datos",$datos);
+          }
+          else echo "existe un error";
+          /* en caso de emergencia comentar lo anterior y dejar solo esto
           return View::make('EvaluarCitas.FormularioCita')->with("datos",$datos);
+          */
         }
       }
       echo "No existe cita";

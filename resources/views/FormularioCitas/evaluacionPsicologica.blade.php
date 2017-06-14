@@ -11,6 +11,39 @@
                     <h4 class="panel-title">Evaluación Psicológica</h4>
                 </div>
                 <div class="panel-body" >
+
+                    <dt>
+                      Nombre Niño
+                    </dt>
+                    <dd>
+                      <?php echo $datos["nombre"] , " ", $datos["apellidos"]; ?>
+                    </dd>
+                    <dt>
+                      Rut
+                    </dt>
+                    <dd>
+                      <?php echo $datos["rut"]; ?>
+                    </dd>
+                    <dt>
+                      Estado
+                    </dt>
+                    <dd>
+                      <?php echo $datos["estado"]; ?>
+                    </dd>
+                    <?php  if($datos["comentarios"] != "")
+                    {
+                      echo"
+                      <dt>
+                        Comentarios
+                      </dt>
+                      <dd>";
+                        echo $datos["comentarios"];
+                        echo "
+                      </dd>";
+                    }?>
+                    <br>
+
+
                     <form class="form-horizontal col-md-12" align="center">
                         <table>
                           <tr align="center">
@@ -143,10 +176,10 @@
                             <td>60</td>
                             <td><input type="text" name="total" id="total"></td>
                           </tr>
-                          
+
                         </table>
                         </div>
-                       
+
 
                     </form>
                 </div>

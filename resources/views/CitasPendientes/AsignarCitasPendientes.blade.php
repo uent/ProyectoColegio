@@ -34,7 +34,7 @@
           </thead>";
 
           $tiposCitas[0] = "Fonoaudiologo";
-          $tiposCitas[1] = "Neurolinguístico";
+          $tiposCitas[1] = "Psicológico";
 
 
     foreach($tiposCitas as $t)

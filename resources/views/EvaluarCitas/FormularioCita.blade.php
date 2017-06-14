@@ -60,7 +60,7 @@
   <div class="form-group">
 
     <label for="reporte">
-      Reporte //hay que cambiar la altura del formulario
+      Reporte 
     </label>
     <input class="form-control" id="Reporte" name='reporte'>
   </div>

@@ -19,7 +19,7 @@
                             <td><b>NEE/Sugerencias de Apoyo</b> </td>
                           </tr>
                           <tr>
-                            <td>Funciones <br> Psiconeurológicas<br> Básicas</td>
+                            <td>Funciones <br> Psicopsicologicológicas<br> Básicas</td>
                             <td><textarea rows="10" cols="30" id="FPBNE1" name="FPBNE1">FPBNE1</textarea></td>
                             <td><textarea rows="10" cols="30" id="FPBNEESug1" name="FPBNEESug1">FPBNEESug1</textarea></td>
                           </tr>

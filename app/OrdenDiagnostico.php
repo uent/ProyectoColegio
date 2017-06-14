@@ -135,7 +135,7 @@ class OrdenDiagnostico extends Model
         $citas = Citas::obtenerCitasPorIdOrden($idOrden);
 
         $statusCitas["Fonoaudiologo"] = 0;
-        $statusCitas["Neurolinguístico"] = 0;
+        $statusCitas["Psicológico"] = 0;
         foreach($citas as $c)
         {
           //aqui van todos los tipos de citas necesarios para cambiar el estado de
@@ -145,9 +145,9 @@ class OrdenDiagnostico extends Model
           {
             $statusCitas["Fonoaudiologo"] = 1;
           }
-          if($c["tipoEvaluacion"] == "Neurolinguístico")
+          if($c["tipoEvaluacion"] == "Psicológico")
           {
-            $statusCitas["Neurolinguístico"] = 1;
+            $statusCitas["Psicológico"] = 1;
           }
 
 

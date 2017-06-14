@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use View;
 use Validator;
 use App\Encuesta;
+use App\OrdenDiagnostico;
 
 
 use Illuminate\Http\Request;
@@ -50,6 +51,8 @@ class EncuestaController extends Controller
 
 
       Encuesta::crear($data);
+
+      OrdenDiagnostico::ActualizarEstadoPorId($data["idOrden"]);
 
       return redirect()->to('Mi_menu');
     }

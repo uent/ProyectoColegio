@@ -87,38 +87,38 @@ VALUES ("1236789","FonoNombre","FonoApellido","fonomail@gmail.com",
 
 
 
-#Neurolinguístico
+#Psicológico
 InSERT InTO Perfil (nombrePerfil,created_at,updated_at)
-VALUES ("Neurolinguístico",now(),now());
+VALUES ("Psicológico",now(),now());
 
 InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
 SELECT idPerfil, idPermiso, now(),now()
 FROM Permiso
 InnER JOIn Perfil
-where  Permiso.nombrePermiso = "IngresoNino" and Perfil.nombrePerfil ="Neurolinguístico";
+where  Permiso.nombrePermiso = "IngresoNino" and Perfil.nombrePerfil ="Psicológico";
 
 InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
 SELECT idPerfil, idPermiso, now(),now()
 FROM Permiso
 InnER JOIn Perfil
-where  Permiso.nombrePermiso = "EvaluarCitas" and Perfil.nombrePerfil ="Neurolinguístico";
+where  Permiso.nombrePermiso = "EvaluarCitas" and Perfil.nombrePerfil ="Psicológico";
 
 InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
 SELECT idPerfil, idPermiso, now(),now()
 FROM Permiso
 InnER JOIn Perfil
-where  Permiso.nombrePermiso = "AsignarCitas" and Perfil.nombrePerfil ="Neurolinguístico";
+where  Permiso.nombrePermiso = "AsignarCitas" and Perfil.nombrePerfil ="Psicológico";
 
 
 InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
-VALUES ("1456789","NeuroNombre","NeuroApellido","neuromail@gmail.com",
-  "$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe","Neurolinguístico",now(),now());
+VALUES ("1456789","psicologicoNombre","psicologicoApellido","psicologicomail@gmail.com",
+  "$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe","Psicológico",now(),now());
 
   InSERT InTO Perfil_Usuario (idPerfil,id,created_at,updated_at)
   SELECT idPerfil, id, now(),now()
   FROM Users
   InnER JOIn Perfil
-  where  Perfil.nombrePerfil = "Neurolinguístico" and Users.email = "neuromail@gmail.com";
+  where  Perfil.nombrePerfil = "Psicológico" and Users.email = "psicologicomail@gmail.com";
 
 
 

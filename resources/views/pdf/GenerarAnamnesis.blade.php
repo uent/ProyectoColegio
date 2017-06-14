@@ -9,7 +9,7 @@
         echo
 				    $datos['datosFono'] ,
             "<br>" ,
-            $datos['datosNeuro'],
+            $datos['datospsicologico'],
 			"</p>";
       ?>
 		</div>

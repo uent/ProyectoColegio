@@ -34,7 +34,7 @@
 				<input name="Rut" class="form-control" placeholder="Rut"></input>
 				<p class="help-block"><small>Profesión</small></p>
 				<select multiple class="form-control" name="Profesion" placeholder="Parentesco" required autofocus>
-	                <option value="Neurolinguístico">Neurolinguístico</option>
+	                <option value="Psicológico">Psicológico</option>
 	                <option value="Fonoaudiologo">Fonoaudiologo</option>
 	                <option value="Administrador">Administrador</option>
 	            </select><br><br>

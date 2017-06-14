@@ -30,7 +30,7 @@ class Anamnesis extends Model
 
         $Anamnesis->idOrden = $idOrden;
         $Anamnesis->datosFono  = "";
-        $Anamnesis->datosNeuro  = "";
+        $Anamnesis->datospsicologico  = "";
 
         $Anamnesis->save();
       }
@@ -38,8 +38,8 @@ class Anamnesis extends Model
       if($tipoCita == "Fonoaudiologo")
                 Anamnesis::where('idOrden',"=", $idOrden)->update(['datosFono' => $reporte]);
 
-      if($tipoCita == "Neurolinguístico")
-                Anamnesis::where('idOrden',"=", $idOrden)->update(['datosNeuro' => $reporte]);
+      if($tipoCita == "Psicológico")
+                Anamnesis::where('idOrden',"=", $idOrden)->update(['datospsicologico' => $reporte]);
     }
 
 }

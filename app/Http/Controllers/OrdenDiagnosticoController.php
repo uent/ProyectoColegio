@@ -35,7 +35,7 @@ class OrdenDiagnosticoController extends Controller
       //se evaluara que citas ya estan asignadas para esta orden
 
       $statusCitas["Fonoaudiologo"]["existe"] = false;
-      $statusCitas["Neurolinguístico"]["existe"] = false;
+      $statusCitas["Psicológico"]["existe"] = false;
 
 
       $statusCitas["datos"]["idOrden"] = $orden["idOrdenDiagnostico"];
@@ -55,12 +55,12 @@ class OrdenDiagnosticoController extends Controller
             $statusCitas["Fonoaudiologo"]["fecha"] = $c->fecha;
 
           }
-          if($c["tipoEvaluacion"] == "Neurolinguístico")
+          if($c["tipoEvaluacion"] == "Psicológico")
           {
-            $statusCitas["Neurolinguístico"]["existe"] = true;
-            $statusCitas["Neurolinguístico"]["estado"] = $c->estado;
-            $statusCitas["Neurolinguístico"]["hora"] = $c->hora;
-            $statusCitas["Neurolinguístico"]["fecha"] = $c->fecha;
+            $statusCitas["Psicológico"]["existe"] = true;
+            $statusCitas["Psicológico"]["estado"] = $c->estado;
+            $statusCitas["Psicológico"]["hora"] = $c->hora;
+            $statusCitas["Psicológico"]["fecha"] = $c->fecha;
 
           }
         }
