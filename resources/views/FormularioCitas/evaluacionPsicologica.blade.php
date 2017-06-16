@@ -43,8 +43,8 @@
                     }?>
                     <br>
 
-
-                    <form class="form-horizontal col-md-12" align="center">
+                    <form class="form-horizontal col-md-4" align="center" method='post' action='guardar_reporte_psicologico'>
+                      <?php echo "<input type='hidden' name='idCita' value=",$datos["idCita"],"> "?>
                         <table>
                           <tr align="center">
                             <td><b>Área de Desarrollo</b></td>
@@ -180,7 +180,9 @@
                         </table>
                         </div>
 
-
+                        {!! csrf_field() !!}
+                        "<input type='submit' name='action' value='asignar Cita'/>
+                        <input type='hidden' name='tipoCita' value='",$datos["datos"]["tipoCita"],"'/>
                     </form>
                 </div>
             </div>

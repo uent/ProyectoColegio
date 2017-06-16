@@ -35,7 +35,7 @@ class Citas extends Model
     $Citas->hora = $datos["hora"];
     $Citas->fecha = $datos["dia"];
     $Citas->comentarios = $datos["comentarios"];
-  
+
 
     $Citas->save();
 
@@ -54,18 +54,46 @@ class Citas extends Model
           ->get();
   }
 
-  public static function agregarReporte($idCita,$reporte)
+  public static function agregarReporteFonoaudiologo($idCita,$condSocioComunicativa, $competComunicativa,
+                                                      $lengComprensivo, $lengExpresivo,
+                                                      $conclusiones, $sugerencias)
   {
 
       Citas::where('idCitas',"=", $idCita)->update(['estado' => "completado"]);
 
       $datoCita = Citas::BuscarPorId($idCita);
 
-      Anamnesis::ActualizarReportePorIdOrden(
-                      $datoCita["idOrden"],$datoCita["tipoEvaluacion"],$reporte);
+      Anamnesis::ActualizarReporteFonoaudiologoPorIdOrden(
+                      $datoCita["idOrden"],$datoCita["tipoEvaluacion"],$condSocioComunicativa,
+                      $competComunicativa,
+                      $lengComprensivo, $lengExpresivo,
+                      $conclusiones, $sugerencias);
 
       OrdenDiagnostico::ActualizarEstadoPorId($datoCita["idOrden"]);
   }
+
+  public static function agregarReportePsicologo($idCita,
+                                    $desarrolloSocial,$respEmocional,$refConjunta,$juego,
+                                    $conmunicacionLeng,$flexMental,
+                                    $pensamiento,$comportamientoGnrl,$conclu,$relacion,
+                                    $imitacion,$afecto,$cuerpo,$objetos)
+  {
+
+      Citas::where('idCitas',"=", $idCita)->update(['estado' => "completado"]);
+
+      $datoCita = Citas::BuscarPorId($idCita);
+
+      Anamnesis::ActualizarReportePsicologoPorIdOrden(
+                      $datoCita["idOrden"],$datoCita["tipoEvaluacion"],$desarrolloSocial,
+                      $respEmocional,$refConjunta,$juego,
+                      $conmunicacionLeng,$flexMental,
+                      $pensamiento,$comportamientoGnrl,$conclu,$relacion,
+                      $imitacion,$afecto,$cuerpo,$objetos);
+
+      OrdenDiagnostico::ActualizarEstadoPorId($datoCita["idOrden"]);
+  }
+
+
 
 
 }

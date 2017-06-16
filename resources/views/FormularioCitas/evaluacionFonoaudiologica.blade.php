@@ -42,7 +42,7 @@
                       </dd>";
                     }?>
                     <br>
-                    <form class="form-horizontal col-md-4" align="center">
+                    <form class="form-horizontal col-md-4" align="center" method='post' action='guardar_reporte_psicologico'>
                       <?php echo "<input type='hidden' name='idCita' value=",$datos["idCita"],"> "?>
                         <table>
                           <tr align="center">
@@ -52,30 +52,33 @@
                           </tr>
                           <tr>
                             <td>Conducta Socio Comunicativa</td>
-                            <td><textarea rows="10" cols="64" id="condSocioComunicativa" name="condSocioComunicativa">Conducta Socio Comunicativa</textarea></td>
+                            <td><textarea rows="10" cols="64" id="condSocioComunicativa" name="condSocioComunicativa"></textarea></td>
                           </tr>
                           <tr>
                             <td>Competencia Comunicativa</td>
-                            <td><textarea rows="10" cols="64" id="competComunicativa" name="competComunicativa">Competencia Comunicativa</textarea></td>
+                            <td><textarea rows="10" cols="64" id="competComunicativa" name="competComunicativa"></textarea></td>
                           </tr>
                           <tr>
                             <td>Lenguaje Comprensivo</td>
-                            <td><textarea rows="10" cols="64" id="lengComprensivo" name="lengComprensivo">Lenguaje Comprensivo</textarea></td>
+                            <td><textarea rows="10" cols="64" id="lengComprensivo" name="lengComprensivo"></textarea></td>
                           </tr>
                           <tr>
                             <td>Lenguaje Expresivo</td>
-                            <td><textarea rows="10" cols="64" id="lengExpresivo" name="lengExpresivo">Lenguaje Expresivo</textarea></td>
+                            <td><textarea rows="10" cols="64" id="lengExpresivo" name="lengExpresivo"></textarea></td>
                           </tr>
                           <tr>
                             <td>Conclusiones </td>
-                            <td><textarea rows="10" cols="64" id="conclusiones" name="conclusiones">Conclusiones </textarea></td>
+                            <td><textarea rows="10" cols="64" id="conclusiones" name="conclusiones"></textarea></td>
                           </tr>
                           <tr>
                             <td>Sugerencias</td>
-                            <td ><textarea rows="10" cols="64" id="sugerencias" name="sugerencias">Sugerencias</textarea></td>
+                            <td ><textarea rows="10" cols="64" id="sugerencias" name="sugerencias"></textarea></td>
                           </tr>
 
                         </table>
+                        {!! csrf_field() !!}
+                        "<input type='submit' name='action' value='asignar Cita'/>
+                        <input type='hidden' name='tipoCita' value='",$datos["datos"]["tipoCita"],"'/>
                     </form>
                 </div>
             </div>
