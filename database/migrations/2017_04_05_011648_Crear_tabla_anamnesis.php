@@ -43,6 +43,13 @@ class CrearTablaAnamnesis extends Migration
             $table->string('cuerpoPsicologo',100)->nullable();
             $table->string('objetosPsicologo',100)->nullable();
 
+            //datos Terapista ocupacional
+            $table->string('coordinacionObsTerapeutaOcupacional',100)->nullable();
+            $table->string('coordinacionSugTerapeutaOcupacional',100)->nullable();
+            $table->string('procesamientoObsTerapeutaOcupacional',100)->nullable();
+            $table->string('procesamientoSugTerapeutaOcupacional',100)->nullable();
+            $table->string('concluSugereniasTerapeutaOcupacional',100)->nullable();
+
             $table->timestamps();
 
         });

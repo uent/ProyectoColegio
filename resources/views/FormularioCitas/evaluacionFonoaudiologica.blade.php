@@ -1,6 +1,6 @@
 @extends ('layouts.admin')
 @section('nombrePagina')
-  Evaluación | Psicopedagogica
+  Evaluación | Fonoaudiologica
 @endsection
 @section('contenido')
 <div id="main-wrapper">
@@ -42,7 +42,7 @@
                       </dd>";
                     }?>
                     <br>
-                    <form class="form-horizontal col-md-4" align="center" method='post' action='guardar_reporte_psicologico'>
+                    <form class="form-horizontal col-md-4" align="center" method='post' action='guardar_reporte_fonoaudiologo'>
                       <?php echo "<input type='hidden' name='idCita' value=",$datos["idCita"],"> "?>
                         <table>
                           <tr align="center">
@@ -77,7 +77,7 @@
 
                         </table>
                         {!! csrf_field() !!}
-                        "<input type='submit' name='action' value='asignar Cita'/>
+                        <input type='submit' name='action' value='Completar cita'/>
                         <input type='hidden' name='tipoCita' value='",$datos["datos"]["tipoCita"],"'/>
                     </form>
                 </div>

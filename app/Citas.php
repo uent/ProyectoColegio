@@ -94,6 +94,27 @@ class Citas extends Model
   }
 
 
+  public static function agregarReporteTerapiaOcupacional($idCita,$coordinacionObsTerapeutaOcupacional,
+                                                            $coordinacionSugTerapeutaOcupacional,
+                                                            $procesamientoObsTerapeutaOcupacional,
+                                                            $procesamientoSugTerapeutaOcupacional,
+                                                            $concluSugereniasTerapeutaOcupacional)
+  {
+
+      Citas::where('idCitas',"=", $idCita)->update(['estado' => "completado"]);
+
+      $datoCita = Citas::BuscarPorId($idCita);
+
+      Anamnesis::ActualizarReporteTerapiaOcupacionalPorIdOrden(
+                      $datoCita["idOrden"],$datoCita["tipoEvaluacion"],
+                      $coordinacionObsTerapeutaOcupacional,
+                      $coordinacionSugTerapeutaOcupacional,
+                      $procesamientoObsTerapeutaOcupacional,
+                      $procesamientoSugTerapeutaOcupacional,
+                      $concluSugereniasTerapeutaOcupacional);
+
+      OrdenDiagnostico::ActualizarEstadoPorId($datoCita["idOrden"]);
+  }
 
 
 }

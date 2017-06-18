@@ -87,38 +87,109 @@ VALUES ("1236789","FonoNombre","FonoApellido","fonomail@gmail.com",
 
 
 
-#Psicológico
+#Psicologico
 InSERT InTO Perfil (nombrePerfil,created_at,updated_at)
-VALUES ("Psicológico",now(),now());
+VALUES ("Psicologico",now(),now());
 
 InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
 SELECT idPerfil, idPermiso, now(),now()
 FROM Permiso
 InnER JOIn Perfil
-where  Permiso.nombrePermiso = "IngresoNino" and Perfil.nombrePerfil ="Psicológico";
+where  Permiso.nombrePermiso = "IngresoNino" and Perfil.nombrePerfil ="Psicologico";
 
 InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
 SELECT idPerfil, idPermiso, now(),now()
 FROM Permiso
 InnER JOIn Perfil
-where  Permiso.nombrePermiso = "EvaluarCitas" and Perfil.nombrePerfil ="Psicológico";
+where  Permiso.nombrePermiso = "EvaluarCitas" and Perfil.nombrePerfil ="Psicologico";
 
 InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
 SELECT idPerfil, idPermiso, now(),now()
 FROM Permiso
 InnER JOIn Perfil
-where  Permiso.nombrePermiso = "AsignarCitas" and Perfil.nombrePerfil ="Psicológico";
+where  Permiso.nombrePermiso = "AsignarCitas" and Perfil.nombrePerfil ="Psicologico";
 
 
 InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
 VALUES ("1456789","psicologicoNombre","psicologicoApellido","psicologicomail@gmail.com",
-  "$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe","Psicológico",now(),now());
+  "$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe","Psicologico",now(),now());
 
   InSERT InTO Perfil_Usuario (idPerfil,id,created_at,updated_at)
   SELECT idPerfil, id, now(),now()
   FROM Users
   InnER JOIn Perfil
-  where  Perfil.nombrePerfil = "Psicológico" and Users.email = "psicologicomail@gmail.com";
+  where  Perfil.nombrePerfil = "Psicologico" and Users.email = "psicologicomail@gmail.com";
+
+
+
+
+    #Psicopedagogo
+    InSERT InTO Perfil (nombrePerfil,created_at,updated_at)
+    VALUES ("Psicopedagogo",now(),now());
+
+    InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+    SELECT idPerfil, idPermiso, now(),now()
+    FROM Permiso
+    InnER JOIn Perfil
+    where  Permiso.nombrePermiso = "IngresoNino" and Perfil.nombrePerfil ="Psicopedagogo";
+
+    InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+    SELECT idPerfil, idPermiso, now(),now()
+    FROM Permiso
+    InnER JOIn Perfil
+    where  Permiso.nombrePermiso = "EvaluarCitas" and Perfil.nombrePerfil ="Psicopedagogo";
+
+    InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+    SELECT idPerfil, idPermiso, now(),now()
+    FROM Permiso
+    InnER JOIn Perfil
+    where  Permiso.nombrePermiso = "AsignarCitas" and Perfil.nombrePerfil ="Psicopedagogo";
+
+
+    InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
+    VALUES ("145678912312","psicopedagogoNombre","psicopedagogoApellido","psicopedagogomail@gmail.com",
+      "$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe","Psicopedagogo",now(),now());
+
+      InSERT InTO Perfil_Usuario (idPerfil,id,created_at,updated_at)
+      SELECT idPerfil, id, now(),now()
+      FROM Users
+      InnER JOIn Perfil
+      where  Perfil.nombrePerfil = "Psicopedagogo" and Users.email = "psicopedagogomail@gmail.com";
+
+
+
+      #TerapeutaOcupacional
+      InSERT InTO Perfil (nombrePerfil,created_at,updated_at)
+      VALUES ("TerapeutaOcupacional",now(),now());
+
+      InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+      SELECT idPerfil, idPermiso, now(),now()
+      FROM Permiso
+      InnER JOIn Perfil
+      where  Permiso.nombrePermiso = "IngresoNino" and Perfil.nombrePerfil ="TerapeutaOcupacional";
+
+      InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+      SELECT idPerfil, idPermiso, now(),now()
+      FROM Permiso
+      InnER JOIn Perfil
+      where  Permiso.nombrePermiso = "EvaluarCitas" and Perfil.nombrePerfil ="TerapeutaOcupacional";
+
+      InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+      SELECT idPerfil, idPermiso, now(),now()
+      FROM Permiso
+      InnER JOIn Perfil
+      where  Permiso.nombrePermiso = "AsignarCitas" and Perfil.nombrePerfil ="TerapeutaOcupacional";
+
+
+      InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
+      VALUES ("11242567289","terapeutaOcupacionalNombre","terapeutaOcupacionalApellido","terapeutaocupacionalmail@gmail.com",
+        "$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe","TerapeutaOcupacional",now(),now());
+
+        InSERT InTO Perfil_Usuario (idPerfil,id,created_at,updated_at)
+        SELECT idPerfil, id, now(),now()
+        FROM Users
+        InnER JOIn Perfil
+        where  Perfil.nombrePerfil = "TerapeutaOcupacional" and Users.email = "terapeutaocupacionalmail@gmail.com";
 
 
 

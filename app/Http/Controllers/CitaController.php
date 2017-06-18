@@ -126,7 +126,7 @@ class CitaController extends Controller
           {
             return View::make('FormularioCitas.evaluacionFonoaudiologica')->with("datos",$datos);
           }
-          else if($cita["tipoEvaluacion"] == "Psicológico")
+          else if($cita["tipoEvaluacion"] == "Psicologico")
           {
             return View::make('FormularioCitas.evaluacionPsicologica')->with("datos",$datos);
           }
@@ -134,7 +134,7 @@ class CitaController extends Controller
           {
             return View::make('FormularioCitas.evaluacionPsicopedagogica')->with("datos",$datos);
           }
-          else if($cita["tipoEvaluacion"] == "TerapiaOcupacional")
+          else if($cita["tipoEvaluacion"] == "TerapeutaOcupacional")
           {
             return View::make('FormularioCitas.evaluacionTerapiaOcupacional')->with("datos",$datos);
           }
@@ -143,8 +143,7 @@ class CitaController extends Controller
           */
         }
         else echo "existe un error";
-      }
-      echo "No existe cita";
+      }else echo "No existe cita";
     }
 
     public function AgregarReporteCitaFonoaudiologo()
@@ -179,6 +178,25 @@ class CitaController extends Controller
                                         $data["conclu"],$data["relacion"],
                                         $data["imitacion"],$data["afecto"],
                                         $data["cuerpo"],$data["objetos"]);
+
+      return redirect()->to('Mi_menu');
+    }
+
+
+    public function AgregarReporteCitaTerapiaOcupacional()
+    {
+      $data = request()->all();
+      //falta realizar las validaciones
+
+      //recibe idCitas, coordinacionObs,coordinacionSug,procesamientoObs,
+      //procesamientoSug,concluSugerenias
+
+      Citas::agregarReporteTerapiaOcupacional($data["idCita"],
+                                        $data["coordinacionObsTerapeutaOcupacional"],
+                                        $data["coordinacionSugTerapeutaOcupacional"],
+                                        $data["procesamientoObsTerapeutaOcupacional"],
+                                        $data["procesamientoSugTerapeutaOcupacional"],
+                                        $data["concluSugereniasTerapeutaOcupacional"]);
 
       return redirect()->to('Mi_menu');
     }

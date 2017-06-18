@@ -89,4 +89,29 @@ class Anamnesis extends Model
 
   }
 
+
+  public static  function ActualizarReporteTerapiaOcupacionalPorIdOrden(
+                  $idOrden,$tipoEvaluacion,
+                  $coordinacionObsTerapeutaOcupacional,
+                  $coordinacionSugTerapeutaOcupacional,
+                  $procesamientoObsTerapeutaOcupacional,
+                  $procesamientoSugTerapeutaOcupacional,
+                  $concluSugereniasTerapeutaOcupacional)
+  {
+    $datos = Anamnesis::select()->where('idOrden','=',$idOrden)->first();
+
+    if($datos == null)
+    {
+      $Anamnesis = Anamnesis::NuevaAnamnesis($idOrden);
+    }
+
+    Anamnesis::where('idOrden',"=", $idOrden)
+    ->update([
+      'coordinacionObsTerapeutaOcupacional'=> $coordinacionObsTerapeutaOcupacional,
+      'coordinacionSugTerapeutaOcupacional'=> $coordinacionSugTerapeutaOcupacional,
+      'procesamientoObsTerapeutaOcupacional'=> $procesamientoObsTerapeutaOcupacional,
+      'procesamientoSugTerapeutaOcupacional'=> $procesamientoSugTerapeutaOcupacional,
+      'concluSugereniasTerapeutaOcupacional'=> $concluSugereniasTerapeutaOcupacional]);
+
+  }
 }
