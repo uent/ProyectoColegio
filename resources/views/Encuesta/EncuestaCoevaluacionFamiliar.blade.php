@@ -39,7 +39,7 @@
 <form id="wizardForm" method="POST" role="form" action="{{ url('Guardar_reporte_tutor') }}" class="form">
   {!! csrf_field() !!}
 <div class="tab-content">
-<div class="tab-pane fade " id="tab1">
+<div class="tab-pane fade tab-pane active fade in " id="tab1">
     <div class="row m-b-lg">
         <div class="col-md-6">
             <div class="row">
@@ -338,7 +338,7 @@
         </div>
     </div>
 </div>
-<div class="tab-pane fade tab-pane active fade in " id="tab4">
+<div class="tab-pane fade " id="tab4">
 <div class="row">
     <div class="col-md-12">
     <div class="panel-body">

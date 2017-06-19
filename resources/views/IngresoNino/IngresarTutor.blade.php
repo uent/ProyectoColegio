@@ -9,6 +9,7 @@
 
 
 @section('contenido')
+<script src="{{asset('js/ingresoValidator.js')}}"></script>
 
 @if (isset($errors) && count($errors) > 0)
    <div class="alert alert-danger">
@@ -32,18 +33,19 @@
                                     <h4 class="panel-title">Ingrese los datos del tutor a cargo</h4>
                                 </div>
                                 <div class="panel-body">
-									<form method="POST" role="form" action="{{ url('ingresar_tutor') }}" class="form">
+                                <div ><small style="color: red; padding-left:50px;">Los campos con * son obligatorios</small><br></div><br>
+									<form id="tutorForm" method="POST" role="form" action="{{ url('ingresar_tutor') }}" class="form">
 										{!! csrf_field() !!}
 										<div class="form-group">
-											<input name="Nombre" class="form-control" placeholder="Nombre" required autofocus><br>
-											<input name="Apellidos" class="form-control" placeholder="Apellidos" required autofocus><br>
-											<input name="Rut" class="form-control" placeholder="Rut" required autofocus><br>
-											<input name="Mail" class="form-control" placeholder="Mail" required autofocus><br>
-											<input name="Telefono_fijo" class="form-control" placeholder="Teléfono Fijo" required autofocus><br>
-											<input name="Celular" class="form-control" placeholder="Celular" required autofocus>
+											<input id="Nombre" name="Nombre" class="form-control" placeholder="Nombre *" required autofocus><br>
+											<input id="Apellidos" name="Apellidos" class="form-control" placeholder="Apellidos *" required autofocus><br>
+											<input id="Rut" name="Rut" class="form-control" placeholder="Rut *" required autofocus><br>
+											<input id="Mail" name="Mail" class="form-control" placeholder="Mail *" required autofocus><br>
+											<input id="Telefono_fijo" name="Telefono_fijo" class="form-control" placeholder="Teléfono Fijo *" required autofocus><br>
+											<input id="Celular" name="Celular" class="form-control" placeholder="Celular *" required autofocus>
 											<p class="help-block"><small>Parentesco</small></p>
 
-											<select multiple class="form-control" name="Parentesco" placeholder="Parentesco" required autofocus>
+											<select multiple class="form-control" name="Parentesco" placeholder="Parentesco *" required autofocus>
 								                <option value = 'Padre/Madre'> Padre/Madre</option>
 								                <option value = 'Abuelo/Abuela'> Abuelo/Abuela</option>
 								                <option value = 'Tío/Tía'> Tío/Tía</option>
