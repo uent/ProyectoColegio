@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="form-group col-md-12">
-                    <input type="hidden" class="form-control" value = <?php //echo $datos->idOrden ?> name="idOrden" id="idOrden">
+                    <input type="hidden" class="form-control" value = <?php echo $datos->idOrdenDiagnostico ?> name="idOrden" id="idOrden">
                 </div>
             </div>
         </div>
@@ -287,7 +287,7 @@
                                     <table><thead>
                                         <tr>
                                             <th>Actividad de la vida diaria (AVD)</th>
-                                            <th><select id="AVD" class="form-group col-md-12">
+                                            <th><select id="AVD"  name="AVD" class="form-group col-md-12">
                                                   <option value="solo">Solo</option>
                                                   <option value="pocaAyuda">Con poca ayuda</option>
                                                   <option value="muchaAyuda">Con mucha Ayuda</option>
@@ -296,7 +296,7 @@
                                         </tr>
                                         <tr>
                                             <th>Comer</th>
-                                            <th><select id="comer" class="form-group col-md-12">
+                                            <th><select id="comer" name="comer" class="form-group col-md-12">
                                                   <option value="solo">Solo</option>
                                                   <option value="pocaAyuda">Con poca ayuda</option>
                                                   <option value="muchaAyuda">Con mucha Ayuda</option>
@@ -305,7 +305,7 @@
                                         </tr>
                                         <tr>
                                             <th>Vestirse</th>
-                                            <th><select id="vestirse" class="form-group col-md-12">
+                                            <th><select id="vestirse" name="vestirse" class="form-group col-md-12">
                                                   <option value="solo">Solo</option>
                                                   <option value="pocaAyuda">Con poca ayuda</option>
                                                   <option value="muchaAyuda">Con mucha Ayuda</option>
@@ -314,7 +314,7 @@
                                         </tr>
                                         <tr>
                                             <th>Higiene<small>(lavarse las manos y dientes, baño)</small></th>
-                                            <th><select id="AVD" class="form-group col-md-12">
+                                            <th><select id="higiene" name="higiene" class="form-group col-md-12">
                                                   <option value="solo">Solo</option>
                                                   <option value="pocaAyuda">Con poca ayuda</option>
                                                   <option value="muchaAyuda">Con mucha Ayuda</option>
@@ -322,13 +322,13 @@
                                             </th>
                                         </tr>
                                     </thead></table>
-                                    
-                                    
-                                    
+
+
+
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="desarrollo10">¿Cuáles son sus hábitos alimenticios?¿Qué alimentos prefiere?¿Amplio repertorio o restringido?</label>
-                                    <input type="text" style="width:900px;height:100px" class="form-control" name="desarrollo8" id="desarrollo8" >
+                                    <input type="text" style="width:900px;height:100px" class="form-control" name="habitosAlimenticios" id="habitosAlimenticios" >
                                 </div>
                             </div>
                         </div>
@@ -454,11 +454,11 @@
             </div>
         </div>
     </div>
-  
+
     </div>
     <div align="center"><button type="button" align="center" class="btn btn-info" data-toggle="modal" data-target="#myModal">Enviar</button></div>
 
-   
+
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">

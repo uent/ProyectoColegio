@@ -15,7 +15,11 @@ Route::group(['middleware' => ['auth','ControlPermisos']], function() {
   Route::post('insertar_cita', 'CitaController@InsertarCita');
   Route::get('citas_pendientes_profesional', 'CitaController@CitasPendientesPorUsuarioActual');
   Route::get('Llenar_informe_cita', 'CitaController@FormularioInformeCita');
-  Route::post('Guardar_reporte', 'CitaController@AgregarReporteCita');
+
+  //reportes profesionales
+  Route::post('Guardar_reporte', 'CitaController@AgregarReporteCita');//borrar
+
+
   Route::get('ingreso_profesional', 'UsuarioController@IngresoProfesional');
   Route::post('crear_Profesional', 'UsuarioController@CrearProfesional');
   Route::get('pantalla_generar_anamnesis', 'AnamnesisController@OrdenesPendientesDeAnamnesis');
@@ -24,6 +28,8 @@ Route::group(['middleware' => ['auth','ControlPermisos']], function() {
   Route::POST('Guardar_reporte_tutor', 'EncuestaController@IngresarEncuesta');
 
 });
+
+Auth::routes();
 
 Route::get('/', function () {
     return view('Menu');
@@ -35,16 +41,24 @@ Route::get('PantallaFaltaPermisos', function () {
     return view('FaltaPermisos\FaltaPermisos');
 });
 
-Auth::routes();
+
 Route::get('pdf', 'OrdenDiagnosticoController@PdfReportes');
 Route::get('/home', 'HomeController@index')->name('home'); //borrar??
 
 
-    Route::get('ajax', function () {
-        return view('VistasMalas\Intento_ajax');
-  });
+  Route::get('ajax', function () {
+      return view('VistasMalas\Intento_ajax');
+});
 
 //Llamadas ajax
 Route::get('validarRutNinoAjax/{rutNino}', 'AjaxController@validarRutNino');
 //mail
 Route::get('welcome-mail','MailController@MailIngresoTutor');
+
+
+//reportes profesionales
+
+Route::post('guardar_reporte_fonoaudiologo', 'CitaController@AgregarReporteCitaFonoaudiologo');
+Route::post('guardar_reporte_psicologico', 'CitaController@AgregarReporteCitaPsicologo');
+Route::post('guardar_reporte_terapista_ocupacional', 'CitaController@AgregarReporteCitaTerapiaOcupacional');
+Route::post('guardar_reporte_psicopedagogo', 'CitaController@AgregarReporteCitaPsicopedagogo');

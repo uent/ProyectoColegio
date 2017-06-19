@@ -135,7 +135,10 @@ class OrdenDiagnostico extends Model
         $citas = Citas::obtenerCitasPorIdOrden($idOrden);
 
         $statusCitas["Fonoaudiologo"] = 0;
-        $statusCitas["Neurolinguístico"] = 0;
+        $statusCitas["Psicologico"] = 0;
+        $statusCitas["TerapeutaOcupacional"] = 0;
+        $statusCitas["Psicopedagogo"] = 0;
+
         foreach($citas as $c)
         {
           //aqui van todos los tipos de citas necesarios para cambiar el estado de
@@ -145,11 +148,21 @@ class OrdenDiagnostico extends Model
           {
             $statusCitas["Fonoaudiologo"] = 1;
           }
-          if($c["tipoEvaluacion"] == "Neurolinguístico")
+
+          if($c["tipoEvaluacion"] == "Psicologico")
           {
-            $statusCitas["Neurolinguístico"] = 1;
+            $statusCitas["Psicologico"] = 1;
           }
 
+          if($c["tipoEvaluacion"] == "TerapeutaOcupacional")
+          {
+            $statusCitas["TerapeutaOcupacional"] = 1;
+          }
+
+          if($c["tipoEvaluacion"] == "Psicopedagogo")
+          {
+            $statusCitas["Psicopedagogo"] = 1;
+          }
 
         }
         //procedera a sumar los valores del arreglo anterior
@@ -160,7 +173,7 @@ class OrdenDiagnostico extends Model
         {
           $i = $i + $sc;
         }
-        if($i == 2)
+        if($i == count($statusCitas))
         {
           $orden = OrdenDiagnostico::where('idOrdenDiagnostico', $idOrden)
           ->update(['estado' => "evaluando"]);
@@ -217,7 +230,7 @@ class OrdenDiagnostico extends Model
           ->join('Nino_tutor', 'Ninos.idNino', '=', 'Nino_tutor.idNino')
           ->join('Users', 'Nino_tutor.idTutor', '=', 'Users.id')
           ->where('OrdenDiagnostico.estado', '=', "falta_coevaluacion")
-          ->select('Ninos.idNino')
+          ->select()
           ->first();
     return $tablas;
   }

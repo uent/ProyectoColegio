@@ -121,27 +121,118 @@ class CitaController extends Controller
           $datos["apellidos"] = $niño["apellidos"];
           $datos["rut"] = $niño["rut"];
 
+          //determina que vista se cargara en funcion del tipo de cita
+          if($cita["tipoEvaluacion"] == "Fonoaudiologo")
+          {
+            return View::make('FormularioCitas.evaluacionFonoaudiologica')->with("datos",$datos);
+          }
+          else if($cita["tipoEvaluacion"] == "Psicologico")
+          {
+            return View::make('FormularioCitas.evaluacionPsicologica')->with("datos",$datos);
+          }
+          else if($cita["tipoEvaluacion"] == "Psicopedagogo")
+          {
+            return View::make('FormularioCitas.evaluacionPsicopedagogica')->with("datos",$datos);
+          }
+          else if($cita["tipoEvaluacion"] == "TerapeutaOcupacional")
+          {
+            return View::make('FormularioCitas.evaluacionTerapiaOcupacional')->with("datos",$datos);
+          }else echo "hay un error, tipo cita no existe";
+          /* en caso de emergencia (para presentar el proyecto) comentar lo anterior y dejar solo esto
           return View::make('EvaluarCitas.FormularioCita')->with("datos",$datos);
+          */
         }
-      }
-      echo "No existe cita";
+        else echo "existe un error";
+      }else echo "No existe cita";
     }
 
-    public function AgregarReporteCita()
+    public function AgregarReporteCitaFonoaudiologo()
     {
       $data = request()->all();
-      $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
-        'reporte' => ['required', 'max:10000'],
-        ]);
-        if ($validator->fails())
-        {
-          return redirect()->back()->withErrors($validator->errors());
-        }
-      //recibe idCitas y reporte
+      //falta realizar las validaciones
 
+      //recibe idCitas, condSocioComunicativa, competComunicativa, lengComprensivo
+      //   lengExpresivo, conclusiones, sugerencias
 
-      Citas::agregarReporte($data["idCita"],$data["reporte"]);
+      Citas::agregarReporteFonoaudiologo($data["idCita"],
+                            $data["condSocioComunicativa"], $data["competComunicativa"],
+                            $data["lengComprensivo"], $data["lengExpresivo"],
+                            $data["conclusiones"], $data["sugerencias"]);
 
       return redirect()->to('Mi_menu');
     }
+
+    public function AgregarReporteCitaPsicologo()
+    {
+      $data = request()->all();
+      //falta realizar las validaciones
+
+      //recibe idCitas, desarrolloSocial,respEmocional,refConjunta,juego,conmunicacionLeng,
+      //flexMental,pensamiento,comportamientoGnrl,conclu,relacion,imitacion,afecto,cuerpo,objetos
+
+      Citas::agregarReportePsicologo($data["idCita"],
+                                        $data["desarrolloSocial"],$data["respEmocional"],
+                                        $data["refConjunta"],$data["juego"],
+                                        $data["conmunicacionLeng"],$data["flexMental"],
+                                        $data["pensamiento"],$data["comportamientoGnrl"],
+                                        $data["conclu"],$data["relacion"],
+                                        $data["imitacion"],$data["afecto"],
+                                        $data["cuerpo"],$data["objetos"]);
+
+      return redirect()->to('Mi_menu');
+    }
+
+
+    public function AgregarReporteCitaTerapiaOcupacional()
+    {
+      $data = request()->all();
+      //falta realizar las validaciones
+
+      //recibe idCitas, coordinacionObs,coordinacionSug,procesamientoObs,
+      //procesamientoSug,concluSugerencias
+
+      Citas::agregarReporteTerapiaOcupacional($data["idCita"],
+                                        $data["coordinacionObs"],
+                                        $data["coordinacionSug"],
+                                        $data["procesamientoObs"],
+                                        $data["procesamientoSug"],
+                                        $data["concluSugerencias"]);
+
+      return redirect()->to('Mi_menu');
+    }
+
+
+
+    public function AgregarReporteCitaPsicopedagogo()
+    {
+      $data = request()->all();
+      //falta realizar las validaciones
+
+      //recibe idCitas, coordinacionObs,coordinacionSug,procesamientoObs,
+      //procesamientoSug,concluSugerenias
+
+  //idCita, FPBNE1, FPBNEESug1, FPBNE2, FPBNEESug2, FPBNE3, FPBNEESug3, FPBNE4,
+  //FPBNEESug4, comportamientoNivel, ComportamientoSug, aprendizajeNivel,
+  // aprendizajeSug, conclusionesSugerencias
+
+
+
+      Citas::agregarReportePsicopedagogo($data["idCita"],
+                                          $data["FPBNE1"],
+                                          $data["FPBNEESug1"],
+                                          $data["FPBNE2"],
+                                          $data["FPBNEESug2"],
+                                          $data["FPBNE3"],
+                                          $data["FPBNEESug3"],
+                                          $data["FPBNE4"],
+                                          $data["FPBNEESug4"],
+                                          $data["comportamientoNivel"],
+                                          $data["ComportamientoSug"],
+                                          $data["aprendizajeNivel"],
+                                          $data["aprendizajeSug"],
+                                          $data["conclusionesSugerencias"]);
+
+      return redirect()->to('Mi_menu');
+    }
+
 }

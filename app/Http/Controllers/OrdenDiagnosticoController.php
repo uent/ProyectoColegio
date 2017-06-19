@@ -35,7 +35,9 @@ class OrdenDiagnosticoController extends Controller
       //se evaluara que citas ya estan asignadas para esta orden
 
       $statusCitas["Fonoaudiologo"]["existe"] = false;
-      $statusCitas["Neurolinguístico"]["existe"] = false;
+      $statusCitas["Psicologico"]["existe"] = false;
+      $statusCitas["TerapeutaOcupacional"]["existe"] = false;
+      $statusCitas["Psicopedagogo"]["existe"] = false;
 
 
       $statusCitas["datos"]["idOrden"] = $orden["idOrdenDiagnostico"];
@@ -53,15 +55,30 @@ class OrdenDiagnosticoController extends Controller
             $statusCitas["Fonoaudiologo"]["estado"] = $c->estado;
             $statusCitas["Fonoaudiologo"]["hora"] = $c->hora;
             $statusCitas["Fonoaudiologo"]["fecha"] = $c->fecha;
-
           }
-          if($c["tipoEvaluacion"] == "Neurolinguístico")
-          {
-            $statusCitas["Neurolinguístico"]["existe"] = true;
-            $statusCitas["Neurolinguístico"]["estado"] = $c->estado;
-            $statusCitas["Neurolinguístico"]["hora"] = $c->hora;
-            $statusCitas["Neurolinguístico"]["fecha"] = $c->fecha;
 
+          if($c["tipoEvaluacion"] == "Psicologico")
+          {
+            $statusCitas["Psicologico"]["existe"] = true;
+            $statusCitas["Psicologico"]["estado"] = $c->estado;
+            $statusCitas["Psicologico"]["hora"] = $c->hora;
+            $statusCitas["Psicologico"]["fecha"] = $c->fecha;
+          }
+
+          if($c["tipoEvaluacion"] == "TerapeutaOcupacional")
+          {
+            $statusCitas["TerapeutaOcupacional"]["existe"] = true;
+            $statusCitas["TerapeutaOcupacional"]["estado"] = $c->estado;
+            $statusCitas["TerapeutaOcupacional"]["hora"] = $c->hora;
+            $statusCitas["TerapeutaOcupacional"]["fecha"] = $c->fecha;
+          }
+
+          if($c["tipoEvaluacion"] == "Psicopedagogo")
+          {
+            $statusCitas["Psicopedagogo"]["existe"] = true;
+            $statusCitas["Psicopedagogo"]["estado"] = $c->estado;
+            $statusCitas["Psicopedagogo"]["hora"] = $c->hora;
+            $statusCitas["Psicopedagogo"]["fecha"] = $c->fecha;
           }
         }
       }
@@ -88,14 +105,17 @@ class OrdenDiagnosticoController extends Controller
 
     }
 
+
     public static function OrdenesPendientesDeCoevaluacionPorIdTutor($idTutor)
     {
+      //borrar metodo??
       //en el futuro debe mostrar una lista con todos los niños pendientes, no solo uno
       return OrdenDiagnostico::UnaOrdenPendienteDeCoevaluacionPorIdTutor($idTutor);
     }
 
     public static  function UnaOrdenPendienteDeCoevaluacionPorIdTutor($idTutor)
     {
+      //borrar metodo??
       //repetida
       //en el futuro debe mostrar una lista con todos los niños pendientes, no solo uno
       return OrdenDiagnostico::UnaOrdenPendienteDeCoevaluacionPorIdTutor($idTutor);

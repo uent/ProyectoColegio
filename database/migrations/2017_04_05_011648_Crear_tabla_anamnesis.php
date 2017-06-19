@@ -18,8 +18,53 @@ class CrearTablaAnamnesis extends Migration
             $table->integer('idOrden')->unsigned();
             $table->foreign('idOrden')
             ->references('idOrdenDiagnostico')->on('OrdenDiagnostico');
-            $table->string('datosFono',45);
-            $table->string('datosNeuro',45);
+
+            //datos Fonoaudiologo
+            $table->string('condSocioComunicativaFonoaudiologo',100)->nullable();
+            $table->string('competComunicativaFonoaudiologo',100)->nullable();
+            $table->string('lengComprensivoFonoaudiologo',100)->nullable();
+            $table->string('lengExpresivoFonoaudiologo',100)->nullable();
+            $table->string('conclusionesFonoaudiologo',100)->nullable();
+            $table->string('sugerenciasFonoaudiologo',100)->nullable();
+
+            //datos Psicologico
+            $table->string('desarrolloSocialPsicologo',100)->nullable();
+            $table->string('respEmocionalPsicologo',100)->nullable();
+            $table->string('refConjuntaPsicologo',100)->nullable();
+            $table->string('juegoPsicologo',100)->nullable();
+            $table->string('conmunicacionLengPsicologo',100)->nullable();
+            $table->string('flexMentalPsicologo',100)->nullable();
+            $table->string('pensamientoPsicologo',100)->nullable();
+            $table->string('comportamientoGnrlPsicologo',100)->nullable();
+            $table->string('concluPsicologo',100)->nullable();
+            $table->string('relacionPsicologo',100)->nullable();
+            $table->string('imitacionPsicologo',100)->nullable();
+            $table->string('afectoPsicologo',100)->nullable();
+            $table->string('cuerpoPsicologo',100)->nullable();
+            $table->string('objetosPsicologo',100)->nullable();
+
+            //datos Terapista ocupacional
+            $table->string('coordinacionObsTerapeutaOcupacional',100)->nullable();
+            $table->string('coordinacionSugTerapeutaOcupacional',100)->nullable();
+            $table->string('procesamientoObsTerapeutaOcupacional',100)->nullable();
+            $table->string('procesamientoSugTerapeutaOcupacional',100)->nullable();
+            $table->string('concluSugereniasTerapeutaOcupacional',100)->nullable();
+
+            //datos Psicopedagogo
+            $table->string('FPBNE1Psicopedagogo',100)->nullable();
+            $table->string('FPBNEESug1Psicopedagogo',100)->nullable();
+            $table->string('FPBNE2Psicopedagogo',100)->nullable();
+            $table->string('FPBNEESug2Psicopedagogo',100)->nullable();
+            $table->string('FPBNE3Psicopedagogo',100)->nullable();
+            $table->string('FPBNEESug3Psicopedagogo',100)->nullable();
+            $table->string('FPBNE4Psicopedagogo',100)->nullable();
+            $table->string('FPBNEESug4Psicopedagogo',100)->nullable();
+            $table->string('comportamientoNivelPsicopedagogo',100)->nullable();
+            $table->string('ComportamientoSugPsicopedagogo',100)->nullable();
+            $table->string('aprendizajeNivelPsicopedagogo',100)->nullable();
+            $table->string('aprendizajeSugPsicopedagogo',100)->nullable();
+            $table->string('conclusionesSugerenciasPsicopedagogo',100)->nullable();
+
             $table->timestamps();
 
         });

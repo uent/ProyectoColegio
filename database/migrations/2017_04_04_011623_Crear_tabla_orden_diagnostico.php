@@ -23,9 +23,9 @@ class CrearTablaOrdenDiagnostico extends Migration
             //"contacto_pendiente": aun no se a contactado con el tutor del niño
             //"falta_coevaluacion": el tutor debe llenar la ficha de co-evaluacion
             //"asignar": aun hace falta asignar alguna o todas las citas
-            //"finalizado": ya finalizo la entrega de los documentos al tutor
             //"evaluando": aun faltan por finalizar las citas y sus respectivos informes
             //"falta_anamnesis": las citas fueron completadas pero falta crear la anamnesis
+            //"finalizado": ya finalizo la entrega de los documentos al tutor
             $table->string('prioridad',10);
             // "alta" o "normal"
             //$table->integer('idTutor');

@@ -4,94 +4,65 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support\Facades\DB;
+
 class Encuesta extends Model
 {
-    public statis function crear($data)
+    public static function crear($data)
     {
       DB::table('OrdenDiagnostico')
-      ->where('idOrden', '=',$data["idOrden"])
+      ->where('idOrdenDiagnostico', '=',$data["idOrden"])
 
-      ->update(['FechaNacimiento'=> $data["InputNac"])
-      ->update(['cantHermanos'=> $data[""])
-      ->update(['nombrePadre'=> $data[""])
-      ->update(['nombreMadre'=> $data[""])
-      ->update(['Dirección'=> $data[""])
-      ->update(['nombreLlenadoFicha'=> $data[""])
-      ->update(['textoPorqueEvaluacion'=> $data[""])
-      ->update(['textoExpectativas'=> $data[""])
-      ->update(['textoTipoDificultades'=> $data[""])
-      ->update(['textoProfesionalActual'=> $data[""])
-      ->update(['textoIntegrantesOcupaciones'=> $data[""])
-      ->update(['textoDesarrolloEmbarazo'=> $data[""])
-      ->update(['SemanasGestacion'=> $data[""])
-      ->update(['textoParto'=> $data[""])
-      ->update(['peso'=> $data["antecedentes3peso"])
-      ->update(['talla'=> $data["antecedentes3talla"])
-      ->update(['apgar'=> $data["antecedentes3apgar"])
-      ->update(['textopPrimerAñoVida'=> $data["desarrollo3"])
-      ->update(['enfermedadesRelevantes'=> $data["desarrollo4"])
-      ->update(['textoMarcha'=> $data["desarrollo1"])
-      ->update(['textoControlEsfinter'=> $data["desarrollo2"])
-      ->update(['textoHabilidadesMotricesGruesas'=> $data["desarrollo3"])
-      ->update(['textoHabilidadesMotricesFinas'=> $data["desarrollo4"])
-      ->update(['textoAdquisicionLenguaje'=> $data["desarrollo5"])
-      ->update(['textoDificultadesLenguaje'=> $data["desarrollo6"])
-      ->update(['textoDesarrolloSocialAdultos'=> $data["desarrollo7"])
-      ->update(['textoDesarrolloSocialNinos'=> $data["desarrollo8"])
-      ->update(['OpcionComer'=> $data[""])
-      ->update(['OpcionVestirse'=> $data[""])
-      ->update(['OpcionHigiene'=> $data[""])
-      ->update(['textoHabitosAlimenticios'=> $data[""])
-      ->update(['textoManifiestaEmociones'=> $data[""])
-      ->update(['textoManifiestaFrustracion'=> $data[""])
-      ->update(['textoFlexibilidadActividades'=> $data[""])
-      ->update(['textoInteresesObjetosActividades'=> $data[""])
-      ->update(['textoIntensidadMiedos'=> $data[""])
-      ->update(['textoHabitosSueño'=> $data[""])
-      ->update(['textoInicioEscolaridad'=> $data[""])
-      ->update(['textoOtrosEstablecimientos'=> $data[""])
-      ->update(['textoEstablecimientoActual'=> $data[""])
-      ->update(['textoNivelCursoActual'=> $data[""])
-      ->update(['texto'=> $data[""])
-      ->update(['textoRepitencias'=> $data[""])
-      ->update(['textoComentarios'=> $data[""]);
+      ->update([
 
-      'inputNombre'=>['required','max:200'],
-      'inputApellido'=>['required','max:200'],
-      'inputRut'=>['required','max:200'],
-      'InputNac'=>['required','max:200'],
-      'inputEscolaridad'=>['required','max:200'],
-      'inputCantHrmns'=>['required','max:200'],
-      'inputLugarHrmns'=>['required','max:200'],
-      'inputNombrePadre'=>['required','max:200'],
-      'inputNombreMadre'=>['required','max:200'],
-      'inputDireccion'=>['required','max:200'],
-      'inputNombreTutor'=>['required','max:200'],
-      'inputTelefono'=>['required','max:200'],
-      'exampleInputEmail'=>['required','max:200'],
-      'motivo1'=>['required','max:200'],
-      'motivo2'=>['required','max:200'],
-      'motivo3'=>['required','max:200'],
-      'motivo4'=>['required','max:200'],//si, no
-      'motivo4profesional'=>['required','max:200'],
-      'motivo4anio'=>['required','max:200'],
-      'motivo4motivo'=>['required','max:200'],
-      'motivo4diagnostico'=>['required','max:200'],
-      'motivo4indicaciones'=>['required','max:200'],
-      'motivo4indicaciones'=>['required','max:200'],
-      'motivo5'=>['required','max:200'],//si,no
-      'motivo5indicacion'=>['required','max:200'],
-      'contexto1'=>['required','max:200'],
-      'contexto2'=>['required','max:200'],
-      'antecedentes1'=>['required','max:200'],
-      'antecedentes2'=>['required','max:200'],
-      'antecedentes3'=>['required','max:200'],
-      'antecedentes3peso'=>['required','max:200'],
-      'antecedentes3talla'=>['required','max:200'],
-      'antecedentes3apgar'=>['required','max:200'],
-      'antecedentes4'=>['required','max:200'],
-      'antecedentes5'=>['required','max:200'],
+      'FechaNacimiento'=> $data["InputNac"],
+      'cantHermanos'=> $data["inputCantHrmns"],
+      'nombrePadre'=> $data["inputNombrePadre"],
+      'nombreMadre'=> $data["inputNombreMadre"],
+      'Dirección'=> $data["inputDireccion"],
+      'nombreLlenadoFicha'=> $data["inputNombreTutor"],
+      'textoPorqueEvaluacion'=> $data["motivo1"],
+      'textoExpectativas'=> $data["motivo2"],
+      'textoTipoDificultades'=> $data["motivo3"],
+      'textoProfesionalActual'=> $data["motivo4"],  //si no
+      //faltan campos para textoProfesionalActual
+      'textoIntegrantesOcupaciones'=> $data["contexto1"],
+      'textoAntecendentesEnfermedadosFamiliares'=> $data["contexto2"],
+      'textoDesarrolloEmbarazo'=> $data["antecedentes1"],
+      'SemanasGestacion'=> $data["antecedentes2"],
+      'textoParto'=> $data["antecedentes3"],
+      'peso'=> $data["antecedentes3peso"],
+      'talla'=> $data["antecedentes3talla"],
+      'apgar'=> $data["antecedentes3apgar"],
+      'textopPrimerAñoVida'=> $data["desarrollo3"],
+      'enfermedadesRelevantes'=> $data["desarrollo4"],
+      'textoMarcha'=> $data["desarrollo1"],
+      'textoControlEsfinter'=> $data["desarrollo2"],
+      'textoHabilidadesMotricesGruesas'=> $data["desarrollo3"],
+      'textoHabilidadesMotricesFinas'=> $data["desarrollo4"],
+      'textoAdquisicionLenguaje'=> $data["desarrollo5"],
+      'textoDificultadesLenguaje'=> $data["desarrollo6"],
+      'textoDesarrolloSocialAdultos'=> $data["desarrollo7"],
+      'textoDesarrolloSocialNinos'=> $data["desarrollo8"],
+      'OpcionComer'=> $data["comer"],
+      'OpcionVestirse'=> $data["vestirse"],
+      'OpcionHigiene'=> $data["higiene"],
+      'textoHabitosAlimenticios'=> $data["habitosAlimenticios"],
+      'textoManifiestaEmociones'=> $data["ambitoConductual1"],
+      'textoManifiestaFrustracion'=> $data["ambitoConductual2"],
+      'textoFlexibilidadActividades'=> $data["ambitoConductual3"],
+      'textoInteresesObjetosActividades'=> $data["ambitoConductual4"],
+      'textoIntensidadMiedos'=> $data["ambitoConductual5"],
+      'textoHabitosSueño'=> $data["ambitoConductual6"],
+      'textoInicioEscolaridad'=> $data["historiaEscolar1"],
+      'textoOtrosEstablecimientos'=> $data["historiaEscolar2"],
+      'textoEstablecimientoActual'=> $data["historiaEscolar3"],
+      'textoNivelCursoActual'=> $data["historiaEscolar4"],
+      //'texto'=> $data[""],
+      'textoRepitencias'=> $data["historiaEscolar5"],
+      'textoComentarios'=> $data["historiaEscolar6"],
 
-      'monto_pago'=>['required','max:200'],
+      ]);
+
     }
 }
