@@ -50,6 +50,21 @@ class CrearTablaAnamnesis extends Migration
             $table->string('procesamientoSugTerapeutaOcupacional',100)->nullable();
             $table->string('concluSugereniasTerapeutaOcupacional',100)->nullable();
 
+            //datos Psicopedagogo
+            $table->string('FPBNE1Psicopedagogo',100)->nullable();
+            $table->string('FPBNEESug1Psicopedagogo',100)->nullable();
+            $table->string('FPBNE2Psicopedagogo',100)->nullable();
+            $table->string('FPBNEESug2Psicopedagogo',100)->nullable();
+            $table->string('FPBNE3Psicopedagogo',100)->nullable();
+            $table->string('FPBNEESug3Psicopedagogo',100)->nullable();
+            $table->string('FPBNE4Psicopedagogo',100)->nullable();
+            $table->string('FPBNEESug4Psicopedagogo',100)->nullable();
+            $table->string('comportamientoNivelPsicopedagogo',100)->nullable();
+            $table->string('ComportamientoSugPsicopedagogo',100)->nullable();
+            $table->string('aprendizajeNivelPsicopedagogo',100)->nullable();
+            $table->string('aprendizajeSugPsicopedagogo',100)->nullable();
+            $table->string('conclusionesSugerenciasPsicopedagogo',100)->nullable();
+
             $table->timestamps();
 
         });

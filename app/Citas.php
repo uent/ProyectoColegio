@@ -117,4 +117,29 @@ class Citas extends Model
   }
 
 
+
+  public static function agregarReportePsicopedagogo($idCita,
+                                      $FPBNE1,$FPBNEESug1,  $FPBNE2,
+                                      $FPBNEESug2,$FPBNE3,$FPBNEESug3,
+                                      $FPBNE4,$FPBNEESug4,$comportamientoNivel,
+                                      $ComportamientoSug,$aprendizajeNivel,$aprendizajeSug,
+                                      $conclusionesSugerencias)
+  {
+
+      Citas::where('idCitas',"=", $idCita)->update(['estado' => "completado"]);
+
+      $datoCita = Citas::BuscarPorId($idCita);
+
+      Anamnesis::ActualizarReportePsicopedagogoPorIdOrden(
+                      $datoCita["idOrden"],$datoCita["tipoEvaluacion"],
+                      $FPBNE1,$FPBNEESug1,  $FPBNE2,
+                      $FPBNEESug2,$FPBNE3,$FPBNEESug3,
+                      $FPBNE4,$FPBNEESug4,$comportamientoNivel,
+                      $ComportamientoSug,$aprendizajeNivel,$aprendizajeSug,
+                      $conclusionesSugerencias);
+
+      OrdenDiagnostico::ActualizarEstadoPorId($datoCita["idOrden"]);
+  }
+
+
 }

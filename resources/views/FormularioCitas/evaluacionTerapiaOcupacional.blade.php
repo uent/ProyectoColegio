@@ -62,7 +62,7 @@
                           </tr>
                           <tr>
                             <td>Conclusiones y sugerencias de apoyo</td>
-                            <td colspan="3"><textarea rows="4" cols="64" id="concluSugerenias" name="concluSugerenias"></textarea></td>
+                            <td colspan="3"><textarea rows="4" cols="64" id="concluSugerenias" name="concluSugerencias"></textarea></td>
 
                           </tr>
 

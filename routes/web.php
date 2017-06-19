@@ -61,3 +61,4 @@ Route::get('welcome-mail','MailController@MailIngresoTutor');
 Route::post('guardar_reporte_fonoaudiologo', 'CitaController@AgregarReporteCitaFonoaudiologo');
 Route::post('guardar_reporte_psicologico', 'CitaController@AgregarReporteCitaPsicologo');
 Route::post('guardar_reporte_terapista_ocupacional', 'CitaController@AgregarReporteCitaTerapiaOcupacional');
+Route::post('guardar_reporte_psicopedagogo', 'CitaController@AgregarReporteCitaPsicopedagogo');

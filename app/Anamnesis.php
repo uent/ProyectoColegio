@@ -92,11 +92,11 @@ class Anamnesis extends Model
 
   public static  function ActualizarReporteTerapiaOcupacionalPorIdOrden(
                   $idOrden,$tipoEvaluacion,
-                  $coordinacionObsTerapeutaOcupacional,
-                  $coordinacionSugTerapeutaOcupacional,
-                  $procesamientoObsTerapeutaOcupacional,
-                  $procesamientoSugTerapeutaOcupacional,
-                  $concluSugereniasTerapeutaOcupacional)
+                  $coordinacionObs,
+                  $coordinacionSug,
+                  $procesamientoObs,
+                  $procesamientoSug,
+                  $concluSugerencias)
   {
     $datos = Anamnesis::select()->where('idOrden','=',$idOrden)->first();
 
@@ -107,11 +107,47 @@ class Anamnesis extends Model
 
     Anamnesis::where('idOrden',"=", $idOrden)
     ->update([
-      'coordinacionObsTerapeutaOcupacional'=> $coordinacionObsTerapeutaOcupacional,
-      'coordinacionSugTerapeutaOcupacional'=> $coordinacionSugTerapeutaOcupacional,
-      'procesamientoObsTerapeutaOcupacional'=> $procesamientoObsTerapeutaOcupacional,
-      'procesamientoSugTerapeutaOcupacional'=> $procesamientoSugTerapeutaOcupacional,
-      'concluSugereniasTerapeutaOcupacional'=> $concluSugereniasTerapeutaOcupacional]);
+      'coordinacionObsTerapeutaOcupacional'=> $coordinacionObs,
+      'coordinacionSugTerapeutaOcupacional'=> $coordinacionSug,
+      'procesamientoObsTerapeutaOcupacional'=> $procesamientoObs,
+      'procesamientoSugTerapeutaOcupacional'=> $procesamientoSug,
+      'concluSugereniasTerapeutaOcupacional'=> $concluSugerencias]);
 
+  }
+
+
+
+
+
+  public static  function ActualizarReportePsicopedagogoPorIdOrden(
+                  $idOrden,$tipoEvaluacion,
+                  $FPBNE1,$FPBNEESug1,  $FPBNE2,
+                  $FPBNEESug2,$FPBNE3,$FPBNEESug3,
+                  $FPBNE4,$FPBNEESug4,$comportamientoNivel,
+                  $ComportamientoSug,$aprendizajeNivel,$aprendizajeSug,
+                  $conclusionesSugerencias)
+  {
+    $datos = Anamnesis::select()->where('idOrden','=',$idOrden)->first();
+
+    if($datos == null)
+    {
+      $Anamnesis = Anamnesis::NuevaAnamnesis($idOrden);
+    }
+
+    Anamnesis::where('idOrden',"=", $idOrden)
+    ->update([
+      'FPBNE1Psicopedagogo'=> $FPBNE1,
+      'FPBNEESug1Psicopedagogo'=> $FPBNEESug1,
+      'FPBNE2Psicopedagogo'=> $FPBNE2,
+      'FPBNEESug2Psicopedagogo'=> $FPBNEESug2,
+      'FPBNE3Psicopedagogo'=> $FPBNE3,
+      'FPBNEESug3Psicopedagogo'=> $FPBNEESug3,
+      'FPBNE4Psicopedagogo'=> $FPBNE4,
+      'FPBNEESug4Psicopedagogo'=> $FPBNEESug4,
+      'comportamientoNivelPsicopedagogo'=> $comportamientoNivel,
+      'ComportamientoSugPsicopedagogo'=> $ComportamientoSug,
+      'aprendizajeNivelPsicopedagogo'=> $aprendizajeNivel,
+      'aprendizajeSugPsicopedagogo'=> $aprendizajeSug,
+      'conclusionesSugerenciasPsicopedagogo'=> $conclusionesSugerencias]);
   }
 }
