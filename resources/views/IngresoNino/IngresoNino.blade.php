@@ -11,7 +11,7 @@
 
 @section('contenido')
 <script src="{{asset('js/ingresoValidator.js')}}"></script>
-
+<script src="{{asset('js/resumenIngreso.js')}}"></script>
 
 
 <div class="page-inner">
@@ -60,8 +60,10 @@
                                         </div>
                                         <div class="col-md-4" align="center">
                                             <ul class="pager wizard">
-                                            <li><alert href="#t" class="btn btn-default" data-toggle="tab">Al finalizar ingrese a la pestaña 'Info Tutor'</a></li>
-                                            </ul>
+                                                    
+                                                    <li class="next"><a href="#" class="btn btn-default">Siguiente</a></li>
+
+                                                </ul>
                                         </div>
                                         
                                     </div>
@@ -79,7 +81,7 @@
                                             <input id="celular" name="celular" class="form-control" placeholder="Celular *" required autofocus><br>
                                             <p class="help-block"><small>Parentesco</small></p>
 
-                                            <select multiple class="form-control" style="width: 300px" name="parentesco" placeholder="Parentesco *" required autofocus>
+                                            <select multiple class="form-control" style="width: 300px" id="parentesco" name="parentesco" placeholder="Parentesco *" required autofocus>
                                                 <option value = 'Padre/Madre'> Padre/Madre</option>
                                                 <option value = 'Abuelo/Abuela'> Abuelo/Abuela</option>
                                                 <option value = 'Tío/Tía'> Tío/Tía</option>
@@ -91,7 +93,9 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4" align="center"><br><br><br>
-                                    <button type="submit" onClick="this.form.submit(); this.disabled=true; this.value='Sending…'; " class="btn btn-primary">Enviar</button>  
+                                    <ul class="pager wizard">
+                                        <li class="finish"><button id="finish" type="button" class="btn btn-info" data-toggle="modal" data-target="#Ingreso">Siguiente</button></li>
+                                    </ul>
                                 </div>
                                 </div>
                                                                
@@ -109,6 +113,25 @@
 
 </div><!-- Page Inner -->
 
+                                            <!-- Modal -->
+<div class="modal fade" id="Ingreso" tabindex="-1" role="dialog" aria-labelledby="IngresoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title" id="IngresoLabel">Ficha Solicitud</h3>
+            </div>
+            <div class="modal-body">
+            <div id="resum">
+                
+            </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success">Enviar Solicitud</button>
+            </div>
+        </div>
+    </div>
 
 
 @endsection

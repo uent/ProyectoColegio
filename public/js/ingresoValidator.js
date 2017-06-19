@@ -54,6 +54,7 @@ $(document).ready(function() {
                 return false;
             }
         },
+
         'onTabClick': function(tab, navigation, index) {
             var $valid = $("#ingresoForm").valid();
             if(!$valid) {
@@ -61,10 +62,20 @@ $(document).ready(function() {
                 return false;
             }
         },
+        'onFinish': function(tab, navigation, index) {
+            var $valid = $("#ingresoForm").valid();
+            if(!$valid) {
+                $validator.focusInvalid();
+                return false;
+            }
+        },
+
     });
     
     $('.date-picker').datepicker({
         orientation: "top auto",
         autoclose: true
     });
+
+   
 });
