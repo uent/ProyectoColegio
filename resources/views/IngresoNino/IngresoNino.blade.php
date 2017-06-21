@@ -35,7 +35,7 @@
                     <div id="rootwizard">
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Info niñ@</a></li>
-                            <li role="presentation"><a href="#tab2" data-toggle="tab"><i class="fa fa-truck m-r-xs"></i>Info Tutor</a></li>
+                            <li role="presentation"><a href="#tab2" data-toggle="tab"><i class="fa fa-users m-r-xs"></i>Info Tutor</a></li>
                         </ul>
                         <div class="progress progress-sm m-t-sm">
                             <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
@@ -81,7 +81,7 @@
                                             <input id="celular" name="celular" class="form-control" placeholder="Celular *" required autofocus><br>
                                             <p class="help-block"><small>Parentesco</small></p>
 
-                                            <select multiple class="form-control" style="width: 300px" id="parentesco" name="parentesco" placeholder="Parentesco *" required autofocus>
+                                            <select class="form-control" style="width: 300px" id="parentesco" name="parentesco" placeholder="Parentesco *" required autofocus>
                                                 <option value = 'Padre/Madre'> Padre/Madre</option>
                                                 <option value = 'Abuelo/Abuela'> Abuelo/Abuela</option>
                                                 <option value = 'Tío/Tía'> Tío/Tía</option>

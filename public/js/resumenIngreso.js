@@ -1,6 +1,6 @@
 $(document).ready(function() {
  $("#finish").click(function(){
- 		console.log('poto0');
+ 		
         
         document.getElementById("resum").innerHTML = 
         "<h3><b>Información Niño/a</b></h3>" +
@@ -21,6 +21,8 @@ $(document).ready(function() {
         "<br><b>Parentesco: </b>" + document.getElementById("parentesco").value ;
 
 	});   
+  
+
 });
 
 
