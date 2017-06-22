@@ -45,15 +45,15 @@
             <div class="row">
                 <div class="form-group col-md-6">
                     <label for="inputNombre"><small style="color:red">*</small> Nombre de niño/a</label>
-                    <input type="text" class="form-control" name="inputNombre" id="inputNombre">
+                    <input type="text" class="form-control" name="inputNombre" id="inputNombre" value=<?php echo $datos["nombreNino"] ?> readonly>
                 </div>
                 <div class="form-group  col-md-6">
                     <label for="inputApellido"><small style="color:red">*</small>Apellido de niño/a</label>
-                    <input type="text" class="form-control col-md-6" name="inputApellido" id="inputApellido">
+                    <input type="text" class="form-control col-md-6" name="inputApellido" id="inputApellido" value=<?php echo $datos["apellidoNino"] ?> readonly>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="inputRut"><small style="color:red">*</small>RUT de niño/a</label>
-                    <input type="text" class="form-control" name="inputRut" id="inputRut">
+                    <input type="text" class="form-control" name="inputRut" id="inputRut" value=<?php echo $datos["rutNino"] ?> readonly>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="InputNac"><small style="color:red">*</small>Fecha de Nacimiento de niño/a</label>
@@ -88,15 +88,15 @@
                 </div>
                 <div class="form-group col-md-12">
                     <label for="exampleInputEmail"><small style="color:red">*</small>Correo Electrónico</label>
-                    <input type="email" class="form-control" name="exampleInputEmail" id="exampleInputEmail">
+                    <input type="email" class="form-control" name="exampleInputEmail" id="exampleInputEmail" value=<?php echo $datos["emailTutor"] ?> readonly>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="inputNombreTutor">Nombre de quien completa la ficha</label>
-                    <input type="text" class="form-control" name="inputNombreTutor" id="inputNombreTutor">
+                    <input type="text" class="form-control" name="inputNombreTutor" id="inputNombreTutor" value=<?php echo ($datos["nombreTutor"] .  ' ' . $datos["apellidosTutor"]); ?> readonly>
                 </div>
 
                 <div class="form-group col-md-12">
-                    <input type="hidden" class="form-control" value = <?php echo $datos->idOrdenDiagnostico ?> name="idOrden" id="idOrden">
+                    <input type="hidden" class="form-control" value = <?php echo $datos["idOrden"] ?> name="idOrden" id="idOrden">
                 </div>
             </div>
         </div>

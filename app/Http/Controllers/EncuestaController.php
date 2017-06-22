@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use View;
 use Validator;
 use App\Encuesta;
+use App\Ninos;
+use App\Tutor;
 use App\OrdenDiagnostico;
 
 
@@ -20,9 +22,21 @@ class EncuestaController extends Controller
 
       $datosOrden = OrdenDiagnosticoController::UnaOrdenPendienteDeCoevaluacionPorIdTutor($idTutor);
 
+      $datosNino = Ninos::MostrarDatosNino($datosOrden->idNino);
+
+      $datosTutor = Tutor::UnTutorPorNinoPorIdNino($datosOrden->idNino);
+
       if($datosOrden /*&& OrdenDiagnostico::VerificarCoEvaluacionCompletoPorId*/)
       {
-        return View::make('Encuesta\EncuestaCoevaluacionFamiliar')->with("datos",$datosOrden);
+        $datos["idOrden"] = $datosOrden->idOrdenDiagnostico;
+        $datos["nombreNino"] = $datosNino->nombre;
+        $datos["apellidoNino"] = $datosNino->apellidos;
+        $datos["rutNino"] = $datosNino->rut;
+        $datos["emailTutor"] = $datosTutor->email;
+        $datos["nombreTutor"] = $datosTutor->name;
+        $datos["apellidosTutor"] = $datosTutor->apellidos;
+
+        return View::make('Encuesta\EncuestaCoevaluacionFamiliar')->with("datos",$datos);
       }
       else echo "No hay Encuestas por completar";
     }
