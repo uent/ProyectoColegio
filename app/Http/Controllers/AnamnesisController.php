@@ -38,8 +38,8 @@ class AnamnesisController extends Controller
       $datos["apellidos".$d->tipoEvaluacion] = $d->apellidos;
     }
 
-    var_dump($datos);
-    //return Pdfcontroller::GenerarPdfAnamnesis($datos);
+    //var_dump($datos);
+    return Pdfcontroller::GenerarPdfAnamnesis($datos);
     //por ahora retorna el pdf
     //return View::make('AnamnesisPendientes.FormularioAnamnesis')->with("datos",$datos);
 
