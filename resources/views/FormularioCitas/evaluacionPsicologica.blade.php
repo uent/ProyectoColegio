@@ -181,7 +181,7 @@
                         </div>
 
                         {!! csrf_field() !!}
-                        "<input type='submit' name='action' value='asignar Cita'/>
+                        "<input type='submit' name='action' value='Completar cita'/>
                         <input type='hidden' name='tipoCita' value='",$datos["datos"]["tipoCita"],"'/>
                     </form>
                 </div>
