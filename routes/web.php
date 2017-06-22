@@ -62,3 +62,7 @@ Route::post('guardar_reporte_fonoaudiologo', 'CitaController@AgregarReporteCitaF
 Route::post('guardar_reporte_psicologico', 'CitaController@AgregarReporteCitaPsicologo');
 Route::post('guardar_reporte_terapista_ocupacional', 'CitaController@AgregarReporteCitaTerapiaOcupacional');
 Route::post('guardar_reporte_psicopedagogo', 'CitaController@AgregarReporteCitaPsicopedagogo');
+
+
+//ingreso ficha
+Route::POST('ingresar_ficha', 'NinoController@NuevaFicha');

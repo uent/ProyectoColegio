@@ -1,4 +1,3 @@
-
 @extends ('layouts.admin')
 
 
@@ -41,7 +40,8 @@
                             <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
                             </div>
                         </div>
-                        <form id="ingresoForm">
+                        <form id="ingresoForm" method="POST" role="form" action="{{ url('ingresar_ficha') }}">
+                          {!! csrf_field() !!}
                             <div class="tab-content">
                                 <div class="tab-pane active fade in" id="tab1">
                                     <div class="row m-b-lg">
@@ -60,12 +60,12 @@
                                         </div>
                                         <div class="col-md-4" align="center">
                                             <ul class="pager wizard">
-                                                    
-                                                    <li class="next"><a href="#" class="btn btn-default">Siguiente</a></li>
+
+                                                    <li class="next"><a href="#" class="btn btn-info">Siguiente</a></li>
 
                                                 </ul>
                                         </div>
-                                        
+
                                     </div>
 
                                 </div>
@@ -88,7 +88,7 @@
                                                 <option value = 'Tutor Legal'>Tutor Legal</option>
                                                 <option value = 'Otro'>Otro</option>
                                             </select><br>
-                                                                          
+
                                         </div>
                                     </div>
                                 </div>
@@ -98,8 +98,9 @@
                                     </ul>
                                 </div>
                                 </div>
-                                                               
-                                
+
+                                <button type="submit" class="btn btn-info" data-toggle="modal" onClick="this.form.submit(); this.disabled=true; this.value='Sending…'; style="color:white"" >Enviar</button>
+
                             </div>
                         </form>
                     </div>
@@ -123,7 +124,7 @@
             </div>
             <div class="modal-body">
             <div id="resum">
-                
+
             </div>
             </div>
             <div class="modal-footer">

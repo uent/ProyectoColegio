@@ -22,6 +22,49 @@ class NinoController extends Controller
       return view ('IngresoNino\IngresoNino');
     }
 
+    public function NuevaFicha()
+    {
+      // revisar
+      $data = request()->all();
+      //recibe rutNino ,nombreNino ,apellidoNino,edadNino
+      //,diagnostico,derivacion,solicitud,escolaridad,observaciones
+      // nombreTutor,apellidoTutor,rutTutor,mailTutor,fonoTutor,celular,parentesco
+
+
+           Ninos::agregar($data['nombreNino'],$data['apellidoNino'],$data['rutNino']);
+
+           $idNino = Ninos::BuscarPorRut($data['rutNino']);
+
+           if($data['diagnostico'] == null)$data['diagnostico'] = "";
+           if($data['derivacion'] == null)$data['derivacion'] = "";
+           if($data['solicitud'] == null)$data['solicitud'] = "";
+           if($data['escolaridad'] == null)$data['escolaridad'] = "";
+           if($data['observaciones'] == null)$data['observaciones'] = "";
+
+           OrdenDiagnosticoController::NuevaOrden($idNino,
+                                             "",
+                                             $data['diagnostico'],
+                                             $data['derivacion'],
+                                             $data['solicitud'],
+                                             $data['escolaridad'],
+                                             $data['observaciones']);
+
+
+
+            if($idTutor = Tutor::IdTutorPorRutTutor($data["rutTutor"]) == NULL)  //comprueba de que no exista un tutor con el mismo rut
+            {
+              Tutor::agregar($data['nombreTutor'],$data['apellidoTutor'],
+                              $data['rutTutor'],$data['mailTutor']);
+                              //faltan campos por agregar
+
+              $idTutor = Tutor::IdTutorPorRutTutor($data["rutTutor"]);
+
+              Nino_tutor::agregar($idNino, $idTutor);
+
+              return redirect()->to('Mi_menu');
+            }
+
+      }
     private function Agregar($data)
     {
       if(Ninos::ExisteRut($data["Rut"]) == false)
@@ -43,6 +86,7 @@ class NinoController extends Controller
 
     public function Crear()
     {
+      //quiza ya no se usa esto !!!!!!
       $data = request()->all();
 
       $validator=Validator::make($data, [//reglas de validacion de los campos del formulario

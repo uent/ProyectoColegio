@@ -22,17 +22,15 @@
 
 <?php
   if($datos[0] != NULL) //datos nino
-  {    
-
+  {
     if($datos[1] != NULL) //datos tutores
     {
-    
+
           foreach ($datos[1] as $t)
           {
             $t->name;
             $t->rut;
             $t->email;
-
           }
         }
           echo
@@ -68,13 +66,11 @@
           <input type='hidden' name='idOrden' value='".$datos[2]["idOrdenDiagnostico"]."'/><br><br>
           <input type='hidden' name='correoTutor' value='".$t->email."'/><br><br>
           <button type='submit' name='action' class='btn btn-info btn-block'><i class='icon-plus m-r-xs'></i>CONTACTADO</button>
-          
 
             </div>
         </div>
     </div>
     <div class='col-md-6'>
-
         <div class='panel panel-white'>
             <div class='panel-heading'>
                 <div class='panel-title'>Observaciones</div>
@@ -84,7 +80,7 @@
             </div>
         </div>
          </form>
-        
+
     </div>
     <div class='col-md-6'>
         <div class='user-profile-panel panel panel-white'>
@@ -93,30 +89,20 @@
             </div>
             <div class='panel-body'>
 
-        
-
-
                 <h4 class='text-center m-t-lg'>".$t->name." ".$t->apellidos."</h4>
                 <p class='text-center'>".$t->rut."</p>
                 <hr>
                 <ul class='list-unstyled text-center'>
-                    
-                    <li><p><i class='icon-envelope-open m-r-xs'></i>".$t->email."</p></li>
-                    
-                </ul>
 
+                    <li><p><i class='icon-envelope-open m-r-xs'></i>".$t->email."</p></li>
+
+                </ul>
             </div>
         </div>
     </div>
-
 </div>
 </div>
-
-
       ";
-
-
   } else echo "No hay datos";
-
  ?>
 @endsection

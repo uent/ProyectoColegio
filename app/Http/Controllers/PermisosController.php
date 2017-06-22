@@ -55,8 +55,6 @@ class PermisosController extends Controller
     }
 
 
-
-
     public static function VistasDisponiblesPorIdUsuario($id)
     {
       //probablemente hay que optimizar esta funcion
