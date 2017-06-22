@@ -34,6 +34,7 @@ class CrearTablaOrdenDiagnostico extends Migration
             $table->string('solicitud',50);
             $table->string('observaciones',100);
             $table->string('escolaridad',100);
+            
             //Encuesta Coevaluación Familiar
 
             // IDENTIFICACIÓN I

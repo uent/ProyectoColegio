@@ -16,7 +16,7 @@ class AnamnesisController extends Controller
 
     $datos = Anamnesis::FormularioAnamnesis($data["idOrden"]);
 
-    $datosOrdenes = OrdenDiagnostico::BuscarPorId($datos["idNino"]);
+    $datosOrdenes = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
 
     $datosNino = Ninos::MostrarDatosNino($datosOrdenes["idNino"]);
 
@@ -29,6 +29,8 @@ class AnamnesisController extends Controller
     $datos["rutNino"] = $datosNino["rut"];
 
     $datos["fechaNacimiento"] = $datosOrdenes["FechaNacimiento"];
+    $datos["fechaNacimiento"] = $datosOrdenes["FechaNacimiento"];
+    //textoPorqueEvaluacion
 
     foreach($datosProfesionales as $d)
     {
@@ -36,8 +38,8 @@ class AnamnesisController extends Controller
       $datos["apellidos".$d->tipoEvaluacion] = $d->apellidos;
     }
 
-    //var_dump($datos);
-    return Pdfcontroller::GenerarPdfAnamnesis($datos);
+    var_dump($datos);
+    //return Pdfcontroller::GenerarPdfAnamnesis($datos);
     //por ahora retorna el pdf
     //return View::make('AnamnesisPendientes.FormularioAnamnesis')->with("datos",$datos);
 
