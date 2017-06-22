@@ -101,7 +101,7 @@ class CitaController extends Controller
 
     public function FormularioInformeCita()
     {
-
+      //comentar
       //recibe idCita
       $data = request()->all();
 

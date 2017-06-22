@@ -240,4 +240,15 @@ class OrdenDiagnostico extends Model
     //cambiar si se permite que el formulario se pueda guardar sin todos los datos
     return true;
   }
+
+  public static function DatosProfesionalesPorIdOrdenDiagnostico($idOrden)
+  {
+    //retorna todos los profesionales y el tipo de cita a la que fue asignadas a la ordenDiagnostico
+    return DB::table('OrdenDiagnostico')
+          ->join('Citas', 'OrdenDiagnostico.idOrdenDiagnostico', '=', 'Citas.idOrden')
+          ->join('Users', 'Citas.idProfesional', '=', 'Users.id')
+          ->where('OrdenDiagnostico.idOrdenDiagnostico','=',$idOrden)
+          ->select('Users.name','Users.apellidos','Users.rut','Citas.tipoEvaluacion')
+          ->get();
+  }
 }
