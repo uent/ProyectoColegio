@@ -44,7 +44,34 @@ class UsuarioController extends Controller
         return redirect()->to('Mi_menu');
       }
       else echo "ya existe usuario";
+    }
 
+    public function ListadoProfesionales()
+    {
+      $datos = User::MostrarTodosLosProfesionales();
+
+      return View::make('PantallasListar.ListarProfesionales')->with("datos", $datos);
+    }
+
+    public function ModificarDatosProfesional()
+    {
+      $data = request()->all();
+      //recibe idUsuario
+
+      $datosTablas = User::DatosUsuariosPorIdUsuario($data["idUsuario"]);
+
+      return View::make('PantallasEditar.EditarUsuario')->with("datos", $datosTablas);
+    }
+
+    public function ActualizarDatosUsuarioPorId()
+    {
+      $data = request()->all();
+      //recibe idUsuario, nombre, apellido, rut, mail, fono
+
+      User::ActualizarDatosUsuarioPorId($data["idUsuario"], $data["nombre"],
+          $data["apellido"], $data["rut"], $data["mail"], $data["fono"]);
+
+      return redirect()->to('Mi_menu');
     }
 
     /*private function Agregar($data)

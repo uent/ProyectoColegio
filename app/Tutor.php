@@ -8,24 +8,19 @@ use Illuminate\Support\Facades\DB;
 
 use App\Nino_tutor;
 use App\User;
+use App\Http\Controllers\UtilidadesController;
+
 
 class Tutor extends Model
 {
   protected $table = 'Tutor'; #?????
 
-  public static function agregar($nombre,$apellido, $rut,$mail)
+  public static function agregar($nombre,$apellido, $rut,$mail,$telefono)
   {
 
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $randstring = '';
+    $clave = UtilidadesController::GeneradorDeContrasena();
 
-    $largoFinal = rand(6,10);
-
-    for ($i = 0; $i < $largoFinal; $i++) {
-        $randstring[$i] = $characters[rand(0, (strlen($characters)-1))];
-    }
-
-    User::agregar($nombre,$apellido, $rut,"Tutor",$mail,$randstring);
+    User::agregar($nombre,$apellido, $rut,"Tutor",$mail,$clave,$telefono);
 
 
   }
@@ -77,4 +72,14 @@ class Tutor extends Model
     User::where('id',"=", $idTutor)->update(['password' => bcrypt($clave)]);
   }
 
+  public static function ActualizarDatosTutorPorId($idTutor,$nombreTutor,$apellidoTutor,
+                                    $rutTutor,$fonoTutor)
+  {
+    User::where('id',"=", $idTutor)
+    ->update([
+      'name'=> $nombreTutor,
+      'apellidos'=> $apellidoTutor,
+      'rut'=> $rutTutor,
+      'telefono'=> $fonoTutor]);
+  }
 }

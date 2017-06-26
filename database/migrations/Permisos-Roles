@@ -26,6 +26,20 @@ VALUES ("IngresoProfesional",now(),now());
 InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
 VALUES ("LlenarInformeTutor",now(),now());
 
+InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
+VALUES ("ListarFichasNinos",now(),now());
+
+InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
+VALUES ("ListarProfesionales",now(),now());
+
+InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
+VALUES ("EditarTutorPlus",now(),now()); #permite editar los datos de un tutor con permisos extras(personal del sistema)
+
+InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
+VALUES ("EditarNinoPlus",now(),now());  #permite editar los datos de un niño con permisos extras(personal del sistema)
+
+InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
+VALUES ("EditarProfesional",now(),now());
 
 #perfiles
 
@@ -240,6 +254,35 @@ FROM Permiso
 InnER JOIn Perfil
 where  Permiso.nombrePermiso = "IngresoProfesional" and Perfil.nombrePerfil ="Administrador";
 
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "ListarFichasNinos" and Perfil.nombrePerfil ="Administrador";
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "ListarProfesionales" and Perfil.nombrePerfil ="Administrador";
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "EditarTutorPlus" and Perfil.nombrePerfil ="Administrador";
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "EditarNinoPlus" and Perfil.nombrePerfil ="Administrador";
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "EditarProfesional" and Perfil.nombrePerfil ="Administrador";
 
 InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
 VALUES ("12789","AdminNombre","AdminApellido","adminmail@gmail.com",

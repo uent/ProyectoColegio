@@ -11,40 +11,20 @@
                     <h4 class="panel-title">Evaluación Psicopedagógica</h4>
                 </div>
                 <div class="panel-body" >
-
-                                      <dt>
-                                        Nombre Niño
-                                      </dt>
-                                      <dd>
-                                        <?php echo $datos["nombre"] , " ", $datos["apellidos"]; ?>
-                                      </dd>
-                                      <dt>
-                                        Rut
-                                      </dt>
-                                      <dd>
-                                        <?php echo $datos["rut"]; ?>
-                                      </dd>
-                                      <dt>
-                                        Estado
-                                      </dt>
-                                      <dd>
-                                        <?php echo $datos["estado"]; ?>
-                                      </dd>
-                                      <?php  if($datos["comentarios"] != "")
-                                      {
-                                        echo"
-                                        <dt>
-                                          Comentarios
-                                        </dt>
-                                        <dd>";
-                                          echo $datos["comentarios"];
-                                          echo "
-                                        </dd>";
-                                      }?>
-                                      <br>
-                        <form class="form-horizontal col-md-4" align="center" method='post' action='guardar_reporte_psicopedagogo'>
+                  <b>Nombre:</b> <?php echo $datos["nombre"] , " ", $datos["apellidos"]; ?> <br>
+                  <b>Rut: </b><?php echo $datos["rut"]; ?><br>
+                  <b>Estado: </b><?php echo $datos["estado"]; ?><br>
+                  
+                    <?php  if($datos["comentarios"] != "")
+                    {
+                      echo"
+                      <b>Comentarios u Observaciones: </b>";
+                        echo $datos["comentarios"];
+                        
+                    }?><br>
+                        <form id="foma" class="form-horizontal col-md-4" align="center" method='post' action='guardar_reporte_psicopedagogo'>
                             <?php echo "<input type='hidden' name='idCita' value=",$datos["idCita"],"> "?>
-                        <table>
+                        <table class="table table-bordered">
                           <tr align="center">
                             <td><b>Área de Desarrollo</b></td>
                             <td><b>Nivel de Evolución</b> </td>
@@ -94,4 +74,52 @@
         </div>
     </div><!-- Row -->
 </div><!-- Main Wrapper -->
+<script>
+$(document).ready(function() {
+    var $validator = $("#ingresoForm").validate({
+        rules: {
+            FPBNE1:{
+              required: true
+            },
+            FPBNEESug1:{
+              required: true
+            },
+            FPBNE2:{
+              required: true
+            },
+            FPBNEESug2:{
+              required: true
+            },
+            FPBNE3:{
+              required: true
+            },
+            FPBNEESug3:{
+              required: true
+            },
+            FPBNE4:{
+              required: true
+            },
+            FPBNEESug4:{
+              required: true
+            },
+            comportamientoNive:{
+              required: true
+            },
+            ComportamientoSug:{
+              required: true
+            },
+            aprendizajeNive:{
+              required: true
+            },
+            aprendizajeSug:{
+              required: true
+            }
+
+        }
+    });
+   
+});
+
+</script>
 @endsection
+

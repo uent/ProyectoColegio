@@ -18,33 +18,31 @@
 <div id="identificacionNino">
 	<h4>IDENTIFICACIÓN</h4><br>
 	<table style="border-collapse: collapse">
+  
+
 		<tr>
 		    <th>Nombre<</th>
 		    <th>:</th>
-		    <th> </th>
+		    <th><?php echo $datos['nombreNino'], " ", $datos['apellidosNino'] ?></th>
 	  	</tr>
 	  	<tr>
 		    <th>Fecha Nacimiento</th>
 		    <th>:</th>
-		    <th> </th>
+		    <th><?php echo $datos['fechaNacimiento'] ?> </th>
 	  	</tr>
 
 		<tr>
-		    <th>Edad Cronológica</th>
+		    <th>Rut</th>
 		    <th>:</th>
-		    <th> </th>
+		    <th><?php echo $datos['rutNino'] ?></th>
 	  	</tr>
 
-		<tr>
-		    <th>Periodo de Evaluación</th>
-		    <th>:</th>
-		    <th> </th>
-	  	</tr>
+		
 
 		<tr>
 		    <th>Fecha Informe</th>
 		    <th>:</th>
-		    <th></th>
+		    <th><?php echo $datos['fechaActual'] ?></th>
 	  	</tr>
 
 	</table>
@@ -57,33 +55,31 @@
 </div>
 <div>
 	<h4>ANTECEDENTES RELEVANTES</h4>
-	<br><br>
 	<br>En relación a apoyos profesionales:
-	<br>En relación a la experiencia educativa:
-
-
+	<br><br>En relación a la experiencia educativa:
 </div>
+<br>
 <div>
-	<h4>PROCEDIMEINTOS DE EVALUACIÓN</h4><br>
+	<h4>PROCEDIMEINTOS DE EVALUACIÓN</h4>
 	<ul>
 	  <li>Anamnesis y Entrevista de Co-Evaluación Familiar Altavida</li>
 	  <li>Observación directa en situación clínica.</li>
-	  <li>Evaluación Psicopedagógica: AQUI VA EL NOMBRE DE LA PSICOPEDAGOGA</li>
-	  <li>Evaluación Fonoaudiológica: AQUI VA EL NOMBRE DE LA FONO</li>
-	  <li>Evaluación en Terapia Ocupacional: AQUI VA EL NOMBRE DE LA TERAPEUTA</li>
-	  <li>Evaluación Psicológica: AQUI VA EL NOMBRE DE LA PSICOLOGA</li>
+	  <li>Evaluación Psicopedagógica: <?php echo $datos['nombrePsicopedagogo'], " ", $datos['apellidosPsicopedagogo'] ?></li>
+	  <li>Evaluación Fonoaudiológica: <?php echo $datos['nombreFonoaudiologo'], " ", $datos['apellidosFonoaudiologo'] ?></li>
+	  <li>Evaluación en Terapia Ocupacional: <?php echo $datos['nombreTerapeutaOcupacional'], " ", $datos['apellidosTerapeutaOcupacional'] ?></li>
+	  <li>Evaluación Psicológica: <?php echo $datos['nombrePsicologico'], " ", $datos['apellidosPsicologico'] ?></li>
 	  <li>Evaluación en sesión de Equipo Transdisciplinario. </li>
 
 	</ul>
 </div>
 <div style="page-break-after:always;"></div>
-
+<br>
 <div>
 	<h4>SÍNTESIS DIAGNÓSTICA</h4><br>
 	<div>
 		<U><b>Evaluación Psicopedagógica</b></u><br><br>
 
-		<table class="table table-bordered">
+		<table WIDTH="550" border="1" align="center" bordercolor="blue" cellspacing="0">
           <tr align="center">
             <th><b>Área de Desarrollo</b></th>
             <th><b>Nivel de Evolución</b> </th>
@@ -127,7 +123,7 @@
 	</div><br><br>
 	<div>
 		<u><b>Evaluación Fonoaudiológica</b></u><br><br>
-		<table class="table table-bordered">
+		<table WIDTH="550" HEIGHT="500" border="1" align="center" bordercolor="blue" cellspacing="0">
           <tr align="center">
             <th><b>Área de Desarrollo</b></th>
             <th><b>Caracterización</b> </th>
@@ -160,10 +156,10 @@
 
         </table>
 
-	</div>
+	</div><br><br>
 	<div>
 		<u><b>Evaluación en Terapia Ocupacinal</b></u><br><br>
-		<table>
+		<table WIDTH="550" border="1" align="center" bordercolor="blue" cellspacing="0">
 	      <tr align="center">
 	        <th><b>Área de Desarrollo</b></th>
 	        <th><b>Observaciones</b> </th>
@@ -184,10 +180,10 @@
 	        <th colspan="3"><?php echo $datos['concluSugereniasTerapeutaOcupacional'] ?></th>
 	      </tr>
 	    </table>
-	</div>
+	</div><br><br>
 	<div>
 		<u><b>Evaluación Psicológica</b></u><br><br>
-		<table class="table table-bordered">
+		<table WIDTH="550" border="1" align="center" bordercolor="blue" cellspacing="0">
           <tr align="center">
             <th><b>Área de Desarrollo</b></th>
             <th><b>Caracterización</b> </th>

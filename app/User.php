@@ -32,8 +32,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public static function agregar($nombre,$apellido, $rut,$profesion,$email,$password)
-    {
+    public static function agregar($nombre,$apellido, $rut,$profesion,$email,$password,$telefono = null)
+    { // eliminar $telefono = null en el futuro
       $datos = User::select('id')->where('rut','=', $rut)->get();
 
       if(count($datos) == 0)
@@ -45,6 +45,7 @@ class User extends Authenticatable
         $Users->apellidos  = $apellido;
         $Users->profesion  = $profesion;
         $Users->email  = $email;
+        $Users->telefono  = $telefono;
         $Users->password  = bcrypt($password);
 
         $Users->save();
@@ -84,5 +85,32 @@ class User extends Authenticatable
         }else $tutores=NULL;
 
         return $tutores;
+    }
+
+    public static function MostrarTodosLosProfesionales()
+    {
+      //retorna todos los profesionales del sistema, no se incluyen
+      //Tutores que no trabajen en el colegio
+
+      $tablas = User::select()->where('profesion','!=','Tutor')->get();
+
+      return $tablas;
+    }
+
+    public static function DatosUsuariosPorIdUsuario($idUsuario)
+    {
+      return User::select()->where('id','=',$idUsuario)->first();
+    }
+
+    public static function ActualizarDatosUsuarioPorId($idUsuario, $nombre,
+        $apellido, $rut, $mail, $fono)
+    {
+      User::where('id',"=", $idUsuario)
+      ->update([
+        'name'=> $nombre,
+        'apellidos'=> $apellido,
+        'rut'=> $rut,
+        'email'=> $mail,
+        'telefono'=> $fono]);
     }
 }

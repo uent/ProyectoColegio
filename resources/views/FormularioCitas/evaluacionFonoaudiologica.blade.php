@@ -11,43 +11,25 @@
                     <h4 class="panel-title">Evaluación Fonoaudiológica</h4>
                 </div>
                 <div class="panel-body" >
-
-                    <dt>
-                      Nombre Niño
-                    </dt>
-                    <dd>
-                      <?php echo $datos["nombre"] , " ", $datos["apellidos"]; ?>
-                    </dd>
-                    <dt>
-                      Rut
-                    </dt>
-                    <dd>
-                      <?php echo $datos["rut"]; ?>
-                    </dd>
-                    <dt>
-                      Estado
-                    </dt>
-                    <dd>
-                      <?php echo $datos["estado"]; ?>
-                    </dd>
+                  <b>Nombre:</b> <?php echo $datos["nombre"] , " ", $datos["apellidos"]; ?> <br>
+                  <b>Rut: </b><?php echo $datos["rut"]; ?><br>
+                  <b>Estado: </b><?php echo $datos["estado"]; ?><br>
+                  
                     <?php  if($datos["comentarios"] != "")
                     {
                       echo"
-                      <dt>
-                        Comentarios
-                      </dt>
-                      <dd>";
+                      <b>Comentarios u Observaciones: </b>";
                         echo $datos["comentarios"];
-                        echo "
-                      </dd>";
+                        
                     }?>
+                  
                     <br>
                     <form class="form-horizontal col-md-4" align="center" method='post' action='guardar_reporte_fonoaudiologo'>
                       <?php echo "<input type='hidden' name='idCita' value=",$datos["idCita"],"> "?>
-                        <table>
+                        <table class="table table-bordered">
                           <tr align="center">
                             <td><b>Área de Desarrollo</b></td>
-                            <td><b>Nivel de Evolución</b> </td>
+                            <td><b>Caracterización</b> </td>
 
                           </tr>
                           <tr>
@@ -85,4 +67,36 @@
         </div>
     </div><!-- Row -->
 </div><!-- Main Wrapper -->
+
+
+<script>
+ $(document).ready(function() {
+    var $validator = $("#forma").validate({
+        rules: {
+          condSocioComunicativa:{
+            required: true
+          },
+          competComunicativa:{
+            required: true
+          },
+          lengComprensivo:{
+            required: true
+          },
+          lengExpresivo:{
+            required: true
+          },
+          conclusiones:{
+            required: true
+          },
+          sugerencias:{
+            required: true
+          }
+
+
+        }
+    });
+});
+  
+</script>
+
 @endsection

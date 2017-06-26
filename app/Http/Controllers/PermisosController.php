@@ -51,6 +51,10 @@ class PermisosController extends Controller
 
       if('EncuestaController@IngresarEncuesta' == $peticion) return 'LlenarInformeTutor';
 
+      if('NinoController@VerListadoFichas' == $peticion) return 'ListarFichasNinos';
+
+      if('UsuarioController@VerListadoProfesionales' == $peticion) return 'ListarProfesionales';
+
       return null;
     }
 
@@ -101,6 +105,17 @@ class PermisosController extends Controller
             $acceso['EncuestaController@MostrarEncuesta'] = true;
           }else $acceso['EncuestaController@MostrarEncuesta'] = false;
 
+        if(PermisosController::VerificarAccesoPorIdUsuario(PermisosController::PermisoNecesarioRutas(
+          'NinoController@VerListadoFichas'),$id))
+          {
+            $acceso['NinoController@VerListadoFichas'] = true;
+          }else $acceso['NinoController@VerListadoFichas'] = false;
+
+        if(PermisosController::VerificarAccesoPorIdUsuario(PermisosController::PermisoNecesarioRutas(
+          'UsuarioController@VerListadoProfesionales'),$id))
+          {
+            $acceso['UsuarioController@VerListadoProfesionales'] = true;
+          }else $acceso['UsuarioController@VerListadoProfesionales'] = false;
 
 
               return $acceso;

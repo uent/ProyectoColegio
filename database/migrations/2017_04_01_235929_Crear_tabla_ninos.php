@@ -18,7 +18,9 @@ class CrearTablaNinos extends Migration
           $table->string('nombre',50);
           $table->string('apellidos',70);
           $table->string('rut',30);
-          //$table->char('dv');
+          $table->date('fechaNacimiento',100)->nullable();
+
+          //$table->tinyInteger('edad');
           $table->timestamps();
 
         });

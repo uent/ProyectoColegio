@@ -55,10 +55,7 @@
                     <label for="inputRut"><small style="color:red">*</small>RUT de niño/a</label>
                     <input type="text" class="form-control" name="inputRut" id="inputRut" value=<?php echo $datos["rutNino"] ?> readonly>
                 </div>
-                <div class="form-group col-md-12">
-                    <label for="InputNac"><small style="color:red">*</small>Fecha de Nacimiento de niño/a</label>
-                    <input type="text" class="form-control date-picker" name="InputNac" id="InputNac">
-                </div>
+
                 <div class="form-group col-md-12">
                     <label for="inputEscolaridad">Escolaridad de niño/a</label>
                     <input type="text" class="form-control" name="inputEscolaridad" id="inputEscolaridad" placeholder="Jardín o Colegio / Nivel o Curso">
@@ -84,7 +81,7 @@
                 </div>
                 <div class="form-group col-md-12">
                     <label for="inputTelefono"><small style="color:red">*</small>Teléfono de Contacto</label>
-                    <input type="text" class="form-control" name="inputTelefono" id="inputTelefono">
+                    <input type="text" class="form-control" name="inputTelefono" value=<?php echo $datos["telefonoTutor"] ?> id="inputTelefono" readonly>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="exampleInputEmail"><small style="color:red">*</small>Correo Electrónico</label>

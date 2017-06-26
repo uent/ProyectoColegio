@@ -6,7 +6,7 @@ $(document).ready(function() {
         "<h3><b>Información Niño/a</b></h3>" +
         "<b>Nombre Niñ@: </b>" + document.getElementById("nombreNino").value + " " + document.getElementById("apellidoNino").value +
         "<br><b>Rut: </b>" + document.getElementById("rutNino").value +
-        "<br><b>Edad: </b>" + document.getElementById("edadNino").value + 
+        "<br><b>Edad: </b>" + document.getElementById("InputNac").value + 
         "<br><b>Diagnóstico: </b>" + document.getElementById("diagnostico").value +
         "<br><b>Derivación: </b>" + document.getElementById("derivacion").value + 
         "<br><b>Solicitud: </b>" + document.getElementById("solicitud").value +
@@ -17,7 +17,6 @@ $(document).ready(function() {
         "<br><b>Rut: </b>" + document.getElementById("rutTutor").value + 
         "<br><b>Mail: </b>" + document.getElementById("mailTutor").value + 
         "<br><b>Teléfono: </b>" + document.getElementById("fonoTutor").value + 
-        "<br><b>Celular: </b>" + document.getElementById("celular").value + 
         "<br><b>Parentesco: </b>" + document.getElementById("parentesco").value ;
 
 	});   

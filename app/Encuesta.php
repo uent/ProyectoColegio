@@ -15,7 +15,6 @@ class Encuesta extends Model
 
       ->update([
 
-      'FechaNacimiento'=> $data["InputNac"],
       'cantHermanos'=> $data["inputCantHrmns"],
       'nombrePadre'=> $data["inputNombrePadre"],
       'nombreMadre'=> $data["inputNombreMadre"],
@@ -44,9 +43,9 @@ class Encuesta extends Model
       'textoDificultadesLenguaje'=> $data["desarrollo6"],
       'textoDesarrolloSocialAdultos'=> $data["desarrollo7"],
       'textoDesarrolloSocialNinos'=> $data["desarrollo8"],
-      'OpcionComer'=> $data["comer"],
-      'OpcionVestirse'=> $data["vestirse"],
-      'OpcionHigiene'=> $data["higiene"],
+      'opcionComer'=> $data["comer"],
+      'opcionVestirse'=> $data["vestirse"],
+      'opcionHigiene'=> $data["higiene"],
       'textoHabitosAlimenticios'=> $data["habitosAlimenticios"],
       'textoManifiestaEmociones'=> $data["ambitoConductual1"],
       'textoManifiestaFrustracion'=> $data["ambitoConductual2"],

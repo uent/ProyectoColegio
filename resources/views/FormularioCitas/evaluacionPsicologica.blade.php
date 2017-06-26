@@ -11,41 +11,20 @@
                     <h4 class="panel-title">Evaluación Psicológica</h4>
                 </div>
                 <div class="panel-body" >
+                <b>Nombre:</b> <?php echo $datos["nombre"] , " ", $datos["apellidos"]; ?> <br>
+                <b>Rut: </b><?php echo $datos["rut"]; ?><br>
+                <b>Estado: </b><?php echo $datos["estado"]; ?><br>
+                <?php  if($datos["comentarios"] != "")
+                {
+                  echo"
+                  <b>Comentarios u Observaciones: </b>";
+                    echo $datos["comentarios"];
+                    
+                }?><br>
 
-                    <dt>
-                      Nombre Niño
-                    </dt>
-                    <dd>
-                      <?php echo $datos["nombre"] , " ", $datos["apellidos"]; ?>
-                    </dd>
-                    <dt>
-                      Rut
-                    </dt>
-                    <dd>
-                      <?php echo $datos["rut"]; ?>
-                    </dd>
-                    <dt>
-                      Estado
-                    </dt>
-                    <dd>
-                      <?php echo $datos["estado"]; ?>
-                    </dd>
-                    <?php  if($datos["comentarios"] != "")
-                    {
-                      echo"
-                      <dt>
-                        Comentarios
-                      </dt>
-                      <dd>";
-                        echo $datos["comentarios"];
-                        echo "
-                      </dd>";
-                    }?>
-                    <br>
-
-                    <form class="form-horizontal col-md-4" align="center" method='post' action='guardar_reporte_psicologico'>
+                    <form id="forma" class="form-horizontal col-md-12" align="center" method='post' action='guardar_reporte_psicologico'>
                       <?php echo "<input type='hidden' name='idCita' value=",$datos["idCita"],"> "?>
-                        <table>
+                        <table class="table table-bordered">
                           <tr align="center">
                             <td><b>Área de Desarrollo</b></td>
                             <td><b>Caracterización</b> </td>
@@ -89,6 +68,7 @@
                         </table>
 
                         <p>Respecto de la información aportada por la Escala de Valoración del Autismo Infantil (EVAI / CARS) es posible informar la siguiente información cuantitativa</p>
+                        <p><small>Los valores ingresados van de 1 a 4</small></p>
                         <div class=" form-horizontal col-md-12">
                              <table class="table table-bordered col-md-12">
                           <tr align="center">
@@ -99,7 +79,9 @@
                           <tr>
                             <td>Relación Con los Demás</td>
                             <td>4</td>
-                            <td><input type="text" name="relacion" id="relacion"></td>
+                            <td>
+
+                            <input type="number" min="1" max="4" step="any" name="relacion" id="relacion"></td>
                           </tr>
                           <tr>
                             <td>Imitación</td>
@@ -189,4 +171,126 @@
         </div>
     </div><!-- Row -->
 </div><!-- Main Wrapper -->
+<script>
+  $(document).ready(function() {
+    var $validator = $("#forma").validate({
+        rules: {
+          desarrolloSocial: {
+                required: true
+            },
+          respEmocional: {
+                required: true
+            },
+          refConjunta: {
+                required: true
+            },
+          juego: {
+                required: true
+            },
+          conmunicacionLeng: {
+                required: true
+            },
+          flexMental: {
+                required: true
+            },
+          pensamiento: {
+                required: true
+            },
+          comportamientoGnrl: {
+                required: true
+            },
+          conclu: {
+                required: true
+            },
+            imitacion: {
+                required: true,
+                number: true,
+                min : 1,
+                max : 4
+            },
+            afecto: {
+                required: true,
+                number: true,
+                min : 1,
+                max : 4
+            },
+            cuerpo: {
+                required: true,
+                number: true,
+                min : 1,
+                max : 4
+            },
+            objetos: {
+                required: true,
+                number: true,
+                min : 1,
+                max : 4
+            },
+            adaptacion: {
+                required: true,
+                number: true,
+                min : 1,
+                max : 4
+            },
+            respVisual: {
+                required: true,
+                number: true,
+                min : 1,
+                max : 4
+            },
+            respAuditiva: {
+                required: true,
+                number: true,
+                min : 1,
+                max : 4
+            },
+            gustoOlfatoTacto: {
+                required: true,
+                number: true,
+                min : 1,
+                max : 4
+            },
+            ansiedadMiedo: {
+                required: true,
+                number: true,
+                min : 1,
+                max : 4
+            },
+            comunicVerbal: {
+                required: true,
+                number: true,
+                min : 1,
+                max : 4
+            },
+            comunicNoVerbal: {
+                required: true,
+                number: true,
+                min : 1,
+                max : 4
+            },
+            nivelAct: {
+                required: true,
+                number: true,
+                min : 1,
+                max : 4
+            },
+            respIntelectual: {
+                required: true,
+                number: true,
+                min : 1,
+                max : 4
+            },
+            impresGnrl: {
+                required: true,
+                number: true,
+                min : 1,
+                max : 4
+            }
+
+
+        }
+    });
+});
+</script>
 @endsection
+

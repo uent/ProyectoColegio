@@ -8,6 +8,7 @@ use App\Tutor;
 use App\OrdenDiagnostico;
 use Validator;
 use resources\views;
+use App\Http\Controllers\UtilidadesController;
 use View;
 use Mail;
 use Session;
@@ -26,12 +27,11 @@ class NinoController extends Controller
     {
       // revisar
       $data = request()->all();
-      //recibe rutNino ,nombreNino ,apellidoNino,edadNino
+      //recibe rutNino ,nombreNino ,apellidoNino,InputNac(fecha nacimiento)
       //,diagnostico,derivacion,solicitud,escolaridad,observaciones
-      // nombreTutor,apellidoTutor,rutTutor,mailTutor,fonoTutor,celular,parentesco
+      // nombreTutor,apellidoTutor,rutTutor,mailTutor,fonoTutor,parentesco
 
-
-           Ninos::agregar($data['nombreNino'],$data['apellidoNino'],$data['rutNino']);
+           Ninos::agregar($data['nombreNino'],$data['apellidoNino'],$data['rutNino'],$data["InputNac"]);
 
            $idNino = Ninos::BuscarPorRut($data['rutNino']);
 
@@ -54,12 +54,12 @@ class NinoController extends Controller
             if($idTutor = Tutor::IdTutorPorRutTutor($data["rutTutor"]) == NULL)  //comprueba de que no exista un tutor con el mismo rut
             {
               Tutor::agregar($data['nombreTutor'],$data['apellidoTutor'],
-                              $data['rutTutor'],$data['mailTutor']);
+                              $data['rutTutor'],$data['mailTutor'],$data["fonoTutor"]);
                               //faltan campos por agregar
 
               $idTutor = Tutor::IdTutorPorRutTutor($data["rutTutor"]);
 
-              Nino_tutor::agregar($idNino, $idTutor);
+              Nino_tutor::agregar($idNino, $idTutor,$data["parentesco"]);
 
               return redirect()->to('Mi_menu');
             }
@@ -163,6 +163,7 @@ class NinoController extends Controller
       $data = request()->all();
 
       $datosNino = Ninos::MostrarDatosNino($data["id"]);
+      $datosNino["edad"] = date_diff(date_create($datosNino["fechaNacimiento"]), date_create('now'))->y;
 
       $Tutores = Tutor::TutoresNinoPorIdNino($data["id"]);
 
@@ -178,6 +179,7 @@ class NinoController extends Controller
 
     public function CambiarStatusContacto()
     {
+      //que recibe??????
       $data = request()->all();
 
       $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
@@ -192,16 +194,8 @@ class NinoController extends Controller
       $datosTutor = Tutor::UnTutorPorNinoPorIdNino($data["idNino"]);
 
       //genera la clave al tutor para que este pueda ingresar
-      $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-      $randstring = '';
+      $clave = UtilidadesController::GeneradorDeContrasena();
 
-      $largoFinal = rand(6,10);
-
-      for ($i = 0; $i < $largoFinal; $i++) {
-          $randstring[$i] = $characters[rand(0, (strlen($characters)-1))];
-      }
-
-      $clave = $randstring;
       $email = $datosTutor->email;
 
       MailController::MailIngresoTutor($email,$clave);
@@ -215,5 +209,22 @@ class NinoController extends Controller
       return redirect()->to('Mi_menu');
     }
 
+    public function ListadoNinos()
+    {
+      $tablas = Ninos::MostrarTodosLosNinos();
 
+      return View::make('PantallasListar.ListarNinos')->with("datos", $tablas);
+    }
+
+    public function ActualizarDatosNino()
+    {
+      $data = request()->all();
+      //reibe idNino, nombreNino, apellidoNino, rutNino, fechaNacimiento
+      //faltan datos!!
+
+      Ninos::ActualizarDatosNinoPorId($data["idNino"], $data["nombreNino"],
+          $data["apellidoNino"], $data["rutNino"], $data["fechaNacimiento"]);
+
+      return redirect()->to('Mi_menu');
+    }
 }

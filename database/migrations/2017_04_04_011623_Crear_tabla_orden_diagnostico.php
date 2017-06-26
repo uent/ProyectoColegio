@@ -26,7 +26,7 @@ class CrearTablaOrdenDiagnostico extends Migration
             //"evaluando": aun faltan por finalizar las citas y sus respectivos informes
             //"falta_anamnesis": las citas fueron completadas pero falta crear la anamnesis
             //"finalizado": ya finalizo la entrega de los documentos al tutor
-            $table->string('prioridad',10);
+            $table->string('prioridad',20);
             // "alta" o "normal"
             //$table->integer('idTutor');
             $table->string('diagnosticoProfesional',100);
@@ -34,12 +34,11 @@ class CrearTablaOrdenDiagnostico extends Migration
             $table->string('solicitud',50);
             $table->string('observaciones',100);
             $table->string('escolaridad',100);
-            
+
             //Encuesta Coevaluación Familiar
 
             // IDENTIFICACIÓN I
-            $table->string('FechaNacimiento',100)->nullable();
-            $table->string('cantHermanos',100)->nullable();
+            $table->tinyInteger('cantHermanos')->nullable();
             $table->string('nombrePadre',100)->nullable();
             $table->string('nombreMadre',100)->nullable();
             $table->string('Dirección',100)->nullable();
@@ -81,9 +80,9 @@ class CrearTablaOrdenDiagnostico extends Migration
             //"¿Qué tan autónomo/a es para las siguientes actividades? Marque a continuación"
             // estos campos pueden tener los valores "Solo", "Con poca ayuda", "Con mucha ayuda"
 
-              $table->string('OpcionComer',100)->nullable();
-              $table->string('OpcionVestirse',100)->nullable();
-              $table->string('OpcionHigiene',100)->nullable();
+              $table->string('opcionComer',100)->nullable();
+              $table->string('opcionVestirse',100)->nullable();
+              $table->string('opcionHigiene',100)->nullable();
 
             //
 

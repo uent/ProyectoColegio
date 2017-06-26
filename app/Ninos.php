@@ -10,14 +10,14 @@ class Ninos extends Model
 {
     protected $table = 'Ninos'; #?????
 
-    public static function agregar($nombre,$apellido, $rut)
+    public static function agregar($nombre,$apellido, $rut, $fechaNacimiento)
     {
       $nino = new Ninos;
 
       $nino->nombre = $nombre;
       $nino->rut  = $rut;
       $nino->apellidos  = $apellido;
-
+      $nino->fechaNacimiento  = date( 'Y-m-d', intval($fechaNacimiento) );
 
       $nino->save();
 
@@ -61,10 +61,8 @@ class Ninos extends Model
     public static function MostrarDatosNino($id)
     {
 
-      $tablas = Ninos::select()->where('idNino', '=',$id)->first();
+      return $tablas = Ninos::select()->where('idNino', '=',$id)->first();
 
-      if($tablas == null) $datos = NULL;
-      else return $tablas;
     }
 
     public static function ExisteRut($Rut)
@@ -96,7 +94,21 @@ class Ninos extends Model
             ->update(['contactado' => true]);
 
       return true;
-
     }
 
+    public static function MostrarTodosLosNinos()
+    {
+      return Ninos::select()->get();
+    }
+
+    public static function ActualizarDatosNinoPorId($idNino, $nombreNino, $apellidoNino,
+                                                    $rutNino, $fechaNacimiento)
+    {
+      Ninos::where('idNino',"=", $idNino)
+      ->update([
+        'nombre'=> $nombreNino,
+        'apellidos'=> $apellidoNino,
+        'rut'=> $rutNino,
+        'fechaNacimiento'=> $fechaNacimiento]);
+    }
 }

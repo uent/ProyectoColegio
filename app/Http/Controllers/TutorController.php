@@ -6,6 +6,9 @@ use Validator;
 use Illuminate\Http\Request;
 use App\Nino_tutor;
 use App\Tutor;
+use App\User;
+use View;
+
 
 class TutorController extends Controller
 {
@@ -51,8 +54,18 @@ class TutorController extends Controller
       }
       else echo "El tutor ya se encuentra ingresado en el sistema";
 
+    }
 
+    public function ActualizarDatosTutorPorId()
+    {
+      $data = request()->all();
+      //recibe idTutor, nombreTutor, apellidoTutor, rutTutor, mailTutor,
+      // fonoTutor, parentesco
 
+      Tutor::ActualizarDatosTutorPorId($data["idTutor"],$data["nombreTutor"],$data["apellidoTutor"],
+                                        $data["rutTutor"],
+                                        $data["fonoTutor"]);
 
+      return redirect()->to('Mi_menu');
     }
 }

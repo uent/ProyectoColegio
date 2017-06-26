@@ -24,7 +24,7 @@ Route::group(['middleware' => ['auth','ControlPermisos']], function() {
   Route::post('crear_Profesional', 'UsuarioController@CrearProfesional');
   Route::get('pantalla_generar_anamnesis', 'AnamnesisController@OrdenesPendientesDeAnamnesis');
   Route::get('generar_anamnesis_nino', 'AnamnesisController@FormularioAnamnesis');
-  Route::get('EncuestaCoevaluacionFamiliar', 'EncuestaController@MostrarEncuesta');
+  Route::get('encuesta_coevaluacion_familiar', 'EncuestaController@MostrarEncuesta');
   Route::POST('Guardar_reporte_tutor', 'EncuestaController@IngresarEncuesta');
 
 });
@@ -66,3 +66,15 @@ Route::post('guardar_reporte_psicopedagogo', 'CitaController@AgregarReporteCitaP
 
 //ingreso ficha
 Route::POST('ingresar_ficha', 'NinoController@NuevaFicha');
+
+//listar
+Route::get('ver_listado_ninos', 'NinoController@ListadoNinos');
+Route::get('ver_listado_profesionales', 'UsuarioController@ListadoProfesionales');
+//modificar
+Route::get('modificar_ficha_nino', 'Nino_TutorController@ModificarDatosNinoTutores');
+Route::get('modificar_Profesional', 'UsuarioController@ModificarDatosProfesional');
+
+
+Route::post('actualizar_datos_Nino', 'NinoController@ActualizarDatosNino');
+Route::post('actualizar_datos_tutor', 'TutorController@ActualizarDatosTutorPorId');
+Route::post('actualizar_datos_profesional', 'UsuarioController@ActualizarDatosUsuarioPorId');

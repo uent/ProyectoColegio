@@ -18,7 +18,7 @@ class CrearTablaNinoTutor extends Migration
             $table->integer('idNino')->unsigned();
             $table->foreign('idNino')
             ->references('idNino')->on('Ninos');
-            //$table->string('parentesco',45);
+            $table->string('parentesco',45);
             $table->integer('idTutor')->unsigned();
             $table->foreign('idTutor')
             ->references('id')->on('Users');

@@ -22,12 +22,12 @@ class EncuestaController extends Controller
 
       $datosOrden = OrdenDiagnosticoController::UnaOrdenPendienteDeCoevaluacionPorIdTutor($idTutor);
 
-      $datosNino = Ninos::MostrarDatosNino($datosOrden->idNino);
-
-      $datosTutor = Tutor::UnTutorPorNinoPorIdNino($datosOrden->idNino);
-
       if($datosOrden /*&& OrdenDiagnostico::VerificarCoEvaluacionCompletoPorId*/)
       {
+        $datosNino = Ninos::MostrarDatosNino($datosOrden->idNino);
+
+        $datosTutor = Tutor::UnTutorPorNinoPorIdNino($datosOrden->idNino);
+
         $datos["idOrden"] = $datosOrden->idOrdenDiagnostico;
         $datos["nombreNino"] = $datosNino->nombre;
         $datos["apellidoNino"] = $datosNino->apellidos;
@@ -35,6 +35,7 @@ class EncuestaController extends Controller
         $datos["emailTutor"] = $datosTutor->email;
         $datos["nombreTutor"] = $datosTutor->name;
         $datos["apellidosTutor"] = $datosTutor->apellidos;
+        $datos["telefonoTutor"] = $datosTutor->telefono;
 
         return View::make('Encuesta\EncuestaCoevaluacionFamiliar')->with("datos",$datos);
       }

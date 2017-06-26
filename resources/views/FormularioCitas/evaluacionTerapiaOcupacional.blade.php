@@ -12,37 +12,18 @@
                 </div>
                 <div class="panel-body" >
 
-                  <dt>
-                    Nombre Niño
-                  </dt>
-                  <dd>
-                    <?php echo $datos["nombre"] , " ", $datos["apellidos"]; ?>
-                  </dd>
-                  <dt>
-                    Rut
-                  </dt>
-                  <dd>
-                    <?php echo $datos["rut"]; ?>
-                  </dd>
-                  <dt>
-                    Estado
-                  </dt>
-                  <dd>
-                    <?php echo $datos["estado"]; ?>
-                  </dd>
-                  <?php  if($datos["comentarios"] != "")
-                  {
-                    echo"
-                    <dt>
-                      Comentarios
-                    </dt>
-                    <dd>";
-                      echo $datos["comentarios"];
-                      echo "
-                    </dd>";
-                  }?>
-
-                  <form class="form-horizontal col-md-4" align="center" method='post' action='guardar_reporte_terapista_ocupacional'>
+                  <b>Nombre:</b> <?php echo $datos["nombre"] , " ", $datos["apellidos"]; ?> <br>
+                  <b>Rut: </b><?php echo $datos["rut"]; ?><br>
+                  <b>Estado: </b><?php echo $datos["estado"]; ?><br>
+                  
+                    <?php  if($datos["comentarios"] != "")
+                    {
+                      echo"
+                      <b>Comentarios u Observaciones: </b>";
+                        echo $datos["comentarios"];
+                        
+                    }?><br>
+                  <form id="forma" class="form-horizontal col-md-4" align="center" method='post' action='guardar_reporte_terapista_ocupacional'>
                     <?php echo "<input type='hidden' name='idCita' value=",$datos["idCita"],"> "?>
                         <table>
                           <tr align="center">
@@ -76,4 +57,27 @@
         </div>
     </div><!-- Row -->
 </div><!-- Main Wrapper -->
+<script>
+$(document).ready(function() {
+    var $validator = $("#forma").validate({
+        rules: {
+            coordinacionObs:{
+              required: true
+            },
+            coordinacionSug:{
+              required: true
+            },
+            procesamientoObs:{
+              required: true
+            },
+            procesamientoSug:{
+              required: true
+            }
+
+        }
+    });
+   
+});
+
+</script>
 @endsection

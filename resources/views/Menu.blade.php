@@ -79,9 +79,29 @@ if(Auth::check())
 		{
 			echo
 			"<li class='droplink'>
-				<form name=formEncuestaCoevaluacionFamiliar action='EncuestaCoevaluacionFamiliar' method='get'></form>
+				<form name=formEncuestaCoevaluacionFamiliar action='encuesta_coevaluacion_familiar' method='get'></form>
 				<a class='waves-effect waves-button' onclick='document.formEncuestaCoevaluacionFamiliar.submit();return false'>
 			    <span class='menu-icon icon-login'></span><p>Encuesta coevaluacion</p></a>
+			</li>";
+		}
+
+		if($permisos['NinoController@VerListadoFichas'])
+		{
+			echo
+			"<li class='droplink'>
+				<form name=formListadoNinos action='ver_listado_ninos' method='get'></form>
+				<a class='waves-effect waves-button' onclick='document.formListadoNinos.submit();return false'>
+			    <span class='menu-icon icon-login'></span><p>Listado niños</p></a>
+			</li>";
+		}
+
+		if($permisos['UsuarioController@VerListadoProfesionales'])
+		{
+			echo
+			"<li class='droplink'>
+				<form name=formListadoProfesionales action='ver_listado_profesionales' method='get'></form>
+				<a class='waves-effect waves-button' onclick='document.formListadoProfesionales.submit();return false'>
+					<span class='menu-icon icon-login'></span><p>Listado profesionales</p></a>
 			</li>";
 		}
 
