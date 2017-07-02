@@ -29,11 +29,11 @@ class CrearTablaOrdenDiagnostico extends Migration
             $table->string('prioridad',20);
             // "alta" o "normal"
             //$table->integer('idTutor');
-            $table->string('diagnosticoProfesional',100);
-            $table->string('derivacion',50);
-            $table->string('solicitud',50);
-            $table->string('observaciones',100);
-            $table->string('escolaridad',100);
+            $table->string('diagnosticoProfesional',1000);
+            $table->string('derivacion',100);
+            $table->string('solicitud',100);
+            $table->string('observaciones',1000);
+            $table->string('escolaridad',50);
 
             //Encuesta Coevaluación Familiar
 

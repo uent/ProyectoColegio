@@ -25,10 +25,34 @@ class NinoController extends Controller
 
     public function NuevaFicha()
     {
-      // revisar
+      $data = request()->all();
+
+      $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
+        'nombreNino' => ['required', 'max:50'],
+        'apellidoNino' => ['required', 'max:70'],
+        'rutNino' => ['required','unique:Ninos,rut','max:30'],
+        'InputNac' => ['required','date'],
+        'diagnostico' => ['max:1000','nullable'],
+        'derivacion' => ['max:100','nullable'],
+        'solicitud' => ['max:100','nullable'],
+        'escolaridad' => ['max:50','nullable'],
+        'observaciones' => ['max:1000','nullable'],
+        'nombreTutor' => ['max:30','required'],
+        'apellidoTutor' => ['max:30','required'],
+        'rutTutor' => ['max:30','unique:Users,rut','required'],
+        'mailTutor' => ['max:60','unique:Users,email','required'],
+        'fonoTutor' => ['max:20','required'],
+        'parentesco' => ['max:30','required']
+  	    ]);
+
+      if ($validator->fails())
+   {
+       return redirect()->back()->withInput()->withErrors($validator->errors());
+   }
+
       $data = request()->all();
       //recibe rutNino ,nombreNino ,apellidoNino,InputNac(fecha nacimiento)
-      //,diagnostico,derivacion,solicitud,escolaridad,observaciones
+      //diagnostico,derivacion,solicitud,escolaridad,observaciones
       // nombreTutor,apellidoTutor,rutTutor,mailTutor,fonoTutor,parentesco
 
            Ninos::agregar($data['nombreNino'],$data['apellidoNino'],$data['rutNino'],$data["InputNac"]);

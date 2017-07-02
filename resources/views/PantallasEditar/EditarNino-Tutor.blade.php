@@ -93,13 +93,12 @@
                               foreach($datos["tutores"] as $t)
                               {
                                 ?>
-                                <div class="tab-pane active fade in" id="tab<?php echo $i; ?>">
-                                  <form id="actualizarTutorForm" method="post" role="form" action="{{ url('actualizar_datos_tutor') }}">
-                                    {!! csrf_field() !!}
-                                <div class='col-md-8'>
-                                    <div class='row'>
-                                        <div class='form-group'>
-                                        <div class='row'>
+                                          <div class="tab-pane fade" id="tab<?php echo $i; ?>">
+                                          <div class="col-md-8">
+                                              <div class="row">
+                                                  <div class="form-group">
+                                        <form id="actualizarTutorForm" method="post" role="form" action="{{ url('actualizar_datos_tutor') }}">
+                                          {!! csrf_field() !!}
                                           <input type='hidden' name='idTutor' value="<?php echo $t["idTutor"]; ?>"/>
                                           <div class='form-group  col-md-6'>
                                               <label for='nombreTutor'><small style='color:red'>*</small>Nombre del Tutor </label>
@@ -127,7 +126,7 @@
                                     </div>
                                 </div>
 
-                                </div>
+                                
                                 <div class="col-md-4" align="center">
                                     <ul class="pager wizard">
                                       <button name='action' type='submit' value='Ver Datos' class='btn btn-info' data-toggle='modal' >Guardar Cambios</button></li>
@@ -142,26 +141,6 @@
                               }
                             }
                                 ?>
-								<div class="modal fade" id="Ingreso" tabindex="-1" role="dialog" aria-labelledby="IngresoLabel" aria-hidden="true">
-<div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title" id="IngresoLabel">Ficha Solicitud</h3>
-            </div>
-            <div class="modal-body">
-            <div id="resum">
-
-            </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-				<button type="submit" class="btn btn-info" data-toggle="modal" onClick="this.form.submit(); this.disabled=true; this.value='Sending…'; style="color:white"" >Enviar</button>
-
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
@@ -179,25 +158,7 @@
 </div><!-- Page Inner -->
 
                                             <!-- Modal -->
-<div class="modal fade" id="Ingreso" tabindex="-1" role="dialog" aria-labelledby="IngresoLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title" id="IngresoLabel">Ficha Solicitud</h3>
-            </div>
-            <div class="modal-body">
-            <div id="resum">
 
-            </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-
-            </div>
-        </div>
-    </div>
-</div>
 </div>
 </div>
 </div>

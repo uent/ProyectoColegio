@@ -40,6 +40,17 @@
                             <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
                             </div>
                         </div>
+
+                        @if (isset($errors) && count($errors) > 0)
+                           <div class="alert alert-danger">
+                               <ul>
+                                   @foreach ($errors->all() as $error)
+                                      <li>{{ $error }}</li>
+                                   @endforeach
+                               </ul>
+                           </div>
+                        @endif
+
                         <form id="ingresoForm" method="POST" role="form" action="{{ url('ingresar_ficha') }}">
                           {!! csrf_field() !!}
                             <div class="tab-content">
@@ -47,15 +58,15 @@
                                     <div class="row m-b-lg">
                                         <div class="col-md-8">
                                             <div class="row">
-                                            <input id="rutNino" name="rutNino" class="form-control" placeholder="Rut *" required autofocus></input><br>
-                                                <input id="nombreNino" name="nombreNino" class="form-control" placeholder="Nombre *" required autofocus></input><br>
-                                                <input id="apellidoNino" name="apellidoNino" class="form-control" placeholder="Apellidos *" required autofocus></input><br>
-                                                <input id="InputNac" name="InputNac" class="form-control date-picker" placeholder="Fecha de nacimiento *" type="text" required autofocus></textarea><br>
-                                                <textarea id="diagnostico" name="diagnostico" class="form-control" placeholder="Diagnóstico/Profesional"></textarea><br>
-                                                <input id="derivacion" name="derivacion" class="form-control" placeholder="Derivación" ></input><br>
-                                                <input id="solicitud" name="solicitud" class="form-control" placeholder="Solicitud" ></input><br>
-                                                <input id="escolaridad" name="escolaridad" class="form-control" placeholder="Escolaridad"></input><br>
-                                                <textarea id="observaciones"  name="observaciones" class="form-control" placeholder="Observaciones"></textarea><br>
+                                            <input id="rutNino" name="rutNino" value = "{{ old('rutNino') }}" class="form-control" placeholder="Rut *" required autofocus></input><br>
+                                                <input id="nombreNino" name="nombreNino" value = "{{ old('nombreNino') }}" class="form-control" placeholder="Nombre *" required autofocus></input><br>
+                                                <input id="apellidoNino" name="apellidoNino" value = "{{ old('apellidoNino') }}" class="form-control" placeholder="Apellidos *" required autofocus></input><br>
+                                                <input id="InputNac" name="InputNac" value = "{{ old('InputNac') }}" class="form-control date-picker" placeholder="Fecha de nacimiento *" type="text" required autofocus></textarea><br>
+                                                <textarea id="diagnostico" name="diagnostico" value = "{{ old('diagnostico') }}" class="form-control" placeholder="Diagnóstico/Profesional"></textarea><br>
+                                                <input id="derivacion" name="derivacion" value = "{{ old('derivacion') }}" class="form-control" placeholder="Derivación" ></input><br>
+                                                <input id="solicitud" name="solicitud" value = "{{ old('solicitud') }}" class="form-control" placeholder="Solicitud" ></input><br>
+                                                <input id="escolaridad" name="escolaridad" value = "{{ old('escolaridad') }}" class="form-control" placeholder="Escolaridad"></input><br>
+                                                <textarea id="observaciones"  name="observaciones" value = "{{ old('observaciones') }}" class="form-control" placeholder="Observaciones"></textarea><br>
                                             </div>
                                         </div>
                                         <div class="col-md-4" align="center">
@@ -73,14 +84,14 @@
                                 <div class="col-md-8">
                                     <div class="row">
                                         <div class="form-group">
-                                            <input id="nombreTutor" name="nombreTutor" class="form-control" placeholder="Nombre *" required autofocus><br>
-                                            <input id="apellidoTutor" name="apellidoTutor" class="form-control" placeholder="Apellidos *" required autofocus><br>
-                                            <input id="rutTutor" name="rutTutor" class="form-control" placeholder="Rut *" required autofocus><br>
-                                            <input id="mailTutor" name="mailTutor" class="form-control" placeholder="Mail *" required autofocus><br>
-                                            <input id="fonoTutor" name="fonoTutor" class="form-control" placeholder="Nro Teléfono *" required autofocus><br>
+                                            <input id="nombreTutor" name="nombreTutor" value = "{{ old('nombreTutor') }}" class="form-control" placeholder="Nombre *" required autofocus><br>
+                                            <input id="apellidoTutor" name="apellidoTutor" value = "{{ old('apellidoTutor') }}" class="form-control" placeholder="Apellidos *" required autofocus><br>
+                                            <input id="rutTutor" name="rutTutor" value = "{{ old('rutTutor') }}" class="form-control" placeholder="Rut *" required autofocus><br>
+                                            <input id="mailTutor" name="mailTutor" value = "{{ old('mailTutor') }}" class="form-control" placeholder="Mail *" required autofocus><br>
+                                            <input id="fonoTutor" name="fonoTutor" value = "{{ old('fonoTutor') }}" class="form-control" placeholder="Nro Teléfono *" required autofocus><br>
                                             <p class="help-block"><small>Parentesco</small></p>
 
-                                            <select class="form-control" style="width: 300px" id="parentesco" name="parentesco" placeholder="Parentesco *" required autofocus>
+                                            <select class="form-control" style="width: 300px" id="parentesco" value = "{{ old('parentesco') }}" name="parentesco" placeholder="Parentesco *" required autofocus>
                                                 <option value = 'Padre/Madre'> Padre/Madre</option>
                                                 <option value = 'Abuelo/Abuela'> Abuelo/Abuela</option>
                                                 <option value = 'Tío/Tía'> Tío/Tía</option>
