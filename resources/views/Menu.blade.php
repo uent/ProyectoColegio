@@ -61,7 +61,7 @@ if(Auth::check())
 			"<li class='droplink'>
 				<form name=formGenerarAnamnesis action='pantalla_generar_anamnesis' method='get'></form>
 				<a class='waves-effect waves-button' onclick='document.formGenerarAnamnesis.submit();return false'>
-			    <span class='menu-icon icon-login'></span><p>Generar Anamnesis</p></a>
+			    <span class='menu-icon icon-login'></span><p>Generar Informe Final</p></a>
 			</li>";
 		}
 
@@ -102,6 +102,16 @@ if(Auth::check())
 				<form name=formListadoProfesionales action='ver_listado_profesionales' method='get'></form>
 				<a class='waves-effect waves-button' onclick='document.formListadoProfesionales.submit();return false'>
 					<span class='menu-icon icon-login'></span><p>Listado profesionales</p></a>
+			</li>";
+		}
+
+		if($permisos['AnamnesisController@VisualizarInformes'])
+		{
+			echo
+			"<li class='droplink'>
+				<form name=formGenerarAnamnesis action='pantalla_generar_anamnesis' method='get'></form>
+				<a class='waves-effect waves-button' onclick='document.formGenerarAnamnesis.submit();return false'>
+			    <span class='menu-icon icon-login'></span><p>Generar Informe Final</p></a>
 			</li>";
 		}
 

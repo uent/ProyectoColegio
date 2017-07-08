@@ -8,7 +8,7 @@ class Anamnesis extends Model
 {
   protected $table = 'Anamnesis';
 
-    public static function FormularioAnamnesis($idOrden)
+    public static function GenerarInformeFinal($idOrden)
     {
       //cambiar nombre metodo!!!
       $tabla = Anamnesis::select()->where('idOrden','=',$idOrden)->first();
@@ -149,5 +149,12 @@ class Anamnesis extends Model
       'aprendizajeNivelPsicopedagogo'=> $aprendizajeNivel,
       'aprendizajeSugPsicopedagogo'=> $aprendizajeSug,
       'conclusionesSugerenciasPsicopedagogo'=> $conclusionesSugerencias]);
+  }
+
+  public static function AprobarInformeFinal($idOrden)
+  {
+    OrdenDiagnostico::where('idOrdenDiagnostico',"=", $idOrden)
+    ->update([
+      'estado'=> "proceso_finalizado"]);
   }
 }

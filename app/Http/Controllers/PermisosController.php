@@ -45,7 +45,7 @@ class PermisosController extends Controller
 
       if('AnamnesisController@OrdenesPendientesDeAnamnesis' == $peticion) return 'GenerarAnamnesis';
 
-      if('AnamnesisController@FormularioAnamnesis' == $peticion) return 'GenerarAnamnesis';
+      if('AnamnesisController@GenerarInformeFinal' == $peticion) return 'GenerarAnamnesis';
 
       if('EncuestaController@MostrarEncuesta' == $peticion) return 'LlenarInformeTutor';
 
@@ -54,6 +54,8 @@ class PermisosController extends Controller
       if('NinoController@VerListadoFichas' == $peticion) return 'ListarFichasNinos';
 
       if('UsuarioController@VerListadoProfesionales' == $peticion) return 'ListarProfesionales';
+
+      if('AnamnesisController@AprobarInformeFinal' == $peticion) return 'FinalizarInformeFinal';
 
       return null;
     }

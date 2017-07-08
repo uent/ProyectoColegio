@@ -1,8 +1,8 @@
 <?php
 
 Route::group(['middleware' => ['auth','ControlPermisos']], function() {
-  //los anteriores middleware validan que se este logeado
-  //y que se tengan los permisos necesarios para accesar
+  //los anteriores middleware validan que el usuario tenga una sesion activa en el sistema
+  //y que se tengan los permisos necesarios para usar las funcionalidades
   Route::get('ingresar_nino', 'NinoController@pagCrear');
   Route::get('contactos_pendientes', 'NinoController@MostrarNinosParaLlamar');
   Route::post('ingresar_nino', 'NinoController@Crear');
@@ -23,7 +23,10 @@ Route::group(['middleware' => ['auth','ControlPermisos']], function() {
   Route::get('ingreso_profesional', 'UsuarioController@IngresoProfesional');
   Route::post('crear_Profesional', 'UsuarioController@CrearProfesional');
   Route::get('pantalla_generar_anamnesis', 'AnamnesisController@OrdenesPendientesDeAnamnesis');
-  Route::get('generar_anamnesis_nino', 'AnamnesisController@FormularioAnamnesis');
+  Route::get('generar_informe_final_nino', 'AnamnesisController@GenerarInformeFinal');
+  Route::get('aprobar_informe_final_nino', 'AnamnesisController@AprobarInformeFinal');
+
+
   Route::get('encuesta_coevaluacion_familiar', 'EncuestaController@MostrarEncuesta');
   Route::POST('Guardar_reporte_tutor', 'EncuestaController@IngresarEncuesta');
 

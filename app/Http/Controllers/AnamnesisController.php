@@ -4,17 +4,18 @@ namespace App\Http\Controllers;
 use App\Anamnesis;
 use App\OrdenDiagnostico;
 use App\Ninos;
+use App\Tutor;
 use View;
 use Illuminate\Http\Request;
 
 class AnamnesisController extends Controller
 {
-  public function FormularioAnamnesis()
+  public function GenerarInformeFinal()
   {
     //recibe idOrden
     $data = request()->all();
 
-    $datos = Anamnesis::FormularioAnamnesis($data["idOrden"]);
+    $datos = Anamnesis::GenerarInformeFinal($data["idOrden"]);
 
     $datosOrdenes = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
 
@@ -41,7 +42,7 @@ class AnamnesisController extends Controller
     //var_dump($datos);
     return Pdfcontroller::GenerarPdfAnamnesis($datos);
     //por ahora retorna el pdf
-    //return View::make('AnamnesisPendientes.FormularioAnamnesis')->with("datos",$datos);
+    //return View::make('AnamnesisPendientes.GenerarInformeFinal')->with("datos",$datos);
 
   }
 
@@ -53,4 +54,23 @@ class AnamnesisController extends Controller
 
       }
 
+      public function AprobarInformeFinal()
+      {
+        //recibe idOrden
+        $data = request()->all();
+
+        Anamnesis::AprobarInformeFinal($data["idOrden"]);
+
+        $datosOrden = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
+
+        $datosTutores = Tutor::TutoresNinoPorIdNino($datosOrden["idNino"]);
+
+        foreach($datosTutores as $t)
+        {
+          MailController::MailEnvioNotificacionDeFinalizacionDeInformeFinal($t->email);
+        }
+
+
+        return redirect()->to('Mi_menu');
+      }
 }

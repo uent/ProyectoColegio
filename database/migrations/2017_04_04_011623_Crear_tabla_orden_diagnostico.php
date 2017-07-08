@@ -25,10 +25,10 @@ class CrearTablaOrdenDiagnostico extends Migration
             //"asignar": aun hace falta asignar alguna o todas las citas
             //"evaluando": aun faltan por finalizar las citas y sus respectivos informes
             //"falta_anamnesis": las citas fueron completadas pero falta crear la anamnesis
-            //"finalizado": ya finalizo la entrega de los documentos al tutor
+            //"proceso_finalizado": ya finalizo la entrega de los documentos al tutor
             $table->string('prioridad',20);
+            //indica la prioridad de la orden de diagnostico
             // "alta" o "normal"
-            //$table->integer('idTutor');
             $table->string('diagnosticoProfesional',1000);
             $table->string('derivacion',100);
             $table->string('solicitud',100);

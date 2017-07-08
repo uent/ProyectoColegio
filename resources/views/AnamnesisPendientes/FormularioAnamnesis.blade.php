@@ -4,7 +4,7 @@
 
 
 @section('nombrePagina')
-  Generar Anamnesis | Pendientes
+  Generar Informe Final | Pendientes
 @endsection
 
 

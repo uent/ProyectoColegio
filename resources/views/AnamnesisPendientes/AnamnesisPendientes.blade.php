@@ -26,7 +26,7 @@
                 apellidos
               </th>
               <th>
-                Accion
+                Acciones
               </th>
 
             </tr>
@@ -49,11 +49,15 @@
       "</td>
 
       <td>
-    <form method='get' action='generar_anamnesis_nino'>
-      <input type='submit' name='action' value='Generar Anamnesis'/>
+    <form method='get' action='generar_informe_final_nino'>
+      <input type='submit' name='action' value='Visualizar Informe Final'/>
       <input type='hidden' name='idOrden' value='",$d["idOrden"],"'/>
     </form>
 
+    <form method='get' action='aprobar_informe_final_nino'>
+      <input type='submit' name='action' value='Aprobar Informe Final'/>
+      <input type='hidden' name='idOrden' value='",$d["idOrden"],"'/>
+    </form>
       </td>
     </tr>";
 
