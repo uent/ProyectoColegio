@@ -57,6 +57,11 @@ class PermisosController extends Controller
 
       if('AnamnesisController@AprobarInformeFinal' == $peticion) return 'FinalizarInformeFinal';
 
+      if('AnamnesisController@VisualizarInformes' == $peticion) return 'VisualizarInformesFinales';
+
+      if('AnamnesisController@AprobarInformeFinal' == $peticion) return 'VisualizarInformesFinales';
+
+
       return null;
     }
 
@@ -118,6 +123,12 @@ class PermisosController extends Controller
           {
             $acceso['UsuarioController@VerListadoProfesionales'] = true;
           }else $acceso['UsuarioController@VerListadoProfesionales'] = false;
+
+        if(PermisosController::VerificarAccesoPorIdUsuario(PermisosController::PermisoNecesarioRutas(
+          'AnamnesisController@VisualizarInformes'),$id))
+          {
+            $acceso['AnamnesisController@VisualizarInformes'] = true;
+          }else $acceso['AnamnesisController@VisualizarInformes'] = false;
 
 
               return $acceso;

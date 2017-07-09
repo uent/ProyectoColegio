@@ -9,8 +9,6 @@ if(Auth::check())
 {
 	$id = Auth::user()->id;
 
-	$i = 0;
-
 	$permisos = PermisosController::VistasDisponiblesPorIdUsuario($id);
 
 	//var_dump($permisos);
@@ -109,9 +107,11 @@ if(Auth::check())
 		{
 			echo
 			"<li class='droplink'>
-				<form name=formGenerarAnamnesis action='pantalla_generar_anamnesis' method='get'></form>
+				<form name=formGenerarAnamnesis action='pantalla_mostrar_listado_informes' method='get'>
+				<input type='hidden' name='idTutor' value= ";echo $id; echo"'/>
+				</form>
 				<a class='waves-effect waves-button' onclick='document.formGenerarAnamnesis.submit();return false'>
-			    <span class='menu-icon icon-login'></span><p>Generar Informe Final</p></a>
+			    <span class='menu-icon icon-login'></span><p>Generar Informes</p></a>
 			</li>";
 		}
 

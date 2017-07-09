@@ -251,4 +251,35 @@ class OrdenDiagnostico extends Model
           ->select('Users.name','Users.apellidos','Users.rut','Citas.tipoEvaluacion')
           ->get();
   }
+
+  public static function OrdenesPendientesDeAnamnesisMasDatosNinosPorIdTutor($idTutor)
+  {
+    $tablas = DB::table('OrdenDiagnostico')
+          ->join('Ninos', 'OrdenDiagnostico.idNino', '=', 'Ninos.idNino')
+          ->join('Nino_tutor', 'Ninos.idNino', '=', 'Nino_tutor.idNino')
+          ->where('OrdenDiagnostico.estado', '=', "proceso_finalizado")
+          ->where('Nino_tutor.idTutor', '=', $idTutor)
+          ->select('Ninos.idNino','OrdenDiagnostico.idOrdenDiagnostico','OrdenDiagnostico.prioridad','Ninos.nombre','Ninos.apellidos','Ninos.rut')
+          ->get();
+
+      $i = 0;
+
+      if(count($tablas) == 0) $datos = NULL;
+      else
+      {
+        foreach ($tablas as $t)
+        {
+          $datos[$i]["idNino"] = $t->idNino;
+          $datos[$i]["idOrden"] = $t->idOrdenDiagnostico;
+          $datos[$i]["nombre"] = $t->nombre;
+          $datos[$i]["apellidos"] = $t->apellidos;
+          $datos[$i]["rut"] = $t->rut;
+          $datos[$i]["prioridad"] = $t->prioridad;
+
+          $i++;
+        }
+      }
+
+      return $datos;
+  }
 }

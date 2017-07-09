@@ -73,4 +73,14 @@ class AnamnesisController extends Controller
 
         return redirect()->to('Mi_menu');
       }
+
+    public function MostrarInformesNinoListosPorIdTutor()
+    {
+      //recibe idTutor
+      $data = request()->all();
+
+      $datos = OrdenDiagnostico::OrdenesPendientesDeAnamnesisMasDatosNinosPorIdTutor($data["idTutor"]);
+
+      return View::make('InformesTutor.InformesTutor')->with("datos",$datos);
+    }
 }

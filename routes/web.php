@@ -23,7 +23,7 @@ Route::group(['middleware' => ['auth','ControlPermisos']], function() {
   Route::get('ingreso_profesional', 'UsuarioController@IngresoProfesional');
   Route::post('crear_Profesional', 'UsuarioController@CrearProfesional');
   Route::get('pantalla_generar_anamnesis', 'AnamnesisController@OrdenesPendientesDeAnamnesis');
-  Route::get('generar_informe_final_nino', 'AnamnesisController@GenerarInformeFinal');
+
   Route::get('aprobar_informe_final_nino', 'AnamnesisController@AprobarInformeFinal');
 
 
@@ -81,3 +81,9 @@ Route::get('modificar_Profesional', 'UsuarioController@ModificarDatosProfesional
 Route::post('actualizar_datos_Nino', 'NinoController@ActualizarDatosNino');
 Route::post('actualizar_datos_tutor', 'TutorController@ActualizarDatosTutorPorId');
 Route::post('actualizar_datos_profesional', 'UsuarioController@ActualizarDatosUsuarioPorId');
+
+Route::get('pantalla_mostrar_listado_informes', 'AnamnesisController@MostrarInformesNinoListosPorIdTutor');
+//unificar
+Route::get('generar_informe_final_nino', 'AnamnesisController@GenerarInformeFinal');
+Route::get('visualizar_informe_final_nino_vista_tutor', 'AnamnesisController@GenerarInformeFinal');
+//
