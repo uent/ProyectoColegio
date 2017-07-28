@@ -13,7 +13,6 @@ class Citas extends Model
   public static function obtenerCitasPorIdOrden($idOrden)
   {
     return Citas::select()->where('idOrden','=', $idOrden)->get();
-
   }
 
   public static function BuscarPorId($idCita)
@@ -43,13 +42,13 @@ class Citas extends Model
             ->where('tipoEvaluacion','=', $datos["tipoCita"])->first();
   }
 
-  public static function ObtenerDatosCitasPendientesPorIdUsuario($idUsuario)
+  public static function ObtenerDatosCitasPendientesMasDatosNinoPorIdUsuario($idUsuario)
   {
     return DB::table('citas')
           ->join('Ninos', 'citas.idNino', '=', 'Ninos.idNino')
           ->where('citas.idProfesional', '=', $idUsuario)
           ->where('citas.estado', '=', "pendiente")
-          ->select('Ninos.idNino','citas.idcitas','citas.tipoEvaluacion',
+          ->select('Ninos.idNino','citas.idcitas','citas.fecha','citas.hora','citas.tipoEvaluacion',
           'citas.comentarios','Ninos.nombre','Ninos.apellidos','Ninos.rut')
           ->get();
   }

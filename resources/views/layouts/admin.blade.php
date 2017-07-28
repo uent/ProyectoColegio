@@ -49,8 +49,6 @@
         <script src="{{asset('plugins/offcanvasmenueffects/js/snap.svg-min.js')}}"></script>
 
 
-
-
         <!-----------Archivos JS ------------>
         <!-- Javascripts -->
         <script src="{{asset('plugins/jquery/jquery-3.1.0.min.js')}}"></script>
@@ -93,6 +91,12 @@
         <script src="{{url('')}}/plugins/select2/js/select2.min.js"></script>
         <script src="{{url('')}}/js/pages/form-select2.js"></script>
         <script src="{{url('')}}/js/pages/table-data.js"></script>
+
+        <!----Calendario ---->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -185,7 +189,7 @@
                     </div>
                     <div class="logo-box" align="center">
                         <img src="{{asset('images/altavida-logo.png')}}" style="width:65px;" >
-                        
+
                     </div><!-- Logo Box -->
                     <div class="search-button">
                         <a href="javascript:void(0);" class="show-search"><i class="icon-magnifier"></i></a>

@@ -86,4 +86,7 @@ Route::get('pantalla_mostrar_listado_informes', 'AnamnesisController@MostrarInfo
 //unificar
 Route::get('generar_informe_final_nino', 'AnamnesisController@GenerarInformeFinal');
 Route::get('visualizar_informe_final_nino_vista_tutor', 'AnamnesisController@GenerarInformeFinal');
+
 //
+
+Route::get('calendariotest', 'CalendarioController@MostrarCalendarioProfesional');

@@ -76,7 +76,7 @@ class CitaController extends Controller
     {
       $id = Auth::user()->id;
 
-      $citas = Citas::ObtenerDatosCitasPendientesPorIdUsuario($id);
+      $citas = Citas::ObtenerDatosCitasPendientesMasDatosNinoPorIdUsuario($id);
 
       $datos = null;
 

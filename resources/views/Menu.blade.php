@@ -115,6 +115,18 @@ if(Auth::check())
 			</li>";
 		}
 
+		if($permisos['CalendarioController@MostrarCalendarioProfesional'])
+		{
+			echo
+			"<li class='droplink'>
+				<form name=formCalendario action='calendariotest' method='get'>
+				</form>
+				<a class='waves-effect waves-button' onclick='document.formCalendario.submit();return false'>
+					<span class='menu-icon icon-login'></span><p>calendario</p></a>
+			</li>";
+		}
+
+
 }else
 {
 	echo "	<li class='droplink'>
@@ -125,6 +137,7 @@ if(Auth::check())
 			<span class='menu-icon icon-pin'></span><p>Iniciar sesion</p></a>
 	</li>";
 	}
+
 ?>
 
 @endsection

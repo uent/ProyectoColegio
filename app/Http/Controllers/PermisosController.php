@@ -57,9 +57,11 @@ class PermisosController extends Controller
 
       if('AnamnesisController@AprobarInformeFinal' == $peticion) return 'FinalizarInformeFinal';
 
-      if('AnamnesisController@VisualizarInformes' == $peticion) return 'VisualizarInformesFinales';
+      if('AnamnesisController@VisualizarInformes' == $peticion) return 'VisualizarInformesFinales';//repetido
 
-      if('AnamnesisController@AprobarInformeFinal' == $peticion) return 'VisualizarInformesFinales';
+      if('AnamnesisController@AprobarInformeFinal' == $peticion) return 'VisualizarInformesFinales';//repetido
+
+      if('CalendarioController@MostrarCalendarioProfesional' == $peticion) return 'MostrarCalendarioProfesional';
 
 
       return null;
@@ -129,6 +131,12 @@ class PermisosController extends Controller
           {
             $acceso['AnamnesisController@VisualizarInformes'] = true;
           }else $acceso['AnamnesisController@VisualizarInformes'] = false;
+
+       if(PermisosController::VerificarAccesoPorIdUsuario(PermisosController::PermisoNecesarioRutas(
+         'CalendarioController@MostrarCalendarioProfesional'),$id))
+         {
+           $acceso['CalendarioController@MostrarCalendarioProfesional'] = true;
+         }else $acceso['CalendarioController@MostrarCalendarioProfesional'] = false;
 
 
               return $acceso;
