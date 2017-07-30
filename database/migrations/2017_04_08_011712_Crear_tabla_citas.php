@@ -27,10 +27,11 @@ class CrearTablaCitas extends Migration
             $table->string('tipoEvaluacion',30);
             $table->string('estado',45);
             //"completado" o "pendiente"
-            $table->string('hora',30);
+            $table->dateTime('fechaInicio');
+            $table->dateTime('fechaFin');
             $table->string('comentarios',400);
-            $table->string('fecha',30);
-          
+
+
             $table->timestamps();
 
         });

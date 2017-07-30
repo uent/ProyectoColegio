@@ -48,7 +48,7 @@ class Citas extends Model
           ->join('Ninos', 'citas.idNino', '=', 'Ninos.idNino')
           ->where('citas.idProfesional', '=', $idUsuario)
           ->where('citas.estado', '=', "pendiente")
-          ->select('Ninos.idNino','citas.idcitas','citas.fecha','citas.hora','citas.tipoEvaluacion',
+          ->select('Ninos.idNino','citas.idCitas','citas.fechaInicio','citas.fechaFin','citas.tipoEvaluacion',
           'citas.comentarios','Ninos.nombre','Ninos.apellidos','Ninos.rut')
           ->get();
   }

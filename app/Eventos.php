@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Calendar;
+
 
 class Eventos extends Model
 {
@@ -15,18 +15,21 @@ class Eventos extends Model
       {
         foreach($tablas as $t)
         {
-          $eventos[] = Calendar::event(
-            $t->tipoEvaluacion, //event title
-            false, //full day event?
-            '2017-05-14', //start time, must be a DateTime object or valid DateTime format (http://bit.ly/1z7QWbg)
-            '2017-05-14', //end time, must be a DateTime object or valid DateTime format (http://bit.ly/1z7QWbg),
-            1, //optional event ID
-            [
-              'url' => 'http://full-calendar.io'
-            ]
-              );
+          $data[] = array(
+              "title"=>$t->nombre, //obligatoriamente "title", "start" y "url" son campos requeridos
+              "start"=>$t->fechaInicio, //por el plugin asi que asignamos a cada uno el valor correspondiente
+              "end"=>$t->fechaFin,
+              "allDay"=>'false',
+              "backgroundColor"=>'blue',
+              "borderColor"=>'back',
+              "id"=>$t->idCitas
+              //"url"=>"cargaEventos".$id[$i]
+              //en el campo "url" concatenamos el el URL con el id del evento para luego
+              //en el evento onclick de JS hacer referencia a este y usar el método show
+              //para mostrar los datos completos de un evento
+          );
         }
-        return $eventos;
+        return $tablas; //!!!!!!!!!!
       }
       else {
         return null;

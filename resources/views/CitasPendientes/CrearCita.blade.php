@@ -35,12 +35,6 @@
                 Profesional
               </th>
               <th>
-                Dia
-              </th>
-              <th>
-                Hora
-              </th>
-              <th>
                 Comentarios
               </th>
               <th>
@@ -81,26 +75,7 @@
                 </td>";
             }
 
-            echo
-      "<td>
-        <select name='dia' form='formulario'>
-  <option value='Lunes'>Lunes</option>
-  <option value='Martes'>Martes</option>
-  <option value='Miercoles'>Miercoles</option>
-  <option value='Jueves'>Jueves</option>
-  <option value='Viernes'>Viernes</option>
-</select>";
-        echo
-      "</td>
 
-      <td>
-        <select name='hora' form='formulario'>
-      <option value='800'>8:00</option>
-      <option value='900'>9:00</option>
-      <option value='1000'>10:00</option>
-      <option value='1100'>11:00</option>
-      <option value='1200'>12:00</option>
-      </select>";
         echo
       "</td>
         <td>
@@ -132,7 +107,7 @@
     </tr>";
     echo "</tbody>";
 
-            echo "</tbody>
+            echo "
                         </table>";
 
  ?>
