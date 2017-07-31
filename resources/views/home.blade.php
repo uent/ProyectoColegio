@@ -30,7 +30,7 @@
 
         <script src="{{asset('plugins/3d-bold-navigation/js/modernizr.js')}}"></script>
         <script src="{{asset('plugins/offcanvasmenueffects/js/snap.svg-min.js')}}"></script>
-        <script src="{{asset('plugins/jquery/jquery-3.1.0.min.js')}}"></script>
+        <script src="{{asset('plugins/jquery/jquery-3.2.1.min.js')}}"></script>
         <script src="{{asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
         <script src="{{asset('plugins/pace-master/pace.min.js')}}"></script>
         <script src="{{asset('plugins/jquery-blockui/jquery.blockui.js')}}"></script>
@@ -60,7 +60,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <p class="lead no-m text-center m-b-xxs">Bienvenido {{Auth::user()->name}}</p>
-                                        
+
                                         <form class="form-inline text-center" action='Mi_menu' method='get'>
                                             <div class="input-group m-b-lg">
 

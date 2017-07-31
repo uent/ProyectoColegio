@@ -51,7 +51,7 @@
 
         <!-----------Archivos JS ------------>
         <!-- Javascripts -->
-        <script src="{{asset('plugins/jquery/jquery-3.1.0.min.js')}}"></script>
+        <script src="{{asset('plugins/jquery/jquery-3.2.1.min.js')}}"></script>
         <script src="{{asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
         <script src="{{asset('plugins/pace-master/pace.min.js')}}"></script>
         <script src="{{asset('plugins/jquery-blockui/jquery.blockui.js')}}"></script>
@@ -86,21 +86,17 @@
         <script src="{{url('')}}/plugins/toastr/toastr.min.js"></script>
         <script src="{{url('')}}/js/pages/notifications.js"></script>
         <script src="{{url('')}}/js/custom.js"></script>
-        <script src="{{url('')}}/js/Pub-Sub.js"></script>
+        <!----<script src="{{url('')}}/js/Pub-Sub.js"></script>---->
         <script src="{{url('')}}/js/pages/ui-sliders.js"></script>
         <script src="{{url('')}}/plugins/select2/js/select2.min.js"></script>
         <script src="{{url('')}}/js/pages/form-select2.js"></script>
         <script src="{{url('')}}/js/pages/table-data.js"></script>
 
         <!----Calendario ---->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css" >
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" >
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" >
-
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
 
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

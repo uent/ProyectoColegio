@@ -16,12 +16,12 @@ class CalendarioController extends Controller
     {
       $idUsuario = Auth::user()->id;
 
-      $eventos = Eventos::ObtenerEventosProfesionalPorIdUsuario($idUsuario);
+      $JsonEventos = Eventos::ObtenerEventosProfesionalPorIdUsuario($idUsuario);
 
-      if($eventos == null) return null;
+      if($JsonEventos == null) return null;
       else
       {
-        return View::make('Calendario\CalendarioTest', $eventos);
+        return View::make('Calendario\CalendarioTest', compact('JsonEventos'));
       }
 
 
