@@ -9,9 +9,8 @@
 
 @section('contenido')
 
-<div id="field" data-field-id="{{$JsonEventos}}" ></div>
-
-<script src="{{asset('js/TestCalendario.js')}}"></script>
+<script src="{{asset('js\FuncionesAjaxCalendario\ActualizarEventosUsuario')}}"></script>
+<script src="{{asset('js\CalendariosJs\CalendarioHorasProfesional.js')}}"></script>
 
 @if (isset($errors) && count($errors) > 0)
    <div class="alert alert-danger">
@@ -23,6 +22,8 @@
    </div>
 @endif
 <div id='main-wrapper'>
+
+  <input type='hidden' id = "idProfesional" value = <?php echo $idProfesional ?> >
 
   <div id='calendar'></div>
 

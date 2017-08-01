@@ -15,14 +15,16 @@ class Eventos extends Model
       {
         foreach($tablas as $t)
         {
+          //se arma un arreglo con los campos requeridos para utilizarlo en FullCalendar
           $data[] = array(
               "id"=> $t->idCitas,
-    					"title"=> $t->nombre,
+    					"title"=> $t->tipoEvaluacion . " " . $t->nombre . " " . $t->apellidos,
     					"start"=> $t->fechaInicio,
               "end"=> $t->fechaFin,
+              "url"=> $t->idCitas,
               "startEditable"=> 0,
               "allDay"=> 0,
-              "url"=> $t->idCitas
+              "durationEditable"=> 0
 
 
               //"url"=>"cargaEventos".$id[$i]
@@ -33,10 +35,10 @@ class Eventos extends Model
         }
 
 
-        return json_encode($data);; //!!!!!!!!!!
+        return json_encode($data);
       }
       else {
-        return null;
+        return json_encode(null);
       }
 
 

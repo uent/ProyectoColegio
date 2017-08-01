@@ -119,9 +119,9 @@ if(Auth::check())
 		{
 			echo
 			"<li class='droplink'>
-				<form name=formCalendario action='calendariotest' method='get'>
+				<form name=formVerCalendarioProfesional action='verCalendarioProfesional' method='get'>
 				</form>
-				<a class='waves-effect waves-button' onclick='document.formCalendario.submit();return false'>
+				<a class='waves-effect waves-button' onclick='document.formVerCalendarioProfesional.submit();return false'>
 					<span class='menu-icon icon-login'></span><p>calendario</p></a>
 			</li>";
 		}

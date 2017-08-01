@@ -54,7 +54,10 @@ Route::get('/home', 'HomeController@index')->name('home'); //borrar??
 });
 
 //Llamadas ajax
-Route::get('validarRutNinoAjax/{rutNino}', 'AjaxController@validarRutNino');
+Route::get('validarRutNinoAjax/{rutNino}', 'AjaxController@validarRutNino');//no se usa
+
+Route::get('horarioProfesional/{idProfesional}', 'AjaxController@horarioProfesionalPorIdProfesional');
+
 //mail
 Route::get('welcome-mail','MailController@MailIngresoTutor');
 
@@ -88,5 +91,4 @@ Route::get('generar_informe_final_nino', 'AnamnesisController@GenerarInformeFina
 Route::get('visualizar_informe_final_nino_vista_tutor', 'AnamnesisController@GenerarInformeFinal');
 
 //
-
-Route::get('calendariotest', 'CalendarioController@MostrarCalendarioProfesional');
+Route::get('verCalendarioProfesional', 'CalendarioController@MostrarCalendarioProfesional');

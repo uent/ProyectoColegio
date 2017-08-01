@@ -1,23 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Marketplace
-Gist
- @uent
- Sign out
- Unwatch 1
-  Star 0
- Fork 0 uent/ProyectoColegio
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Settings Insights
-Tree: 24a9408826 Find file Copy pathProyectoColegio/resources/views/CitasPendientes/CrearCita.blade.php
-208d355  on 31 May
-@uent uent mejorado las validaciones
-2 contributors @uent @cnoguera17
-RawBlameHistory
-141 lines (113 sloc)  2.91 KB
-
 @extends ('layouts.admin')
 
 
@@ -28,6 +8,9 @@ RawBlameHistory
 
 
 @section('contenido')
+
+<script src="{{asset('js\FuncionesAjaxCalendario\ActualizarEventosUsuario')}}"></script>
+<script src="{{asset('js\CalendariosJs\CalendarioHorasProfesional.js')}}"></script>
 
 @if (isset($errors) && count($errors) > 0)
    <div class="alert alert-danger">
@@ -42,7 +25,9 @@ RawBlameHistory
 
 <?php
     echo
-    "<table class='table'>
+    "<div id='main-wrapper'>
+
+      <table class='table'>
           <thead>
             <tr>
             <th>
@@ -50,15 +35,6 @@ RawBlameHistory
             </th>
               <th>
                 Profesional
-              </th>
-              <th>
-                Dia
-              </th>
-              <th>
-                Hora
-              </th>
-              <th>
-                Comentarios
               </th>
               <th>
                 Accion
@@ -75,7 +51,7 @@ RawBlameHistory
   						echo
   						"<div class='form-group'>
               <td>
-              <select name='id' form='formulario'>";
+              <select id = 'idProfesional' name='id' form='formulario'>";
   						foreach ($datos["profesionales"] as $d)
   						{
   							echo "<option value='",$d["id"],"'>",$d["apellidos"],"</option>";
@@ -91,26 +67,7 @@ RawBlameHistory
                 </td>";
             }
             echo
-      "<td>
-        <select name='dia' form='formulario'>
-  <option value='Lunes'>Lunes</option>
-  <option value='Martes'>Martes</option>
-  <option value='Miercoles'>Miercoles</option>
-  <option value='Jueves'>Jueves</option>
-  <option value='Viernes'>Viernes</option>
-</select>";
-        echo
-      "</td>
-      <td>
-        <select name='hora' form='formulario'>
-      <option value='800'>8:00</option>
-      <option value='900'>9:00</option>
-      <option value='1000'>10:00</option>
-      <option value='1100'>11:00</option>
-      <option value='1200'>12:00</option>
-      </select>";
-        echo
-      "</td>
+            "
         <td>
         <div class='form-group'>
           <input class='form-control' name='comentarios' form='formulario'>
@@ -129,16 +86,27 @@ RawBlameHistory
           <input type='hidden' name='tipoCita' value='",$datos["datos"]["tipoCita"],"'/>
           <input type='hidden' name='idOrden' value='",$datos["datos"]["idOrden"],"'/>
         </form>";
+
+
       }else echo "Imposible realizar la cita";
         echo
       "
       </td>
-    </tr>";
-    echo "</tbody>";
-            echo "</tbody>
+    </tr>
+        </tbody>
+            echo </tbody>
                         </table>";
+
+    if($datos["profesionales"] != NULL && $datos["datos"] != NULL)
+    {
+      echo "
+      <div class='col-md-12'>
+      <div id='calendar'></div>
+				</div>";
+    }
+    echo"
+  </div>";
+
  ?>
 
 @endsection
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help

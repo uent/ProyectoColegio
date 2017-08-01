@@ -1,0 +1,32 @@
+function GetEventosUsuario(idProfesional) {
+
+    $.ajax({
+      url:'horarioProfesional/' + idProfesional,
+      type:'get',
+      //force to handle it as text
+      dataType: "text",
+      success: function(data) {
+
+      //data downloaded so we call parseJSON function
+      //and pass downloaded data
+      var json = $.parseJSON(data);
+      $('#calendar').fullCalendar( 'addEventSource', json );
+
+      console.log(idProfesional);
+      //now json variable contains data in json format
+      //let's display a few items
+      //document.getElementById("detspace").innerHTML =  url;
+
+
+
+      //return json;
+      },
+
+      error: function(xhr, status, error) {
+        console.log("fallo GetEventosUsuario Js");
+        return($.parseJSON([])); //retorna un arreglo vacio
+      }
+
+
+    });
+            }

@@ -16,16 +16,6 @@ class CalendarioController extends Controller
     {
       $idUsuario = Auth::user()->id;
 
-      $JsonEventos = Eventos::ObtenerEventosProfesionalPorIdUsuario($idUsuario);
-
-      if($JsonEventos == null) return null;
-      else
-      {
-        return View::make('Calendario\CalendarioTest', compact('JsonEventos'));
-      }
-
-
-
-
+        return View::make('Calendario\CalendarioHorarioProfesional')->with("idProfesional",$idUsuario);
     }
 }

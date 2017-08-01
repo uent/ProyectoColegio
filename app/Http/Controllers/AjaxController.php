@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Ninos;
 use App\Tutor;
+use App\Eventos;
 
 class AjaxController extends Controller
 {
@@ -70,6 +71,13 @@ class AjaxController extends Controller
     {
       //ToDo
       return true;
+    }
+
+    public function horarioProfesionalPorIdProfesional($idUser)
+    {
+      $eventos = Eventos::ObtenerEventosProfesionalPorIdUsuario($idUser);
+
+      return $eventos;
     }
 
 }
