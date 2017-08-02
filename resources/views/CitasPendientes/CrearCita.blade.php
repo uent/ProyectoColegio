@@ -11,6 +11,7 @@
 
 <script src="{{asset('js\FuncionesAjaxCalendario\ActualizarEventosUsuario')}}"></script>
 <script src="{{asset('js\CalendariosJs\CalendarioHorasProfesional.js')}}"></script>
+<script src="{{asset('js\CalendariosJs\ActualizarCalendarioPorNuevoIdProfesional.js')}}"></script>
 
 @if (isset($errors) && count($errors) > 0)
    <div class="alert alert-danger">
@@ -51,14 +52,14 @@
   						echo
   						"<div class='form-group'>
               <td>
-              <select id = 'idProfesional' name='id' form='formulario'>";
+              <select id = 'idProfesional' name='id' form='formulario' onchange='ActualizarCalendarioPorNuevoIdProfesional()'>";
   						foreach ($datos["profesionales"] as $d)
   						{
   							echo "<option value='",$d["id"],"'>",$d["apellidos"],"</option>";
   						}
   						echo
   						"</select>
-            </td>;";
+            </td>";
   					}
             else
             {
@@ -94,7 +95,7 @@
       </td>
     </tr>
         </tbody>
-            echo </tbody>
+             </tbody>
                         </table>";
 
     if($datos["profesionales"] != NULL && $datos["datos"] != NULL)
@@ -104,7 +105,7 @@
       <div id='calendar'></div>
 				</div>";
     }
-    echo"
+    echo "
   </div>";
 
  ?>

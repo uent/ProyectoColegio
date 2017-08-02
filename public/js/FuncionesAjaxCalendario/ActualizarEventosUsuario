@@ -1,4 +1,4 @@
-function GetEventosUsuario(idProfesional) {
+function ActualizarEventosUsuario(idProfesional, eventosExtras = null) {
 
     $.ajax({
       url:'horarioProfesional/' + idProfesional,
@@ -7,19 +7,15 @@ function GetEventosUsuario(idProfesional) {
       dataType: "text",
       success: function(data) {
 
-      //data downloaded so we call parseJSON function
-      //and pass downloaded data
-      var json = $.parseJSON(data);
-      $('#calendar').fullCalendar( 'addEventSource', json );
+        var json = $.parseJSON(data);
 
-      console.log(idProfesional);
-      //now json variable contains data in json format
-      //let's display a few items
-      //document.getElementById("detspace").innerHTML =  url;
+        $('#calendar').fullCalendar( 'addEventSource', json );
 
+        if(eventosExtras != null)
+        {
+            $('#calendar').fullCalendar( 'addEventSource', eventosExtras );
+          }
 
-
-      //return json;
       },
 
       error: function(xhr, status, error) {
