@@ -58,7 +58,7 @@ Route::get('validarRutNinoAjax/{rutNino}', 'AjaxController@validarRutNino');//no
 
 Route::get('horarioProfesional/{idProfesional}', 'AjaxController@horarioProfesionalPorIdProfesional');
 
-Route::post('insertar_cita', 'CitaController@InsertarCita');
+Route::post('insertar_cita', 'AjaxController@InsertarCita');
 //mail
 Route::get('welcome-mail','MailController@MailIngresoTutor');
 

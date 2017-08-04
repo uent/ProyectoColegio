@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ninos;
+use App\Citas;
 use App\Tutor;
 use App\Eventos;
+use App\OrdenDiagnostico;
+use Validator;
+
 
 class AjaxController extends Controller
 {
-    public function validarRutNino($rutNino)
+    public function validarRutNino($rutNino) //metodo no usado
     {
       $idNino = Ninos::BuscarPorRut($rutNino);
 
@@ -106,6 +110,37 @@ class AjaxController extends Controller
         return json_encode(null);
       }
 
+    }
+
+    public function InsertarCita()
+    {
+      $data = request()->all();
+
+      $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
+        'inicio' => ['required', 'date'],
+        'fin' => ['required', 'date'],
+        'idOrden' => ['required', 'Numeric'],
+        'id' => ['required', 'Numeric'],
+        'tipoCita' => ['required', 'max:30'],
+        'comentarios' => ['nullable', 'max:400'],
+        ]);
+        if ($validator->fails())
+        {
+          return redirect()->back()->withErrors($validator->errors());
+        }
+
+      if($data["comentarios"] == null) $data["comentarios"] = "";
+
+      $data["estado"] = "pendiente";
+
+      $aux = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
+      $data["idNino"] = $aux["idNino"];
+
+      Citas::InsertarCita($data);
+
+      OrdenDiagnostico::ActualizarEstadoPorId($data["idOrden"]);
+
+      return redirect()->to('Mi_menu');
     }
 
 }

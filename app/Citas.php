@@ -24,15 +24,15 @@ class Citas extends Model
   public static function InsertarCita($datos)
   {
     $Citas = new Citas;
-
+    echo $datos["inicio"];
     $Citas->idOrden = $datos["idOrden"];
     $Citas->idProfesional = $datos["id"];
     $Citas->idNino = $datos["idNino"];
     $Citas->tipoEvaluacion = $datos["tipoCita"];
     $Citas->estado = $datos["estado"];
     $Citas->idOrden = $datos["idOrden"];
-    $Citas->hora = $datos["hora"];
-    $Citas->fecha = $datos["dia"];
+    $Citas->fechaInicio = $datos["inicio"];
+    $Citas->fechafin = $datos["fin"];
     $Citas->comentarios = $datos["comentarios"];
 
 

@@ -27,9 +27,11 @@
 
 <?php
     echo
-    "<div id='main-wrapper'>
+    "<div id='main-wrapper'>"; ?>
 
-      <table class='table'>
+    {{ csrf_field() }}
+
+      <?php echo "<table class='table'>
           <thead>
             <tr>
             <th>
@@ -53,7 +55,7 @@
   						echo
   						"<div class='form-group'>
               <td>
-              <select id = 'idProfesional' name='id' form='formulario' onchange='actualizarCalendarioPorNuevoIdProfesional()'>";
+              <select id='idProfesional' name='id' form='formulario' onchange='actualizarCalendarioPorNuevoIdProfesional()'>";
   						foreach ($datos["profesionales"] as $d)
   						{
   							echo "<option value='",$d["id"],"'>",$d["apellidos"],"</option>";
@@ -72,7 +74,7 @@
             "
         <td>
         <div class='form-group'>
-          <input class='form-control' name='comentarios' form='formulario'>
+          <input class='form-control' id='comentarios' name='comentarios' form='formulario'>
         </div>
         </td>
         <td>
@@ -85,8 +87,8 @@
           <?php
           echo
           "<input type='submit' name='action' value='asignar Cita' onClick = 'enviarDatosNuevoEvento();' />
-          <input type='hidden' name='tipoCita' value='",$datos["datos"]["tipoCita"],"'/>
-          <input type='hidden' name='idOrden' value='",$datos["datos"]["idOrden"],"'/>
+          <input type='hidden' id='tipoCita' name='tipoCita' value='",$datos["datos"]["tipoCita"],"'/>
+          <input type='hidden' id='idOrden' name='idOrden' value='",$datos["datos"]["idOrden"],"'/>
         </form>";
 
 
