@@ -1,20 +1,18 @@
-function ActualizarEventosUsuario(idProfesional, eventosExtras = null) {
+function actualizarEventosUsuario(idProfesional, eventosExtras = null) {
 
     $.ajax({
       url:'horarioProfesional/' + idProfesional,
       type:'get',
       //force to handle it as text
-      dataType: "text",
+      dataType: "Json",
       success: function(data) {
 
-        var json = $.parseJSON(data);
-
-        $('#calendar').fullCalendar( 'addEventSource', json );
+        $('#calendar').fullCalendar( 'addEventSource', data );
 
         if(eventosExtras != null)
         {
             $('#calendar').fullCalendar( 'addEventSource', eventosExtras );
-          }
+        }
 
       },
 

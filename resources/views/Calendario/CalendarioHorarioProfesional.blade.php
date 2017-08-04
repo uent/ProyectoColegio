@@ -9,7 +9,7 @@
 
 @section('contenido')
 
-<script src="{{asset('js\FuncionesAjaxCalendario\ActualizarEventosUsuario')}}"></script>
+<script src="{{asset('js\FuncionesAjaxCalendario\actualizarEventosUsuario')}}"></script>
 <script src="{{asset('js\CalendariosJs\CalendarioHorasProfesional.js')}}"></script>
 
 @if (isset($errors) && count($errors) > 0)

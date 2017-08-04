@@ -9,9 +9,10 @@
 
 @section('contenido')
 
-<script src="{{asset('js\FuncionesAjaxCalendario\ActualizarEventosUsuario')}}"></script>
-<script src="{{asset('js\CalendariosJs\CalendarioHorasProfesional.js')}}"></script>
-<script src="{{asset('js\CalendariosJs\ActualizarCalendarioPorNuevoIdProfesional.js')}}"></script>
+
+
+
+
 
 @if (isset($errors) && count($errors) > 0)
    <div class="alert alert-danger">
@@ -52,7 +53,7 @@
   						echo
   						"<div class='form-group'>
               <td>
-              <select id = 'idProfesional' name='id' form='formulario' onchange='ActualizarCalendarioPorNuevoIdProfesional()'>";
+              <select id = 'idProfesional' name='id' form='formulario' onchange='actualizarCalendarioPorNuevoIdProfesional()'>";
   						foreach ($datos["profesionales"] as $d)
   						{
   							echo "<option value='",$d["id"],"'>",$d["apellidos"],"</option>";
@@ -79,11 +80,11 @@
       if($datos["profesionales"] != NULL && $datos["datos"] != NULL)
       {
         echo
-        "<form method='post' action='insertar_cita' id='formulario'>";?>
+        "";?>
           {!! csrf_field() !!}
           <?php
           echo
-          "<input type='submit' name='action' value='asignar Cita'/>
+          "<input type='submit' name='action' value='asignar Cita' onClick = 'enviarDatosNuevoEvento();' />
           <input type='hidden' name='tipoCita' value='",$datos["datos"]["tipoCita"],"'/>
           <input type='hidden' name='idOrden' value='",$datos["datos"]["idOrden"],"'/>
         </form>";

@@ -12,7 +12,7 @@ Route::group(['middleware' => ['auth','ControlPermisos']], function() {
   Route::get('pantalla_asignar_Citas', 'OrdenDiagnosticoController@MostrarCitasPendientes');
   Route::get('mostrar_citas_nino', 'OrdenDiagnosticoController@PantallaMostrarCitasNino');
   Route::get('crear_cita', 'CitaController@PantallaAsignarCitasNino');
-  Route::post('insertar_cita', 'CitaController@InsertarCita');
+
   Route::get('citas_pendientes_profesional', 'CitaController@CitasPendientesPorUsuarioActual');
   Route::get('Llenar_informe_cita', 'CitaController@FormularioInformeCita');
 
@@ -58,6 +58,7 @@ Route::get('validarRutNinoAjax/{rutNino}', 'AjaxController@validarRutNino');//no
 
 Route::get('horarioProfesional/{idProfesional}', 'AjaxController@horarioProfesionalPorIdProfesional');
 
+Route::post('insertar_cita', 'CitaController@InsertarCita');
 //mail
 Route::get('welcome-mail','MailController@MailIngresoTutor');
 

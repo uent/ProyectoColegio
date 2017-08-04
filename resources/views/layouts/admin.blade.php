@@ -98,6 +98,13 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
 
+        <!----Scripts sitio web ---->
+        <script src="{{asset('js\CalendariosJs\crearNuevaCita.js')}}"></script>
+        <script src="{{asset('js\CalendariosJs\actualizarCalendarioPorNuevoIdProfesional.js')}}"></script>
+        <script src="{{asset('js\CalendariosJs\agregarCitaCalendarioProfesional.js')}}"></script>
+        <script src="{{asset('js\FuncionesAjaxCalendario\actualizarEventosUsuario.js')}}"></script>
+        <script src="{{asset('js\FuncionesAjaxCalendario\enviarDatosNuevoEvento.js')}}"></script>
+
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

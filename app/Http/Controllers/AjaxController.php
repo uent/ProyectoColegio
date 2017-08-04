@@ -77,7 +77,35 @@ class AjaxController extends Controller
     {
       $eventos = Eventos::ObtenerEventosProfesionalPorIdUsuario($idUser);
 
-      return $eventos;
+      if(count($eventos))
+      {
+        foreach($eventos as $e)
+        {
+          //se arma un arreglo con los campos requeridos para utilizarlo en FullCalendar
+          $data[] = array(
+              "id"=> $e->idCitas,
+    					"title"=> $e->tipoEvaluacion . " " . $e->nombre . " " . $e->apellidos,
+    					"start"=> $e->fechaInicio,
+              "end"=> $e->fechaFin,
+              "url"=> $e->idCitas,
+              "startEditable"=> 1,
+              "allDay"=> 0,
+              "durationEditable"=> 0
+
+
+              //"url"=>"cargaEventos".$id[$i]
+              //en el campo "url" concatenamos el el URL con el id del evento para luego
+              //en el evento onclick de JS hacer referencia a este y usar el método show
+              //para mostrar los datos completos de un evento
+          );
+        }
+
+        return json_encode($data); //retorna los datos como un Json
+      }
+      else {
+        return json_encode(null);
+      }
+
     }
 
 }
