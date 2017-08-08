@@ -1,7 +1,5 @@
 @extends ('layouts.admin')
 
-
-
 @section('nombrePagina')
   Asignar Citas | Crear
 @endsection
@@ -9,9 +7,11 @@
 
 @section('contenido')
 
-
-
-
+<script src="{{asset('js\CalendariosJs\crearNuevaCita.js')}}"></script>
+<script src="{{asset('js\CalendariosJs\actualizarCalendarioPorNuevoIdProfesional.js')}}"></script>
+<script src="{{asset('js\CalendariosJs\agregarCitaCalendarioProfesional.js')}}"></script>
+<script src="{{asset('js\FuncionesAjaxCalendario\actualizarEventosUsuario.js')}}"></script>
+<script src="{{asset('js\FuncionesAjaxCalendario\enviarDatosNuevoEvento.js')}}"></script>
 
 
 @if (isset($errors) && count($errors) > 0)
@@ -105,8 +105,11 @@
     {
       echo "
       <div class='col-md-12'>
-      <div id='calendar'></div>
-				</div>";
+        <h4 class='panel-title'>Contactos Pendientes</h4>
+        
+        <div id='calendar'></div>
+
+     </div>";
     }
     echo "
   </div>";

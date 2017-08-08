@@ -13,6 +13,16 @@ class PdfController extends Controller
       $view =  \View::make('pdf.GenerarAnamnesis')->with("datos",$datos )->render();
       $pdf = \App::make('dompdf.wrapper');
       $pdf->loadHTML($view);
+
       return $pdf->stream('invoice');
   }
+
+    public static function GenerarPdfCuestionario($datos) {
+
+      $view =  \View::make('pdf.GenerarCuestionario')->with("datos",$datos )->render();
+      $pdf = \App::make('dompdf.wrapper');
+      $pdf->loadHTML($view);
+
+      return $pdf->stream('invoice');
+    }
 }

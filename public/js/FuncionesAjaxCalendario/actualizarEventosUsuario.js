@@ -23,4 +23,4 @@ function actualizarEventosUsuario(idProfesional, eventosExtras = null) {
 
 
     });
-            }
+  }

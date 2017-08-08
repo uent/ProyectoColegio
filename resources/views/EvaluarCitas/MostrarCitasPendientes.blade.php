@@ -60,7 +60,7 @@
               <td>
               <form method='get' action='Llenar_informe_cita'>
                 <input type='submit' name='action' value='Ver Datos'/>
-                <input type='hidden' name='idCita' value='",$arreglo["idcitas"],"'/>
+                <input type='hidden' name='idCita' value='",$arreglo["idCitas"],"'/>
               </form>
 
                 </td>

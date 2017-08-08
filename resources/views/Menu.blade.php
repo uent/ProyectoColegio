@@ -107,10 +107,10 @@ if(Auth::check())
 		{
 			echo
 			"<li class='droplink'>
-				<form name=formGenerarAnamnesis action='pantalla_mostrar_listado_informes' method='get'>
+				<form name=formGenerarInformes action='pantalla_mostrar_listado_informes' method='get'>
 				<input type='hidden' name='idTutor' value= ";echo $id; echo"'/>
 				</form>
-				<a class='waves-effect waves-button' onclick='document.formGenerarAnamnesis.submit();return false'>
+				<a class='waves-effect waves-button' onclick='document.formGenerarInformes.submit();return false'>
 			    <span class='menu-icon icon-login'></span><p>Generar Informes</p></a>
 			</li>";
 		}

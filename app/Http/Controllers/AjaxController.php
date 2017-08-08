@@ -13,70 +13,6 @@ use Validator;
 
 class AjaxController extends Controller
 {
-    public function validarRutNino($rutNino) //metodo no usado
-    {
-      $idNino = Ninos::BuscarPorRut($rutNino);
-
-      if($idNino != null)
-      {
-        $datosNino = Ninos::MostrarDatosNino($idNino);
-        $datosPadre = Tutor::UnTutorPorNinoPorIdNino($idNino);
-
-        if($datosPadre == null)
-        {
-          $response = array(
-                    'status' => 'success',
-                    'statusNino' => 'existe',
-                    'ninoNombre' => $datosNino["nombre"],
-                    'ninoApellidos' => $datosNino["apellidos"],
-                    'ninoId' => $datosNino["idNino"],
-                    'statusPadre' => "noExiste",
-                    'padreNombre' => "",
-                    'padreApellido' => "",
-                );
-                return \Response::json($response);
-        }
-        else
-        {
-          $response = array(
-                    'status' => 'success',
-                    'statusNino' => 'existe',
-                    'ninoNombre' => $datosNino["nombre"],
-                    'ninoApellidos' => $datosNino["apellidos"],
-                    'ninoId' => $datosNino["idNino"],
-                    'statusPadre' => "existe",
-                    'padreNombre' => $datosPadre->name,
-                    'padreApellido' => $datosPadre->apellidos,
-                );
-                return \Response::json($response);
-        }
-      }
-      else if(AjaxController::ValidarRut($rutNino) == true)
-      {
-
-        $response = array(
-                    'status' => 'success',
-                    'statusNino' => 'rutNoExiste',
-                );
-        return \Response::json($response);
-      }
-      else
-      {
-        $response = array(
-                    'status' => 'success',
-                    'statusNino' => 'rutNoValido',
-                );
-        return \Response::json($response);
-      }
-
-    }
-
-    public function ValidarRut($rutNino)
-    {
-      //ToDo
-      return true;
-    }
-
     public function horarioProfesionalPorIdProfesional($idUser)
     {
       $eventos = Eventos::ObtenerEventosProfesionalPorIdUsuario($idUser);
@@ -91,8 +27,8 @@ class AjaxController extends Controller
     					"title"=> $e->tipoEvaluacion . " " . $e->nombre . " " . $e->apellidos,
     					"start"=> $e->fechaInicio,
               "end"=> $e->fechaFin,
-              "url"=> $e->idCitas,
-              "startEditable"=> 1,
+              //"url"=> $e->idCitas,
+              "startEditable"=> 0,
               "allDay"=> 0,
               "durationEditable"=> 0
 

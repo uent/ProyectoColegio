@@ -73,41 +73,15 @@
     }
   }
 
-  echo "</tbody>
-              </table>";
+
 
               foreach($tiposCitas as $t)
               {
-                $flag = true;
+
                 if($Citas[$t]["existe"] == true) //cita asignada
                 {
-                  if($flag == true)
-                  {
-                    $flag = false;
-                    echo
-                    "<table class='table'>
-                          <thead>
-                            <tr>
 
-                              <th>
-                                Estado
-                              </th>
-                              <th>
-                                Tipo evaluacion
-
-                              </th>
-
-
-                            </tr>
-                          </thead>
-
-                        <tbody>
-                      <tr>";
-
-                        }
                   echo "
-
-
                 <td>";
                   echo $Citas[$t]["estado"];
                   echo
@@ -129,5 +103,7 @@
                         </table>";
   } else echo "No hay datos";
 
+  echo "</tbody>
+              </table>";
  ?>
 @endsection

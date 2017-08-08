@@ -2,7 +2,7 @@ function crearNuevaCita(){
 
   var fechaCalendario= $('#calendar').fullCalendar( 'getDate' ); //retorna un obj Moment con la fecha en la cual se ubica el calendario
 
-  var horaInicio = moment((fechaCalendario.hours(0).minutes(0).seconds(0)).toDate()); //se realiza un set para dejar el nuevo envento en una fecha que este en el mismo dia/semana/mes que se este viendo
+  var horaInicio = moment((fechaCalendario.hours(6).minutes(0).seconds(0)).toDate()); //se realiza un set para dejar el nuevo envento en una fecha que este en el mismo dia/semana/mes que se este viendo
 
   var horaTemp = horaInicio.toDate();
 

@@ -7,15 +7,21 @@
 <div id="main-wrapper">
     <div class="row">
         <div class="col-md-12">
+
+          <form class="form-horizontal col-md-4" align="center" method='get' action='GenerarInformeCoEvaluacion'>
+            <?php echo "<input type='hidden' name='idCita' value=",$datos["idCita"],"> "?>
+          <b>  <input type='submit' name='action' value='PDF informe co-evaluacion'/><br>
+          </form>
+
             <div class="panel panel-white">
                 <div class="panel-heading clearfix">
                     <h4 class="panel-title">AQUI VA EL NOMBRE DELBROCACOCHI</h4>
                 </div>
                 <div class="panel-body">
                     <form>
-                        
+
                         <p><small>Primera etapa: responda SI o NO y comente si es necesario</small> </p><br>
-                        
+
                         <div class="form-group">
                             <label for="SNP1">¿Evita ser tocado en la cara o quita su cabeza de cosas que se encuentran cerca de su cara?</label><br>
                                 <b>SI</b><input type="radio" name="SNP1" value="SI"><br>
@@ -117,7 +123,7 @@
                         </div>
                         <div class="form-group">
                             <label for="SNP10">Comentarios y Observaciones</label><br>
-                                
+
                                 <input type="text" class="form-control m-t-xxs" id="comment">
                         </div>
 

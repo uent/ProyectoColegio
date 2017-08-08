@@ -18,10 +18,10 @@
 <div id="identificacionNino">
 	<h4>IDENTIFICACIÓN</h4><br>
 	<table style="border-collapse: collapse">
-  
+
 
 		<tr>
-		    <th>Nombre<</th>
+		    <th>Nombre</th>
 		    <th>:</th>
 		    <th><?php echo $datos['nombreNino'], " ", $datos['apellidosNino'] ?></th>
 	  	</tr>
@@ -37,7 +37,7 @@
 		    <th><?php echo $datos['rutNino'] ?></th>
 	  	</tr>
 
-		
+
 
 		<tr>
 		    <th>Fecha Informe</th>

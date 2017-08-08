@@ -2,7 +2,7 @@
 InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
 VALUES ("IngresoNino",now(),now());
 
-InSERT InTO Permiso (nombrePermiso,created_at,updated_at) //ahora se paso a ajax
+InSERT InTO Permiso (nombrePermiso,created_at,updated_at) #ahora se paso a ajax
 VALUES ("AsignarCitas",now(),now());
 
 InSERT InTO Permiso (nombrePermiso,created_at,updated_at)

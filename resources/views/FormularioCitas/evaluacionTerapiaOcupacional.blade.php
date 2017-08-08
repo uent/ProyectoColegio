@@ -15,13 +15,18 @@
                   <b>Nombre:</b> <?php echo $datos["nombre"] , " ", $datos["apellidos"]; ?> <br>
                   <b>Rut: </b><?php echo $datos["rut"]; ?><br>
                   <b>Estado: </b><?php echo $datos["estado"]; ?><br>
-                  
+
+                  <form class="form-horizontal col-md-4" align="center" method='get' action='GenerarInformeCoEvaluacion'>
+                    <?php echo "<input type='hidden' name='idCita' value=",$datos["idCita"],"> "?>
+                  <b>  <input type='submit' name='action' value='PDF informe co-evaluacion'/><br>
+                  </form>
+
                     <?php  if($datos["comentarios"] != "")
                     {
                       echo"
                       <b>Comentarios u Observaciones: </b>";
                         echo $datos["comentarios"];
-                        
+
                     }?><br>
                   <form id="forma" class="form-horizontal col-md-4" align="center" method='post' action='guardar_reporte_terapista_ocupacional'>
                     <?php echo "<input type='hidden' name='idCita' value=",$datos["idCita"],"> "?>
@@ -76,7 +81,7 @@ $(document).ready(function() {
 
         }
     });
-   
+
 });
 
 </script>

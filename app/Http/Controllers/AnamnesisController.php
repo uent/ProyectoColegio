@@ -28,9 +28,8 @@ class AnamnesisController extends Controller
     $datos["nombreNino"] = $datosNino["nombre"];
     $datos["apellidosNino"] = $datosNino["apellidos"];
     $datos["rutNino"] = $datosNino["rut"];
-
-    $datos["fechaNacimiento"] = $datosOrdenes["FechaNacimiento"];
-    $datos["fechaNacimiento"] = $datosOrdenes["FechaNacimiento"];
+    $datos["fechaNacimiento"] = $datosNino["fechaNacimiento"];
+    
     //textoPorqueEvaluacion
 
     foreach($datosProfesionales as $d)

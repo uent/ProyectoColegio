@@ -45,7 +45,7 @@ Route::get('PantallaFaltaPermisos', function () {
 });
 
 
-Route::get('pdf', 'OrdenDiagnosticoController@PdfReportes');
+Route::get('pdf', 'OrdenDiagnosticoController@PdfReportes'); //no existe metodo(?)
 Route::get('/home', 'HomeController@index')->name('home'); //borrar??
 
 
@@ -93,3 +93,5 @@ Route::get('visualizar_informe_final_nino_vista_tutor', 'AnamnesisController@Gen
 
 //
 Route::get('verCalendarioProfesional', 'CalendarioController@MostrarCalendarioProfesional');
+
+route::get('GenerarInformeCoEvaluacion', 'EncuestaController@GenerarPdfInformeCoEvaluacion');

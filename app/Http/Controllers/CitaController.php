@@ -86,7 +86,7 @@ class CitaController extends Controller
         foreach($citas as $c)
         {
           $datos[$i]["idNino"] = $c->idNino;
-          $datos[$i]["idcitas"] = $c->idcitas;
+          $datos[$i]["idCitas"] = $c->idCitas;
           $datos[$i]["nombre"] = $c->nombre;
           $datos[$i]["apellidos"] = $c->apellidos;
           $datos[$i]["rut"] = $c->rut;

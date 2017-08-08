@@ -98,12 +98,6 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
 
-        <!----Scripts sitio web ---->
-        <script src="{{asset('js\CalendariosJs\crearNuevaCita.js')}}"></script>
-        <script src="{{asset('js\CalendariosJs\actualizarCalendarioPorNuevoIdProfesional.js')}}"></script>
-        <script src="{{asset('js\CalendariosJs\agregarCitaCalendarioProfesional.js')}}"></script>
-        <script src="{{asset('js\FuncionesAjaxCalendario\actualizarEventosUsuario.js')}}"></script>
-        <script src="{{asset('js\FuncionesAjaxCalendario\enviarDatosNuevoEvento.js')}}"></script>
 
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -114,7 +108,7 @@
         <![endif]-->
 
     </head>
-    <body class="compact-menu">
+    <body id = "idBody" class="compact-menu">
       color: blue;
         <div class="overlay"></div>
         <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s1">

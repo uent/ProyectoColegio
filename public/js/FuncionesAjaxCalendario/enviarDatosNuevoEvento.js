@@ -37,11 +37,12 @@ function enviarDatosNuevoEvento() {
     dataType: 'text',
     success: function(data)
     {
-
+      //document.write(data);
+      $('#idBody').html(data);
     },
     error: function(data)
     {
-
+      $('#idBody').html(data);
     }
   });
 }
