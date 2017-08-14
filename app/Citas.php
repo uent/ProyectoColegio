@@ -15,6 +15,13 @@ class Citas extends Model
     return Citas::select()->where('idOrden','=', $idOrden)->get();
   }
 
+  public static function obtenerCitaPorIdOrdenYTipoCita($idOrden,$tipoCita)
+  {
+    return Citas::select()->where('idOrden','=', $idOrden)
+                  ->where('tipoEvaluacion','=', $tipoCita)
+                  ->first();
+  }
+
   public static function BuscarPorId($idCita)
   {
     return Citas::select()->where('idCitas','=', $idCita)->first();

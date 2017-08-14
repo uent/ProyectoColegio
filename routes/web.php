@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth','ControlPermisos']], function() {
 
 });
 
+
 Auth::routes();
 
 Route::get('/', function () {
@@ -41,24 +42,22 @@ Route::get('Mi_menu', function () {
     return view('Menu');
 });
 Route::get('PantallaFaltaPermisos', function () {
-    return view('FaltaPermisos\FaltaPermisos');
+    return view('PantallasDeError\FaltaPermisos');
+});
+
+Route::get('PantallaDeErrorProceso', function () {
+    return view('PantallasDeError\PantallaErrorDeProceso');
 });
 
 
 Route::get('pdf', 'OrdenDiagnosticoController@PdfReportes'); //no existe metodo(?)
 Route::get('/home', 'HomeController@index')->name('home'); //borrar??
 
-
-  Route::get('ajax', function () {
-      return view('VistasMalas\Intento_ajax');
-});
-
 //Llamadas ajax
 Route::get('validarRutNinoAjax/{rutNino}', 'AjaxController@validarRutNino');//no se usa
-
 Route::get('horarioProfesional/{idProfesional}', 'AjaxController@horarioProfesionalPorIdProfesional');
-
 Route::post('insertar_cita', 'AjaxController@InsertarCita');
+
 //mail
 Route::get('welcome-mail','MailController@MailIngresoTutor');
 

@@ -15,7 +15,7 @@
                 <b>Rut: </b><?php echo $datos["rut"]; ?><br>
                 <b>Estado: </b><?php echo $datos["estado"]; ?><br>
 
-                <form class="form-horizontal col-md-4" align="center" method='get' action='GenerarInformeCoEvaluacion'>
+                <form class="form-horizontal col-md-4" align="center" method='get' action='GenerarInformeCoEvaluacion' target="_blank">
                   <?php echo "<input type='hidden' name='idCita' value=",$datos["idCita"],"> "?>
                 <b>  <input type='submit' name='action' value='PDF informe co-evaluacion'/><br>
                 </form>

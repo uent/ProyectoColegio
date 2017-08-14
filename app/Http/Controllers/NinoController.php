@@ -58,7 +58,6 @@ class NinoController extends Controller
            Ninos::agregar($data['nombreNino'],$data['apellidoNino'],$data['rutNino'],$data["InputNac"]);
 
            $idNino = Ninos::BuscarPorRut($data['rutNino']);
-
            if($data['diagnostico'] == null)$data['diagnostico'] = "";
            if($data['derivacion'] == null)$data['derivacion'] = "";
            if($data['solicitud'] == null)$data['solicitud'] = "";
@@ -215,22 +214,30 @@ class NinoController extends Controller
         }
       //recibe prioridad, idNino y idOrden
 
-      $datosTutor = Tutor::UnTutorPorNinoPorIdNino($data["idNino"]);
+      $tablaOrden = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
 
-      //genera la clave al tutor para que este pueda ingresar
-      $clave = UtilidadesController::GeneradorDeContrasena();
+      if($tablaOrden["estado"] == "contacto_pendiente")
+      {
+        $datosTutor = Tutor::UnTutorPorNinoPorIdNino($data["idNino"]);
 
-      $email = $datosTutor->email;
+        //genera la clave al tutor para que este pueda ingresar
+        $clave = UtilidadesController::GeneradorDeContrasena();
 
-      MailController::MailIngresoTutor($email,$clave);
+        $email = $datosTutor->email;
 
-      Tutor::ModificarClavePorIdTutor($datosTutor->id,$clave);
+        MailController::MailIngresoTutor($email,$clave);
 
-      OrdenDiagnostico::AsignarPrioridadPorIdOrden($data["idOrden"],$data["prioridad"]);
+        Tutor::ModificarClavePorIdTutor($datosTutor->id,$clave);
 
-      OrdenDiagnostico::ActualizarEstadoPorId($data["idOrden"]);
+        OrdenDiagnostico::AsignarPrioridadPorIdOrden($data["idOrden"],$data["prioridad"]);
 
-      return redirect()->to('Mi_menu');
+        OrdenDiagnostico::ActualizarEstadoPorId($data["idOrden"]);
+
+        return redirect()->to('Mi_menu');
+      }
+      else {
+        return redirect()->to('PantallaDeErrorProceso');
+      }
     }
 
     public function ListadoNinos()
@@ -243,6 +250,7 @@ class NinoController extends Controller
     public function ActualizarDatosNino()
     {
       $data = request()->all();
+
       //reibe idNino, nombreNino, apellidoNino, rutNino, fechaNacimiento
       //faltan datos!!
 

@@ -15,7 +15,7 @@ function crearNuevaCita(){
       title: "Nueva Cita",
       start: horaInicio,
       end: horaFin,
-      url: "nuevaCita",
+      //url: "nuevaCita",
       allDay: 0,
       startEditable: 1,
       durationEditable: 1,

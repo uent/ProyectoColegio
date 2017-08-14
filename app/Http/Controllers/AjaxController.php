@@ -9,6 +9,7 @@ use App\Tutor;
 use App\Eventos;
 use App\OrdenDiagnostico;
 use Validator;
+use View;
 
 
 class AjaxController extends Controller
@@ -65,18 +66,26 @@ class AjaxController extends Controller
           return redirect()->back()->withErrors($validator->errors());
         }
 
-      if($data["comentarios"] == null) $data["comentarios"] = "";
+      if(! Citas::obtenerCitaPorIdOrdenYTipoCita($data["idOrden"],$data["tipoCita"]))
+      {
+        if($data["comentarios"] == null) $data["comentarios"] = "";
 
-      $data["estado"] = "pendiente";
+        $data["estado"] = "pendiente";
 
-      $aux = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
-      $data["idNino"] = $aux["idNino"];
+        $aux = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
+        $data["idNino"] = $aux["idNino"];
 
-      Citas::InsertarCita($data);
+        Citas::InsertarCita($data);
 
-      OrdenDiagnostico::ActualizarEstadoPorId($data["idOrden"]);
+        OrdenDiagnostico::ActualizarEstadoPorId($data["idOrden"]);
 
-      return redirect()->to('Mi_menu');
+        return redirect()->to('Mi_menu');
+      }
+      else
+      {
+        return redirect()->to('PantallaDeErrorProceso');
+      }
+
     }
 
 }

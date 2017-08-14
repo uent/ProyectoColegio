@@ -12,7 +12,7 @@ $(document).ready(function() {
         },
         defaultView: 'agendaWeek',
         events: [],  //se ingresa un arreglo vacio, no habra eventos en un inicio
-        eventOverlap: true,
+        eventOverlap: false,
         timezoneParam: 'Santiago'
     });
 

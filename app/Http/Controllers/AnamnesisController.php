@@ -29,7 +29,7 @@ class AnamnesisController extends Controller
     $datos["apellidosNino"] = $datosNino["apellidos"];
     $datos["rutNino"] = $datosNino["rut"];
     $datos["fechaNacimiento"] = $datosNino["fechaNacimiento"];
-    
+
     //textoPorqueEvaluacion
 
     foreach($datosProfesionales as $d)
@@ -58,19 +58,26 @@ class AnamnesisController extends Controller
         //recibe idOrden
         $data = request()->all();
 
-        Anamnesis::AprobarInformeFinal($data["idOrden"]);
+        $tablaOrden = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
 
-        $datosOrden = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
-
-        $datosTutores = Tutor::TutoresNinoPorIdNino($datosOrden["idNino"]);
-
-        foreach($datosTutores as $t)
+        if($tablaOrden["estado"] == "falta_anamnesis")
         {
-          MailController::MailEnvioNotificacionDeFinalizacionDeInformeFinal($t->email);
+          Anamnesis::AprobarInformeFinal($data["idOrden"]);
+
+          $datosOrden = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
+
+          $datosTutores = Tutor::TutoresNinoPorIdNino($datosOrden["idNino"]);
+
+          foreach($datosTutores as $t)
+          {
+            MailController::MailEnvioNotificacionDeFinalizacionDeInformeFinal($t->email);
+          }
+
+          return redirect()->to('Mi_menu');
         }
-
-
-        return redirect()->to('Mi_menu');
+        else {
+          return redirect()->to('PantallaDeErrorProceso');
+        }
       }
 
     public function MostrarInformesNinoListosPorIdTutor()

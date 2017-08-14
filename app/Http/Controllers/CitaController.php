@@ -151,15 +151,22 @@ class CitaController extends Controller
       $data = request()->all();
       //falta realizar las validaciones
 
-      //recibe idCitas, condSocioComunicativa, competComunicativa, lengComprensivo
+      //recibe idCita, condSocioComunicativa, competComunicativa, lengComprensivo
       //   lengExpresivo, conclusiones, sugerencias
+      $tablaCita = Citas::BuscarPorId($data["idCita"]);
 
-      Citas::agregarReporteFonoaudiologo($data["idCita"],
-                            $data["condSocioComunicativa"], $data["competComunicativa"],
-                            $data["lengComprensivo"], $data["lengExpresivo"],
-                            $data["conclusiones"], $data["sugerencias"]);
+      if($tablaCita["estado"] == "pendiente")
+      {
+        Citas::agregarReporteFonoaudiologo($data["idCita"],
+                              $data["condSocioComunicativa"], $data["competComunicativa"],
+                              $data["lengComprensivo"], $data["lengExpresivo"],
+                              $data["conclusiones"], $data["sugerencias"]);
 
-      return redirect()->to('Mi_menu');
+        return redirect()->to('Mi_menu');
+      }
+      else {
+        return redirect()->to('PantallaDeErrorProceso');
+      }
     }
 
     public function AgregarReporteCitaPsicologo()
@@ -169,19 +176,25 @@ class CitaController extends Controller
 
       //recibe idCitas, desarrolloSocial,respEmocional,refConjunta,juego,conmunicacionLeng,
       //flexMental,pensamiento,comportamientoGnrl,conclu,relacion,imitacion,afecto,cuerpo,objetos
+      $tablaCita = Citas::BuscarPorId($data["idCita"]);
 
-      Citas::agregarReportePsicologo($data["idCita"],
-                                        $data["desarrolloSocial"],$data["respEmocional"],
-                                        $data["refConjunta"],$data["juego"],
-                                        $data["conmunicacionLeng"],$data["flexMental"],
-                                        $data["pensamiento"],$data["comportamientoGnrl"],
-                                        $data["conclu"],$data["relacion"],
-                                        $data["imitacion"],$data["afecto"],
-                                        $data["cuerpo"],$data["objetos"]);
+      if($tablaCita["estado"] == "pendiente")
+      {
+        Citas::agregarReportePsicologo($data["idCita"],
+                                          $data["desarrolloSocial"],$data["respEmocional"],
+                                          $data["refConjunta"],$data["juego"],
+                                          $data["conmunicacionLeng"],$data["flexMental"],
+                                          $data["pensamiento"],$data["comportamientoGnrl"],
+                                          $data["conclu"],$data["relacion"],
+                                          $data["imitacion"],$data["afecto"],
+                                          $data["cuerpo"],$data["objetos"]);
 
-      return redirect()->to('Mi_menu');
+        return redirect()->to('Mi_menu');
+      }
+      else {
+        return redirect()->to('PantallaDeErrorProceso');
+      }
     }
-
 
     public function AgregarReporteCitaTerapiaOcupacional()
     {
@@ -191,16 +204,23 @@ class CitaController extends Controller
       //recibe idCitas, coordinacionObs,coordinacionSug,procesamientoObs,
       //procesamientoSug,concluSugerencias
 
-      Citas::agregarReporteTerapiaOcupacional($data["idCita"],
-                                        $data["coordinacionObs"],
-                                        $data["coordinacionSug"],
-                                        $data["procesamientoObs"],
-                                        $data["procesamientoSug"],
-                                        $data["concluSugerencias"]);
+      $tablaCita = Citas::BuscarPorId($data["idCita"]);
 
-      return redirect()->to('Mi_menu');
-    }
+      if($tablaCita["estado"] == "pendiente")
+      {
+        Citas::agregarReporteTerapiaOcupacional($data["idCita"],
+                                          $data["coordinacionObs"],
+                                          $data["coordinacionSug"],
+                                          $data["procesamientoObs"],
+                                          $data["procesamientoSug"],
+                                          $data["concluSugerencias"]);
 
+       return redirect()->to('Mi_menu');
+     }
+     else {
+       return redirect()->to('PantallaDeErrorProceso');
+     }
+   }
 
 
     public function AgregarReporteCitaPsicopedagogo()
@@ -215,9 +235,11 @@ class CitaController extends Controller
   //FPBNEESug4, comportamientoNivel, ComportamientoSug, aprendizajeNivel,
   // aprendizajeSug, conclusionesSugerencias
 
+      $tablaCita = Citas::BuscarPorId($data["idCita"]);
 
-
-      Citas::agregarReportePsicopedagogo($data["idCita"],
+      if($tablaCita["estado"] == "pendiente")
+      {
+        Citas::agregarReportePsicopedagogo($data["idCita"],
                                           $data["FPBNE1"],
                                           $data["FPBNEESug1"],
                                           $data["FPBNE2"],
@@ -232,7 +254,10 @@ class CitaController extends Controller
                                           $data["aprendizajeSug"],
                                           $data["conclusionesSugerencias"]);
 
-      return redirect()->to('Mi_menu');
-    }
-
+        return redirect()->to('Mi_menu');
+      }
+      else {
+        return redirect()->to('PantallaDeErrorProceso');
+      }
+   }
 }
