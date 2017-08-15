@@ -58,7 +58,7 @@ class Nino_tutor extends Model
       $datos["nino"]["nombre"] = $datosNino->nombre;
       $datos["nino"]["apellidos"] = $datosNino->apellidos;
       $datos["nino"]["rut"] = $datosNino->rut;
-      $datos["nino"]["fechaNacimiento"] = $datosNino->fechaNacimiento;
+      $datos["nino"]["fechaNacimiento"] = date('d-m-Y', strtotime( $datosNino->fechaNacimiento));      
 
       $datosTutores = Tutor::TutoresNinoPorIdNino($datosNino->idNino);
       //se guardan los multiples tutores que puede tener un niño en el arreglo

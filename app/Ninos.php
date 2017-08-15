@@ -17,7 +17,7 @@ class Ninos extends Model
       $nino->nombre = $nombre;
       $nino->rut  = $rut;
       $nino->apellidos  = $apellido;
-      $nino->fechaNacimiento  = date('Y-m-d', strtotime(str_replace('-', '/', $fechaNacimiento)));;
+      $nino->fechaNacimiento  = date('Y-m-d', strtotime(str_replace('-', '/', $fechaNacimiento)));
 
       $nino->save();
 
@@ -109,6 +109,6 @@ class Ninos extends Model
         'nombre'=> $nombreNino,
         'apellidos'=> $apellidoNino,
         'rut'=> $rutNino,
-        'fechaNacimiento'=> $fechaNacimiento]);
+        'fechaNacimiento'=> date('Y-m-d', strtotime(str_replace('-', '/', $fechaNacimiento)))]);
     }
 }

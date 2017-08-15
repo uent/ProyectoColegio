@@ -50,7 +50,7 @@
 
                             <div class="tab-content">
                                 <div class="tab-pane active fade in" id="tab1">
-                                  <form id="actualizarNinoForm" method="post" role="form" action="{{ url('actualizar_datos_Nino') }}">
+                                  <form id="ingresoForm" method="post" role="form" action="{{ url('actualizar_datos_Nino') }}">
                                     {!! csrf_field() !!}
                                     <div class="row m-b-lg">
                                         <div class="col-md-8">
@@ -126,7 +126,7 @@
                                     </div>
                                 </div>
 
-                                
+
                                 <div class="col-md-4" align="center">
                                     <ul class="pager wizard">
                                       <button name='action' type='submit' value='Ver Datos' class='btn btn-info' data-toggle='modal' >Guardar Cambios</button></li>
@@ -145,7 +145,6 @@
 
 
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>

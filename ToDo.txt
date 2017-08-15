@@ -1,6 +1,8 @@
 -Revisar los campos obligatorios en formulario de co evaluacion
--errores en consola en modificar niños
 -el codigo ajax tira un error de sincronia al enviar datos por ajax
 -falta validar los datos de entrada de las citas en controlador
 -validar datos en modificar niños / tutor
 -validar en controlador modificar datos profesional
+-cambiar el mail que se envia al tutor cuando todo el proceso a sido finalizado
+-verificar consistencia en de edad en el sistema
+-permitir agregar tutores

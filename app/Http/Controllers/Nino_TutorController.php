@@ -14,7 +14,7 @@ class Nino_TutorController extends Controller
     //recibe idNino
 
     $datosTablas = Nino_tutor::MostrarDatosNinoMasDatosTutoresPorIdNino($data["idNino"]);
-
+    
     return View::make('PantallasEditar.EditarNino-Tutor')->with("datos", $datosTablas);
   }
 }
