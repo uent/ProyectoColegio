@@ -6,3 +6,5 @@
 -cambiar el mail que se envia al tutor cuando todo el proceso a sido finalizado
 -verificar consistencia en de edad en el sistema
 -permitir agregar tutores
+-modificar los valores del arreglo que recibe la pag principal con los permisos
+-falta validad el nro max de hermanos en la ficha de co evaluacion

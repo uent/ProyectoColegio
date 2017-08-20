@@ -13,56 +13,59 @@ class PermisosController extends Controller
       //y retorna a que tipo de permiso corresponde
       //si retorna null es porque no se requiere ningun permiso en especial
 
-      if('NinoController@pagCrear' == $peticion) return 'IngresoNino';
+      if( ('NinoController@pagCrear' == $peticion)
+      or  ('NinoController@NuevaFicha' == $peticion))
+            return 'IngresoNino';
 
-      if('NinoController@Crear' == $peticion) return 'IngresoNino';
 
-      if('NinoController@MostrarNinosParaLlamar' == $peticion) return 'ContactosPendientes';
+      if( ('NinoController@MostrarNinosParaLlamar' == $peticion)
+      or  ('NinoController@Contactar' == $peticion)
+      or  ('NinoController@CambiarStatusContacto' == $peticion))
+            return 'ContactosPendientes';
 
-      if('TutorController@InsertarDatos' == $peticion) return 'IngresoTutor';
+      if( ('OrdenDiagnosticoController@MostrarCitasPendientes' == $peticion)
+      or  ('OrdenDiagnosticoController@PantallaMostrarCitasNino' == $peticion)
+      or  ('CitaController@PantallaAsignarCitasNino' == $peticion)
+      or  ('AjaxController@InsertarCita' == $peticion))
+            return 'AsignarCitas';
 
-      if('NinoController@Contactar' == $peticion) return 'ContactosPendientes';
+      if(  ('CitaController@CitasPendientesPorUsuarioActual' == $peticion)
+      or  ('CitaController@FormularioInformeCita' == $peticion)
+      or  ('CitaController@AgregarReporteCitaFonoaudiologo' == $peticion)
+      or  ('CitaController@AgregarReporteCitaPsicologo' == $peticion)
+      or  ('CitaController@AgregarReporteCitaTerapiaOcupacional' == $peticion)
+      or  ('CitaController@AgregarReporteCitaPsicopedagogo' == $peticion))
+            return 'EvaluarCitas';
 
-      if('NinoController@CambiarStatusContacto' == $peticion) return 'ContactosPendientes';
+      if( ('UsuarioController@IngresoProfesional' == $peticion)
+      or  ('UsuarioController@CrearProfesional' == $peticion))
+            return 'IngresoProfesional';
 
-      if('OrdenDiagnosticoController@MostrarCitasPendientes' == $peticion) return 'AsignarCitas';
+      if  ('AnamnesisController@GenerarInformeFinal' == $peticion) return 'VisualizarInformesFinales';
 
-      if('OrdenDiagnosticoController@PantallaMostrarCitasNino' == $peticion) return 'AsignarCitas';
+      if( ('AnamnesisController@OrdenesPendientesDeAnamnesis' == $peticion)
+      or  ('AnamnesisController@AprobarInformeFinal' == $peticion))
+            return 'GenerarAnamnesis';
 
-      if('CitaController@PantallaAsignarCitasNino' == $peticion) return 'AsignarCitas';
+      if( ('EncuestaController@MostrarEncuesta' == $peticion)
+      or  ('EncuestaController@IngresarEncuesta' == $peticion))
+            return 'LlenarInformeTutor';
 
-      if('CitaController@InsertarCita' == $peticion) return 'AsignarCitas';
+      if( ('NinoController@VerListadoFichas' == $peticion)
+      or  ('NinoController@ListadoNinos' == $peticion)
+      or  ('Nino_TutorController@ModificarDatosNinoTutores' == $peticion)
+      or  ('NinoController@ActualizarDatosNino' == $peticion)
+      or  ('TutorController@ActualizarDatosTutorPorId' == $peticion))
+            return 'ModificarFichasNinos';
 
-      if('CitaController@CitasPendientesPorUsuarioActual' == $peticion) return 'EvaluarCitas';
-
-      if('CitaController@FormularioInformeCita' == $peticion) return 'EvaluarCitas';
-
-      if('CitaController@AgregarReporteCita' == $peticion) return 'EvaluarCitas';
-
-      if('UsuarioController@IngresoProfesional' == $peticion) return 'IngresoProfesional';
-
-      if('UsuarioController@CrearProfesional' == $peticion) return 'IngresoProfesional';
-
-      if('AnamnesisController@OrdenesPendientesDeAnamnesis' == $peticion) return 'GenerarAnamnesis';
-
-      if('AnamnesisController@GenerarInformeFinal' == $peticion) return 'GenerarAnamnesis';
-
-      if('EncuestaController@MostrarEncuesta' == $peticion) return 'LlenarInformeTutor';
-
-      if('EncuestaController@IngresarEncuesta' == $peticion) return 'LlenarInformeTutor';
-
-      if('NinoController@VerListadoFichas' == $peticion) return 'ListarFichasNinos';
-
-      if('UsuarioController@VerListadoProfesionales' == $peticion) return 'ListarProfesionales';
+      if( ('UsuarioController@ListadoProfesionales' == $peticion)
+      or  ('UsuarioController@ModificarDatosProfesional' == $peticion)
+      or  ('UsuarioController@ActualizarDatosUsuarioPorId' == $peticion))
+            return 'ModificarProfesionales';
 
       if('AnamnesisController@AprobarInformeFinal' == $peticion) return 'FinalizarInformeFinal';
 
-      if('AnamnesisController@VisualizarInformes' == $peticion) return 'VisualizarInformesFinales';//repetido
-
-      if('AnamnesisController@AprobarInformeFinal' == $peticion) return 'VisualizarInformesFinales';//repetido
-
       if('CalendarioController@MostrarCalendarioProfesional' == $peticion) return 'MostrarCalendarioProfesional';
-
 
       return null;
     }
@@ -79,10 +82,10 @@ class PermisosController extends Controller
               }else $acceso['NinoController@MostrarNinosParaLlamar'] = false;
 
       if(PermisosController::VerificarAccesoPorIdUsuario(PermisosController::PermisoNecesarioRutas(
-              'NinoController@Crear'),$id))
+              'NinoController@pagCrear'),$id))
               {
-                $acceso['NinoController@Crear'] = true;
-              }else $acceso['NinoController@Crear'] = false;
+                $acceso['NinoController@pagCrear'] = true;
+              }else $acceso['NinoController@pagCrear'] = false;
 
       if(PermisosController::VerificarAccesoPorIdUsuario(PermisosController::PermisoNecesarioRutas(
               'OrdenDiagnosticoController@MostrarCitasPendientes'),$id))
@@ -127,17 +130,16 @@ class PermisosController extends Controller
           }else $acceso['UsuarioController@VerListadoProfesionales'] = false;
 
         if(PermisosController::VerificarAccesoPorIdUsuario(PermisosController::PermisoNecesarioRutas(
-          'AnamnesisController@VisualizarInformes'),$id))
+          'AnamnesisController@GenerarInformeFinal'),$id))
           {
-            $acceso['AnamnesisController@VisualizarInformes'] = true;
-          }else $acceso['AnamnesisController@VisualizarInformes'] = false;
+            $acceso['AnamnesisController@GenerarInformeFinal'] = true;
+          }else $acceso['AnamnesisController@GenerarInformeFinal'] = false;
 
        if(PermisosController::VerificarAccesoPorIdUsuario(PermisosController::PermisoNecesarioRutas(
          'CalendarioController@MostrarCalendarioProfesional'),$id))
          {
            $acceso['CalendarioController@MostrarCalendarioProfesional'] = true;
          }else $acceso['CalendarioController@MostrarCalendarioProfesional'] = false;
-
 
               return $acceso;
     }

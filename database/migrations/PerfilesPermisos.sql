@@ -30,10 +30,10 @@ InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
 VALUES ("LlenarInformeTutor",now(),now());
 
 InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
-VALUES ("ListarFichasNinos",now(),now());
+VALUES ("ModificarFichasNinos",now(),now());
 
 InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
-VALUES ("ListarProfesionales",now(),now());
+VALUES ("ModificarProfesionales",now(),now());
 
 InSERT InTO Permiso (nombrePermiso,created_at,updated_at)
 VALUES ("EditarTutorPlus",now(),now()); #permite editar los datos de un tutor con permisos extras(personal del sistema)
@@ -77,13 +77,6 @@ VALUES ("12345","TutorNombre","TutorApellido","tutormail@gmail.com",
   FROM Permiso
   InnER JOIn Perfil
   where  Permiso.nombrePermiso = "LlenarInformeTutor" and Perfil.nombrePerfil ="Tutor";
-
-  InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
-  SELECT idPerfil, idPermiso, now(),now()
-  FROM Permiso
-  InnER JOIn Perfil
-  where  Permiso.nombrePermiso = "VisualizarInformesFinales" and Perfil.nombrePerfil ="Tutor";
-
 
 #Fonoaudiologo
 InSERT InTO Perfil (nombrePerfil,created_at,updated_at)
@@ -301,13 +294,13 @@ InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
 SELECT idPerfil, idPermiso, now(),now()
 FROM Permiso
 InnER JOIn Perfil
-where  Permiso.nombrePermiso = "ListarFichasNinos" and Perfil.nombrePerfil ="Administrador";
+where  Permiso.nombrePermiso = "ModificarFichasNinos" and Perfil.nombrePerfil ="Administrador";
 
 InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
 SELECT idPerfil, idPermiso, now(),now()
 FROM Permiso
 InnER JOIn Perfil
-where  Permiso.nombrePermiso = "ListarProfesionales" and Perfil.nombrePerfil ="Administrador";
+where  Permiso.nombrePermiso = "ModificarProfesionales" and Perfil.nombrePerfil ="Administrador";
 
 InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
 SELECT idPerfil, idPermiso, now(),now()

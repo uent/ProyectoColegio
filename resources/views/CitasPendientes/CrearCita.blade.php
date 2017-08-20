@@ -105,8 +105,8 @@
     {
       echo "
       <div class='col-md-12'>
-        <h4 class='panel-title'>Contactos Pendientes</h4>
         
+
         <div id='calendar'></div>
 
      </div>";
