@@ -147,5 +147,17 @@ class Citas extends Model
       OrdenDiagnostico::ActualizarEstadoPorId($datoCita["idOrden"]);
   }
 
+  public static function ObtenerDatosCitasPorIdNino($idNino)
+  {
+    return Citas::select()->where('idNino',"=", $idNino)->get();
+  }
 
+  public static function CambiarEstadoCitaAPendientePorIdCita($idCita)
+  {
+    Citas::where('idCitas',"=", $idCita)->update(['estado' => "pendiente"]);
+
+    $tablasCita = Citas::BuscarPorId($idCita);
+
+    OrdenDiagnostico::CambiarEstadoAEvaluandoPorIdOrden($tablasCita["idOrden"]);
+  }
 }

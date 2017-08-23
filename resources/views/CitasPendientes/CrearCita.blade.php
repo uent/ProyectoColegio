@@ -10,7 +10,8 @@
 <script src="{{asset('js\CalendariosJs\crearNuevaCita.js')}}"></script>
 <script src="{{asset('js\CalendariosJs\actualizarCalendarioPorNuevoIdProfesional.js')}}"></script>
 <script src="{{asset('js\CalendariosJs\agregarCitaCalendarioProfesional.js')}}"></script>
-<script src="{{asset('js\FuncionesAjaxCalendario\actualizarEventosUsuario.js')}}"></script>
+<script src="{{asset('js\FuncionesAjaxCalendario\actualizarEventosPorIdUsuario.js')}}"></script>
+<script src="{{asset('js\FuncionesAjaxCalendario\actualizarEventosPorIdNino.js')}}"></script>
 <script src="{{asset('js\FuncionesAjaxCalendario\enviarDatosNuevoEvento.js')}}"></script>
 
 
@@ -55,6 +56,7 @@
   						echo
   						"<div class='form-group'>
               <td>
+              <input type='hidden' id= idNino name='idNino' value='",$datos["datosNino"],"'/>
               <select id='idProfesional' name='id' form='formulario' onchange='actualizarCalendarioPorNuevoIdProfesional()'>";
   						foreach ($datos["profesionales"] as $d)
   						{
@@ -105,7 +107,7 @@
     {
       echo "
       <div class='col-md-12'>
-        
+
 
         <div id='calendar'></div>
 

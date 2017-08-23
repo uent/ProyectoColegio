@@ -44,6 +44,7 @@
                                 $i++;
                               }
                             }?>
+                              <li role="presentation"><a href="#tab<?php echo $i;?>" data-toggle="tab"><i class="fa fa-users m-r-xs"></i> Ordenes de diagnóstico</a></li>
                         </ul>
 
                         </div>
@@ -140,7 +141,82 @@
                                 $i++;
                               }
                             }
+                            if(count($datos["ordenes"]) > 0)
+                            {
+                              $contador = 1;
+                              foreach($datos["ordenes"] as $orden)
+                              { ?>
+                                <div class="tab-pane fade" id="tab<?php echo $i; ?>">
+                                  <h3>
+                                    Orden de Diagnostico Nro: <?php echo $contador; ?>
+                                  </h3>
+                                  <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="form-group">
+
+                                          <div class='form-group  col-md-6'>
+                                            <label for='Prioridad'><small style='color:red'></small>Prioridad</label>
+                                            <input id='prioridad' name='prioridad' class='form-control' placeholder='Prioridad' value =<?php  echo $orden["prioridad"]; ?>   readonly><br>
+                                          </div>
+                                          <div class='form-group  col-md-6'>
+                                            <label for='fechaCreacionOrden'><small style='color:red'></small>Fecha Creacion</label>
+                                            <input id='fechaCreacionOrden' name='fechaCreacionOrden' class='form-control' placeholder='Fecha Creacion' value =<?php  echo $orden["inicio"]; ?>   readonly><br>
+                                          </div>
+
+                                  <h4>
+                                    Citas
+                                  </h4>
+
+                                  <div class="col-md-12">
+
+                                  <?php
+                                  foreach($orden["citas"] as $c)
+                                  { ?>
+                                      <h5>
+                                        <?php echo $c["tipoEvaluacion"]; ?>
+                                      </h5>
+
+                                      <div class='form-group  col-md-6'>
+                                        <label for='Estado'><small style='color:red'></small>Estado</label>
+                                        <input id='Estado' name='Estado' class='form-control' placeholder='Estado' value ="<?php  echo $c["estado"]; ?>"   readonly><br>
+                                      </div>
+
+                                      <?php if($c["estado"] != "sin asignar" )
+                                      {?>
+                                        <div class='form-group  col-md-6'>
+                                          <label for='fechaCita'><small style='color:red'></small>Fecha Cita</label>
+                                          <input id='fechaCita' name='fechaCita' class='form-control' placeholder='fechaCita' value ="<?php  echo $c["fechaCita"]; ?>"   readonly><br>
+                                        </div>
+
+                                        <form id="pedirRevisionCitaForm" method="get" role="form" action="{{ url('pedir_revision_cita') }}">
+                                          {!! csrf_field() !!}
+                                          <input type='hidden' name='idCita' value="<?php echo $c["idCita"]; ?>"/>
+                                            <div class="col-md-4" align="center">
+                                            <ul class="pager wizard">
+                                              <button name='action' type='submit' value='Pedir Revision' class='btn btn-info' data-toggle='modal' >Pedir Revision</button></li>
+                                      </form>
+                                        <?php
+                                      } ?>
+
+                                  <?php
+                                  }
+                                   ?>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                <?php
+                                }
                                 ?>
+
+
+                                        </div>
+
+
+                          <?php
+                            }
+                            ?>
 
 
 
@@ -158,6 +234,9 @@
 
                                             <!-- Modal -->
 
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>

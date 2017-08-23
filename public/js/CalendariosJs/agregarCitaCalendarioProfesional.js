@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     var idProfesional = document.getElementById("idProfesional").value;
+    var idNino = document.getElementById("idNino").value;
 
     $('#calendar').fullCalendar({
         // put your options and callbacks here
@@ -13,13 +14,13 @@ $(document).ready(function() {
         defaultView: 'agendaWeek',
         events: [],  //se ingresa un arreglo vacio, no habra eventos en un inicio
         eventOverlap: false,
-        timezoneParam: 'Santiago' 
+        timezoneParam: 'Santiago'
     });
 
     var NuevaCita = crearNuevaCita();
 
-    actualizarEventosUsuario(idProfesional,NuevaCita); //llama al metodo GetEventosUsuario para actualizar el Calendario
+    actualizarEventosPorIdUsuario(idProfesional,NuevaCita); //llama al metodo GetEventosUsuario para actualizar el Calendario
                                                        //con los datos de la db;
-
+    actualizarEventosPorIdNino(idNino);
 
 });

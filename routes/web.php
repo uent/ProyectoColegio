@@ -96,6 +96,7 @@ Route::get('/home', 'HomeController@index')->name('home'); //borrar??
 //Llamadas ajax
 Route::get('validarRutNinoAjax/{rutNino}', 'AjaxController@validarRutNino');//no se usa
 Route::get('horarioProfesional/{idProfesional}', 'AjaxController@horarioProfesionalPorIdProfesional');
+Route::get('horarioNino/{idNino}', 'AjaxController@horarioNinoPorIdNino');
 
 //calendario Personal
 Route::get('verCalendarioProfesional', 'CalendarioController@MostrarCalendarioProfesional');
@@ -107,3 +108,5 @@ Route::get('pantalla_mostrar_listado_informes', 'AnamnesisController@MostrarInfo
 
 //mail
 Route::get('welcome-mail','MailController@MailIngresoTutor');
+
+Route::get('pedir_revision_cita','CitaController@MailIngresoTutor');

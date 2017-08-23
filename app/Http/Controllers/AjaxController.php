@@ -49,6 +49,79 @@ class AjaxController extends Controller
 
     }
 
+    public function horarioNinoPorIdNino($idNino)
+    {
+      $eventos = Eventos::horarioNinoPorIdNino($idNino);
+
+      if(count($eventos))
+      {
+        foreach($eventos as $e)
+        {
+          //se arma un arreglo con los campos requeridos para utilizarlo en FullCalendar
+          $data[] = array(
+              "id"=> $e->idCitas,
+              "title"=> $e->tipoEvaluacion . " " . $e->nombre . " " . $e->apellidos,
+              "start"=> $e->fechaInicio,
+              "end"=> $e->fechaFin,
+              //"url"=> $e->idCitas,
+              "color"=> 'yellow',
+              "startEditable"=> 0,
+              "allDay"=> 0,
+              "durationEditable"=> 0
+
+
+              //"url"=>"cargaEventos".$id[$i]
+              //en el campo "url" concatenamos el el URL con el id del evento para luego
+              //en el evento onclick de JS hacer referencia a este y usar el método show
+              //para mostrar los datos completos de un evento
+          );
+        }
+
+        return json_encode($data); //retorna los datos como un Json
+      }
+      else {
+        return json_encode(null);
+      }
+
+    }
+
+    public function horarioProfesionalesMenosUnoPorIdProfesional($idUser)
+    {
+      {
+        $eventos = Eventos::horarioProfesionalesMenosUnoPorIdProfesional($idUser);
+
+        if(count($eventos))
+        {
+          foreach($eventos as $e)
+          {
+            //se arma un arreglo con los campos requeridos para utilizarlo en FullCalendar
+            $data[] = array(
+                "id"=> $e->idCitas,
+                "title"=> $e->tipoEvaluacion . " " . $e->nombre . " " . $e->apellidos,
+                "start"=> $e->fechaInicio,
+                "end"=> $e->fechaFin,
+                "color"=> 'green',
+                //"url"=> $e->idCitas,
+                "startEditable"=> 0,
+                "allDay"=> 0,
+                "durationEditable"=> 0
+
+
+                //"url"=>"cargaEventos".$id[$i]
+                //en el campo "url" concatenamos el el URL con el id del evento para luego
+                //en el evento onclick de JS hacer referencia a este y usar el método show
+                //para mostrar los datos completos de un evento
+            );
+          }
+
+          return json_encode($data); //retorna los datos como un Json
+        }
+        else {
+          return json_encode(null);
+        }
+
+      }
+
     public function InsertarCita()
     {
       $data = request()->all();

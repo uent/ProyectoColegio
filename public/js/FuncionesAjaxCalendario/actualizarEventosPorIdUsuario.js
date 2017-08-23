@@ -1,4 +1,4 @@
-function actualizarEventosUsuario(idProfesional, eventosExtras = null) {
+function actualizarEventosPorIdUsuario(idProfesional, eventosExtras = null) {
 
     $.ajax({
       url:'horarioProfesional/' + idProfesional,
@@ -17,7 +17,7 @@ function actualizarEventosUsuario(idProfesional, eventosExtras = null) {
       },
 
       error: function(xhr, status, error) {
-        console.log("fallo GetEventosUsuario Js");
+        console.log("fallo actualizarEventosPorIdUsuario Js");
         return($.parseJSON([])); //retorna un arreglo vacio
       }
 

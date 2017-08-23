@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     var idProfesional = document.getElementById("idProfesional").value;
+    var idNino = document.getElementById("idNino").value;
 
     $('#calendar').fullCalendar({
         // put your options and callbacks here
@@ -16,8 +17,8 @@ $(document).ready(function() {
         timezoneParam: 'Santiago'
     });
 
-    actualizarEventosUsuario(idProfesional); //llama al metodo GetEventosUsuario para actualizar el Calendario
+    actualizarEventosPorIdUsuario(idProfesional); //llama al metodo GetEventosUsuario para actualizar el Calendario
                                                        //con los datos de la db;
 
-
+    actualizarEventosPorIdNino(idNino);
 });

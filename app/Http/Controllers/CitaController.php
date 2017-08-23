@@ -32,6 +32,8 @@ class CitaController extends Controller
 
 
     $data["profesionales"] = User::BuscarProfesionalesPorTipoCita($data["datos"]["tipoCita"]);
+    $datosOrden = OrdenDiagnostico::BuscarPorId($data["datos"]["idOrden"]);
+    $data["datosNino"] = $datosOrden["idNino"];
 
 
     return View::make('CitasPendientes.CrearCita')->with("datos",$data );
@@ -259,5 +261,15 @@ class CitaController extends Controller
       else {
         return redirect()->to('PantallaDeErrorProceso');
       }
+   }
+
+   public function SolicitarModificacionCita()
+   {
+     $data = request()->all();
+     //recibe idCita
+
+     Citas::CambiarEstadoCitaARevisionPorIdCita($data["idCita"]);
+
+     return redirect()->to('Mi_menu');
    }
 }

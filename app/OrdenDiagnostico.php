@@ -282,4 +282,66 @@ class OrdenDiagnostico extends Model
 
       return $datos;
   }
+
+  public static function BuscarPorIdNinoMasDatosCita($idNiño)
+  {
+    $tablasOrden = OrdenDiagnostico::select()->where('OrdenDiagnostico.idNino', '=', $idNiño)->get();
+
+    if(count($tablasOrden) == 0)return null;
+
+    $i = 1;
+    foreach($tablasOrden as $o)
+    {
+      $datos[$i]["idOrden"] = $o->idOrdenDiagnostico;
+      $datos[$i]["prioridad"] = $o->prioridad;
+      $datos[$i]["inicio"] = date("d-m-Y", strtotime($o->created_at));
+
+      $tablasCitas = Citas::obtenerCitasPorIdOrden($o->idOrdenDiagnostico);
+
+      $auxCitas[1] = "Psicologico";
+      $auxCitas[2] = "TerapeutaOcupacional";
+      $auxCitas[3] = "Fonoaudiologo";
+      $auxCitas[4] = "Psicopedagogo";
+
+      $j = 1;
+      foreach($tablasCitas as $c)
+      {
+          $datos[$i]["citas"][$j]["idCita"] = $c->idCitas;
+          $datos[$i]["citas"][$j]["tipoEvaluacion"] = $c->tipoEvaluacion;
+          $datos[$i]["citas"][$j]["idProfesional"] = $c->idProfesional;
+          $datos[$i]["citas"][$j]["estado"] = $c->estado;
+          $datos[$i]["citas"][$j]["fechaCita"] = date("d-m-Y", strtotime($c->fechaInicio));
+
+          for ($k = 1; $k <=count($auxCitas) ; $k++) {
+            if($auxCitas[$k] == $c->tipoEvaluacion)
+            {
+              $auxCitas[$k] = "encontrado";
+            }
+          }
+          //var_dump($auxCitas);
+        $j++;
+      }
+
+      foreach($auxCitas as $a)
+      {
+        if(!($a == "encontrado"))
+        {
+          $datos[$i]["citas"][$j]["tipoEvaluacion"] = $a;
+          $datos[$i]["citas"][$j]["estado"] = "sin asignar";
+
+          $j++;
+        }
+
+      }
+
+      $i++;
+    }
+    return $datos;
+  }
+
+  public static function CambiarEstadoAEvaluandoPorIdOrden($idOrden)
+  {
+    Citas::where('idOrdenDiagnostico',"=", $idOrden)->update(['estado' => "asignar"]);
+
+  }
 }
