@@ -41,8 +41,8 @@ class Perfil extends Model
     public static function PermisosPorIdUsuario($idUsuario)
     {
         $tablas = DB::table('users')
-              ->join('Perfil_usuario', 'Perfil_usuario.id', '=', 'Users.id')
-              ->join('Perfil', 'Perfil.idPerfil', '=', 'Perfil_usuario.idPerfil')
+              ->join('Perfil_Usuario', 'Perfil_Usuario.id', '=', 'Users.id')
+              ->join('Perfil', 'Perfil.idPerfil', '=', 'Perfil_Usuario.idPerfil')
               ->join('Permiso_Perfil', 'Permiso_Perfil.idPerfil', '=', 'Perfil.idPerfil')
               ->join('Permiso', 'Permiso.idPermiso', '=', 'Permiso_Perfil.idPermiso')
               ->where('Users.id', '=',$idUsuario)

@@ -312,6 +312,10 @@ class OrdenDiagnostico extends Model
           $datos[$i]["citas"][$j]["estado"] = $c->estado;
           $datos[$i]["citas"][$j]["fechaCita"] = date("d-m-Y", strtotime($c->fechaInicio));
 
+          $datosProfesional = User::DatosUsuariosPorIdUsuario($datos[$i]["citas"][$j]["idProfesional"]);  
+          $datos[$i]["citas"][$j]["nombreProfesional"] = $datosProfesional["nombre"] . $datosProfesional["apellidos"];
+
+
           for ($k = 1; $k <=count($auxCitas) ; $k++) {
             if($auxCitas[$k] == $c->tipoEvaluacion)
             {
@@ -331,6 +335,7 @@ class OrdenDiagnostico extends Model
 
           $j++;
         }
+
 
       }
 

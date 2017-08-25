@@ -23,11 +23,29 @@ class Eventos extends Model
       else return null;
     }
 
-    public static function horarioProfesionalesMenosUnoPorIdProfesional($idNino)
+    public static function horarioProfesionalesMenosUnoPorIdUsuario($idUsuario)
     {
-      $tablas = Citas::ObtenerDatosCitasPorIdNino($idNino);
+      $eventosTodosUsuarios = Eventos::todosLosEventosProfesionales();
 
-      if(count($tablas) > 0) return $tablas;
-      else return null;
+      $i = 1;
+      $eventos = null;
+
+      foreach($eventosTodosUsuarios as $e)
+      {
+        if($e->idProfesional == $idUsuario)
+        {
+          $eventos[$i] = $e;
+
+          $i++;
+        }
+
+      }
+
+      return $eventos;
+    }
+
+    public static function todosLosEventosProfesionales()
+    {
+      return Citas::todosLosEventosProfesionales();
     }
 }

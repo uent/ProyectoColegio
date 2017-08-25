@@ -13,6 +13,7 @@
 <script src="{{asset('js\FuncionesAjaxCalendario\actualizarEventosPorIdUsuario.js')}}"></script>
 <script src="{{asset('js\FuncionesAjaxCalendario\actualizarEventosPorIdNino.js')}}"></script>
 <script src="{{asset('js\FuncionesAjaxCalendario\enviarDatosNuevoEvento.js')}}"></script>
+<script src="{{asset('js\FuncionesAjaxCalendario\actualizarEventosRestoProfesionales.js')}}"></script>
 
 
 @if (isset($errors) && count($errors) > 0)

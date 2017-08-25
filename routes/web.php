@@ -97,6 +97,7 @@ Route::get('/home', 'HomeController@index')->name('home'); //borrar??
 Route::get('validarRutNinoAjax/{rutNino}', 'AjaxController@validarRutNino');//no se usa
 Route::get('horarioProfesional/{idProfesional}', 'AjaxController@horarioProfesionalPorIdProfesional');
 Route::get('horarioNino/{idNino}', 'AjaxController@horarioNinoPorIdNino');
+Route::get('horarioRestoProfesionales/{idProfesional}', 'AjaxController@horarioProfesionalesMenosUnoPorIdProfesional');
 
 //calendario Personal
 Route::get('verCalendarioProfesional', 'CalendarioController@MostrarCalendarioProfesional');

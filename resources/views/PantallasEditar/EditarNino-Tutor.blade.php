@@ -97,7 +97,7 @@
                                           <div class="tab-pane fade" id="tab<?php echo $i; ?>">
                                           <div class="col-md-8">
                                               <div class="row">
-                                                  <div class="form-group">
+                                        <div class="form-group">
                                         <form id="actualizarTutorForm" method="post" role="form" action="{{ url('actualizar_datos_tutor') }}">
                                           {!! csrf_field() !!}
                                           <input type='hidden' name='idTutor' value="<?php echo $t["idTutor"]; ?>"/>
@@ -122,21 +122,18 @@
                                               <input id='fonoTutor' name='fonoTutor' class='form-control' placeholder='Nro Telefono *' value ="<?php echo $t["telefonoTutor"]; ?>"   required autofocus><br>
                                           </div>
 
+                                          <div class="col-md-4" align="center">
+                                              <ul class="pager wizard">
+                                                <button name='action' type='submit' value='Ver Datos' class='btn btn-info' data-toggle='modal' >Guardar Cambios</button></li>
+                                                </form>
+
+                                                  </ul>
+                                          </div>
                                         </div>
-
                                     </div>
-                                </div>
 
-
-                                <div class="col-md-4" align="center">
-                                    <ul class="pager wizard">
-                                      <button name='action' type='submit' value='Ver Datos' class='btn btn-info' data-toggle='modal' >Guardar Cambios</button></li>
-                                      </form>
-
-                                        </ul>
                                 </div>
                                 </div>
-
                                 <?php
                                 $i++;
                               }
@@ -188,19 +185,28 @@
                                           <input id='fechaCita' name='fechaCita' class='form-control' placeholder='fechaCita' value ="<?php  echo $c["fechaCita"]; ?>"   readonly><br>
                                         </div>
 
+                                        <div class='form-group  col-md-6'>
+                                          <label for='Profesional'><small style='color:red'></small>Profesional</label>
+                                          <input id='Profesional' name='Profesional' class='form-control' placeholder='Profesional' value ="<?php  echo $c["nombreProfesional"]; ?>"   readonly><br>
+                                        </div>
+
                                         <form id="pedirRevisionCitaForm" method="get" role="form" action="{{ url('pedir_revision_cita') }}">
                                           {!! csrf_field() !!}
                                           <input type='hidden' name='idCita' value="<?php echo $c["idCita"]; ?>"/>
                                             <div class="col-md-4" align="center">
                                             <ul class="pager wizard">
                                               <button name='action' type='submit' value='Pedir Revision' class='btn btn-info' data-toggle='modal' >Pedir Revision</button></li>
-                                      </form>
+                                            </div>
+                                        </form>
+
                                         <?php
                                       } ?>
 
                                   <?php
                                   }
                                    ?>
+
+                                </div>
                                 </div>
                                 </div>
                                 </div>

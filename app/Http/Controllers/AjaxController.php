@@ -88,7 +88,7 @@ class AjaxController extends Controller
     public function horarioProfesionalesMenosUnoPorIdProfesional($idUser)
     {
       {
-        $eventos = Eventos::horarioProfesionalesMenosUnoPorIdProfesional($idUser);
+        $eventos = Eventos::horarioProfesionalesMenosUnoPorIdUsuario($idUser);
 
         if(count($eventos))
         {
@@ -100,7 +100,7 @@ class AjaxController extends Controller
                 "title"=> $e->tipoEvaluacion . " " . $e->nombre . " " . $e->apellidos,
                 "start"=> $e->fechaInicio,
                 "end"=> $e->fechaFin,
-                "color"=> 'green',
+                "color"=> 'black',
                 //"url"=> $e->idCitas,
                 "startEditable"=> 0,
                 "allDay"=> 0,
@@ -121,6 +121,7 @@ class AjaxController extends Controller
         }
 
       }
+    }
 
     public function InsertarCita()
     {

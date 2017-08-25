@@ -10,7 +10,9 @@ function actualizarCalendarioPorNuevoIdProfesional (){
 
     actualizarEventosPorIdUsuario(idProfesional,nuevaCita); //llama al metodo actualizarEventosUsuario para actualizar el Calendario
                                       //con los datos de la db;
-    actualizarEventosPorIdUsuario(idNino);                                  
+    actualizarEventosPorIdUsuario(idNino);
+
+    actualizarEventosRestoProfesionales(idProfesional);                                  
 
 
 };

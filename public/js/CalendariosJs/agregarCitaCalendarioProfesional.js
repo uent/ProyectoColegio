@@ -23,4 +23,6 @@ $(document).ready(function() {
                                                        //con los datos de la db;
     actualizarEventosPorIdNino(idNino);
 
+    actualizarEventosRestoProfesionales(idProfesional);    
+
 });

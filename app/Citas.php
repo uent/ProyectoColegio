@@ -160,4 +160,9 @@ class Citas extends Model
 
     OrdenDiagnostico::CambiarEstadoAEvaluandoPorIdOrden($tablasCita["idOrden"]);
   }
+
+  public static function todosLosEventosProfesionales()
+  {
+    return Citas::select()->get();
+  }
 }
