@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class Citas extends Model
 {
-  protected $table = 'Citas'; #?????
+  protected $table = 'citas'; #?????
 
   public static function obtenerCitasPorIdOrden($idOrden)
   {
@@ -52,11 +52,11 @@ class Citas extends Model
   public static function ObtenerDatosCitasPendientesMasDatosNinoPorIdUsuario($idUsuario)
   {
     return DB::table('citas')
-          ->join('Ninos', 'citas.idNino', '=', 'Ninos.idNino')
+          ->join('ninos', 'citas.idNino', '=', 'ninos.idNino')
           ->where('citas.idProfesional', '=', $idUsuario)
           ->where('citas.estado', '=', "pendiente")
-          ->select('Ninos.idNino','citas.idCitas','citas.fechaInicio','citas.fechaFin','citas.tipoEvaluacion',
-          'citas.comentarios','Ninos.nombre','Ninos.apellidos','Ninos.rut')
+          ->select('ninos.idNino','citas.idCitas','citas.fechaInicio','citas.fechaFin','citas.tipoEvaluacion',
+          'citas.comentarios','ninos.nombre','ninos.apellidos','ninos.rut')
           ->get();
   }
 

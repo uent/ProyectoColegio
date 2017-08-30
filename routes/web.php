@@ -110,4 +110,6 @@ Route::get('pantalla_mostrar_listado_informes', 'AnamnesisController@MostrarInfo
 //mail
 Route::get('welcome-mail','MailController@MailIngresoTutor');
 
-Route::get('pedir_revision_cita','CitaController@MailIngresoTutor');
+Route::get('pedir_revision_cita','CitaController@SolicitarModificacionCita');
+
+Route::get('composer','HomeController@composer');

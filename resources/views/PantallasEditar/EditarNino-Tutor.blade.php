@@ -144,6 +144,9 @@
                               foreach($datos["ordenes"] as $orden)
                               { ?>
                                 <div class="tab-pane fade" id="tab<?php echo $i; ?>">
+                                  <div class="col-md-12">
+                                      <div class="row">
+                                <div class="form-group">
                                   <h3>
                                     Orden de Diagnostico Nro: <?php echo $contador; ?>
                                   </h3>
@@ -169,11 +172,12 @@
                                   <?php
                                   foreach($orden["citas"] as $c)
                                   { ?>
+                                    <div class="col-md-12">
                                       <h5>
                                         <?php echo $c["tipoEvaluacion"]; ?>
                                       </h5>
 
-                                      <div class='form-group  col-md-6'>
+                                      <div class='form-group'>
                                         <label for='Estado'><small style='color:red'></small>Estado</label>
                                         <input id='Estado' name='Estado' class='form-control' placeholder='Estado' value ="<?php  echo $c["estado"]; ?>"   readonly><br>
                                       </div>

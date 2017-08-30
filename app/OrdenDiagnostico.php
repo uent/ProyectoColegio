@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class OrdenDiagnostico extends Model
 {
-  protected $table = 'OrdenDiagnostico';
+  protected $table = 'ordendiagnostico';
 
     public static function crear($idNino,$prioridad,$Diagnostico,
                                 $Derivacion,$Solicitud,$Escolaridad,$Observaciones)
@@ -30,10 +30,10 @@ class OrdenDiagnostico extends Model
     public static function OrdenesPendientesDeCitasMasDatosNinos()
     {
 
-      $tablas = DB::table('OrdenDiagnostico')
-            ->join('Ninos', 'OrdenDiagnostico.idNino', '=', 'Ninos.idNino')
-            ->where('OrdenDiagnostico.estado', '=', "asignar")
-            ->select('Ninos.idNino','OrdenDiagnostico.idOrdenDiagnostico','OrdenDiagnostico.prioridad','Ninos.nombre','Ninos.apellidos','Ninos.rut')
+      $tablas = DB::table('ordendiagnostico')
+            ->join('ninos', 'ordendiagnostico.idNino', '=', 'ninos.idNino')
+            ->where('ordendiagnostico.estado', '=', "asignar")
+            ->select('ninos.idNino','ordendiagnostico.idOrdenDiagnostico','ordendiagnostico.prioridad','ninos.nombre','ninos.apellidos','ninos.rut')
             ->get();
 
         $i = 0;
@@ -79,10 +79,10 @@ class OrdenDiagnostico extends Model
     public static function OrdenesPendientesDeAnamnesisMasDatosNinos()
     {
 
-      $tablas = DB::table('OrdenDiagnostico')
-            ->join('Ninos', 'OrdenDiagnostico.idNino', '=', 'Ninos.idNino')
-            ->where('OrdenDiagnostico.estado', '=', "falta_anamnesis")
-            ->select('Ninos.idNino','OrdenDiagnostico.idOrdenDiagnostico','OrdenDiagnostico.prioridad','Ninos.nombre','Ninos.apellidos','Ninos.rut')
+      $tablas = DB::table('ordendiagnostico')
+            ->join('ninos', 'ordendiagnostico.idNino', '=', 'ninos.idNino')
+            ->where('ordendiagnostico.estado', '=', "falta_anamnesis")
+            ->select('ninos.idNino','ordendiagnostico.idOrdenDiagnostico','ordendiagnostico.prioridad','ninos.nombre','ninos.apellidos','ninos.rut')
             ->get();
 
         $i = 0;
@@ -225,11 +225,11 @@ class OrdenDiagnostico extends Model
     //arreglar!!!!!!
     //
 
-    $tablas = DB::table('OrdenDiagnostico')
-          ->join('Ninos', 'OrdenDiagnostico.idNino', '=', 'Ninos.idNino')
-          ->join('Nino_tutor', 'Ninos.idNino', '=', 'Nino_tutor.idNino')
-          ->join('Users', 'Nino_tutor.idTutor', '=', 'Users.id')
-          ->where('OrdenDiagnostico.estado', '=', "falta_coevaluacion")
+    $tablas = DB::table('ordendiagnostico')
+          ->join('ninos', 'ordendiagnostico.idNino', '=', 'ninos.idNino')
+          ->join('nino_tutor', 'ninos.idNino', '=', 'nino_tutor.idNino')
+          ->join('Users', 'nino_tutor.idTutor', '=', 'Users.id')
+          ->where('ordendiagnostico.estado', '=', "falta_coevaluacion")
           ->select()
           ->first();
     return $tablas;
@@ -244,22 +244,22 @@ class OrdenDiagnostico extends Model
   public static function DatosProfesionalesPorIdOrdenDiagnostico($idOrden)
   {
     //retorna todos los profesionales y el tipo de cita a la que fue asignadas a la ordenDiagnostico
-    return DB::table('OrdenDiagnostico')
-          ->join('Citas', 'OrdenDiagnostico.idOrdenDiagnostico', '=', 'Citas.idOrden')
-          ->join('Users', 'Citas.idProfesional', '=', 'Users.id')
-          ->where('OrdenDiagnostico.idOrdenDiagnostico','=',$idOrden)
-          ->select('Users.name','Users.apellidos','Users.rut','Citas.tipoEvaluacion')
+    return DB::table('ordendiagnostico')
+          ->join('citas', 'ordendiagnostico.idOrdenDiagnostico', '=', 'citas.idOrden')
+          ->join('Users', 'citas.idProfesional', '=', 'Users.id')
+          ->where('ordendiagnostico.idOrdenDiagnostico','=',$idOrden)
+          ->select('Users.name','Users.apellidos','Users.rut','citas.tipoEvaluacion')
           ->get();
   }
 
   public static function OrdenesPendientesDeAnamnesisMasDatosNinosPorIdTutor($idTutor)
   {
-    $tablas = DB::table('OrdenDiagnostico')
-          ->join('Ninos', 'OrdenDiagnostico.idNino', '=', 'Ninos.idNino')
-          ->join('Nino_tutor', 'Ninos.idNino', '=', 'Nino_tutor.idNino')
-          ->where('OrdenDiagnostico.estado', '=', "proceso_finalizado")
-          ->where('Nino_tutor.idTutor', '=', $idTutor)
-          ->select('Ninos.idNino','OrdenDiagnostico.idOrdenDiagnostico','OrdenDiagnostico.prioridad','Ninos.nombre','Ninos.apellidos','Ninos.rut')
+    $tablas = DB::table('ordendiagnostico')
+          ->join('ninos', 'ordendiagnostico.idNino', '=', 'ninos.idNino')
+          ->join('nino_tutor', 'ninos.idNino', '=', 'nino_tutor.idNino')
+          ->where('ordendiagnostico.estado', '=', "proceso_finalizado")
+          ->where('nino_tutor.idTutor', '=', $idTutor)
+          ->select('ninos.idNino','ordendiagnostico.idOrdenDiagnostico','ordendiagnostico.prioridad','ninos.nombre','ninos.apellidos','ninos.rut')
           ->get();
 
       $i = 0;
@@ -285,7 +285,7 @@ class OrdenDiagnostico extends Model
 
   public static function BuscarPorIdNinoMasDatosCita($idNiño)
   {
-    $tablasOrden = OrdenDiagnostico::select()->where('OrdenDiagnostico.idNino', '=', $idNiño)->get();
+    $tablasOrden = OrdenDiagnostico::select()->where('ordendiagnostico.idNino', '=', $idNiño)->get();
 
     if(count($tablasOrden) == 0)return null;
 
@@ -312,7 +312,7 @@ class OrdenDiagnostico extends Model
           $datos[$i]["citas"][$j]["estado"] = $c->estado;
           $datos[$i]["citas"][$j]["fechaCita"] = date("d-m-Y", strtotime($c->fechaInicio));
 
-          $datosProfesional = User::DatosUsuariosPorIdUsuario($datos[$i]["citas"][$j]["idProfesional"]);  
+          $datosProfesional = User::DatosUsuariosPorIdUsuario($datos[$i]["citas"][$j]["idProfesional"]);
           $datos[$i]["citas"][$j]["nombreProfesional"] = $datosProfesional["nombre"] . $datosProfesional["apellidos"];
 
 
@@ -346,7 +346,7 @@ class OrdenDiagnostico extends Model
 
   public static function CambiarEstadoAEvaluandoPorIdOrden($idOrden)
   {
-    Citas::where('idOrdenDiagnostico',"=", $idOrden)->update(['estado' => "asignar"]);
+    OrdenDiagnostico::where('idOrdenDiagnostico',"=", $idOrden)->update(['estado' => "asignar"]);
 
   }
 }

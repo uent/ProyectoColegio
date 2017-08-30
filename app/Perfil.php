@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class Perfil extends Model
 {
-  protected $table = 'Perfil';
+  protected $table = 'perfil';
 
     public static function TiposPerfiles()
     {
@@ -41,12 +41,12 @@ class Perfil extends Model
     public static function PermisosPorIdUsuario($idUsuario)
     {
         $tablas = DB::table('users')
-              ->join('Perfil_Usuario', 'Perfil_Usuario.id', '=', 'Users.id')
-              ->join('Perfil', 'Perfil.idPerfil', '=', 'Perfil_Usuario.idPerfil')
-              ->join('Permiso_Perfil', 'Permiso_Perfil.idPerfil', '=', 'Perfil.idPerfil')
-              ->join('Permiso', 'Permiso.idPermiso', '=', 'Permiso_Perfil.idPermiso')
-              ->where('Users.id', '=',$idUsuario)
-              ->select('Permiso.nombrePermiso')
+              ->join('perfil_usuario', 'perfil_usuario.id', '=', 'users.id')
+              ->join('perfil', 'perfil.idPerfil', '=', 'perfil_usuario.idPerfil')
+              ->join('permiso_perfil', 'permiso_perfil.idPerfil', '=', 'perfil.idPerfil')
+              ->join('permiso', 'permiso.idPermiso', '=', 'permiso_perfil.idPermiso')
+              ->where('users.id', '=',$idUsuario)
+              ->select('permiso.nombrePermiso')
               ->get();
 
           if(count($tablas) != 0)

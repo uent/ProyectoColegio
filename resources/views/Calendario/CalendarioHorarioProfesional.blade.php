@@ -10,8 +10,8 @@
 @section('contenido')
 
 <script src="{{asset('js\CalendariosJs\actualizarCalendarioPorNuevoIdProfesional.js')}}"></script>
-<script src="{{asset('js\CalendariosJs\crearCalendario.js')}}"></script>
-<script src="{{asset('js\FuncionesAjaxCalendario\actualizarEventosUsuario.js')}}"></script>
+<script src="{{asset('js\CalendariosJs\crearCalendarioVisualizarHorario.js')}}"></script>
+<script src="{{asset('js\FuncionesAjaxCalendario\actualizarEventosPorIdUsuario.js')}}"></script>
 
 @if (isset($errors) && count($errors) > 0)
    <div class="alert alert-danger">

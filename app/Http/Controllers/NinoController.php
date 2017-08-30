@@ -20,7 +20,7 @@ class NinoController extends Controller
 
     public function pagCrear()
     {
-      return view ('IngresoNino\IngresoNino');
+      return View::make('IngresoNino\IngresoNino');
     }
 
     public function NuevaFicha()

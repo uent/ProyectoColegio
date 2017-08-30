@@ -8,9 +8,11 @@ use Illuminate\Support\Facades\DB;
 
 class Encuesta extends Model
 {
+  protected $table = 'encuesta';
+
     public static function crear($data)
     {
-      DB::table('OrdenDiagnostico')
+      DB::table('ordendiagnostico')
       ->where('idOrdenDiagnostico', '=',$data["idOrden"])
 
       ->update([

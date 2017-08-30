@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Eventos extends Model
 {
+  protected $table = 'eventos';
+
     public static function obtenerEventosProfesionalPorIdUsuario($idUsuario)
     {
       $tablas = Citas::ObtenerDatosCitasPendientesMasDatosNinoPorIdUsuario($idUsuario);

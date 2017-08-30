@@ -65,10 +65,10 @@ class User extends Authenticatable
 
     public static function BuscarProfesionalesPorTipoCita($tipoCita)
     {
-      $datos = DB::table('Users')
-              ->join('Perfil_Usuario', 'Users.id', '=', 'Perfil_Usuario.id')
-              ->join('Perfil', 'Perfil_Usuario.idPerfil', '=', 'Perfil.idPerfil')
-              ->where('Perfil.nombrePerfil', '=',$tipoCita)
+      $datos = DB::table('users')
+              ->join('perfil_usuario', 'users.id', '=', 'perfil_usuario.id')
+              ->join('perfil', 'perfil_usuario.idPerfil', '=', 'perfil.idPerfil')
+              ->where('perfil.nombrePerfil', '=',$tipoCita)
               ->get();
 
         if(count($datos) != 0)

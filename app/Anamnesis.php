@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Anamnesis extends Model
 {
-  protected $table = 'Anamnesis';
+  protected $table = 'anamnesis';
 
     public static function GenerarInformeFinal($idOrden)
     {
@@ -31,6 +31,11 @@ class Anamnesis extends Model
       $Anamnesis->save();
 
       return Anamnesis::select()->where('idOrden','=',$idOrden)->first();
+    }
+
+    public static function BuscarPorIdOrden($idOrden)
+    {
+        return Anamnesis::select()->where('idOrden','=',$idOrden)->first();
     }
 
     public static function ActualizarReporteFonoaudiologoPorIdOrden($idOrden,$tipoCita,

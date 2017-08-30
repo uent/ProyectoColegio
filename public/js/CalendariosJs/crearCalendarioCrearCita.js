@@ -19,8 +19,7 @@ $(document).ready(function() {
 
     actualizarEventosPorIdUsuario(idProfesional); //llama al metodo GetEventosUsuario para actualizar el Calendario
                                                        //con los datos de la db;
-
     actualizarEventosPorIdNino(idNino);
 
-    actualizarEventosRestoProfesionales(idProfesional);    
+    actualizarEventosRestoProfesionales(idProfesional);
 });

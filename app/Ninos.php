@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class Ninos extends Model
 {
-    protected $table = 'Ninos'; #?????
+    protected $table = 'ninos'; #?????
 
     public static function agregar($nombre,$apellido, $rut, $fechaNacimiento)
     {
@@ -29,10 +29,10 @@ class Ninos extends Model
     {
       //Retorna una lista de ninos que cumplan la condicion de que aun no sean contactados
 
-      $tablas =   DB::table('Ninos')
-                    ->join('OrdenDiagnostico','OrdenDiagnostico.idNino','=','Ninos.idNino')
-                    ->where('OrdenDiagnostico.estado','=','contacto_pendiente')
-                    ->select('Ninos.idNino','nombre','apellidos','rut','OrdenDiagnostico.created_at')->get();
+      $tablas =   DB::table('ninos')
+                    ->join('ordendiagnostico','ordendiagnostico.idNino','=','ninos.idNino')
+                    ->where('ordendiagnostico.estado','=','contacto_pendiente')
+                    ->select('ninos.idNino','nombre','apellidos','rut','ordendiagnostico.created_at')->get();
 
       $i = 0;
       if(count($tablas) == 0) $datos = NULL;
@@ -89,7 +89,7 @@ class Ninos extends Model
 
     public static function CambiarStatusContacto($id)
     {
-      DB::table('Ninos')
+      DB::table('ninos')
             ->where('idNino', $id)
             ->update(['contactado' => true]);
 

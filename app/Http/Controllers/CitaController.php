@@ -10,6 +10,7 @@ use Validator;
 use App\User;
 use App\Ninos;
 use App\Citas;
+use App\Anamnesis;
 use App\OrdenDiagnostico;
 use Illuminate\Support\Facades\Auth;
 
@@ -109,6 +110,7 @@ class CitaController extends Controller
 
       $cita = Citas::BuscarPorId($data["idCita"]);
 
+
       if($cita != null)
       {
         $niño = Ninos::MostrarDatosNino($cita->idNino);
@@ -122,6 +124,8 @@ class CitaController extends Controller
           $datos["nombre"] = $niño["nombre"];
           $datos["apellidos"] = $niño["apellidos"];
           $datos["rut"] = $niño["rut"];
+
+          $datos["datosInformes"] = Anamnesis::BuscarPorIdOrden($cita->idOrden);
 
           //determina que vista se cargara en funcion del tipo de cita
           if($cita["tipoEvaluacion"] == "Fonoaudiologo")
@@ -268,7 +272,7 @@ class CitaController extends Controller
      $data = request()->all();
      //recibe idCita
 
-     Citas::CambiarEstadoCitaARevisionPorIdCita($data["idCita"]);
+     Citas::CambiarEstadoCitaAPendientePorIdCita($data["idCita"]);
 
      return redirect()->to('Mi_menu');
    }

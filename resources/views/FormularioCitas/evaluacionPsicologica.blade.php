@@ -37,39 +37,39 @@
                           </tr>
                           <tr>
                             <td>Desarrollo Social</td>
-                            <td><textarea rows="4" cols="64" id="desarrolloSocial" name="desarrolloSocial"></textarea></td>
+                            <td><textarea rows="4" cols="64" id="desarrolloSocial" name="desarrolloSocial"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
                           </tr>
                           <tr>
                             <td>Respuesta Emocional</td>
-                            <td><textarea rows="4" cols="64" id="respEmocional" name="respEmocional"></textarea></td>
+                            <td><textarea rows="4" cols="64" id="respEmocional" name="respEmocional"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
                           </tr>
                           <tr>
                             <td>Referencia Conjunta</td>
-                            <td><textarea rows="4" cols="64" id="refConjunta" name="refConjunta"></textarea></td>
+                            <td><textarea rows="4" cols="64" id="refConjunta" name="refConjunta"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
                           </tr>
                           <tr>
                             <td>Juego</td>
-                            <td><textarea rows="4" cols="64" id="juego" name="juego"></textarea></td>
+                            <td><textarea rows="4" cols="64" id="juego" name="juego"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
                           </tr>
                           <tr>
                             <td>Comunicación y Lenguaje</td>
-                            <td><textarea rows="4" cols="64" id="conmunicacionLeng" name="conmunicacionLeng"></textarea></td>
+                            <td><textarea rows="4" cols="64" id="conmunicacionLeng" name="conmunicacionLeng"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
                           </tr>
                           <tr>
                             <td>Flexibilidad Mental</td>
-                            <td><textarea rows="4" cols="64" id="flexMental" name="flexMental"></textarea></td>
+                            <td><textarea rows="4" cols="64" id="flexMental" name="flexMental"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
                           </tr>
                           <tr>
                             <td>Pensamiento</td>
-                            <td><textarea rows="4" cols="64" id="pensamiento" name="pensamiento"></textarea></td>
+                            <td><textarea rows="4" cols="64" id="pensamiento" name="pensamiento"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
                           </tr>
                           <tr>
                             <td>Comportamiento General</td>
-                            <td><textarea rows="4" cols="64" id="comportamientoGnrl" name="comportamientoGnrl"></textarea></td>
+                            <td><textarea rows="4" cols="64" id="comportamientoGnrl" name="comportamientoGnrl"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
                           </tr>
                           <tr>
                             <td>Conclusión/Sugerencia de Apoyo</td>
-                            <td><textarea rows="4" cols="64" id="conclu" name="conclu"></textarea></td>
+                            <td><textarea rows="4" cols="64" id="conclu" name="conclu"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
                           </tr>
                         </table>
 
