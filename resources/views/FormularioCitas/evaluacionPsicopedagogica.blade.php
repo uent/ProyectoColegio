@@ -37,37 +37,37 @@
                           </tr>
                           <tr>
                             <td>Funciones <br> Psicopsicologicológicas<br> Básicas</td>
-                            <td><textarea rows="10" cols="30" id="FPBNE1" name="FPBNE1"></textarea></td>
-                            <td><textarea rows="10" cols="30" id="FPBNEESug1" name="FPBNEESug1"></textarea></td>
+                            <td><textarea rows="10" cols="30" id="FPBNE1" name="FPBNE1">{{old('FPBNE1' , $datos["datosInformes"]->FPBNE1Psicopedagogo)}}</textarea></td>
+                            <td><textarea rows="10" cols="30" id="FPBNEESug1" name="FPBNEESug1">{{ old('FPBNEESug1' , $datos["datosInformes"]->FPBNEESug1Psicopedagogo) }}</textarea></td>
                           </tr>
                           <tr>
                             <td></td>
-                            <td><textarea rows="4" cols="30" id="FPBNE2" name="FPBNE2"></textarea></td>
-                            <td><textarea rows="4" cols="30" id="FPBNEESug2" name="FPBNEESug2"></textarea></td>
+                            <td><textarea rows="4" cols="30" id="FPBNE2" name="FPBNE2">{{ old('FPBNE2' , $datos["datosInformes"]->FPBNE2Psicopedagogo) }}</textarea></td>
+                            <td><textarea rows="4" cols="30" id="FPBNEESug2" name="FPBNEESug2">{{ old('FPBNEESug2' , $datos["datosInformes"]->FPBNEESug2Psicopedagogo) }}</textarea></td>
                           </tr>
                           <tr>
                             <td></td>
-                            <td><textarea rows="4" cols="30" id="FPBNE3" name="FPBNE3"></textarea></td>
-                            <td><textarea rows="4" cols="30" id="FPBNEESug3" name="FPBNEESug3"></textarea></td>
+                            <td><textarea rows="4" cols="30" id="FPBNE3" name="FPBNE3">{{ old('FPBNE3' , $datos["datosInformes"]->FPBNE3Psicopedagogo) }}</textarea></td>
+                            <td><textarea rows="4" cols="30" id="FPBNEESug3" name="FPBNEESug3">{{ old('FPBNEESug3' , $datos["datosInformes"]->FPBNEESug3Psicopedagogo) }}</textarea></td>
                           </tr>
                           <tr>
                             <td></td>
-                            <td><textarea rows="4" cols="30" id="FPBNE4" name="FPBNE4"></textarea></td>
-                            <td><textarea rows="4" cols="30" id="FPBNEESug4" name="FPBNEESug4"></textarea></td>
+                            <td><textarea rows="4" cols="30" id="FPBNE4" name="FPBNE4">{{ old('FPBNE4' , $datos["datosInformes"]->FPBNE4Psicopedagogo) }}</textarea></td>
+                            <td><textarea rows="4" cols="30" id="FPBNEESug4" name="FPBNEESug4">{{ old('FPBNEESug4' , $datos["datosInformes"]->FPBNEESug4Psicopedagogo) }}</textarea></td>
                           </tr>
                           <tr>
                             <td>Comportamiento General</td>
-                            <td><textarea rows="4" cols="30" id="comportamientoNivel" name="comportamientoNivel"></textarea></td>
-                            <td><textarea rows="4" cols="30" id="ComportamientoSug" name="ComportamientoSug"></textarea></td>
+                            <td><textarea rows="4" cols="30" id="comportamientoNivel" name="comportamientoNivel">{{ old('comportamientoNivel' , $datos["datosInformes"]->comportamientoNivelPsicopedagogo) }}</textarea></td>
+                            <td><textarea rows="4" cols="30" id="ComportamientoSug" name="ComportamientoSug">{{ old('ComportamientoSug' , $datos["datosInformes"]->ComportamientoSugPsicopedagogo) }}</textarea></td>
                           </tr>
                           <tr>
                             <td>Aprendizaje</td>
-                            <td><textarea rows="4" cols="30" id="aprendizajeNivel" name="aprendizajeNivel"></textarea></td>
-                            <td><textarea rows="4" cols="30" id="aprendizajeSug" name="aprendizajeSug"></textarea></td>
+                            <td><textarea rows="4" cols="30" id="aprendizajeNivel" name="aprendizajeNivel">{{ old('aprendizajeNivel' , $datos["datosInformes"]->aprendizajeNivelPsicopedagogo) }}</textarea></td>
+                            <td><textarea rows="4" cols="30" id="aprendizajeSug" name="aprendizajeSug">{{ old('aprendizajeSug' , $datos["datosInformes"]->aprendizajeSugPsicopedagogo) }}</textarea></td>
                           </tr>
                           <tr>
                               <td>Conclusiones/<br>Sugerencias</td>
-                              <td colspan="2"><textarea rows="7" cols="64" id="conclusionesSugerencias" name="conclusionesSugerencias"></textarea></td>
+                              <td colspan="2"><textarea rows="7" cols="64" id="conclusionesSugerencias" name="conclusionesSugerencias">{{ old('conclusionesSugerencias' , $datos["datosInformes"]->conclusionesSugerenciasPsicopedagogo) }}</textarea></td>
                           </tr>
                         </table>
                         {!! csrf_field() !!}

@@ -38,17 +38,17 @@
                           </tr>
                           <tr>
                             <td>Coordinación motriz gruesa y fina</td>
-                            <td><textarea rows="4" cols="30" id="coordinacionObs" name="coordinacionObs"></textarea></td>
-                            <td><textarea rows="4" cols="30" id="coordinacionSug" name="coordinacionSug"></textarea></td>
+                            <td><textarea rows="4" cols="30" id="coordinacionObs" name="coordinacionObs">{{old('coordinacionObs' , $datos["datosInformes"]->coordinacionObsTerapeutaOcupacional)}}</textarea></td>
+                            <td><textarea rows="4" cols="30" id="coordinacionSug" name="coordinacionSug">{{old('coordinacionSug' , $datos["datosInformes"]->coordinacionSugTerapeutaOcupacional)}}</textarea></td>
                           </tr>
                           <tr>
                             <td>Procesamiento sensorial</td>
-                            <td><textarea rows="4" cols="30" id="procesamientoObs" name="procesamientoObs"></textarea></td>
-                            <td><textarea rows="4" cols="30" id="procesamientoSug" name="procesamientoSug"></textarea></td>
+                            <td><textarea rows="4" cols="30" id="procesamientoObs" name="procesamientoObs">{{old('procesamientoObs' , $datos["datosInformes"]->procesamientoObsTerapeutaOcupacional)}}</textarea></td>
+                            <td><textarea rows="4" cols="30" id="procesamientoSug" name="procesamientoSug">{{old('procesamientoSug' , $datos["datosInformes"]->procesamientoSugTerapeutaOcupacional)}}</textarea></td>
                           </tr>
                           <tr>
                             <td>Conclusiones y sugerencias de apoyo</td>
-                            <td colspan="3"><textarea rows="4" cols="64" id="concluSugerenias" name="concluSugerencias"></textarea></td>
+                            <td colspan="3"><textarea rows="4" cols="64" id="concluSugerenias" name="concluSugerencias">{{old('concluSugerencias' , $datos["datosInformes"]->concluSugereniasTerapeutaOcupacional)}}</textarea></td>
 
                           </tr>
 

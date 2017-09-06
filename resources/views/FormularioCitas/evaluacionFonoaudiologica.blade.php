@@ -39,27 +39,27 @@
                           </tr>
                           <tr>
                             <td>Conducta Socio Comunicativa</td>
-                            <td><textarea rows="10" cols="64" id="condSocioComunicativa" name="condSocioComunicativa"><?php echo $datos["datosInformes"]->condSocioComunicativaFonoaudiologo; ?></textarea></td>
+                            <td><textarea rows="10" cols="64" id="condSocioComunicativa" name="condSocioComunicativa">{{old('condSocioComunicativa' , $datos["datosInformes"]->condSocioComunicativaFonoaudiologo)}}</textarea></td>
                           </tr>
                           <tr>
                             <td>Competencia Comunicativa</td>
-                            <td><textarea rows="10" cols="64" id="competComunicativa" name="competComunicativa"><?php echo $datos["datosInformes"]->competComunicativaFonoaudiologo; ?></textarea></td>
+                            <td><textarea rows="10" cols="64" id="competComunicativa" name="competComunicativa">{{old('competComunicativa' , $datos["datosInformes"]->competComunicativaFonoaudiologo)}}</textarea></td>
                           </tr>
                           <tr>
                             <td>Lenguaje Comprensivo</td>
-                            <td><textarea rows="10" cols="64" id="lengComprensivo" name="lengComprensivo"><?php echo $datos["datosInformes"]->lengComprensivoFonoaudiologo; ?></textarea></td>
+                            <td><textarea rows="10" cols="64" id="lengComprensivo" name="lengComprensivo">{{old('lengComprensivo' , $datos["datosInformes"]->lengComprensivoFonoaudiologo)}}</textarea></td>
                           </tr>
                           <tr>
                             <td>Lenguaje Expresivo</td>
-                            <td><textarea rows="10" cols="64" id="lengExpresivo" name="lengExpresivo"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
+                            <td><textarea rows="10" cols="64" id="lengExpresivo" name="lengExpresivo">{{old('lengExpresivo' , $datos["datosInformes"]->lengExpresivoFonoaudiologo)}}</textarea></td>
                           </tr>
                           <tr>
                             <td>Conclusiones </td>
-                            <td><textarea rows="10" cols="64" id="conclusiones" name="conclusiones"><?php echo $datos["datosInformes"]->conclusionesFonoaudiologo; ?></textarea></td>
+                            <td><textarea rows="10" cols="64" id="conclusiones" name="conclusiones">{{old('conclusiones' , $datos["datosInformes"]->conclusionesFonoaudiologo)}}</textarea></td>
                           </tr>
                           <tr>
                             <td>Sugerencias</td>
-                            <td ><textarea rows="10" cols="64" id="sugerencias" name="sugerencias"><?php echo $datos["datosInformes"]->sugerenciasFonoaudiologo; ?></textarea></td>
+                            <td ><textarea rows="10" cols="64" id="sugerencias" name="sugerencias">{{old('sugerencias' , $datos["datosInformes"]->sugerenciasFonoaudiologo)}}</textarea></td>
                           </tr>
 
                         </table>

@@ -3,6 +3,14 @@
   Evaluación | Psicológica
 @endsection
 @section('contenido')
+
+<?php
+
+
+
+ ?>
+
+
 <div id="main-wrapper">
     <div class="row">
         <div class="col-md-12">
@@ -37,39 +45,39 @@
                           </tr>
                           <tr>
                             <td>Desarrollo Social</td>
-                            <td><textarea rows="4" cols="64" id="desarrolloSocial" name="desarrolloSocial"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
+                            <td><textarea rows="4" cols="64" id="desarrolloSocial" name="desarrolloSocial">{{ old('desarrolloSocial' , $datos["datosInformes"]->desarrolloSocialPsicologo) }}</textarea></td>
                           </tr>
                           <tr>
                             <td>Respuesta Emocional</td>
-                            <td><textarea rows="4" cols="64" id="respEmocional" name="respEmocional"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
+                            <td><textarea rows="4" cols="64" id="respEmocional" name="respEmocional">{{ old('respEmocional' , $datos["datosInformes"]->respEmocionalPsicologo) }}</textarea></td>
                           </tr>
                           <tr>
                             <td>Referencia Conjunta</td>
-                            <td><textarea rows="4" cols="64" id="refConjunta" name="refConjunta"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
+                            <td><textarea rows="4" cols="64" id="refConjunta" name="refConjunta">{{ old('refConjunta' , $datos["datosInformes"]->refConjuntaPsicologo) }}</textarea></td>
                           </tr>
                           <tr>
                             <td>Juego</td>
-                            <td><textarea rows="4" cols="64" id="juego" name="juego"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
+                            <td><textarea rows="4" cols="64" id="juego" name="juego">{{ old('juego' , $datos["datosInformes"]->juegoPsicologo) }}</textarea></td>
                           </tr>
                           <tr>
                             <td>Comunicación y Lenguaje</td>
-                            <td><textarea rows="4" cols="64" id="conmunicacionLeng" name="conmunicacionLeng"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
+                            <td><textarea rows="4" cols="64" id="conmunicacionLeng" name="conmunicacionLeng">{{ old('conmunicacionLeng' , $datos["datosInformes"]->conmunicacionLengPsicologo) }}</textarea></td>
                           </tr>
                           <tr>
                             <td>Flexibilidad Mental</td>
-                            <td><textarea rows="4" cols="64" id="flexMental" name="flexMental"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
+                            <td><textarea rows="4" cols="64" id="flexMental" name="flexMental">{{ old('flexMental' , $datos["datosInformes"]->flexMentalPsicologo) }}</textarea></td>
                           </tr>
                           <tr>
                             <td>Pensamiento</td>
-                            <td><textarea rows="4" cols="64" id="pensamiento" name="pensamiento"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
+                            <td><textarea rows="4" cols="64" id="pensamiento" name="pensamiento">{{ old('pensamiento' , $datos["datosInformes"]->pensamientoPsicologo) }}</textarea></td>
                           </tr>
                           <tr>
                             <td>Comportamiento General</td>
-                            <td><textarea rows="4" cols="64" id="comportamientoGnrl" name="comportamientoGnrl"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
+                            <td><textarea rows="4" cols="64" id="comportamientoGnrl" name="comportamientoGnrl">{{ old('comportamientoGnrl' , $datos["datosInformes"]->comportamientoGnrlPsicologo) }}</textarea></td>
                           </tr>
                           <tr>
                             <td>Conclusión/Sugerencia de Apoyo</td>
-                            <td><textarea rows="4" cols="64" id="conclu" name="conclu"><?php echo $datos["datosInformes"]->lengExpresivoFonoaudiologo; ?></textarea></td>
+                            <td><textarea rows="4" cols="64" id="conclu" name="conclu">{{ old('conclu' , $datos["datosInformes"]->concluPsicologo) }}</textarea></td>
                           </tr>
                         </table>
 
@@ -87,82 +95,82 @@
                             <td>4</td>
                             <td>
 
-                            <input type="number" min="1" max="4" step="any" name="relacion" id="relacion"></td>
+                            <input type="number" min="1" max="4" step="any" name="relacion" id="relacion" value = '{{ old('relacionPsicologo' , $datos["datosInformes"]->relacionPsicologo) }}'></td>
                           </tr>
                           <tr>
                             <td>Imitación</td>
                             <td>4</td>
-                            <td><input type="text" name="imitacion" id="imitacion"></td>
+                            <td><input type="text" name="imitacion" id="imitacion" value = '{{ old('imitacionPsicologo' , $datos["datosInformes"]->imitacionPsicologo) }}'></td>
                           </tr>
                           <tr>
                             <td>afecto</td>
                             <td>4</td>
-                            <td><input type="text" name="afecto" id="afecto"></td>
+                            <td><input type="text" name="afecto" id="afecto" value = '{{ old('afectoPsicologo' , $datos["datosInformes"]->afectoPsicologo) }}'></td>
                           </tr>
                           <tr>
                             <td>Uso del Cuerpo</td>
                             <td>4</td>
-                            <td><input type="text" name="cuerpo" id="cuerpo"></td>
+                            <td><input type="text" name="cuerpo" id="cuerpo" value = '{{ old('cuerpoPsicologo' , $datos["datosInformes"]->cuerpoPsicologo) }}'></td>
                           </tr>
                           <tr>
                             <td>Uso de Objetos</td>
                             <td>4</td>
-                            <td><input type="text" name="objetos" id="objetos"></td>
+                            <td><input type="text" name="objetos" id="objetos" value = '{{ old('objetosPsicologo' , $datos["datosInformes"]->objetosPsicologo) }}'></td>
                           </tr>
                           <tr>
                             <td>Adaptación a Cambios</td>
                             <td>4</td>
-                            <td><input type="text" name="adaptacion" id="adaptacion"></td>
+                            <td><input type="text" name="adaptacion" id="adaptacion" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
                           </tr>
                           <tr>
                             <td>Respuesta Visual</td>
                             <td>4</td>
-                            <td><input type="text" name="respVisual" id="respVisual"></td>
+                            <td><input type="text" name="respVisual" id="respVisual" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
                           </tr>
                           <tr>
                             <td>Respuesta Auditiva</td>
                             <td>4</td>
-                            <td><input type="text" name="respAuditiva" id="respAuditiva"></td>
+                            <td><input type="text" name="respAuditiva" id="respAuditiva" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
                           </tr>
                           <tr>
                             <td>Gusto, Olfato y respuesta táctil</td>
                             <td>4</td>
-                            <td><input type="text" name="gustoOlfatoTacto" id="gustoOlfatoTacto"></td>
+                            <td><input type="text" name="gustoOlfatoTacto" id="gustoOlfatoTacto" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
                           </tr>
                           <tr>
                             <td>Ansiedad y Mierdo</td>
                             <td>4</td>
-                            <td><input type="text" name="ansiedadMiedo" id="ansiedadMiedo"></td>
+                            <td><input type="text" name="ansiedadMiedo" id="ansiedadMiedo" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
                           </tr>
                           <tr>
                             <td>Comunicación Verbal</td>
                             <td>4</td>
-                            <td><input type="text" name="comunicVerbal" id="comunicVerbal"></td>
+                            <td><input type="text" name="comunicVerbal" id="comunicVerbal" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
                           </tr>
                           <tr>
                             <td>Comunicación No Verbal</td>
                             <td>4</td>
-                            <td><input type="text" name="comunicNoVerbal" id="comunicNoVerbal"></td>
+                            <td><input type="text" name="comunicNoVerbal" id="comunicNoVerbal" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
                           </tr>
                           <tr>
                             <td>Nivel de Actividad</td>
                             <td>4</td>
-                            <td><input type="text" name="nivelAct" id="nivelAct"></td>
+                            <td><input type="text" name="nivelAct" id="nivelAct" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
                           </tr>
                           <tr>
                             <td>Respuesta Intelectual</td>
                             <td>4</td>
-                            <td><input type="text" name="respIntelectual" id="respIntelectual"></td>
+                            <td><input type="text" name="respIntelectual" id="respIntelectual" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
                           </tr>
                           <tr>
                             <td>Impresiones Generales</td>
                             <td>4</td>
-                            <td><input type="text" name="impresGnrl" id="impresGnrl"></td>
+                            <td><input type="text" name="impresGnrl" id="impresGnrl" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
                           </tr>
                           <tr>
                             <td><b>Total</b></td>
                             <td>60</td>
-                            <td><input type="text" name="total" id="total"></td>
+                            <td><input type="text" name="total" id="total" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
                           </tr>
 
                         </table>
