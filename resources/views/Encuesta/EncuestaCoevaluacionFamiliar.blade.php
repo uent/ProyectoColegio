@@ -53,43 +53,43 @@
                 </div>
                 <div class="form-group col-md-12">
                     <label for="inputRut"><small style="color:red">*</small>RUT de niño/a</label>
-                    <input type="text" class="form-control" name="inputRut" id="inputRut" value=<?php echo $datos["rutNino"] ?> readonly>
+                    <input type="text" class="form-control" name="inputRut" id="inputRut" value=<?php echo $datos["rutNino"]; ?> readonly>
                 </div>
 
                 <div class="form-group col-md-12">
                     <label for="inputEscolaridad">Escolaridad de niño/a</label>
-                    <input type="text" class="form-control" name="inputEscolaridad" id="inputEscolaridad" placeholder="Jardín o Colegio / Nivel o Curso">
+                    <input type="text" class="form-control" value = "{{ old('inputEscolaridad') }}" name="inputEscolaridad" id="inputEscolaridad"   placeholder="Jardín o Colegio / Nivel o Curso">
                 </div><div class="form-group col-md-12">
                     <label for="inputCantHrmns">Número de hermanos</label>
-                    <input type="text" class="form-control" name="inputCantHrmns" id="inputCantHrmns" placeholder="Total considerando a su hijo en evaluación">
+                    <input type="text" class="form-control" value = "{{ old('inputCantHrmns') }}" name="inputCantHrmns" id="inputCantHrmns" placeholder="Total considerando a su hijo en evaluación">
                 </div>
                 <div class="form-group col-md-12">
                     <label for="inputLugarHrmns">Lugar que ocupa entre los hermanos</label>
-                    <input type="text" class="form-control" name="inputLugarHrmns" id="inputLugarHrmns" placeholder="(primero, segundo, etc)">
+                    <input type="text" class="form-control" value = "{{ old('inputLugarHrmns') }}" name="inputLugarHrmns" id="inputLugarHrmns" placeholder="(primero, segundo, etc)">
                 </div>
                 <div class="form-group col-md-12">
                     <label for="inputNombrePadre">Nombre del padre</label>
-                    <input type="text" class="form-control" name="inputNombrePadre" id="inputNombrePadre">
+                    <input type="text" class="form-control" value = "{{ old('inputNombrePadre') }}" name="inputNombrePadre" id="inputNombrePadre">
                 </div>
                 <div class="form-group col-md-12">
                     <label for="inputNombreMadre">Nombre de la madre</label>
-                    <input type="text" class="form-control" name="inputNombreMadre" id="inputNombreMadre">
+                    <input type="text" class="form-control" value = "{{ old('inputNombreMadre') }}" name="inputNombreMadre" id="inputNombreMadre">
                 </div>
                 <div class="form-group col-md-12">
                     <label for="inputDireccion">Dirección</label>
-                    <input type="text" class="form-control" name="inputDireccion" id="inputDireccion">
+                    <input type="text" class="form-control" value = "{{ old('inputDireccion') }}" name="inputDireccion" id="inputDireccion">
                 </div>
                 <div class="form-group col-md-12">
                     <label for="inputTelefono"><small style="color:red">*</small>Teléfono de Contacto</label>
-                    <input type="text" class="form-control" name="inputTelefono" value=<?php echo $datos["telefonoTutor"] ?> id="inputTelefono" readonly>
+                    <input type="text" class="form-control"  name="inputTelefono" value=<?php echo $datos["telefonoTutor"] ?> id="inputTelefono" readonly>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="exampleInputEmail"><small style="color:red">*</small>Correo Electrónico</label>
-                    <input type="email" class="form-control" name="exampleInputEmail" id="exampleInputEmail" value=<?php echo $datos["emailTutor"] ?> readonly>
+                    <input type="email" class="form-control"  name="exampleInputEmail" id="exampleInputEmail" value=<?php echo $datos["emailTutor"] ?> readonly>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="inputNombreTutor">Nombre de quien completa la ficha</label>
-                    <input type="text" class="form-control" name="inputNombreTutor" id="inputNombreTutor" value=<?php echo ($datos["nombreTutor"] .  ' ' . $datos["apellidosTutor"]); ?> readonly>
+                    <input type="text" class="form-control"  name="inputNombreTutor" id="inputNombreTutor" value=<?php echo ($datos["nombreTutor"] .  ' ' . $datos["apellidosTutor"]); ?> readonly>
                 </div>
 
                 <div class="form-group col-md-12">
@@ -110,15 +110,15 @@
         <div class="col-md-12">
             <div class="form-group col-md-12">
                 <label for="motivo1"><small style="color:red">*</small>¿Por qué solicita la evaluación?</label>
-                <input type="text" style="width:1000px;height:100px" class="form-control" name="motivo1" id="motivo1" placeholder="¿Algún profesional o institución deriva para evaluación?">
+                <input type="text" value = "{{ old('motivo1') }}" style="width:1000px;height:100px" class="form-control" name="motivo1" id="motivo1" placeholder="¿Algún profesional o institución deriva para evaluación?">
             </div>
             <div class="form-group col-md-12">
                 <label for="motivo2"><small style="color:red">*</small>¿Qué expectativas tiene respecto al proceso de evaluación?</label>
-                <input type="text" style="width:1000px;height:100px" class="form-control" name="motivo2" id="motivo2" placeholder="Ej: Determinar diagnóstico, recibir apoyos profesionales, acceder a escolaridad especializada, recibir orientación familiar, etc.)">
+                <input type="text" value = "{{ old('motivo2') }}" style="width:1000px;height:100px" class="form-control" name="motivo2" id="motivo2" placeholder="Ej: Determinar diagnóstico, recibir apoyos profesionales, acceder a escolaridad especializada, recibir orientación familiar, etc.)">
             </div>
             <div class="form-group col-md-12">
                 <label for="motivo3"><small style="color:red">*</small>¿Qué tipo de dificultad presenta actualmente su hijo/a? </label>
-                <input type="text" style="width:1000px;height:100px" class="form-control" name="motivo3" id="motivo3" placeholder="Por favor poner especial atención respecto de su desarrollo social, desarrollo del lenguaje, flexibilidad y adaptación al cambio, movimiento intereses o juegos peculiares.">
+                <input type="text" value = "{{ old('motivo3') }}" style="width:1000px;height:100px" class="form-control" name="motivo3" id="motivo3" placeholder="Por favor poner especial atención respecto de su desarrollo social, desarrollo del lenguaje, flexibilidad y adaptación al cambio, movimiento intereses o juegos peculiares.">
             </div>
             <div class="form-group col-md-12">
                 <label for="motivo4"><small style="color:red">*</small>¿Se le han realizado otras evaluaciones profesionales o examenes médios?  </label>
@@ -131,23 +131,23 @@
 
             <div class="form-group col-md-3">
                 <label for="motivo4profesional">Profesional </label>
-                <input type="text" class="form-control col-md-4" name="motivo4profesional" id="motivo4profesional" placeholder="Nombre y especialidad">
+                <input type="text" value = "{{ old('motivo4profesional') }}" class="form-control col-md-4" name="motivo4profesional" id="motivo4profesional" placeholder="Nombre y especialidad">
             </div>
             <div class="form-group col-md-1">
                 <label for="motivo4anio">Año</label>
-                <input type="text" class="form-control col-md-2" name="motivo4anio" id="motivo4anio" >
+                <input type="text" value = "{{ old('motivo4anio') }}" class="form-control col-md-2" name="motivo4anio" id="motivo4anio" >
             </div>
             <div class="form-group col-md-2">
                 <label for="motivo4motivo">Motivo </label>
-                <input type="text" class="form-control col-md-4" name="motivo4motivo" id="motivo4motivo">
+                <input type="text" value = "{{ old('motivo4motivo') }}" class="form-control col-md-4" name="motivo4motivo" id="motivo4motivo">
             </div>
             <div class="form-group col-md-3">
                 <label for="motivo4diagnostico">Diagnóstico </label>
-                <input type="text" class="form-control col-md-4" name="motivo4diagnostico" id="motivo4diagnostico">
+                <input type="text" value = "{{ old('motivo4diagnostico') }}" class="form-control col-md-4" name="motivo4diagnostico" id="motivo4diagnostico">
             </div>
             <div class="form-group col-md-3">
                 <label for="motivo4indicaciones">Indicaciones </label>
-                <input type="text" class="form-control col-md-4" name="motivo4indicaciones" id="motivo4indicaciones" placeholder="Medicamentos / Dosis">
+                <input type="text" value = "{{ old('motivo4indicaciones') }}" class="form-control col-md-4" name="motivo4indicaciones" id="motivo4indicaciones" placeholder="Medicamentos / Dosis">
             </div>
             <div class="form-group col-md-12">
                 <label for="motivo5"><small style="color:red">*</small>¿Tiene actualmente un profesional / médico tratante?  </label>
@@ -159,7 +159,7 @@
             </div>
             <div class="form-group col-md-12">
                 <label for="motivo5indicacion">Indique especialidad y frecuencia.</label>
-                <input type="text" style="width:1000px;height:100px" class="form-control" name="motivo5indicacion" id="motivo5indicacion">
+                <input type="text" value = "{{ old('motivo5indicacion') }}" style="width:1000px;height:100px" class="form-control" name="motivo5indicacion" id="motivo5indicacion">
             </div>
         </div>
     </div>
@@ -183,11 +183,11 @@
                             <div class="panel-body">
                                <div class="form-group col-md-12">
                                     <label for="contexto1"><small style="color:red">*</small>¿Quiénes integran su familia y qué ocupaciones tienen?</label>
-                                    <input type="text" style="width:900px;height:100px" class="form-control" name="contexto1" id="contexto1">
+                                    <input type="text" value = "{{ old('contexto1') }}" style="width:900px;height:100px" class="form-control" name="contexto1" id="contexto1">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="contexto2"><small style="color:red">*</small>¿Existen antecedentes de enfermedades importantes en su familia?, ¿Cuáles? </label>
-                                    <input type="text" style="width:900px;height:100px" class="form-control" name="contexto2" id="contexto2" placeholder="Indique enfermedades médicas y/o psicológicas">
+                                    <input type="text" value = "{{ old('contexto2') }}" style="width:900px;height:100px" class="form-control" name="contexto2" id="contexto2" placeholder="Indique enfermedades médicas y/o psicológicas">
                                 </div>
                             </div>
                         </div>
@@ -204,35 +204,35 @@
                             <div class="panel-body">
                                 <div class="form-group col-md-12">
                                     <label for="antecedentes1"><small style="color:red">*</small>¿Cómo fue el desarrollo del embarazo?</label>
-                                    <input type="text" style="width:900px;height:100px" class="form-control" name="antecedentes1" id="antecedentes1" placeholder="(edad al momento del embarazo, situaciones relevantes durante el mismo, enfermedades, accidentes, uso de medicamentos)">
+                                    <input type="text" value = "{{ old('antecedentes1') }}" style="width:900px;height:100px" class="form-control" name="antecedentes1" id="antecedentes1" placeholder="(edad al momento del embarazo, situaciones relevantes durante el mismo, enfermedades, accidentes, uso de medicamentos)">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="antecedentes2"><small style="color:red">*</small>¿Con cuántas semanas de gestación nació su hijo(a? </label>
-                                    <input type="text" style="width:900px;height:100px" class="form-control" name="antecedentes2" id="antecedentes2">
+                                    <input type="text" value = "{{ old('antecedentes2') }}" style="width:900px;height:100px" class="form-control" name="antecedentes2" id="antecedentes2">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="antecedentes3"><small style="color:red">*</small>¿Cómo fue el parto? </label>
-                                    <input type="text" style="width:900px;height:100px" class="form-control" name="antecedentes3" id="antecedentes3" placeholder="(parto normal o cesárea, inducción del parto, fórceps)">
+                                    <input type="text" value = "{{ old('antecedentes3') }}" style="width:900px;height:100px" class="form-control" name="antecedentes3" id="antecedentes3" placeholder="(parto normal o cesárea, inducción del parto, fórceps)">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="antecedentes3peso"><small style="color:red">*</small>Peso</label>
-                                    <input type="text" class="form-control" name="antecedentes3peso" id="antecedentes3peso">
+                                    <input type="text" value = "{{ old('antecedentes3peso') }}" class="form-control" name="antecedentes3peso" id="antecedentes3peso">
                                 </div>
                                 <div class="form-group  col-md-4">
                                     <label for="antecedentes3talla"><small style="color:red">*</small>Talla</label>
-                                    <input type="text" class="form-control col-md-4" name="antecedentes3talla" id="antecedentes3talla">
+                                    <input type="text" value = "{{ old('antecedentes3talla') }}" class="form-control col-md-4" name="antecedentes3talla" id="antecedentes3talla">
                                 </div>
                                 <div class="form-group  col-md-4">
                                     <label for="antecedentes3apgar"><small style="color:red">*</small>APGAR</label>
-                                    <input type="text" class="form-control col-md-4" name="antecedentes3apgar" id="antecedentes3apgar">
+                                    <input type="text" value = "{{ old('antecedentes3apgar') }}" class="form-control col-md-4" name="antecedentes3apgar" id="antecedentes3apgar">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="antecedentes4"><small style="color:red">*</small>¿Cómo transcurrió el primer año de vida de su hijo/a?  </label>
-                                    <input type="text" style="width:900px;height:100px" class="form-control" name="antecedentes4" id="antecedentes4" placeholder="(datos relevantes, salud, medicamentos)">
+                                    <input type="text" value = "{{ old('antecedentes4') }}" style="width:900px;height:100px" class="form-control" name="antecedentes4" id="antecedentes4" placeholder="(datos relevantes, salud, medicamentos)">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="antecedentes5"><small style="color:red">*</small>Su hijo/a ¿Ha tenido o tiene enfermedades relevantes?  </label>
-                                    <input type="text" style="width:900px;height:100px" class="form-control" name="antecedentes5" id="antecedentes5" placeholder="Especifique enfermedad, medicamento y dosis.">
+                                    <input type="text" value = "{{ old('antecedentes5') }}" style="width:900px;height:100px" class="form-control" name="antecedentes5" id="antecedentes5" placeholder="Especifique enfermedad, medicamento y dosis.">
                                 </div>
                             </div>
                         </div>
@@ -249,35 +249,35 @@
                             <div class="panel-body">
                                 <div class="form-group col-md-12">
                                     <label for="desarrollo1">Marcha, edad de adquisición y posterior evolución.</label>
-                                    <input type="text" style="width:900px;height:100px" class="form-control" name="desarrollo1" id="desarrollo1">
+                                    <input type="text" value = "{{ old('desarrollo1') }}" style="width:900px;height:100px" class="form-control" name="desarrollo1" id="desarrollo1">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="desarrollo2">Control de esfínter diurno y nocturno, edad de adquisición y posterior evolución.</label>
-                                    <input type="text" style="width:900px;height:100px" class="form-control" name="desarrollo2" id="desarrollo2" >
+                                    <input type="text" value = "{{ old('desarrollo2') }}" style="width:900px;height:100px" class="form-control" name="desarrollo2" id="desarrollo2" >
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="desarrollo3">Habilidades motrices gruesas, ejemplo: coordinación para trasladarse, correr, hacer deportes, etc.</label>
-                                    <input type="text" style="width:900px;height:100px" class="form-control" name="desarrollo3" id="desarrollo3" >
+                                    <input type="text" value = "{{ old('desarrollo3') }}" style="width:900px;height:100px" class="form-control" name="desarrollo3" id="desarrollo3" >
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="desarrollo4">Habilidades motrices finas, ejemplo: tomar el lápiz, manejar los cubiertos, etc.</label>
-                                    <input type="text" style="width:900px;height:100px" class="form-control" name="desarrollo4" id="desarrollo4" >
+                                    <input type="text" value = "{{ old('desarrollo4') }}" style="width:900px;height:100px" class="form-control" name="desarrollo4" id="desarrollo4" >
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="desarrollo5">Adquisición del lenguaje. Señale si el desarrollo del lenguaje ha sido normal, rápido o con dificultades. </label>
-                                    <input type="text" style="width:900px;height:100px" class="form-control" name="desarrollo5" id="desarrollo5" >
+                                    <input type="text" value = "{{ old('desarrollo5') }}" style="width:900px;height:100px" class="form-control" name="desarrollo5" id="desarrollo5" >
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="desarrollo6">¿Qué dificultades ha presentado en el ámbito del lenguaje? (comprensión, expresión, etc.)</label>
-                                    <input type="text" style="width:900px;height:100px" class="form-control" name="desarrollo6" id="desarrollo6" placeholder="(comprensión, expresión, etc.)">
+                                    <input type="text" value = "{{ old('desarrollo6') }}" style="width:900px;height:100px" class="form-control" name="desarrollo6" id="desarrollo6" placeholder="(comprensión, expresión, etc.)">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="desarrollo7">Desarrollo social ¿Cómo se relaciona su hijo/a con personas adultas?</label>
-                                    <input type="text" style="width:900px;height:100px" class="form-control" name="desarrollo7" id="desarrollo7" >
+                                    <input type="text" value = "{{ old('desarrollo7') }}" style="width:900px;height:100px" class="form-control" name="desarrollo7" id="desarrollo7" >
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="desarrollo8">Desarrollo social ¿Cómo se relaciona su hijo/a con otros niños?</label>
-                                    <input type="text" style="width:900px;height:100px" class="form-control" name="desarrollo8" id="desarrollo8" >
+                                    <input type="text" value = "{{ old('desarrollo8') }}" style="width:900px;height:100px" class="form-control" name="desarrollo8" id="desarrollo8" >
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="desarrollo9">¿Qué tan autónomo/a es para las siguientes actividades?<small>Marque a continuación</small></label>
@@ -325,7 +325,7 @@
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="desarrollo10">¿Cuáles son sus hábitos alimenticios?¿Qué alimentos prefiere?¿Amplio repertorio o restringido?</label>
-                                    <input type="text" style="width:900px;height:100px" class="form-control" name="habitosAlimenticios" id="habitosAlimenticios" >
+                                    <input type="text" value = "{{ old('habitosAlimenticios') }}" style="width:900px;height:100px" class="form-control" name="habitosAlimenticios" id="habitosAlimenticios" >
                                 </div>
                             </div>
                         </div>
@@ -352,27 +352,27 @@
                     <div class="panel-body">
                         <div class="form-group col-md-12">
                             <label for="ambitoConductual1">¿Cómo manifiesta sus emociones?<small>(de manera adecuada, exagerada, poco atingente al contexto)</small></label>
-                            <input type="text" style="width:900px;height:100px" class="form-control" name="ambitoConductual1" id="ambitoConductual1">
+                            <input type="text" value = "{{ old('ambitoConductual1') }}" style="width:900px;height:100px" class="form-control" name="ambitoConductual1" id="ambitoConductual1">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="ambitoConductual2">¿Cómo manifiesta la frustración? ¿Es muy irritable? ¿Hace pataletas? ¿En que momento y con quién aparecen las pataletas?</label>
-                            <input type="text" style="width:900px;height:100px" class="form-control" name="ambitoConductual2" id="ambitoConductual2">
+                            <input type="text" value = "{{ old('ambitoConductual2') }}" style="width:900px;height:100px" class="form-control" name="ambitoConductual2" id="ambitoConductual2">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="ambitoConductual3">¿Es flexible en cuanto a actividades o tiene rutinas? <small>(ej: prefiere mantener ciertas actividades en algún orden determinado)</small>¿Cuáles?</label>
-                            <input type="text" style="width:900px;height:100px" class="form-control" name="ambitoConductual3" id="ambitoConductual3">
+                            <input type="text" value = "{{ old('ambitoConductual3') }}" style="width:900px;height:100px" class="form-control" name="ambitoConductual3" id="ambitoConductual3">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="ambitoConductual4">¿Tiene intereses claros por algunos objetos o actividades? ¿Reitera en ellos de manera normal o exagerada?</label>
-                            <input type="text" style="width:900px;height:100px" class="form-control" name="ambitoConductual4" id="ambitoConductual4">
+                            <input type="text" value = "{{ old('ambitoConductual4') }}" style="width:900px;height:100px" class="form-control" name="ambitoConductual4" id="ambitoConductual4">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="ambitoConductual5">¿Tiene miedos muy intensos? ¿Cuáles?</label>
-                            <input type="text" style="width:900px;height:100px" class="form-control" name="ambitoConductual5" id="ambitoConductual5">
+                            <input type="text" value = "{{ old('ambitoConductual5') }}" style="width:900px;height:100px" class="form-control" name="ambitoConductual5" id="ambitoConductual5">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="ambitoConductual6">¿Cómo son sus hábitos de sueños?</label>
-                            <input type="text" style="width:900px;height:100px" class="form-control" name="ambitoConductual6" id="ambitoConductual6">
+                            <input type="text" value = "{{ old('ambitoConductual6') }}" style="width:900px;height:100px" class="form-control" name="ambitoConductual6" id="ambitoConductual6">
                         </div>
 
                     </div>
@@ -390,27 +390,27 @@
                     <div class="panel-body">
                         <div class="form-group col-md-12">
                             <label for="historiaEscolar1">Inicio de escolaridad<small>(año y establecimiento)</small></label>
-                            <input type="text" style="width:900px;height:100px" class="form-control" name="historiaEscolar1" id="historiaEscolar1">
+                            <input type="text" value = "{{ old('historiaEscolar1') }}" style="width:900px;height:100px" class="form-control" name="historiaEscolar1" id="historiaEscolar1">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="historiaEscolar2">Otros establecimientos posteriores<small>(año y lugar)</small></label>
-                            <input type="text" style="width:900px;height:100px" class="form-control" name="historiaEscolar2" id="historiaEscolar2">
+                            <input type="text" value = "{{ old('historiaEscolar2') }}" style="width:900px;height:100px" class="form-control" name="historiaEscolar2" id="historiaEscolar2">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="historiaEscolar3">Establecimiento Actual</label>
-                            <input type="text" style="width:900px;height:100px" class="form-control" name="historiaEscolar3" id="historiaEscolar3">
+                            <input type="text" value = "{{ old('historiaEscolar3') }}" style="width:900px;height:100px" class="form-control" name="historiaEscolar3" id="historiaEscolar3">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="historiaEscolar4">Nivel/Curso Actual</label>
-                            <input type="text" style="width:900px;height:100px" class="form-control" name="historiaEscolar4" id="historiaEscolar4">
+                            <input type="text" value = "{{ old('historiaEscolar4') }}" style="width:900px;height:100px" class="form-control" name="historiaEscolar4" id="historiaEscolar4">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="historiaEscolar5">Repitencias</label>
-                            <input type="text" style="width:900px;height:100px" class="form-control" name="historiaEscolar5" id="historiaEscolar5">
+                            <input type="text" value = "{{ old('historiaEscolar5') }}" style="width:900px;height:100px" class="form-control" name="historiaEscolar5" id="historiaEscolar5">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="historiaEscolar6">Comentarios, observaciones o inquietudes que quiera manifestar?</label>
-                            <input type="text" style="width:900px;height:100px" class="form-control" name="historiaEscolar6" id="historiaEscolar6">
+                            <input type="text" value = "{{ old('historiaEscolar6') }}" style="width:900px;height:100px" class="form-control" name="historiaEscolar6" id="historiaEscolar6">
                         </div>
                     </div>
                 </div>
@@ -441,7 +441,7 @@
                                     <label for="monto_pago">Monto comprometido</label>
                                     <div class="input-group m-b-sm">
                                         <span class="input-group-addon">$</span>
-                                        <input type="text" class="form-control" name="monto_pago" id="monto_pago">
+                                        <input type="text" class="form-control" value = "{{ old('monto_pago') }}" name="monto_pago" id="monto_pago">
                                     </div>
                                 <p><small>Este monto debe ser revisado y aceptado por el directorio del centro</small></p>
                                 </div>
@@ -496,7 +496,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-info" data-toggle="modal" onClick="this.form.submit(); this.disabled=true; this.value='Sending…'; style="color:white"" >Enviar</button>
+                    <button type="submit" class="btn btn-info" data-toggle="modal" onClick="this.form.submit(); this.disabled=true; this.value='Sending…'; style="color:white" >Enviar</button>
                 </div>
             </div>
         </div>

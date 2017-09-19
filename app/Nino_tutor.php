@@ -9,7 +9,7 @@ use App\Ninos;
 
 class Nino_tutor extends Model
 {
-  protected $table = 'Nino_tutor';
+  protected $table = 'nino_tutor';
 
   public static function agregar($idNino,$idTutor,$parentesco)
   {

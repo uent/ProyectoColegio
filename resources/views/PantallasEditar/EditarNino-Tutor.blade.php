@@ -156,11 +156,11 @@
 
                                           <div class='form-group  col-md-6'>
                                             <label for='Prioridad'><small style='color:red'></small>Prioridad</label>
-                                            <input id='prioridad' name='prioridad' class='form-control' placeholder='Prioridad' value =<?php  echo $orden["prioridad"]; ?>   readonly><br>
+                                            <input id='prioridad' name='prioridad' class='form-control' placeholder='Prioridad' value ='<?php  echo $orden["prioridad"]; ?>'   readonly><br>
                                           </div>
                                           <div class='form-group  col-md-6'>
                                             <label for='fechaCreacionOrden'><small style='color:red'></small>Fecha Creacion</label>
-                                            <input id='fechaCreacionOrden' name='fechaCreacionOrden' class='form-control' placeholder='Fecha Creacion' value =<?php  echo $orden["inicio"]; ?>   readonly><br>
+                                            <input id='fechaCreacionOrden' name='fechaCreacionOrden' class='form-control' placeholder='Fecha Creacion' value ='<?php  echo $orden["inicio"]; ?>'   readonly><br>
                                           </div>
 
                                   <h4>

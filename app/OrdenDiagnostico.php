@@ -25,6 +25,9 @@ class OrdenDiagnostico extends Model
       $orden->escolaridad = $Observaciones;
 
       $orden->save();
+
+      Anamnesis::NuevaAnamnesis($orden->id);
+
     }
 
     public static function OrdenesPendientesDeCitasMasDatosNinos()
@@ -228,7 +231,7 @@ class OrdenDiagnostico extends Model
     $tablas = DB::table('ordendiagnostico')
           ->join('ninos', 'ordendiagnostico.idNino', '=', 'ninos.idNino')
           ->join('nino_tutor', 'ninos.idNino', '=', 'nino_tutor.idNino')
-          ->join('Users', 'nino_tutor.idTutor', '=', 'Users.id')
+          ->join('users', 'nino_tutor.idTutor', '=', 'users.id')
           ->where('ordendiagnostico.estado', '=', "falta_coevaluacion")
           ->select()
           ->first();
@@ -246,9 +249,9 @@ class OrdenDiagnostico extends Model
     //retorna todos los profesionales y el tipo de cita a la que fue asignadas a la ordenDiagnostico
     return DB::table('ordendiagnostico')
           ->join('citas', 'ordendiagnostico.idOrdenDiagnostico', '=', 'citas.idOrden')
-          ->join('Users', 'citas.idProfesional', '=', 'Users.id')
+          ->join('users', 'citas.idProfesional', '=', 'users.id')
           ->where('ordendiagnostico.idOrdenDiagnostico','=',$idOrden)
-          ->select('Users.name','Users.apellidos','Users.rut','citas.tipoEvaluacion')
+          ->select('users.name','users.apellidos','users.rut','citas.tipoEvaluacion')
           ->get();
   }
 

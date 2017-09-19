@@ -8,12 +8,15 @@
 @section('contenido')
 
 <script src="{{asset('js\CalendariosJs\crearCalendarioCrearCita.js')}}"></script>
+<script src="{{asset('js\CalendariosJs\crearNuevaCita.js')}}"></script>
 <script src="{{asset('js\CalendariosJs\actualizarCalendarioPorNuevoIdProfesional.js')}}"></script>
 <script src="{{asset('js\CalendariosJs\agregarCitaCalendarioProfesional.js')}}"></script>
 <script src="{{asset('js\FuncionesAjaxCalendario\actualizarEventosPorIdUsuario.js')}}"></script>
 <script src="{{asset('js\FuncionesAjaxCalendario\actualizarEventosPorIdNino.js')}}"></script>
 <script src="{{asset('js\FuncionesAjaxCalendario\enviarDatosNuevoEvento.js')}}"></script>
 <script src="{{asset('js\FuncionesAjaxCalendario\actualizarEventosRestoProfesionales.js')}}"></script>
+
+
 
 
 @if (isset($errors) && count($errors) > 0)

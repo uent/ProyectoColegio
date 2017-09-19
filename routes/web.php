@@ -78,10 +78,10 @@ Route::get('Mi_menu', function () {
     return view('Menu');
 });
 Route::get('PantallaFaltaPermisos', function () {
-    return view('PantallasDeError\FaltaPermisos');
+    return view('PantallasDeError.FaltaPermisos');
 });
 Route::get('PantallaDeErrorProceso', function () {
-    return view('PantallasDeError\PantallaErrorDeProceso');
+    return view('PantallasDeError.PantallaErrorDeProceso');
 });
 //
 

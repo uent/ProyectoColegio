@@ -9,7 +9,7 @@ use App\Ninos;
 use App\Tutor;
 use App\Citas;
 use App\OrdenDiagnostico;
-
+use App\Http\Controllers\PdfController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,7 +38,7 @@ class EncuestaController extends Controller
         $datos["apellidosTutor"] = $datosTutor->apellidos;
         $datos["telefonoTutor"] = $datosTutor->telefono;
 
-        return View::make('Encuesta\EncuestaCoevaluacionFamiliar')->with("datos",$datos);
+        return View::make('Encuesta.EncuestaCoevaluacionFamiliar')->with("datos",$datos);
       }
       else echo "No hay Encuestas por completar";
     }
@@ -48,6 +48,62 @@ class EncuestaController extends Controller
       $data = request()->all();
 
           $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
+            'inputEscolaridad' => ['required', 'max:5000'],
+            'inputCantHrmns' => ['required', 'max:5000'],
+            'inputLugarHrmns' => ['required', 'max:5000'],
+            'inputNombrePadre' => ['required', 'max:5000'],
+            'inputNombreMadre' => ['required', 'max:5000'],
+            'inputDireccion' => ['required', 'max:5000'],
+            'inputTelefono' => ['required', 'max:5000'],
+            'exampleInputEmail' => ['required', 'max:5000'],
+            'inputNombreTutor' => ['required', 'max:5000'],
+            'motivo1' => ['required', 'max:5000'],
+            'motivo2' => ['required', 'max:5000'],
+            'motivo3' => ['required', 'max:5000'],
+            'motivo4' => ['required', 'max:100'],
+            'motivo4profesional' => ['required_if: motivo4, ==, SI', 'max:5000'],
+            'motivo4anio' => ['required_if: motivo4, ==, SI', 'max:5000'],
+            'motivo4motivo' => ['required_if: motivo4, ==, SI', 'max:5000'],
+            'motivo4diagnostico' => ['required_if: motivo4, ==, SI', 'max:5000'],
+            'motivo4indicaciones' => ['required_if: motivo4, ==, SI', 'max:5000'],
+            'motivo5' => ['required', 'max:100'],
+            'motivo5indicacion' => ['required_if: motivo5, ==, SI', 'max:5000'],
+            'contexto1' => ['required', 'max:5000'],
+            'contexto2' => ['required', 'max:5000'],
+            'antecedentes1' => ['required', 'max:5000'],
+            'antecedentes2' => ['required', 'max:5000'],
+            'antecedentes3' => ['required', 'max:5000'],
+            'antecedentes3peso' => ['required', 'Numeric'],
+            'antecedentes3talla' => ['required', 'Numeric'],
+            'antecedentes3apgar' => ['Numeric'],
+            'antecedentes4' => ['required', 'max:5000'],
+            'antecedentes5' => ['required', 'max:5000'],
+            'desarrollo1' => ['required', 'max:5000'],
+            'desarrollo2' => ['required', 'max:5000'],
+            'desarrollo3' => ['required', 'max:5000'],
+            'desarrollo4' => ['required', 'max:5000'],
+            'desarrollo5' => ['required', 'max:5000'],
+            'desarrollo6' => ['required', 'max:5000'],
+            'desarrollo7' => ['required', 'max:5000'],
+            'desarrollo8' => ['required', 'max:5000'],
+            'AVD' => ['required', 'max:5000'],
+            'comer' => ['required', 'max:5000'],
+            'vestirse' => ['required', 'max:5000'],
+            'higiene' => ['required', 'max:5000'],
+            'habitosAlimenticios' => ['required', 'max:5000'],
+            'ambitoConductual1' => ['required', 'max:5000'],
+            'ambitoConductual2' => ['required', 'max:5000'],
+            'ambitoConductual3' => ['required', 'max:5000'],
+            'ambitoConductual4' => ['required', 'max:5000'],
+            'ambitoConductual5' => ['required', 'max:5000'],
+            'ambitoConductual6' => ['required', 'max:5000'],
+            'historiaEscolar1' => ['required', 'max:5000'],
+            'historiaEscolar2' => ['required', 'max:5000'],
+            'historiaEscolar3' => ['required', 'max:5000'],
+            'historiaEscolar4' => ['required', 'max:5000'],
+            'historiaEscolar5' => ['required', 'max:5000'],
+            'historiaEscolar6' => ['required', 'max:5000'],
+            'monto_pago' => ['required', 'numeric']
 
         ]);
 
@@ -56,14 +112,7 @@ class EncuestaController extends Controller
         {
           return redirect()->back()->withErrors($validator->errors());
         }
-        //quizas faltan algunas variables !!revisar
-      //recibe idOrden, inputNombre,inputApellido,inputRut,InputNac,inputEscolaridad,inputCantHrmns,
-      //inputLugarHrmns,input,input,inputDireccion,inputTelefono,exampleInputEmail,
-      //inputNombreTutor,motivo1,motivo2,motivo3,motivo4,motivo4profesional,motivo4anio,
-      //motivo4motivo,motivo4diagnostico,motivo4indicaciones,motivo5,motivo5indicacion,contexto1,contexto2,
-      //antecedentes1,antecedentes2,antecedentes3,antecedentes3,antecedentes3,antecedentes3,
-      //antecedentes4,antecedentes5,desarrollo1,desarrollo2,desarrollo3,desarrollo4,desarrollo5,desarrollo6,
-      //desarrollo7,desarrollo8,monto_pago
+
 
       Encuesta::crear($data);
 

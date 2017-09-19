@@ -17,9 +17,9 @@ $(document).ready(function() {
         timezoneParam: 'Santiago'
     });
 
-    actualizarEventosPorIdUsuario(idProfesional); //llama al metodo GetEventosUsuario para actualizar el Calendario
+    //actualizarEventosPorIdUsuario(idProfesional); //llama al metodo GetEventosUsuario para actualizar el Calendario
                                                        //con los datos de la db;
-    actualizarEventosPorIdNino(idNino);
+    //actualizarEventosPorIdNino(idNino);
 
-    actualizarEventosRestoProfesionales(idProfesional);
+    //actualizarEventosRestoProfesionales(idProfesional);
 });

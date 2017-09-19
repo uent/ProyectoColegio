@@ -5,6 +5,8 @@ use App\Anamnesis;
 use App\OrdenDiagnostico;
 use App\Ninos;
 use App\Tutor;
+use App\Http\Controllers\PdfController;
+
 use View;
 use Illuminate\Http\Request;
 

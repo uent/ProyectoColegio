@@ -20,7 +20,7 @@ class NinoController extends Controller
 
     public function pagCrear()
     {
-      return View::make('IngresoNino\IngresoNino');
+      return View::make('IngresoNino.IngresoNino');
     }
 
     public function NuevaFicha()
@@ -30,7 +30,7 @@ class NinoController extends Controller
       $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
         'nombreNino' => ['required', 'max:50'],
         'apellidoNino' => ['required', 'max:70'],
-        'rutNino' => ['required','unique:Ninos,rut','max:30'],
+        'rutNino' => ['required','unique:ninos,rut','max:30'],
         'InputNac' => ['required','date'],
         'diagnostico' => ['max:1000','nullable'],
         'derivacion' => ['max:100','nullable'],
@@ -39,8 +39,8 @@ class NinoController extends Controller
         'observaciones' => ['max:1000','nullable'],
         'nombreTutor' => ['max:30','required'],
         'apellidoTutor' => ['max:30','required'],
-        'rutTutor' => ['max:30','unique:Users,rut','required'],
-        'mailTutor' => ['max:60','unique:Users,email','required'],
+        'rutTutor' => ['max:30','unique:users,rut','required'],
+        'mailTutor' => ['max:60','unique:users,email','required'],
         'fonoTutor' => ['max:20','required'],
         'parentesco' => ['max:30','required']
   	    ]);

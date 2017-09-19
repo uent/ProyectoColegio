@@ -29,83 +29,83 @@ class CrearTablaOrdenDiagnostico extends Migration
             $table->string('prioridad',20);
             //indica la prioridad de la orden de diagnostico
             // "alta" o "normal"
-            $table->string('diagnosticoProfesional',1000);
-            $table->string('derivacion',100);
-            $table->string('solicitud',100);
-            $table->string('observaciones',1000);
-            $table->string('escolaridad',50);
+            $table->text('diagnosticoProfesional');
+            $table->text('derivacion');
+            $table->text('solicitud');
+            $table->text('observaciones');
+            $table->text('escolaridad');
 
             //Encuesta Coevaluación Familiar
 
             // IDENTIFICACIÓN I
             $table->tinyInteger('cantHermanos')->nullable();
-            $table->string('nombrePadre',100)->nullable();
-            $table->string('nombreMadre',100)->nullable();
-            $table->string('Dirección',100)->nullable();
-            $table->string('nombreLlenadoFicha',100)->nullable();
+            $table->text('nombrePadre')->nullable();
+            $table->text('nombreMadre')->nullable();
+            $table->text('Dirección')->nullable();
+            $table->text('nombreLlenadoFicha')->nullable();
 
             // MOTIVO DE CONSULTA II
 
-            $table->string('textoPorqueEvaluacion',100)->nullable();
-            $table->string('textoExpectativas',100)->nullable();
-            $table->string('textoTipoDificultades',100)->nullable();
-            $table->string('textoProfesionalActual',100)->nullable();
+            $table->text('textoPorqueEvaluacion')->nullable();
+            $table->text('textoExpectativas')->nullable();
+            $table->text('textoTipoDificultades')->nullable();
+            $table->text('textoProfesionalActual')->nullable();
 
             // CONTEXTO FAMILIAR III
 
-            $table->string('textoIntegrantesOcupaciones',100)->nullable();
-            $table->string('textoAntecendentesEnfermedadosFamiliares',100)->nullable();
+            $table->text('textoIntegrantesOcupaciones')->nullable();
+            $table->text('textoAntecendentesEnfermedadosFamiliares')->nullable();
 
             // ANTECEDENTES RELEVANTES IV
 
-            $table->string('textoDesarrolloEmbarazo',100)->nullable();
-            $table->string('SemanasGestacion',100)->nullable();
-            $table->string('textoParto',100)->nullable();
-            $table->string('peso',100)->nullable();
-            $table->string('talla',100)->nullable();
-            $table->string('apgar',100)->nullable();
-            $table->string('textopPrimerAñoVida',100)->nullable();
-            $table->string('enfermedadesRelevantes',100)->nullable();
+            $table->text('textoDesarrolloEmbarazo')->nullable();
+            $table->text('SemanasGestacion')->nullable();
+            $table->text('textoParto')->nullable();
+            $table->tinyInteger('peso')->nullable();
+            $table->tinyInteger('talla')->nullable();
+            $table->tinyInteger('apgar')->nullable();
+            $table->text('textopPrimerAñoVida')->nullable();
+            $table->text('enfermedadesRelevantes')->nullable();
 
             // DESARROLLO EVOLUTIVO V
 
-            $table->string('textoMarcha',100)->nullable();
-            $table->string('textoControlEsfinter',100)->nullable();
-            $table->string('textoHabilidadesMotricesGruesas',100)->nullable();
-            $table->string('textoHabilidadesMotricesFinas',100)->nullable();
-            $table->string('textoAdquisicionLenguaje',100)->nullable();
-            $table->string('textoDificultadesLenguaje',100)->nullable();
-            $table->string('textoDesarrolloSocialAdultos',100)->nullable();
-            $table->string('textoDesarrolloSocialNinos',100)->nullable();
+            $table->text('textoMarcha')->nullable();
+            $table->text('textoControlEsfinter')->nullable();
+            $table->text('textoHabilidadesMotricesGruesas')->nullable();
+            $table->text('textoHabilidadesMotricesFinas')->nullable();
+            $table->text('textoAdquisicionLenguaje')->nullable();
+            $table->text('textoDificultadesLenguaje')->nullable();
+            $table->text('textoDesarrolloSocialAdultos')->nullable();
+            $table->text('textoDesarrolloSocialNinos')->nullable();
             //"¿Qué tan autónomo/a es para las siguientes actividades? Marque a continuación"
             // estos campos pueden tener los valores "Solo", "Con poca ayuda", "Con mucha ayuda"
 
-              $table->string('opcionComer',100)->nullable();
-              $table->string('opcionVestirse',100)->nullable();
-              $table->string('opcionHigiene',100)->nullable();
+              $table->text('opcionComer')->nullable();
+              $table->text('opcionVestirse')->nullable();
+              $table->text('opcionHigiene')->nullable();
 
             //
 
-            $table->string('textoHabitosAlimenticios',100)->nullable();
+            $table->text('textoHabitosAlimenticios')->nullable();
 
             //  ÁMBITO CONDUCTUAL VI
 
-            $table->string('textoManifiestaEmociones',100)->nullable();
-            $table->string('textoManifiestaFrustracion',100)->nullable();
-            $table->string('textoFlexibilidadActividades',100)->nullable();
-            $table->string('textoInteresesObjetosActividades',100)->nullable();
-            $table->string('textoIntensidadMiedos',100)->nullable();
-            $table->string('textoHabitosSueño',100)->nullable();
+            $table->text('textoManifiestaEmociones')->nullable();
+            $table->text('textoManifiestaFrustracion')->nullable();
+            $table->text('textoFlexibilidadActividades')->nullable();
+            $table->text('textoInteresesObjetosActividades')->nullable();
+            $table->text('textoIntensidadMiedos')->nullable();
+            $table->text('textoHabitosSueño')->nullable();
 
             //  HISTORIA ESCOLAR VII
 
-            $table->string('textoInicioEscolaridad',100)->nullable();
-            $table->string('textoOtrosEstablecimientos',100)->nullable();
-            $table->string('textoEstablecimientoActual',100)->nullable();
-            $table->string('textoNivelCursoActual',100)->nullable();
-            $table->string('texto',100)->nullable();
-            $table->string('textoRepitencias',100)->nullable();
-            $table->string('textoComentarios',100)->nullable();
+            $table->text('textoInicioEscolaridad')->nullable();
+            $table->text('textoOtrosEstablecimientos')->nullable();
+            $table->text('textoEstablecimientoActual')->nullable();
+            $table->text('textoNivelCursoActual')->nullable();
+            $table->text('texto')->nullable();
+            $table->text('textoRepitencias')->nullable();
+            $table->text('textoComentarios')->nullable();
 
 
             $table->timestamps();

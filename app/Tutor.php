@@ -48,7 +48,7 @@ class Tutor extends Model
   public static function TutoresNinoPorIdNino($idNino) //retorna todos los tutores que tengan una relacion con un nino particular
   {
     $tutores = DB::table('nino_tutor')
-            ->join('users', 'Users.id', '=', 'nino_tutor.idTutor')
+            ->join('users', 'users.id', '=', 'nino_tutor.idTutor')
             ->where('nino_tutor.idNino', '=',$idNino)
             ->get();
 
@@ -60,10 +60,10 @@ class Tutor extends Model
   {
     $tutor = DB::table('nino_tutor')
             ->join('users', 'users.id', '=', 'nino_tutor.idTutor')
-            ->where('nino_tutor.idNino', '=',$idNino)
+            ->where('nino_tutor.idNino', '=' , $idNino)
             ->select()->first();
 
-    if($tutor != NULL) return $tutor;
+    if(count($tutor) > 0) return $tutor;
     else return NULL;
   }
 

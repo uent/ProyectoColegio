@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Perfil_Usuario extends Model
 {
-  protected $table = 'Perfil_Usuario';
+  protected $table = 'perfil_usuario';
 
     public static function agregar($id,$idPerfil)
     {

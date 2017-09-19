@@ -25,16 +25,16 @@ class UsuarioController extends Controller
             $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
               'Nombre' => ['required', 'max:50'],
               'Apellidos' => ['required', 'max:50'],
-              'Rut' => ['required','unique:Users,rut','max:30'],
+              'Rut' => ['required','unique:users,rut','max:30'],
               'Profesion' => ['required', 'max:45'],
-              'Email' => ['required','unique:Users,email' ,'max:60'],
+              'Email' => ['required','unique:users,email' ,'max:60'],
               'Password' => ['required', 'max:200']
               ]);
 
             if ($validator->fails())
-          {
+            {
              return redirect()->back()->withErrors($validator->errors());
-          }
+            }
 
       $resultado = User::Agregar($data['Nombre'],$data['Apellidos'],
                                   $data['Rut'],$data['Profesion'],$data['Email'],$data['Password']);
