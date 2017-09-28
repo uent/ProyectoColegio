@@ -109,7 +109,7 @@
 
     </head>
     <body id = "idBody" class="compact-menu">
-      
+
         <div class="overlay"></div>
         <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s1">
             <h3><span class="pull-left">Messages</span><a href="javascript:void(0);" class="pull-right" id="closeRight"><i class="icon-close"></i></a></h3>
@@ -202,13 +202,13 @@
                                 <li>
                                     <a href="javascript:void(0);" class="sidebar-toggle"><i class="icon-arrow-left"></i></a>
                                 </li>
-                                <li>
+                                <!--<li>
                                     <a href="#cd-nav" class="cd-nav-trigger"><i class="icon-support"></i></a>
-                                </li>
+                                </li>-->
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                  <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                         <i class="icon-settings"></i>
-                                    </a>
+                                    </a>-->
                                     <ul class="dropdown-menu dropdown-md dropdown-list theme-settings" role="menu">
                                         <li class="li-group">
                                             <ul class="list-unstyled">
@@ -269,9 +269,9 @@
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li>
+                                <!--<li>
                                     <a href="javascript:void(0);" class="show-search"><i class="icon-magnifier"></i></a>
-                                </li>
+                                </li>-->
                                 <!--<li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-envelope-open"></i><span class="badge badge-danger pull-right">6</span></a>
                                     <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
@@ -395,9 +395,9 @@
                                     echo
                                 "</li>"; ?>
                                 <li>
-                                    <a href="javascript:void(0);" id="showRight">
+                                    <!--<a href="javascript:void(0);" id="showRight">
                                         <i class="icon-bubbles"></i>
-                                    </a>
+                                    </a>-->
                                 </li>
                             </ul><!-- Nav -->
                         </div><!-- Top Menu -->
@@ -407,7 +407,148 @@
             <div class="page-sidebar sidebar ">
                 <div class="page-sidebar-inner slimscroll">
                     <ul class="menu accordion-menu">
-                    @yield('menu')
+
+                    <!--@yield('menu')--!>
+
+
+                    <?php
+                    use App\Http\Controllers\PermisosController;
+
+                    if(Auth::check())
+                    {
+                    	$id = Auth::user()->id;
+
+                    	$permisos = PermisosController::VistasDisponiblesPorIdUsuario($id);
+
+
+                    	if($permisos['NinoController@pagCrear'])
+                    	{
+                    		echo
+                    		"<li class='droplink'>
+                    			<form name=formIngresaNino action='ingresar_nino' method='get'></form>
+                    		    <a class='waves-effect waves-button' onclick='document.formIngresaNino.submit();return false'>
+                    		    <span class='menu-icon icon-user-follow'></span><p>Ingresar Niño/a</p></a>
+                    		</li>";
+                    	}
+
+                    	if($permisos['NinoController@MostrarNinosParaLlamar'])
+                    	{
+                    		echo
+                    		"<li class='droplink'>
+                    			<form name=formContactosPendientes action='contactos_pendientes' method='get'></form>
+                    			<a class='waves-effect waves-button' onclick='document.formContactosPendientes.submit();return false'>
+                    				<span class='menu-icon icon-call-out'></span><p>Contactos Pendientes</p></a>
+                    		</li>";
+                    	}
+
+                    	if($permisos['OrdenDiagnosticoController@MostrarCitasPendientes'])
+                    	{
+                    		echo
+                    		"<li>
+                    			<form name=formAsignarCitas action='pantalla_asignar_Citas' method='get'></form>
+                    			<a class='waves-effect waves-button' onclick='document.formAsignarCitas.submit();return false'>
+                    			<span class='menu-icon icon-notebook'></span><p>Asignar Citas</p><span class='active-page'></span></a>
+                    		</li>";
+                    	}
+
+                    	if($permisos['CitaController@CitasPendientesPorUsuarioActual'])
+                    	{
+                    		echo
+                    		"	<li class='droplink'>
+                    				<form name=CitasPendientesProfesional action='citas_pendientes_profesional' method='get'></form>
+                    				<a class='waves-effect waves-button' onclick='document.CitasPendientesProfesional.submit();return false'>
+                    			    <span class='menu-icon icon-pin'></span><p>Evaluar Citas</p></a>
+                    			</li>";
+                    		}
+
+                    		if($permisos['AnamnesisController@OrdenesPendientesDeAnamnesis'])
+                    		{
+                    			echo
+                    			"<li class='droplink'>
+                    				<form name=formGenerarAnamnesis action='pantalla_generar_anamnesis' method='get'></form>
+                    				<a class='waves-effect waves-button' onclick='document.formGenerarAnamnesis.submit();return false'>
+                    			    <span class='menu-icon icon-login'></span><p>Generar Informe Final</p></a>
+                    			</li>";
+                    		}
+
+                    		if($permisos['UsuarioController@IngresoProfesional'])
+                    		{
+                    			echo
+                    			"<li class='droplink'>
+                    				<form name=formIngresoProfesional action='ingreso_profesional' method='get'></form>
+                    				<a class='waves-effect waves-button' onclick='document.formIngresoProfesional.submit();return false'>
+                    			    <span class='menu-icon icon-login'></span><p>Ingresar Profesional</p></a>
+                    			</li>";
+                    		}
+
+                    		if($permisos['EncuestaController@MostrarEncuesta'])
+                    		{
+                    			echo
+                    			"<li class='droplink'>
+                    				<form name=formEncuestaCoevaluacionFamiliar action='encuesta_coevaluacion_familiar' method='get'></form>
+                    				<a class='waves-effect waves-button' onclick='document.formEncuestaCoevaluacionFamiliar.submit();return false'>
+                    			    <span class='menu-icon icon-login'></span><p>Encuesta coevaluacion</p></a>
+                    			</li>";
+                    		}
+
+                    		if($permisos['NinoController@VerListadoFichas'])
+                    		{
+                    			echo
+                    			"<li class='droplink'>
+                    				<form name=formListadoNinos action='ver_listado_ninos' method='get'></form>
+                    				<a class='waves-effect waves-button' onclick='document.formListadoNinos.submit();return false'>
+                    			    <span class='menu-icon icon-login'></span><p>Listado niños/tutores</p></a>
+                    			</li>";
+                    		}
+
+                    		if($permisos['UsuarioController@VerListadoProfesionales'])
+                    		{
+                    			echo
+                    			"<li class='droplink'>
+                    				<form name=formListadoProfesionales action='ver_listado_profesionales' method='get'></form>
+                    				<a class='waves-effect waves-button' onclick='document.formListadoProfesionales.submit();return false'>
+                    					<span class='menu-icon icon-login'></span><p>Listado profesionales</p></a>
+                    			</li>";
+                    		}
+
+                    		if($permisos['AnamnesisController@GenerarInformeFinal'])
+                    		{
+                    			echo
+                    			"<li class='droplink'>
+                    				<form name=formGenerarInformes action='pantalla_mostrar_listado_informes' method='get'>
+                    				<input type='hidden' name='idTutor' value= ";echo $id; echo"'/>
+                    				</form>
+                    				<a class='waves-effect waves-button' onclick='document.formGenerarInformes.submit();return false'>
+                    			    <span class='menu-icon icon-login'></span><p>Generar Informes</p></a>
+                    			</li>";
+                    		}
+
+                    		if($permisos['CalendarioController@MostrarCalendarioProfesional'])
+                    		{
+                    			echo
+                    			"<li class='droplink'>
+                    				<form name=formVerCalendarioProfesional action='verCalendarioProfesional' method='get'>
+                    				</form>
+                    				<a class='waves-effect waves-button' onclick='document.formVerCalendarioProfesional.submit();return false'>
+                    					<span class='menu-icon icon-login'></span><p>calendario</p></a>
+                    			</li>";
+                    		}
+
+
+                    }else
+                    {
+                    	echo "	<li class='droplink'>
+                    	<form name=logout action='login' method='get'>";?>{{ csrf_field() }}
+                    <?php echo
+                    "</form>
+                    		<a class='waves-effect waves-button' onclick='document.login.submit();return false'>
+                    			<span class='menu-icon icon-pin'></span><p>Iniciar sesion</p></a>
+                    	</li>";
+                    	}
+
+                    ?>
+
+
                     <!--
                         <li class="active"><a href="index.html" class="waves-effect waves-button"><span class="menu-icon icon-home"></span><p>Dashboard</p><span class="active-page"></span></a></li>
                         <li><a href="profile.html" class="waves-effect waves-button"><span class="menu-icon icon-user"></span><p>Profile</p></a></li>

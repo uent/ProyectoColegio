@@ -72,10 +72,10 @@ Route::group(['middleware' => ['auth','ControlPermisos']], function() {
 //Rutas del sistema
 Auth::routes();
 Route::get('/', function () {
-    return view('Menu');
+    return view('PagInicio');
 });
 Route::get('Mi_menu', function () {
-    return view('Menu');
+    return view('PagInicio');
 });
 Route::get('PantallaFaltaPermisos', function () {
     return view('PantallasDeError.FaltaPermisos');

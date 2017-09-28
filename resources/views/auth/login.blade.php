@@ -31,7 +31,7 @@
 
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            
+
 
                             <div class="form-group">
                                 <input id="password" type="password" class="form-control" placeholder="Contraseña" name="password" required>
@@ -45,9 +45,9 @@
                         </div>
                         <button type="submit" class="btn btn-success btn-block">Ingresar</button>
                         <a class="display-block text-center m-t-md text-sm" href="{{ route('password.request') }}">Olvidaste tu contraseña?</a>
-                        
+
                     </form>
-                                    
+
                                     <p class="text-center m-t-xs text-sm">2017 &copy; Altavida</p>
                                 </div>
                             </div>
@@ -60,4 +60,3 @@
 </body>
 
 @endsection
-

@@ -16,6 +16,6 @@ class CalendarioController extends Controller
     {
       $idUsuario = Auth::user()->id;
 
-        return View::make('Calendario\CalendarioHorarioProfesional')->with("idProfesional",$idUsuario);
+        return View::make('Calendario.CalendarioHorarioProfesional')->with("idProfesional",$idUsuario);
     }
 }

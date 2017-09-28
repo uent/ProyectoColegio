@@ -1,3 +1,6 @@
+<!--esta vista ya no se usa-->
+
+
 @extends ('layouts.admin')
 
 
