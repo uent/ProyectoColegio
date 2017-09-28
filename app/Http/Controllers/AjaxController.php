@@ -137,7 +137,7 @@ class AjaxController extends Controller
         ]);
         if ($validator->fails())
         {
-          return redirect()->back()->withErrors($validator->errors());
+          return redirect()->back()->withInput()->withErrors($validator->errors());
         }
 
       if(! Citas::obtenerCitaPorIdOrdenYTipoCita($data["idOrden"],$data["tipoCita"]))

@@ -146,7 +146,7 @@ class NinoController extends Controller
   	    ]);
         if ($validator->fails())
         {
-          return redirect()->back()->withErrors($validator->errors());
+          return redirect()->back()->withInput()->withErrors($validator->errors());
         }
       //recibe prioridad, idNino y idOrden
 

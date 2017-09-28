@@ -27,7 +27,7 @@ class CitaController extends Controller
 
         if ($validator->fails())
         {
-          return redirect()->back()->withErrors($validator->errors());
+          return redirect()->back()->withInput()->withErrors($validator->errors());
         }
     //recibe idOrden y tipoCita
 
@@ -53,7 +53,7 @@ class CitaController extends Controller
         ]);
         if ($validator->fails())
         {
-          return redirect()->back()->withErrors($validator->errors());
+          return redirect()->back()->withInput()->withErrors($validator->errors());
         }
       //recibe un id??, dia, tipoCita, hora, comentarios, idOrden
 

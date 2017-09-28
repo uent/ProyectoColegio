@@ -33,7 +33,7 @@ class UsuarioController extends Controller
 
             if ($validator->fails())
             {
-             return redirect()->back()->withErrors($validator->errors());
+             return redirect()->back()->withInput()->withErrors($validator->errors());
             }
 
       $resultado = User::Agregar($data['Nombre'],$data['Apellidos'],
