@@ -110,7 +110,7 @@ class EncuestaController extends Controller
 
         if ($validator->fails())
         {
-          return redirect()->back()->withErrors($validator->errors());
+          return redirect()->back()->withInput()->withErrors($validator->errors());
         }
 
 
