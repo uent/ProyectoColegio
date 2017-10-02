@@ -8,6 +8,7 @@ use App\Citas;
 use App\Tutor;
 use App\Eventos;
 use App\OrdenDiagnostico;
+use App\Http\Controllers\MailController;
 use Validator;
 use View;
 
@@ -152,6 +153,13 @@ class AjaxController extends Controller
         Citas::InsertarCita($data);
 
         OrdenDiagnostico::ActualizarEstadoPorId($data["idOrden"]);
+
+        $datosOrden = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
+        if(strcmp($datosOrden->estado , "evaluando") == 0)
+        {
+          $datosTutor = Tutor::UnTutorPorNinoPorIdNino($aux["idNino"]);
+          MailController::MailEnvioNotificacionDeFechasCitas($datosTutor->email,Citas::obtenerCitasPorIdOrden($data["idOrden"]));
+        }
 
         return redirect()->to('Mi_menu');
       }

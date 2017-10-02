@@ -31,7 +31,6 @@ class Citas extends Model
   public static function InsertarCita($datos)
   {
     $Citas = new Citas;
-    echo $datos["inicio"];
     $Citas->idOrden = $datos["idOrden"];
     $Citas->idProfesional = $datos["id"];
     $Citas->idNino = $datos["idNino"];
@@ -97,7 +96,8 @@ class Citas extends Model
                       $imitacion,$afecto,$cuerpo,$objetos);
 
       OrdenDiagnostico::ActualizarEstadoPorId($datoCita["idOrden"]);
-  }
+    }
+
 
 
   public static function agregarReporteTerapiaOcupacional($idCita,$coordinacionObsTerapeutaOcupacional,
