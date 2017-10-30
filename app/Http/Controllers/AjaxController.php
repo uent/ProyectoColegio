@@ -9,6 +9,7 @@ use App\Tutor;
 use App\Eventos;
 use App\OrdenDiagnostico;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\OrdenDiagnostico;
 use Validator;
 use View;
 
@@ -159,9 +160,10 @@ class AjaxController extends Controller
         {
           $datosTutor = Tutor::UnTutorPorNinoPorIdNino($aux["idNino"]);
           MailController::MailEnvioNotificacionDeFechasCitas($datosTutor->email,Citas::obtenerCitasPorIdOrden($data["idOrden"]));
-        }
 
-        return redirect()->to('Mi_menu');
+          return redirect()->to('Mi_menu');
+        }
+          OrdenDiagnosticoController::PantallaMostrarCitasNino($data["idOrden"]);
       }
       else
       {

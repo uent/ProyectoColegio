@@ -22,10 +22,17 @@ class OrdenDiagnosticoController extends Controller
 
     }
 
-    public function PantallaMostrarCitasNino() //muestra una pantalla con todas las citas faltantes
+    public function PantallaMostrarCitasNino($idOrden = NULL) //muestra una pantalla con todas las citas faltantes
     {
-      //recibe idOrden
-      $data = request()->all();
+      if($idOrden == NULL)
+      {
+        //recibe idOrden
+        $data = request()->all();
+      }
+      else {
+        $data["idOrden"] = $idOrden;
+      }
+
 
       $orden = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
 
