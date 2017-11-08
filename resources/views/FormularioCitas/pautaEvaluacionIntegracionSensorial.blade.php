@@ -15,7 +15,7 @@
 
             <div class="panel panel-white">
                 <div class="panel-heading clearfix">
-                    <h4 class="panel-title">AQUI VA EL NOMBRE DELBROCACOCHI</h4>
+                    <h4 class="panel-title">AQUI VA EL NOMBRE NIÑO</h4>
                 </div>
                 <div class="panel-body">
                     <form>

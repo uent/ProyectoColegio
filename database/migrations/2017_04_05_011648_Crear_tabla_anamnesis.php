@@ -65,6 +65,29 @@ class CrearTablaAnamnesis extends Migration
             $table->text('aprendizajeSugPsicopedagogo')->nullable();
             $table->text('conclusionesSugerenciasPsicopedagogo')->nullable();
 
+            //MultiDisciplinario
+
+            $table->text('imitacionMultiDisiplinario')->nullable();
+            $table->text('afectoMultiDisiplinario')->nullable();
+            $table->text('cuerpoMultiDisiplinario')->nullable();
+            $table->text('objetosMultiDisiplinario')->nullable();
+            $table->text('adaptacionMultiDisiplinario')->nullable();
+            $table->text('respVisualMultiDisiplinario')->nullable();
+            $table->text('respAuditivaMultiDisiplinario')->nullable();
+            $table->text('gustoOlfatoTactoMultiDisiplinario')->nullable();
+            $table->text('ansiedadMiedoMultiDisiplinario')->nullable();
+            $table->text('comunicVerbalMultiDisiplinario')->nullable();
+            $table->text('comunicNoVerbalMultiDisiplinario')->nullable();
+            $table->text('nivelActMultiDisiplinario')->nullable();
+            $table->text('respIntelectualMultiDisiplinario')->nullable();
+            $table->text('impresGnrlMultiDisiplinario')->nullable();
+            $table->text('totalMultiDisiplinario')->nullable();
+            $table->text('motivoDeEvaluacionMultiDisiplinario')->nullable();
+            $table->text('sugerenciasMultiDisiplinario')->nullable();
+            $table->text('antecedentesRelevantesMultiDisiplinario')->nullable();
+            $table->text('conclusionesMultiDisiplinario')->nullable();
+            
+
             $table->timestamps();
 
         });

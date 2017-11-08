@@ -86,19 +86,7 @@ InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
 SELECT idPerfil, idPermiso, now(),now()
 FROM Permiso
 InnER JOIn Perfil
-where  Permiso.nombrePermiso = "IngresoNino" and Perfil.nombrePerfil ="Fonoaudiologo";
-
-InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
-SELECT idPerfil, idPermiso, now(),now()
-FROM Permiso
-InnER JOIn Perfil
 where  Permiso.nombrePermiso = "EvaluarCitas" and Perfil.nombrePerfil ="Fonoaudiologo";
-
-InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
-SELECT idPerfil, idPermiso, now(),now()
-FROM Permiso
-InnER JOIn Perfil
-where  Permiso.nombrePermiso = "AsignarCitas" and Perfil.nombrePerfil ="Fonoaudiologo";
 
 InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
 SELECT idPerfil, idPermiso, now(),now()
@@ -127,19 +115,7 @@ InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
 SELECT idPerfil, idPermiso, now(),now()
 FROM Permiso
 InnER JOIn Perfil
-where  Permiso.nombrePermiso = "IngresoNino" and Perfil.nombrePerfil ="Psicologico";
-
-InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
-SELECT idPerfil, idPermiso, now(),now()
-FROM Permiso
-InnER JOIn Perfil
 where  Permiso.nombrePermiso = "EvaluarCitas" and Perfil.nombrePerfil ="Psicologico";
-
-InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
-SELECT idPerfil, idPermiso, now(),now()
-FROM Permiso
-InnER JOIn Perfil
-where  Permiso.nombrePermiso = "AsignarCitas" and Perfil.nombrePerfil ="Psicologico";
 
 InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
 SELECT idPerfil, idPermiso, now(),now()
@@ -169,19 +145,7 @@ VALUES ("1456789","psicologicoNombre","psicologicoApellido","psicologicomail@gma
     SELECT idPerfil, idPermiso, now(),now()
     FROM Permiso
     InnER JOIn Perfil
-    where  Permiso.nombrePermiso = "IngresoNino" and Perfil.nombrePerfil ="Psicopedagogo";
-
-    InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
-    SELECT idPerfil, idPermiso, now(),now()
-    FROM Permiso
-    InnER JOIn Perfil
     where  Permiso.nombrePermiso = "EvaluarCitas" and Perfil.nombrePerfil ="Psicopedagogo";
-
-    InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
-    SELECT idPerfil, idPermiso, now(),now()
-    FROM Permiso
-    InnER JOIn Perfil
-    where  Permiso.nombrePermiso = "AsignarCitas" and Perfil.nombrePerfil ="Psicopedagogo";
 
     InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
     SELECT idPerfil, idPermiso, now(),now()
@@ -210,19 +174,7 @@ VALUES ("1456789","psicologicoNombre","psicologicoApellido","psicologicomail@gma
       SELECT idPerfil, idPermiso, now(),now()
       FROM Permiso
       InnER JOIn Perfil
-      where  Permiso.nombrePermiso = "IngresoNino" and Perfil.nombrePerfil ="TerapeutaOcupacional";
-
-      InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
-      SELECT idPerfil, idPermiso, now(),now()
-      FROM Permiso
-      InnER JOIn Perfil
       where  Permiso.nombrePermiso = "EvaluarCitas" and Perfil.nombrePerfil ="TerapeutaOcupacional";
-
-      InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
-      SELECT idPerfil, idPermiso, now(),now()
-      FROM Permiso
-      InnER JOIn Perfil
-      where  Permiso.nombrePermiso = "AsignarCitas" and Perfil.nombrePerfil ="TerapeutaOcupacional";
 
       InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
       SELECT idPerfil, idPermiso, now(),now()
@@ -331,6 +283,12 @@ SELECT idPerfil, idPermiso, now(),now()
 FROM Permiso
 InnER JOIn Perfil
 where  Permiso.nombrePermiso = "VisualizarInformesFinales" and Perfil.nombrePerfil ="Administrador";
+
+InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+SELECT idPerfil, idPermiso, now(),now()
+FROM Permiso
+InnER JOIn Perfil
+where  Permiso.nombrePermiso = "EvaluarCitas" and Perfil.nombrePerfil ="Administrador";
 
 InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
 VALUES ("12789","AdminNombre","AdminApellido","adminmail@gmail.com",

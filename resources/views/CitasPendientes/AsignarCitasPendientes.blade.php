@@ -37,6 +37,7 @@
           $tiposCitas[1] = "Psicologico";
           $tiposCitas[2] = "TerapeutaOcupacional";
           $tiposCitas[3] = "Psicopedagogo";
+          $tiposCitas[4] = "MultiDisciplinario";
 
 
     foreach($tiposCitas as $t)

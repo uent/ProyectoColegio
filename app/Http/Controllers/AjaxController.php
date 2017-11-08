@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\Ninos;
 use App\Citas;
@@ -9,7 +10,7 @@ use App\Tutor;
 use App\Eventos;
 use App\OrdenDiagnostico;
 use App\Http\Controllers\MailController;
-use App\Http\Controllers\OrdenDiagnostico;
+use App\Http\Controllers\OrdenDiagnosticoController;
 use Validator;
 use View;
 
@@ -142,7 +143,13 @@ class AjaxController extends Controller
           return redirect()->back()->withInput()->withErrors($validator->errors());
         }
 
-      if(! Citas::obtenerCitaPorIdOrdenYTipoCita($data["idOrden"],$data["tipoCita"]))
+        $now = time();
+        $target = strtotime($data["inicio"]);
+        $diff = $now - $target;
+
+         if($diff <= 0)   //return redirect()->back()->withInput()->
+
+      if((!Citas::obtenerCitaPorIdOrdenYTipoCita($data["idOrden"],$data["tipoCita"])))
       {
         if($data["comentarios"] == null) $data["comentarios"] = "";
 
@@ -156,6 +163,7 @@ class AjaxController extends Controller
         OrdenDiagnostico::ActualizarEstadoPorId($data["idOrden"]);
 
         $datosOrden = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
+
         if(strcmp($datosOrden->estado , "evaluando") == 0)
         {
           $datosTutor = Tutor::UnTutorPorNinoPorIdNino($aux["idNino"]);
@@ -163,7 +171,10 @@ class AjaxController extends Controller
 
           return redirect()->to('Mi_menu');
         }
-          OrdenDiagnosticoController::PantallaMostrarCitasNino($data["idOrden"]);
+        else
+        {
+          return redirect()->to('mostrar_citas_nino?action=Asignar+Citas&idOrden=' . $data["idOrden"]);
+        }
       }
       else
       {

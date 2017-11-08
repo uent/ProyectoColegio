@@ -122,8 +122,6 @@ class Anamnesis extends Model
 
 
 
-
-
   public static  function ActualizarReportePsicopedagogoPorIdOrden(
                   $idOrden,$tipoEvaluacion,
                   $FPBNE1,$FPBNEESug1,  $FPBNE2,
@@ -154,6 +152,46 @@ class Anamnesis extends Model
       'aprendizajeNivelPsicopedagogo'=> $aprendizajeNivel,
       'aprendizajeSugPsicopedagogo'=> $aprendizajeSug,
       'conclusionesSugerenciasPsicopedagogo'=> $conclusionesSugerencias]);
+  }
+
+
+  public static  function ActualizarReporteMultiDisciplinarioPorIdOrden(
+                  $idOrden,$tipoEvaluacion,
+                  $imitacion,$afecto,$cuerpo,$objetos,
+                  $adaptacion,$respVisual,$respAuditiva,$gustoOlfatoTacto,$ansiedadMiedo,$comunicVerbal,
+                  $comunicNoVerbal,$nivelAct,$respIntelectual,$impresGnrl,$total,$motivoDeEvaluacion,
+                  $sugerencias,$antecedentesRelevantes,$conclusiones)
+  {
+    $datos = Anamnesis::select()->where('idOrden','=',$idOrden)->first();
+
+    if($datos == null)
+    {
+      $Anamnesis = Anamnesis::NuevaAnamnesis($idOrden);
+    }
+
+    Anamnesis::where('idOrden',"=", $idOrden)
+    ->update([
+
+      'imitacionMultiDisiplinario'=> $imitacion,
+      'afectoMultiDisiplinario'=> $afecto,
+      'cuerpoMultiDisiplinario'=> $cuerpo,
+      'objetosMultiDisiplinario'=> $objetos,
+      'adaptacionMultiDisiplinario'=> $adaptacion,
+      'respVisualMultiDisiplinario'=> $respVisual,
+      'respAuditivaMultiDisiplinario'=> $respAuditiva,
+      'gustoOlfatoTactoMultiDisiplinario'=> $gustoOlfatoTacto,
+      'ansiedadMiedoMultiDisiplinario'=> $ansiedadMiedo,
+      'comunicVerbalMultiDisiplinario'=> $comunicVerbal,
+      'comunicNoVerbalMultiDisiplinario'=> $comunicNoVerbal,
+      'nivelActMultiDisiplinario'=> $nivelAct,
+      'respIntelectualMultiDisiplinario'=> $respIntelectual,
+      'impresGnrlMultiDisiplinario'=> $impresGnrl,
+      'totalMultiDisiplinario'=> $total,
+      'motivoDeEvaluacionMultiDisiplinario'=> $motivoDeEvaluacion,
+      'sugerenciasMultiDisiplinario'=> $sugerencias,
+      'antecedentesRelevantesMultiDisiplinario'=> $antecedentesRelevantes,
+      'conclusionesMultiDisiplinario'=> $conclusiones]);
+
   }
 
   public static function AprobarInformeFinal($idOrden)

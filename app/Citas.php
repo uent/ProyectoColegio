@@ -147,6 +147,27 @@ class Citas extends Model
       OrdenDiagnostico::ActualizarEstadoPorId($datoCita["idOrden"]);
   }
 
+  public static function AgregarReporteMultiDisciplinario($idCita,$imitacion,$afecto,$cuerpo,$objetos,
+                            $adaptacion,$respVisual,$respAuditiva,$gustoOlfatoTacto,$ansiedadMiedo,$comunicVerbal,
+                            $comunicNoVerbal,$nivelAct,$respIntelectual,$impresGnrl,$total,$motivoDeEvaluacion,
+                            $sugerencias,$antecedentesRelevantes,$conclusiones)
+  {
+
+      Citas::where('idCitas',"=", $idCita)->update(['estado' => "completado"]);
+
+      $datoCita = Citas::BuscarPorId($idCita);
+
+      Anamnesis::ActualizarReporteMultiDisciplinarioPorIdOrden(
+                      $datoCita["idOrden"],$datoCita["tipoEvaluacion"],
+                      $imitacion,$afecto,$cuerpo,$objetos,
+                      $adaptacion,$respVisual,$respAuditiva,$gustoOlfatoTacto,$ansiedadMiedo,$comunicVerbal,
+                      $comunicNoVerbal,$nivelAct,$respIntelectual,$impresGnrl,$total,$motivoDeEvaluacion,
+                      $sugerencias,$antecedentesRelevantes,$conclusiones);
+
+      OrdenDiagnostico::ActualizarEstadoPorId($datoCita["idOrden"]);
+  }
+
+
   public static function ObtenerDatosCitasPorIdNino($idNino)
   {
     return Citas::select()->where('idNino',"=", $idNino)->get();

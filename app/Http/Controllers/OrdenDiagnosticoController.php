@@ -22,16 +22,10 @@ class OrdenDiagnosticoController extends Controller
 
     }
 
-    public function PantallaMostrarCitasNino($idOrden = NULL) //muestra una pantalla con todas las citas faltantes
+    public function PantallaMostrarCitasNino() //muestra una pantalla con todas las citas faltantes
     {
-      if($idOrden == NULL)
-      {
         //recibe idOrden
         $data = request()->all();
-      }
-      else {
-        $data["idOrden"] = $idOrden;
-      }
 
 
       $orden = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
@@ -45,7 +39,7 @@ class OrdenDiagnosticoController extends Controller
       $statusCitas["Psicologico"]["existe"] = false;
       $statusCitas["TerapeutaOcupacional"]["existe"] = false;
       $statusCitas["Psicopedagogo"]["existe"] = false;
-
+      $statusCitas["MultiDisciplinario"]["existe"] = false;
 
       $statusCitas["datos"]["idOrden"] = $orden["idOrdenDiagnostico"];
       $statusCitas["datos"]["idNino"] = $orden["idNino"];
@@ -86,6 +80,13 @@ class OrdenDiagnosticoController extends Controller
             $statusCitas["Psicopedagogo"]["estado"] = $c->estado;
             $statusCitas["Psicopedagogo"]["hora"] = $c->hora;
             $statusCitas["Psicopedagogo"]["fecha"] = $c->fecha;
+          }
+          if($c["tipoEvaluacion"] == "MultiDisciplinario")
+          {
+            $statusCitas["MultiDisciplinario"]["existe"] = true;
+            $statusCitas["MultiDisciplinario"]["estado"] = $c->estado;
+            $statusCitas["MultiDisciplinario"]["hora"] = $c->hora;
+            $statusCitas["MultiDisciplinario"]["fecha"] = $c->fecha;
           }
         }
       }

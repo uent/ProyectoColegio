@@ -113,3 +113,6 @@ Route::get('welcome-mail','MailController@MailIngresoTutor');
 Route::get('pedir_revision_cita','CitaController@SolicitarModificacionCita');
 
 Route::get('composer','HomeController@composer');
+
+//falta permisos
+Route::post('guardar_reporte_multidiciplinario', 'CitaController@AgregarReporteCitaMultiDisciplinario');//EvaluarCitas

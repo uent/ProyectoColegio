@@ -85,7 +85,8 @@
         </td>
         <td>
         ";
-      if($datos["profesionales"] != NULL && $datos["datos"] != NULL)
+
+      if($datos["profesionales"] != NULL && $datos["datos"] != NULL && $datos["disponible"] == true)
       {
         echo
         "";?>

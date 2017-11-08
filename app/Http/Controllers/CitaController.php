@@ -36,6 +36,21 @@ class CitaController extends Controller
     $datosOrden = OrdenDiagnostico::BuscarPorId($data["datos"]["idOrden"]);
     $data["datosNino"] = $datosOrden["idNino"];
 
+    $data["disponible"] = true;
+
+    if($data["datos"]["tipoCita"] == "MultiDisciplinario")
+    {
+      $citasNino = Citas::obtenerCitasPorIdOrden($data["datos"]["idOrden"]);
+
+      if(count($citasNino) == 4)
+      {
+        $data["disponible"] = true;
+      }
+      else
+      {
+        $data["disponible"] = false;
+      }
+    }
 
     return View::make('CitasPendientes.CrearCita')->with("datos",$data );
 
@@ -143,7 +158,12 @@ class CitaController extends Controller
           else if($cita["tipoEvaluacion"] == "TerapeutaOcupacional")
           {
             return View::make('FormularioCitas.evaluacionTerapiaOcupacional')->with("datos",$datos);
-          }else echo "hay un error, tipo cita no existe";
+          }
+          else if($cita["tipoEvaluacion"] == "MultiDisciplinario")
+          {
+            return View::make('FormularioCitas.evaluacionMultiDisciplinario')->with("datos",$datos);
+          }
+          else echo "hay un error, tipo cita no existe";
           /* en caso de emergencia (para presentar el proyecto) comentar lo anterior y dejar solo esto
           return View::make('EvaluarCitas.FormularioCita')->with("datos",$datos);
           */
@@ -266,6 +286,48 @@ class CitaController extends Controller
         return redirect()->to('PantallaDeErrorProceso');
       }
    }
+
+   public function AgregarReporteCitaMultiDisciplinario()
+   {
+     $data = request()->all();
+     //falta realizar las validaciones
+
+     //recibe idCita,
+
+     $tablaCita = Citas::BuscarPorId($data["idCita"]);
+
+     if($tablaCita["estado"] == "pendiente")
+     {
+       Citas::AgregarReporteMultiDisciplinario(
+                                $data["idCita"],
+                                $data["imitacion"],
+                                $data["afecto"],
+                                $data["cuerpo"],
+                                $data["objetos"],
+                                $data["adaptacion"],
+                                $data["respVisual"],
+                                $data["respAuditiva"],
+                                $data["gustoOlfatoTacto"],
+                                $data["ansiedadMiedo"],
+                                $data["comunicVerbal"],
+                                $data["comunicNoVerbal"],
+                                $data["nivelAct"],
+                                $data["respIntelectual"],
+                                $data["impresGnrl"],
+                                $data["total"],
+                                $data["motivoDeEvaluacion"],
+                                $data["sugerencias"],
+                                $data["antecedentesRelevantes"],
+                                $data["conclusiones"],
+                                $data["sugerencias"]);
+
+       return redirect()->to('Mi_menu');
+     }
+     else {
+       return redirect()->to('PantallaDeErrorProceso');
+     }
+  }
+
 
    public function SolicitarModificacionCita()
    {

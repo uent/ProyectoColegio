@@ -141,6 +141,7 @@ class OrdenDiagnostico extends Model
         $statusCitas["Psicologico"] = 0;
         $statusCitas["TerapeutaOcupacional"] = 0;
         $statusCitas["Psicopedagogo"] = 0;
+        $statusCitas["MultiDisciplinario"] = 0;
 
         foreach($citas as $c)
         {
@@ -167,6 +168,11 @@ class OrdenDiagnostico extends Model
             $statusCitas["Psicopedagogo"] = 1;
           }
 
+          if($c["tipoEvaluacion"] == "MultiDisciplinario")
+          {
+            $statusCitas["MultiDisciplinario"] = 1;
+          }
+
         }
         //procedera a sumar los valores del arreglo anterior
         //si la suma es igual a la cantidad de tipos diferentes para las citas
@@ -176,6 +182,7 @@ class OrdenDiagnostico extends Model
         {
           $i = $i + $sc;
         }
+        
         if($i == count($statusCitas))
         {
           $orden = OrdenDiagnostico::where('idOrdenDiagnostico', $idOrden)
@@ -305,6 +312,7 @@ class OrdenDiagnostico extends Model
       $auxCitas[2] = "TerapeutaOcupacional";
       $auxCitas[3] = "Fonoaudiologo";
       $auxCitas[4] = "Psicopedagogo";
+      $auxCitas[4] = "MultiDisciplinario";
 
       $j = 1;
       foreach($tablasCitas as $c)
