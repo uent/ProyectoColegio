@@ -40,13 +40,13 @@
           <thead>
             <tr>
             <th>
-              Tipo Cita
+              Tipo Evaluación
             </th>
               <th>
-                Profesional
+                Nombre Profesional
               </th>
               <th>
-                Accion
+                Comentarios
               </th>
             </tr>
           </thead>";
@@ -61,7 +61,7 @@
   						"<div class='form-group'>
               <td>
               <input type='hidden' id= idNino name='idNino' value='",$datos["datosNino"],"'/>
-              <select id='idProfesional' name='id' form='formulario' onchange='actualizarCalendarioPorNuevoIdProfesional()'>";
+              <select class='form-group col-md-12' id='idProfesional' name='id' form='formulario' onchange='actualizarCalendarioPorNuevoIdProfesional()'>";
   						foreach ($datos["profesionales"] as $d)
   						{
   							echo "<option value='",$d["id"],"'>",$d["apellidos"],"</option>";
@@ -93,7 +93,7 @@
           {!! csrf_field() !!}
           <?php
           echo
-          "<input type='submit' name='action' value='asignar Cita' onClick = 'enviarDatosNuevoEvento();' />
+          "
           <input type='hidden' id='tipoCita' name='tipoCita' value='",$datos["datos"]["tipoCita"],"'/>
           <input type='hidden' id='idOrden' name='idOrden' value='",$datos["datos"]["idOrden"],"'/>
         </form>";
@@ -106,7 +106,17 @@
     </tr>
         </tbody>
              </tbody>
-                        </table>";
+                        
+    <input type='submit' style='width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 7px 20px;
+    margin: 2px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer' name='action' value='Asignar Cita' onClick = 'enviarDatosNuevoEvento();' />
+</table>
+    <br>";
 
     if($datos["profesionales"] != NULL && $datos["datos"] != NULL)
     {

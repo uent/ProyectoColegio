@@ -81,103 +81,11 @@
                           </tr>
                         </table>
 
-                        <p>Respecto de la información aportada por la Escala de Valoración del Autismo Infantil (EVAI / CARS) es posible informar la siguiente información cuantitativa</p>
-                        <p><small>Los valores ingresados van de 1 a 4</small></p>
-                        <div class=" form-horizontal col-md-12">
-                             <table class="table table-bordered col-md-12">
-                          <tr align="center">
-                            <td><b>Área</b></td>
-                            <td><b>Puntaje Máximo</b> </td>
-                            <td><b>Puntaje Obtenido</b> </td>
-                          </tr>
-                          <tr>
-                            <td>Relación Con los Demás</td>
-                            <td>4</td>
-                            <td>
-
-                            <input type="number" min="1" max="4" step="any" name="relacion" id="relacion" value = '{{ old('relacionPsicologo' , $datos["datosInformes"]->relacionPsicologo) }}'></td>
-                          </tr>
-                          <tr>
-                            <td>Imitación</td>
-                            <td>4</td>
-                            <td><input type="text" name="imitacion" id="imitacion" value = '{{ old('imitacionPsicologo' , $datos["datosInformes"]->imitacionPsicologo) }}'></td>
-                          </tr>
-                          <tr>
-                            <td>afecto</td>
-                            <td>4</td>
-                            <td><input type="text" name="afecto" id="afecto" value = '{{ old('afectoPsicologo' , $datos["datosInformes"]->afectoPsicologo) }}'></td>
-                          </tr>
-                          <tr>
-                            <td>Uso del Cuerpo</td>
-                            <td>4</td>
-                            <td><input type="text" name="cuerpo" id="cuerpo" value = '{{ old('cuerpoPsicologo' , $datos["datosInformes"]->cuerpoPsicologo) }}'></td>
-                          </tr>
-                          <tr>
-                            <td>Uso de Objetos</td>
-                            <td>4</td>
-                            <td><input type="text" name="objetos" id="objetos" value = '{{ old('objetosPsicologo' , $datos["datosInformes"]->objetosPsicologo) }}'></td>
-                          </tr>
-                          <tr>
-                            <td>Adaptación a Cambios</td>
-                            <td>4</td>
-                            <td><input type="text" name="adaptacion" id="adaptacion" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
-                          </tr>
-                          <tr>
-                            <td>Respuesta Visual</td>
-                            <td>4</td>
-                            <td><input type="text" name="respVisual" id="respVisual" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
-                          </tr>
-                          <tr>
-                            <td>Respuesta Auditiva</td>
-                            <td>4</td>
-                            <td><input type="text" name="respAuditiva" id="respAuditiva" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
-                          </tr>
-                          <tr>
-                            <td>Gusto, Olfato y respuesta táctil</td>
-                            <td>4</td>
-                            <td><input type="text" name="gustoOlfatoTacto" id="gustoOlfatoTacto" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
-                          </tr>
-                          <tr>
-                            <td>Ansiedad y Mierdo</td>
-                            <td>4</td>
-                            <td><input type="text" name="ansiedadMiedo" id="ansiedadMiedo" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
-                          </tr>
-                          <tr>
-                            <td>Comunicación Verbal</td>
-                            <td>4</td>
-                            <td><input type="text" name="comunicVerbal" id="comunicVerbal" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
-                          </tr>
-                          <tr>
-                            <td>Comunicación No Verbal</td>
-                            <td>4</td>
-                            <td><input type="text" name="comunicNoVerbal" id="comunicNoVerbal" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
-                          </tr>
-                          <tr>
-                            <td>Nivel de Actividad</td>
-                            <td>4</td>
-                            <td><input type="text" name="nivelAct" id="nivelAct" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
-                          </tr>
-                          <tr>
-                            <td>Respuesta Intelectual</td>
-                            <td>4</td>
-                            <td><input type="text" name="respIntelectual" id="respIntelectual" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
-                          </tr>
-                          <tr>
-                            <td>Impresiones Generales</td>
-                            <td>4</td>
-                            <td><input type="text" name="impresGnrl" id="impresGnrl" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
-                          </tr>
-                          <tr>
-                            <td><b>Total</b></td>
-                            <td>60</td>
-                            <td><input type="text" name="total" id="total" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
-                          </tr>
-
-                        </table>
+                        
                         </div>
 
                         {!! csrf_field() !!}
-                        "<input type='submit' name='action' value='Completar cita'/>
+                        <input type='submit' name='action' value='Completar cita'/>
                         <input type='hidden' name='tipoCita' value='",$datos["datos"]["tipoCita"],"'/>
                     </form>
                 </div>
@@ -215,91 +123,7 @@
             },
           conclu: {
                 required: true
-            },
-            imitacion: {
-                required: true,
-                number: true,
-                min : 1,
-                max : 4
-            },
-            afecto: {
-                required: true,
-                number: true,
-                min : 1,
-                max : 4
-            },
-            cuerpo: {
-                required: true,
-                number: true,
-                min : 1,
-                max : 4
-            },
-            objetos: {
-                required: true,
-                number: true,
-                min : 1,
-                max : 4
-            },
-            adaptacion: {
-                required: true,
-                number: true,
-                min : 1,
-                max : 4
-            },
-            respVisual: {
-                required: true,
-                number: true,
-                min : 1,
-                max : 4
-            },
-            respAuditiva: {
-                required: true,
-                number: true,
-                min : 1,
-                max : 4
-            },
-            gustoOlfatoTacto: {
-                required: true,
-                number: true,
-                min : 1,
-                max : 4
-            },
-            ansiedadMiedo: {
-                required: true,
-                number: true,
-                min : 1,
-                max : 4
-            },
-            comunicVerbal: {
-                required: true,
-                number: true,
-                min : 1,
-                max : 4
-            },
-            comunicNoVerbal: {
-                required: true,
-                number: true,
-                min : 1,
-                max : 4
-            },
-            nivelAct: {
-                required: true,
-                number: true,
-                min : 1,
-                max : 4
-            },
-            respIntelectual: {
-                required: true,
-                number: true,
-                min : 1,
-                max : 4
-            },
-            impresGnrl: {
-                required: true,
-                number: true,
-                min : 1,
-                max : 4
-            }
+            };
 
 
         }

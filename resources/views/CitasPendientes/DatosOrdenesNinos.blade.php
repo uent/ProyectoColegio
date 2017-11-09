@@ -25,7 +25,7 @@
                   $flag = false;
 
                   echo
-                  "<p> Atenciones prioritarias <p>
+                  "<p> Atenciones Prioritarias <p>
                   <table class='table'>
                         <thead>
                           <tr>
@@ -39,7 +39,7 @@
                               Rut
                             </th>
                             <th>
-                              Accion
+                               
                             </th>
                           </tr>
                         </thead>";
@@ -88,7 +88,7 @@
                   $flag = false;
 
                   echo
-                  "<p> Atenciones normales <p>
+                  "<p> Atenciones Sin Prioridad <p>
                   <table class='table'>
                         <thead>
                           <tr>
@@ -102,7 +102,7 @@
                               Rut
                             </th>
                             <th>
-                              Accion
+                              
                             </th>
                           </tr>
                         </thead>";

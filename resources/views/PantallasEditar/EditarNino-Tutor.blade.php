@@ -33,7 +33,8 @@
                 <div class="panel-body">
                     <div id="rootwizard">
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Niñ@ <?php echo $datos["nino"]["nombre"]." ". $datos["nino"]["apellidos"]?></a></li>
+
+                            <li role="presentation" ><a href="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Niñ@ <?php echo $datos["nino"]["nombre"]." ". $datos["nino"]["apellidos"]?></a></li>
                             <?php if(count($datos["tutores"]) > 0)
                             {
                               $i=2;
@@ -44,13 +45,13 @@
                                 $i++;
                               }
                             }?>
-                              <li role="presentation"><a href="#tab<?php echo $i;?>" data-toggle="tab"><i class="fa fa-users m-r-xs"></i> Ordenes de diagnóstico</a></li>
+                              <li role="presentation" class="active"><a href="#tab<?php echo $i;?>" data-toggle="tab"><i class="fa fa-users m-r-xs"></i>Estado</a></li>
                         </ul>
 
                         </div>
 
                             <div class="tab-content">
-                                <div class="tab-pane active fade in" id="tab1">
+                                <div class="tab-pane fade" id="tab1">
                                   <form id="ingresoForm" method="post" role="form" action="{{ url('actualizar_datos_Nino') }}">
                                     {!! csrf_field() !!}
                                     <div class="row m-b-lg">
@@ -143,7 +144,7 @@
                               $contador = 1;
                               foreach($datos["ordenes"] as $orden)
                               { ?>
-                                <div class="tab-pane fade" id="tab<?php echo $i; ?>">
+                                <div class="tab-pane active fade in" id="tab<?php echo $i; ?>">
                                   <div class="col-md-12">
                                       <div class="row">
                                 <div class="form-group">
@@ -159,7 +160,7 @@
                                             <input id='prioridad' name='prioridad' class='form-control' placeholder='Prioridad' value ='<?php  echo $orden["prioridad"]; ?>'   readonly><br>
                                           </div>
                                           <div class='form-group  col-md-6'>
-                                            <label for='fechaCreacionOrden'><small style='color:red'></small>Fecha Creacion</label>
+                                            <label for='fechaCreacionOrden'><small style='color:red'></small>Fecha de Ingreso</label>
                                             <input id='fechaCreacionOrden' name='fechaCreacionOrden' class='form-control' placeholder='Fecha Creacion' value ='<?php  echo $orden["inicio"]; ?>'   readonly><br>
                                           </div>
 

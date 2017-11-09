@@ -21,7 +21,7 @@
 <li role="presentation" class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Identificación niñ@</a></li>
 <li role="presentation"><a href="#tab2" data-toggle="tab"><i class="icon-folder-alt m-r-xs"></i>Motivo de consulta</a></li>
 <li role="presentation"><a href="#tab3" data-toggle="tab"><i class="icon-users m-r-xs"></i>Entorno</a></li>
-<li role="presentation"><a href="#tab4" data-toggle="tab"><i class="fa fa-check m-r-xs"></i>Finalizar</a></li>
+<li role="presentation"><a href="#tab4" data-toggle="tab"><i class="fa fa-check m-r-xs"></i>Conducta</a></li>
 </ul>
 <div class="progress progress-sm m-t-sm">
 <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
@@ -211,7 +211,7 @@
                                     <input type="text" value = "{{ old('antecedentes2') }}" style="width:900px;height:100px" class="form-control" name="antecedentes2" id="antecedentes2">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="antecedentes3"><small style="color:red">*</small>¿Cómo fue el parto? </label>
+                                    <label for="antecedentes3"><small style="color:red">*</small>¿Cómo fue el parto? <small style="color:black">si no recuerda Marque 0</small></label>
                                     <input type="text" value = "{{ old('antecedentes3') }}" style="width:900px;height:100px" class="form-control" name="antecedentes3" id="antecedentes3" placeholder="(parto normal o cesárea, inducción del parto, fórceps)">
                                 </div>
                                 <div class="form-group col-md-4">
@@ -223,7 +223,7 @@
                                     <input type="text" value = "{{ old('antecedentes3talla') }}" class="form-control col-md-4" name="antecedentes3talla" id="antecedentes3talla">
                                 </div>
                                 <div class="form-group  col-md-4">
-                                    <label for="antecedentes3apgar"><small style="color:red">*</small>APGAR</label>
+                                    <label for="antecedentes3apgar"><small style="color:red">*</small>APGAR <br> </label>
                                     <input type="text" value = "{{ old('antecedentes3apgar') }}" class="form-control col-md-4" name="antecedentes3apgar" id="antecedentes3apgar">
                                 </div>
                                 <div class="form-group col-md-12">
@@ -284,12 +284,7 @@
                                     <table><thead>
                                         <tr>
                                             <th>Actividad de la vida diaria (AVD)</th>
-                                            <th><select id="AVD"  name="AVD" class="form-group col-md-12">
-                                                  <option value="solo">Solo</option>
-                                                  <option value="pocaAyuda">Con poca ayuda</option>
-                                                  <option value="muchaAyuda">Con mucha Ayuda</option>
-                                                </select>
-                                            </th>
+                                            
                                         </tr>
                                         <tr>
                                             <th>Comer</th>
@@ -428,7 +423,8 @@
                             <div class="col-md-6">
                                 <h3 class="no-s">Importante !</h3>
                                 <div class="alert alert-info m-t-sm m-b-lg" role="alert">
-                                    El equipo profesional de este servicio desarrolla un trabajo de evaluación desde un modelo transdiciplinario, tras el cual se emite un informe de evaluación conjunto y una única conclusión diagnostica. Este servicio, al requerir multiples profesionales, y por ende tiempo y espacios, tiene un costo asociado. Como apoderado del o la niñ@ a evaluar, usted se compromete a realizar un pago acorde a los servicios prestados según lo conversado con la directora Alejandra González Cavieres.
+                                    El equipo profesional de este servicio desarrolla un trabajo de evaluación desde un modelo transdiciplinario, tras el cual se emite un informe de evaluación conjunto y una única conclusión diagnostica.
+                                    <!-- Este servicio, al requerir multiples profesionales, y por ende tiempo y espacios, tiene un costo asociado. Como apoderado del o la niñ@ a evaluar, usted se compromete a realizar un pago acorde a los servicios prestados según lo conversado con la directora Alejandra González Cavieres. -->
                                     <div align="right">
                                         <P><b>ALTAVIDA</b></P>
                                         <p>Centro de Recursos <br>Lusitania 30 Miraflores Viña del Mar (32)2633320</p>
@@ -436,7 +432,7 @@
                                 </div>
 
                             </div>
-                            <div class="col-md-6"><br>
+                            <!--<div class="col-md-6"><br>
                                 <div class="form-group col-md-12">
                                     <label for="monto_pago">Monto comprometido</label>
                                     <div class="input-group m-b-sm">
@@ -445,7 +441,7 @@
                                     </div>
                                 <p><small>Este monto debe ser revisado y aceptado por el directorio del centro</small></p>
                                 </div>
-                            </div>
+                            </div>-->
                     </div>
                 </div>
             </div>
@@ -486,8 +482,8 @@
                       <li>Alejandra González Cavieres <b>Psicóloga</b></li>
                       <li>María Paz de la Maza        <b>Educadora Diferencial</b></li>
                       <li>Estefanía Guerrero          <b>Fonoaudióloga</b></li>
-                      <li>Javiera Donoso              <b>Terapeuta Ocupacional</b></li>
-                      <li>Marcela Villegas            <b>Educadora Diferencial</b></li>
+                      <li>Carla Martínez              <b>Terapeuta Ocupacional</b></li>
+                      <li>Marcela Villegas Otarola    <b>Educadora Diferencial</b></li>
                     </ul>
                     <br><br>
                     <p><small>*El Servicio de Evaluación de Altavida contempla las consideraciones técnicas otorgadas por diversos organismos internacionales respecto de buenas prácticas para el proceso de evaluación diagnóstica. Si usted gusta puede acceder al siguiente enlace en buscas de mayor información:

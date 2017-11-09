@@ -103,9 +103,9 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4" align="center"><br><br><br>
-                                <p>Se recomienta revisar los datos en 'Resumen' antes de ingresar al sistema</p>
+                                
                                     <ul class="pager wizard">
-                                        <li class="finish"><button id="finish" type="button" class="btn btn-info" data-toggle="modal" data-target="#Ingreso">Resumen</button></li>
+                                        <li class="finish"><button id="finish" type="button" class="btn btn-info" data-toggle="modal" data-target="#Ingreso">Continuar</button></li>
 
                                     </ul>
 

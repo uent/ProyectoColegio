@@ -23,11 +23,11 @@
                 Estado
               </th>
               <th>
-                Tipo evaluacion
+                Tipo Evaluación
 
               </th>
               <th>
-                Accion
+                
               </th>
 
             </tr>
@@ -53,7 +53,7 @@
           <tr>
 
       <td>";
-        echo "No asignada";
+        echo "No Asignada";
         echo
       "</td>
       <td>";
@@ -63,7 +63,7 @@
 
       <td>
     <form method='get' action='crear_cita'>
-      <input type='submit' name='action' value='asignar Cita'/>
+      <input type='submit' name='action' value='Asignar Cita'/>
       <input type='hidden' name='tipoCita' value='",$t,"'/>
       <input type='hidden' name='idOrden' value='",$Citas["datos"]["idOrden"],"'/>
     </form>
@@ -102,7 +102,7 @@
             }
             echo "</tbody>
                         </table>";
-  } else echo "No hay datos";
+  } else echo "No existen datos";
 
   echo "</tbody>
               </table>";
