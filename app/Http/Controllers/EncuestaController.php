@@ -86,7 +86,7 @@ class EncuestaController extends Controller
             'desarrollo6' => ['required', 'max:5000'],
             'desarrollo7' => ['required', 'max:5000'],
             'desarrollo8' => ['required', 'max:5000'],
-            'AVD' => ['required', 'max:5000'],
+            //'AVD' => ['required', 'max:5000'],
             'comer' => ['required', 'max:5000'],
             'vestirse' => ['required', 'max:5000'],
             'higiene' => ['required', 'max:5000'],
@@ -102,8 +102,8 @@ class EncuestaController extends Controller
             'historiaEscolar3' => ['required', 'max:5000'],
             'historiaEscolar4' => ['required', 'max:5000'],
             'historiaEscolar5' => ['required', 'max:5000'],
-            'historiaEscolar6' => ['required', 'max:5000'],
-            'monto_pago' => ['required', 'numeric']
+            'historiaEscolar6' => ['required', 'max:5000']
+            //'monto_pago' => ['required', 'numeric']
 
         ]);
 

@@ -182,7 +182,7 @@ class OrdenDiagnostico extends Model
         {
           $i = $i + $sc;
         }
-        
+
         if($i == count($statusCitas))
         {
           $orden = OrdenDiagnostico::where('idOrdenDiagnostico', $idOrden)
@@ -215,7 +215,7 @@ class OrdenDiagnostico extends Model
         //si la suma es igual a la cantidad de tipos diferentes para las citas
         //se procedera a cambiar el estado de la orden a "falta_anamnesis"
 
-        if($i == 2)
+        if($i == 5)
         {
           $orden = OrdenDiagnostico::where('idOrdenDiagnostico', $idOrden)
           ->update(['estado' => "falta_anamnesis"]);

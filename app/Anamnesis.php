@@ -65,8 +65,7 @@ class Anamnesis extends Model
                   $idOrden,$tipoEvaluacion,$desarrolloSocial,
                   $respEmocional,$refConjunta,$juego,
                   $conmunicacionLeng,$flexMental,
-                  $pensamiento,$comportamientoGnrl,$conclu,$relacion,
-                  $imitacion,$afecto,$cuerpo,$objetos)
+                  $pensamiento,$comportamientoGnrl,$conclu)
   {
     $datos = Anamnesis::select()->where('idOrden','=',$idOrden)->first();
 
@@ -85,12 +84,7 @@ class Anamnesis extends Model
     'flexMentalPsicologo'=> $flexMental ,
     'pensamientoPsicologo'=> $pensamiento ,
     'comportamientoGnrlPsicologo'=> $comportamientoGnrl ,
-    'concluPsicologo'=> $conclu ,
-    'relacionPsicologo'=> $relacion ,
-    'imitacionPsicologo'=> $imitacion ,
-    'afectoPsicologo'=> $afecto ,
-    'cuerpoPsicologo'=> $cuerpo ,
-    'objetosPsicologo'=> $objetos]);
+    'concluPsicologo'=> $conclu]);
 
   }
 

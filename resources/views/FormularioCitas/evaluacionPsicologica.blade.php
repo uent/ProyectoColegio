@@ -81,7 +81,7 @@
                           </tr>
                         </table>
 
-                        
+
                         </div>
 
                         {!! csrf_field() !!}
@@ -123,7 +123,7 @@
             },
           conclu: {
                 required: true
-            };
+            }
 
 
         }

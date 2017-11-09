@@ -80,8 +80,7 @@ class Citas extends Model
   public static function agregarReportePsicologo($idCita,
                                     $desarrolloSocial,$respEmocional,$refConjunta,$juego,
                                     $conmunicacionLeng,$flexMental,
-                                    $pensamiento,$comportamientoGnrl,$conclu,$relacion,
-                                    $imitacion,$afecto,$cuerpo,$objetos)
+                                    $pensamiento,$comportamientoGnrl,$conclu)
   {
 
       Citas::where('idCitas',"=", $idCita)->update(['estado' => "completado"]);
@@ -92,8 +91,7 @@ class Citas extends Model
                       $datoCita["idOrden"],$datoCita["tipoEvaluacion"],$desarrolloSocial,
                       $respEmocional,$refConjunta,$juego,
                       $conmunicacionLeng,$flexMental,
-                      $pensamiento,$comportamientoGnrl,$conclu,$relacion,
-                      $imitacion,$afecto,$cuerpo,$objetos);
+                      $pensamiento,$comportamientoGnrl,$conclu);
 
       OrdenDiagnostico::ActualizarEstadoPorId($datoCita["idOrden"]);
     }

@@ -211,9 +211,9 @@ class CitaController extends Controller
                                           $data["refConjunta"],$data["juego"],
                                           $data["conmunicacionLeng"],$data["flexMental"],
                                           $data["pensamiento"],$data["comportamientoGnrl"],
-                                          $data["conclu"],$data["relacion"],
-                                          $data["imitacion"],$data["afecto"],
-                                          $data["cuerpo"],$data["objetos"]);
+                                          $data["conclu"]/*$data["relacion"],*/
+                                          /*$data["imitacion"],$data["afecto"],*/
+                                        /*$data["cuerpo"],$data["objetos"]*/);
 
         return redirect()->to('Mi_menu');
       }
