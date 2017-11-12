@@ -87,7 +87,6 @@
         </td>
         <td>
         ";
-
       if($datos["profesionales"] != NULL && $datos["datos"] != NULL && $datos["disponible"] == true)
       {
         echo
@@ -99,8 +98,6 @@
           <input type='hidden' id='tipoCita' name='tipoCita' value='",$datos["datos"]["tipoCita"],"'/>
           <input type='hidden' id='idOrden' name='idOrden' value='",$datos["datos"]["idOrden"],"'/>
         </form>";
-
-
       }else echo "Imposible realizar la cita";
         echo
       "
@@ -108,7 +105,6 @@
     </tr>
         </tbody>
              </tbody>
-
     <input type='submit' style='width: 100%;
     background-color: #4CAF50;
     color: white;
@@ -119,20 +115,15 @@
     cursor: pointer' name='action' value='Asignar Cita' onClick = 'enviarDatosNuevoEvento();' />
 </table>
     <br>";
-
     if($datos["profesionales"] != NULL && $datos["datos"] != NULL)
     {
       echo "
       <div class='col-md-12'>
-
-
         <div id='calendar'></div>
-
      </div>";
     }
     echo "
   </div>";
-
  ?>
 
 @endsection

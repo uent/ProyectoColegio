@@ -1,6 +1,6 @@
 <?php
-
 namespace App\Http\Controllers;
+
 
 use Illuminate\Http\Request;
 
@@ -19,8 +19,8 @@ class CitaController extends Controller
 {
     public function PantallaAsignarCitasNino()
     {
-      $data["datos"] = request()->all();
 
+      $data["datos"] = request()->all();
       $validator=Validator::make($data["datos"], [//reglas de validacion de los campos del formulario
         'tipoCita' => ['required', 'max:30'],
         ]);
