@@ -98,6 +98,8 @@ Route::get('validarRutNinoAjax/{rutNino}', 'AjaxController@validarRutNino');//no
 Route::get('horarioProfesional/{idProfesional}', 'AjaxController@horarioProfesionalPorIdProfesional');
 Route::get('horarioNino/{idNino}', 'AjaxController@horarioNinoPorIdNino');
 Route::get('horarioRestoProfesionales/{idProfesional}', 'AjaxController@horarioProfesionalesMenosUnoPorIdProfesional');
+Route::get('horarioNinoProf/{idNino}/{idProfesional}', 'AjaxController@horarioNinoProfesional');
+
 
 //calendario Personal
 Route::get('verCalendarioProfesional', 'CalendarioController@MostrarCalendarioProfesional');

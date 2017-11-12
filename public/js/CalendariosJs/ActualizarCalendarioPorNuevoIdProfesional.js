@@ -6,13 +6,14 @@ function actualizarCalendarioPorNuevoIdProfesional (){
 
     $('#calendar').fullCalendar( 'removeEvents' ); //elimina todos los eventos en el calendario
 
-    var nuevaCita = crearNuevaCita();
+    crearNuevaCita();
 
-    actualizarEventosPorIdUsuario(idProfesional,nuevaCita); //llama al metodo actualizarEventosUsuario para actualizar el Calendario
+    //actualizarEventosPorIdUsuario(idProfesional,nuevaCita); //llama al metodo actualizarEventosUsuario para actualizar el Calendario
                                       //con los datos de la db;
-    actualizarEventosPorIdUsuario(idNino);
+    //actualizarEventosPorIdUsuario(idNino);
 
-    actualizarEventosRestoProfesionales(idProfesional);                                  
+    //actualizarEventosRestoProfesionales(idProfesional);
 
+    actualizarEventosPorIdNinoIdProfesional(idNino,idProfesional)
 
 };

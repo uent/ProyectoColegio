@@ -60,6 +60,27 @@ class AjaxController extends Controller
       {
         foreach($eventos as $e)
         {
+          if($e->tipoEvaluacion == "Fonoaudiologo")
+          {
+            $color = "#fffa00"; //amarillo fuerte
+          }
+          if($e->tipoEvaluacion == "Psicologico")
+          {
+            $color = "#002aff"; //azul fuerte
+          }
+          if($e->tipoEvaluacion == "Psicopedagogo")
+          {
+            $color = "#06ff02"; //verde fuerte
+          }
+          if($e->tipoEvaluacion == "TerapeutaOcupacional")
+          {
+            $color = "#ff01fa"; //purpura fuerte
+          }
+          if($e->tipoEvaluacion == "Administrador")
+          {
+            $color = "#727272"; //plomo fuerte
+          }
+
           //se arma un arreglo con los campos requeridos para utilizarlo en FullCalendar
           $data[] = array(
               "id"=> $e->idCitas,
@@ -67,7 +88,7 @@ class AjaxController extends Controller
               "start"=> $e->fechaInicio,
               "end"=> $e->fechaFin,
               //"url"=> $e->idCitas,
-              "color"=> 'yellow',
+              "color"=> $color,
               "startEditable"=> 0,
               "allDay"=> 0,
               "durationEditable"=> 0
@@ -183,4 +204,124 @@ class AjaxController extends Controller
 
     }
 
+
+
+    public function horarioNinoProfesional($idNino,$idProfesional)
+    {
+      $eventosNinos = Eventos::horarioNinoPorIdNino($idNino);
+
+      $i = 0;
+
+      if(count($eventosNinos))
+      {
+
+        foreach($eventosNinos as $e)
+        {
+          $i = $i + 1;
+          if($e->tipoEvaluacion == "Fonoaudiologo")
+          {
+            $color = "#fffa00"; //amarillo fuerte
+          }
+          if($e->tipoEvaluacion == "Psicologico")
+          {
+            $color = "#002aff"; //azul fuerte
+          }
+          if($e->tipoEvaluacion == "Psicopedagogo")
+          {
+            $color = "#06ff02"; //verde fuerte
+          }
+          if($e->tipoEvaluacion == "TerapeutaOcupacional")
+          {
+            $color = "#ff01fa"; //purpura fuerte
+          }
+          if($e->tipoEvaluacion == "Administrador")
+          {
+            $color = "#727272"; //plomo fuerte
+          }
+
+          //se arma un arreglo con los campos requeridos para utilizarlo en FullCalendar
+          $data[] = array(
+              "id"=> $e->idCitas,
+              "title"=> $e->tipoEvaluacion . " " . $e->nombre . " " . $e->apellidos,
+              "start"=> $e->fechaInicio,
+              "end"=> $e->fechaFin,
+              //"url"=> $e->idCitas,
+              "color"=> $color,
+              "startEditable"=> 0,
+              "allDay"=> 0,
+              "durationEditable"=> 0
+
+
+              //"url"=>"cargaEventos".$id[$i]
+              //en el campo "url" concatenamos el el URL con el id del evento para luego
+              //en el evento onclick de JS hacer referencia a este y usar el método show
+              //para mostrar los datos completos de un evento
+          );
+        }
+      }
+
+
+    $eventosProf = Eventos::todosLosEventosProfesionales();
+
+    if(count($eventosProf))
+    {
+      foreach($eventosProf as $e)
+      {
+        $flag = 1;
+        for ($j=0;$j < $i; $j = $j + 1)   // foreach($data as $d)
+        {
+          //var_dump($i);
+          if($e->idCitas == $data[$j]["id"])
+          {
+            $flag = 0;
+          }
+        }
+
+        if($flag == 1)
+        {
+
+          if($e->tipoEvaluacion == "Fonoaudiologo")
+          {
+            $color = "#fffc7c"; //amarillo suave
+          }
+          if($e->tipoEvaluacion == "Psicologico")
+          {
+            $color = "#8075ff"; //azul suave
+          }
+          if($e->tipoEvaluacion == "Psicopedagogo")
+          {
+            $color = "#74ff70"; //verde suave
+          }
+          if($e->tipoEvaluacion == "TerapeutaOcupacional")
+          {
+            $color = "#ff7aef"; //purpura suave
+          }
+          if($e->tipoEvaluacion == "Administrador")
+          {
+            $color = "#afafaf"; //plomo suave
+          }
+
+          $data[] = array(
+              "id"=> $e->idCitas,
+              "title"=> $e->tipoEvaluacion . " " . $e->nombre . " " . $e->apellidos,
+              "start"=> $e->fechaInicio,
+              "end"=> $e->fechaFin,
+              //"url"=> $e->idCitas,
+              "color"=> $color,
+              "startEditable"=> 0,
+              "allDay"=> 0,
+              "durationEditable"=> 0
+            );
+        }
+      }
+    }
+
+    if(isset($data))
+    {
+      return json_encode($data); //retorna los datos como un Json
+    }
+    else {
+      return json_encode(null);
+    }
+  }
 }

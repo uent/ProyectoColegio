@@ -7,8 +7,21 @@
         dataType: "Json",
         success: function(data) {
 
-          $('#calendar').fullCalendar( 'addEventSource', data );
+          var citasEnCalendario = $('#calendar').fullCalendar( 'clientEvents'); //este metodo retornara un arreglo con todos los eventos en el calendario
 
+          if(data != null)
+          {
+            for(i=0;i<data.length;i++)
+            {
+              for(j=0;j<citasEnCalendario.length;j++)
+              {
+                if(data[i].id != citasEnCalendario[j].id)
+                {
+                  $('#calendar').fullCalendar( 'addEventSource', data );
+                }
+              }
+            }
+          }
         },
 
         error: function(xhr, status, error) {

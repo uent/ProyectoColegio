@@ -8,7 +8,8 @@ function crearNuevaCita(){
 
   var horaFin = moment(horaTemp);
 
-  horaFin.add(1,'hours');//se agrega una hora extra para generar la hora final de la cita
+  horaInicio.add(5,'hours');
+  horaFin.add(6,'hours');//se agrega una hora extra para generar la hora final de la cita
 
   var NuevaCita = [{  //se crean los datos de la cita dentro de un arreglo de eventos
       id: "nuevaCita",
@@ -19,7 +20,10 @@ function crearNuevaCita(){
       allDay: 0,
       startEditable: 1,
       durationEditable: 1,
-      color: 'red'    }];
+      color: 'red'
+    }];
 
-    return NuevaCita;
+    $('#calendar').fullCalendar( 'addEventSource', NuevaCita );
+
+    //return NuevaCita;
 }

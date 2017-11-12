@@ -94,9 +94,23 @@
 
         <!----Calendario ---->
 
-        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+        <!--<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+
+        <link href='../fullcalendar.min.css' rel='stylesheet' />
+        <link href='../fullcalendar.print.min.css' rel='stylesheet' media='print' />
+        <script src='../lib/moment.min.js'></script>
+        <script src='../lib/jquery.min.js'></script>
+        <script src='../fullcalendar.min.js'></script>-->
+
+
+        <link href="{{url('')}}/plugins\fullcalendar/fullcalendar.min.css" rel="stylesheet"></link>
+        <link href="{{url('')}}/plugins\fullcalendar/fullcalendar.print.min.css"  rel="stylesheet" media="print"></link>
+        <script src="{{url('')}}/plugins\fullcalendar/lib/moment.min.js"></script>
+        <script src="{{url('')}}/plugins\fullcalendar/fullcalendar.min.js"></script>
+
+
+        <!--<script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>-->
+        <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>-->
 
 
 

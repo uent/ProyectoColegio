@@ -17,12 +17,15 @@ $(document).ready(function() {
         timezoneParam: 'Santiago'
     });
 
-    var NuevaCita = crearNuevaCita();
+    crearNuevaCita();
 
-    actualizarEventosPorIdUsuario(idProfesional,NuevaCita); //llama al metodo GetEventosUsuario para actualizar el Calendario
+    actualizarEventosPorIdNinoIdProfesional(idNino,idProfesional)
+
+    //actualizarEventosPorIdNino(idNino,NuevaCita);
+
+    //actualizarEventosPorIdUsuario(idProfesional); //llama al metodo GetEventosUsuario para actualizar el Calendario
                                                        //con los datos de la db;
-    actualizarEventosPorIdNino(idNino);
-
-    actualizarEventosRestoProfesionales(idProfesional);    
+    //actualizarEventosRestoProfesionales(idProfesional);
+    //actualizarEventosProfesionales();
 
 });

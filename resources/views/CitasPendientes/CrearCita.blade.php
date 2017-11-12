@@ -15,7 +15,9 @@
 <script src="{{asset('js\FuncionesAjaxCalendario\actualizarEventosPorIdNino.js')}}"></script>
 <script src="{{asset('js\FuncionesAjaxCalendario\enviarDatosNuevoEvento.js')}}"></script>
 <script src="{{asset('js\FuncionesAjaxCalendario\actualizarEventosRestoProfesionales.js')}}"></script>
+<script src="{{asset('js\FuncionesAjaxCalendario\actualizarEventosPorIdNinoIdProfesional.js')}}"></script>
 
+<script src='plugins\fullcalendar/locale/es.js'></script>
 
 
 
@@ -106,7 +108,7 @@
     </tr>
         </tbody>
              </tbody>
-                        
+
     <input type='submit' style='width: 100%;
     background-color: #4CAF50;
     color: white;
