@@ -226,16 +226,16 @@
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="antecedentes3peso"><small style="color:red">*</small>Peso</label>
-                                    <input type="text" value = "{{ old('antecedentes3peso') }}" class="form-control" name="antecedentes3peso" id="antecedentes3peso">
+                                    <input type="text" value = "{{ old('antecedentes3peso') }}" class="form-control" name="antecedentes3peso" id="antecedentes3peso" placeholder="En kilogramos  Ej: 3.6">
                                 </div>
                                 <div class="form-group  col-md-4">
                                     <label for="antecedentes3talla"><small style="color:red">*</small>Talla</label>
-                                    <input type="text" value = "{{ old('antecedentes3talla') }}" class="form-control col-md-4" name="antecedentes3talla" id="antecedentes3talla">
+                                    <input type="text" value = "{{ old('antecedentes3talla') }}" class="form-control col-md-4" name="antecedentes3talla" id="antecedentes3talla" placeholder="En centímetros Ej: 45.7">
                                 </div>
 
                                 <div class="form-group  col-md-4">
                                     <label for="antecedentes3apgar"><small style="color:red">*</small>APGAR<small style="color:black">si no recuerda marque 0</small> </label><br>
-                                    <input type="text" value = "{{ old('antecedentes3apgar') }}" class="form-control"  name="antecedentes3apgar" id="antecedentes3apgar">
+                                    <input type="text" value = "{{ old('antecedentes3apgar') }}" class="form-control"  name="antecedentes3apgar" id="antecedentes3apgar" placeholder="Ej: 9/10">
                                                                     </div>
                                 
                                 
@@ -360,27 +360,27 @@
                 <div id="1AC" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne1">
                     <div class="panel-body">
                         <div class="form-group col-md-12">
-                            <label for="ambitoConductual1">¿Cómo manifiesta sus emociones?<small>(de manera adecuada, exagerada, poco atingente al contexto)</small></label>
+                            <label for="ambitoConductual1"><small style="color:red">*</small>¿Cómo manifiesta sus emociones?<small>(de manera adecuada, exagerada, poco atingente al contexto)</small></label>
                             <input type="text" value = "{{ old('ambitoConductual1') }}" style="width:900px;height:100px" class="form-control" name="ambitoConductual1" id="ambitoConductual1">
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="ambitoConductual2">¿Cómo manifiesta la frustración? ¿Es muy irritable? ¿Hace pataletas? ¿En que momento y con quién aparecen las pataletas?</label>
+                            <label for="ambitoConductual2"><small style="color:red">*</small>¿Cómo manifiesta la frustración? ¿Es muy irritable? ¿Hace pataletas? ¿En que momento y con quién aparecen las pataletas?</label>
                             <input type="text" value = "{{ old('ambitoConductual2') }}" style="width:900px;height:100px" class="form-control" name="ambitoConductual2" id="ambitoConductual2">
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="ambitoConductual3">¿Es flexible en cuanto a actividades o tiene rutinas? <small>(ej: prefiere mantener ciertas actividades en algún orden determinado)</small>¿Cuáles?</label>
+                            <label for="ambitoConductual3"><small style="color:red">*</small>¿Es flexible en cuanto a actividades o tiene rutinas? <small>(ej: prefiere mantener ciertas actividades en algún orden determinado)</small>¿Cuáles?</label>
                             <input type="text" value = "{{ old('ambitoConductual3') }}" style="width:900px;height:100px" class="form-control" name="ambitoConductual3" id="ambitoConductual3">
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="ambitoConductual4">¿Tiene intereses claros por algunos objetos o actividades? ¿Reitera en ellos de manera normal o exagerada?</label>
+                            <label for="ambitoConductual4"><small style="color:red">*</small>¿Tiene intereses claros por algunos objetos o actividades? ¿Reitera en ellos de manera normal o exagerada?</label>
                             <input type="text" value = "{{ old('ambitoConductual4') }}" style="width:900px;height:100px" class="form-control" name="ambitoConductual4" id="ambitoConductual4">
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="ambitoConductual5">¿Tiene miedos muy intensos? ¿Cuáles?</label>
+                            <label for="ambitoConductual5"><small style="color:red">*</small>¿Tiene miedos muy intensos? ¿Cuáles?</label>
                             <input type="text" value = "{{ old('ambitoConductual5') }}" style="width:900px;height:100px" class="form-control" name="ambitoConductual5" id="ambitoConductual5">
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="ambitoConductual6">¿Cómo son sus hábitos de sueños?</label>
+                            <label for="ambitoConductual6"><small style="color:red">*</small>¿Cómo son sus hábitos de sueños?</label>
                             <input type="text" value = "{{ old('ambitoConductual6') }}" style="width:900px;height:100px" class="form-control" name="ambitoConductual6" id="ambitoConductual6">
                         </div>
 
@@ -398,27 +398,27 @@
                 <div id="2AC" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo2">
                     <div class="panel-body">
                         <div class="form-group col-md-12">
-                            <label for="historiaEscolar1">Inicio de escolaridad<small>(año y establecimiento)</small></label>
+                            <label for="historiaEscolar1"><small style="color:red">*</small>Inicio de escolaridad<small>(año y establecimiento)</small></label>
                             <input type="text" value = "{{ old('historiaEscolar1') }}" style="width:900px;height:100px" class="form-control" name="historiaEscolar1" id="historiaEscolar1">
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="historiaEscolar2">Otros establecimientos posteriores<small>(año y lugar)</small></label>
+                            <label for="historiaEscolar2"><small style="color:red">*</small>Otros establecimientos posteriores<small>(año y lugar)</small></label>
                             <input type="text" value = "{{ old('historiaEscolar2') }}" style="width:900px;height:100px" class="form-control" name="historiaEscolar2" id="historiaEscolar2">
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="historiaEscolar3">Establecimiento Actual</label>
+                            <label for="historiaEscolar3"><small style="color:red">*</small>Establecimiento Actual</label>
                             <input type="text" value = "{{ old('historiaEscolar3') }}" style="width:900px;height:100px" class="form-control" name="historiaEscolar3" id="historiaEscolar3">
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="historiaEscolar4">Nivel/Curso Actual</label>
+                            <label for="historiaEscolar4"><small style="color:red">*</small>Nivel/Curso Actual</label>
                             <input type="text" value = "{{ old('historiaEscolar4') }}" style="width:900px;height:100px" class="form-control" name="historiaEscolar4" id="historiaEscolar4">
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="historiaEscolar5">Repitencias</label>
+                            <label for="historiaEscolar5"><small style="color:red">*</small>Repitencias</label>
                             <input type="text" value = "{{ old('historiaEscolar5') }}" style="width:900px;height:100px" class="form-control" name="historiaEscolar5" id="historiaEscolar5">
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="historiaEscolar6">Comentarios, observaciones o inquietudes que quiera manifestar?</label>
+                            <label for="historiaEscolar6"><small style="color:red">*</small>Comentarios, observaciones o inquietudes que quiera manifestar?</label>
                             <input type="text" value = "{{ old('historiaEscolar6') }}" style="width:900px;height:100px" class="form-control" name="historiaEscolar6" id="historiaEscolar6">
                         </div>
                     </div>
@@ -438,7 +438,7 @@
                                 <h3 class="no-s">Importante !</h3>
                                 <div class="alert alert-info m-t-sm m-b-lg" role="alert">
                                     El equipo profesional de este servicio desarrolla un trabajo de evaluación desde un modelo transdiciplinario, tras el cual se emite un informe de evaluación conjunto y una única conclusión diagnostica.
-                                    <!-- Este servicio, al requerir multiples profesionales, y por ende tiempo y espacios, tiene un costo asociado. Como apoderado del o la niñ@ a evaluar, usted se compromete a realizar un pago acorde a los servicios prestados según lo conversado con la directora Alejandra González Cavieres. -->
+                                    Este servicio, al requerir multiples profesionales, y por ende tiempo y espacios, tiene un costo asociado. Como apoderado del o la niñ@ a evaluar, usted se compromete a realizar un pago acorde a los servicios prestados según lo conversado con la directora Alejandra González Cavieres.
                                     <div align="right">
                                         <P><b>ALTAVIDA</b></P>
                                         <p>Centro de Recursos <br>Lusitania 30 Miraflores Viña del Mar (32)2633320</p>
@@ -446,16 +446,16 @@
                                 </div>
 
                             </div>
-                            <!--<div class="col-md-6"><br>
+                            <div class="col-md-6"><br>
                                 <div class="form-group col-md-12">
-                                    <label for="monto_pago">Monto comprometido</label>
+                                    <label for="monto_pago"><small style="color:red">*</small>Monto comprometido</label>
                                     <div class="input-group m-b-sm">
                                         <span class="input-group-addon">$</span>
                                         <input type="text" class="form-control" value = "{{ old('monto_pago') }}" name="monto_pago" id="monto_pago">
                                     </div>
                                 <p><small>Este monto debe ser revisado y aceptado por el directorio del centro</small></p>
                                 </div>
-                            </div>-->
+                            </div>
                     </div>
                 </div>
             </div>

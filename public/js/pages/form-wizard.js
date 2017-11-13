@@ -109,6 +109,42 @@ $(document).ready(function() {
                 number: false
                 
             },
+            ambitoConductual1:{
+                required: true
+            },
+            ambitoConductual2:{
+                required: true
+            },
+            ambitoConductual3:{
+                required: true
+            },
+            ambitoConductual4:{
+                required: true
+            },
+            ambitoConductual5:{
+                required: true
+            },
+            ambitoConductual6:{
+                required: true
+            },
+            historiaEscolar1:{
+                required: true
+            },
+            historiaEscolar2:{
+                required: true
+            },
+            historiaEscolar3:{
+                required: true
+            },
+            historiaEscolar4:{
+                required: true
+            },
+            historiaEscolar5:{
+                required: true
+            },
+            historiaEscolar6:{
+                required: true
+            },
             antecedentes4: {
                 required: true
             },
@@ -186,6 +222,9 @@ $(document).ready(function() {
 		    exampleInputCsv: {
                 required: true,
                 number: true
+            },
+            monto_pago: {
+                required: true
             }
         }
     });
