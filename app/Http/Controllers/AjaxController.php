@@ -166,11 +166,21 @@ class AjaxController extends Controller
 
         $now = time();
         $target = strtotime($data["inicio"]);
-        $diff = $target - $now;
+        $diff1 = $target - $now;
 
-      if($diff <= 0)
+        $citaLejana = Citas::citaMasLejanaPorIdOrden($data["idOrden"]);
+
+        $diff2 = $target - strtotime($citaLejana["fechaFin"]) ;
+
+      if($diff1 < 0)
       {
         return redirect()->back()->withInput( $msg_params = array('msg_error' => 'Debe seleccionar una fecha posterior a la actual'));
+      }
+      elseif($data["tipoCita"] == "MultiDisciplinario" && $diff2 < 0)
+      {
+        //echo $diff2;
+        //echo strtotime($citaLejana["fechaFin"]);
+        return redirect()->back()->withInput( $msg_params = array('msg_error' => 'Debe seleccionar una fecha posterior a la ultima cita asignada a este niño'));
       }
       else
       {
@@ -300,7 +310,7 @@ class AjaxController extends Controller
           {
             $color = "#ff7aef"; //purpura suave
           }
-          if($e->tipoEvaluacion == "Administrador")
+          if($e->tipoEvaluacion == "MultiDisciplinario")
           {
             $color = "#afafaf"; //plomo suave
           }

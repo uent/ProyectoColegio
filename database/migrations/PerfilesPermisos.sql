@@ -296,6 +296,7 @@ FROM Permiso
 InnER JOIn Perfil
 where  Permiso.nombrePermiso = "MostrarCalendarioProfesional" and Perfil.nombrePerfil ="Administrador";
 
+
 InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
 VALUES ("12789","AdminNombre","AdminApellido","adminmail@gmail.com",
   "$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe","Administrador",now(),now());

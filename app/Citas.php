@@ -145,7 +145,7 @@ class Citas extends Model
       OrdenDiagnostico::ActualizarEstadoPorId($datoCita["idOrden"]);
   }
 
-  public static function AgregarReporteMultiDisciplinario($idCita,$imitacion,$afecto,$cuerpo,$objetos,
+  public static function AgregarReporteMultiDisciplinario($idCita,$imitacion,$afecto,$cuerpo,$objetos,$relacion,
                             $adaptacion,$respVisual,$respAuditiva,$gustoOlfatoTacto,$ansiedadMiedo,$comunicVerbal,
                             $comunicNoVerbal,$nivelAct,$respIntelectual,$impresGnrl,$total,$motivoDeEvaluacion,
                             $sugerencias,$antecedentesRelevantes,$conclusiones)
@@ -157,7 +157,7 @@ class Citas extends Model
 
       Anamnesis::ActualizarReporteMultiDisciplinarioPorIdOrden(
                       $datoCita["idOrden"],$datoCita["tipoEvaluacion"],
-                      $imitacion,$afecto,$cuerpo,$objetos,
+                      $imitacion,$afecto,$cuerpo,$objetos,$relacion,
                       $adaptacion,$respVisual,$respAuditiva,$gustoOlfatoTacto,$ansiedadMiedo,$comunicVerbal,
                       $comunicNoVerbal,$nivelAct,$respIntelectual,$impresGnrl,$total,$motivoDeEvaluacion,
                       $sugerencias,$antecedentesRelevantes,$conclusiones);
@@ -183,5 +183,10 @@ class Citas extends Model
   public static function todosLosEventosProfesionales()
   {
     return Citas::select()->get();
+  }
+
+  public static function citaMasLejanaPorIdOrden($idOrden)
+  {
+    return Citas::select()->where('idOrden' ,"=", $idOrden)->orderBy('fechaFin', 'desc')->first();
   }
 }

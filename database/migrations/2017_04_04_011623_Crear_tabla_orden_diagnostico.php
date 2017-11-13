@@ -63,7 +63,7 @@ class CrearTablaOrdenDiagnostico extends Migration
             $table->text('textoParto')->nullable();
             $table->tinyInteger('peso')->nullable();
             $table->tinyInteger('talla')->nullable();
-            $table->tinyInteger('apgar')->nullable();
+            $table->text('apgar')->nullable();
             $table->text('textopPrimerAñoVida')->nullable();
             $table->text('enfermedadesRelevantes')->nullable();
 

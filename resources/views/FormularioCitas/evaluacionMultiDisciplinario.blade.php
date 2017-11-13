@@ -47,83 +47,83 @@
                         <td>4</td>
                         <td>
 
-                        <input type="number" min="1" max="4" step="0.5" name="relacion" id="relacion" value = '{{ old('relacionPsicologo' , $datos["datosInformes"]->relacionPsicologo) }}'></td>
+                        <input type="number" min="1" max="4" step="0.5" name="relacion" id="relacion" value = '{{ old('relacion' , $datos["datosInformes"]->relacionMultiDisiplinario) }}'></td>
                       </tr>
                       <tr>
                         <td>Imitación</td>
                         <td>4</td>
-                        <td><input type="number" min="1" max="4" step="0.5" name="imitacion" id="imitacion" value = '{{ old('imitacionPsicologo' , $datos["datosInformes"]->imitacionPsicologo) }}'></td>
+                        <td><input type="number" min="1" max="4" step="0.5" name="imitacion" id="imitacion" value = '{{ old('imitacion' , $datos["datosInformes"]->imitacionMultiDisiplinario) }}'></td>
                       </tr>
                       <tr>
                         <td>afecto</td>
                         <td>4</td>
-                        <td><input type="number" min="1" max="4" step="0.5" name="afecto" id="afecto" value = '{{ old('afectoPsicologo' , $datos["datosInformes"]->afectoPsicologo) }}'></td>
+                        <td><input type="number" min="1" max="4" step="0.5" name="afecto" id="afecto" value = '{{ old('afecto' , $datos["datosInformes"]->afectoMultiDisiplinario) }}'></td>
                       </tr>
                       <tr>
                         <td>Uso del Cuerpo</td>
                         <td>4</td>
-                        <td><input type="number" min="1" max="4" step="0.5" name="cuerpo" id="cuerpo" value = '{{ old('cuerpoPsicologo' , $datos["datosInformes"]->cuerpoPsicologo) }}'></td>
+                        <td><input type="number" min="1" max="4" step="0.5" name="cuerpo" id="cuerpo" value = '{{ old('cuerpo' , $datos["datosInformes"]->cuerpoMultiDisiplinario) }}'></td>
                       </tr>
                       <tr>
                         <td>Uso de Objetos</td>
                         <td>4</td>
-                        <td><input type="number" min="1" max="4" step="0.5" name="objetos" id="objetos" value = '{{ old('objetosPsicologo' , $datos["datosInformes"]->objetosPsicologo) }}'></td>
+                        <td><input type="number" min="1" max="4" step="0.5" name="objetos" id="objetos" value = '{{ old('objetos' , $datos["datosInformes"]->objetosMultiDisiplinario) }}'></td>
                       </tr>
                       <tr>
                         <td>Adaptación a Cambios</td>
                         <td>4</td>
-                        <td><input type="number" min="1" max="4" step="0.5" name="adaptacion" id="adaptacion" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
+                        <td><input type="number" min="1" max="4" step="0.5" name="adaptacion" id="adaptacion" value = '{{ old('adaptacion' , $datos["datosInformes"]->adaptacionMultiDisiplinario) }}'></td>
                       </tr>
                       <tr>
                         <td>Respuesta Visual</td>
                         <td>4</td>
-                        <td><input type="number" min="1" max="4" step="0.5" name="respVisual" id="respVisual" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
+                        <td><input type="number" min="1" max="4" step="0.5" name="respVisual" id="respVisual" value = '{{ old('respVisual' , $datos["datosInformes"]->respVisualMultiDisiplinario) }}'></td>
                       </tr>
                       <tr>
                         <td>Respuesta Auditiva</td>
                         <td>4</td>
-                        <td><input type="number" min="1" max="4" step="0.5" name="respAuditiva" id="respAuditiva" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
+                        <td><input type="number" min="1" max="4" step="0.5" name="respAuditiva" id="respAuditiva" value = '{{ old('respAuditiva' , $datos["datosInformes"]->respAuditivaMultiDisiplinario) }}'></td>
                       </tr>
                       <tr>
                         <td>Gusto, Olfato y respuesta táctil</td>
                         <td>4</td>
-                        <td><input type="number" min="1" max="4" step="0.5" name="gustoOlfatoTacto" id="gustoOlfatoTacto" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
+                        <td><input type="number" min="1" max="4" step="0.5" name="gustoOlfatoTacto" id="gustoOlfatoTacto" value = '{{ old('gustoOlfatoTacto' , $datos["datosInformes"]->gustoOlfatoTactoMultiDisiplinario) }}'></td>
                       </tr>
                       <tr>
-                        <td>Ansiedad y Mierdo</td>
+                        <td>Ansiedad y Miedo</td>
                         <td>4</td>
-                        <td><input type="number" min="1" max="4" step="0.5" name="ansiedadMiedo" id="ansiedadMiedo" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
+                        <td><input type="number" min="1" max="4" step="0.5" name="ansiedadMiedo" id="ansiedadMiedo" value = '{{ old('ansiedadMiedo' , $datos["datosInformes"]->ansiedadMiedoMultiDisiplinario) }}'></td>
                       </tr>
                       <tr>
                         <td>Comunicación Verbal</td>
                         <td>4</td>
-                        <td><input type="number" min="1" max="4" step="0.5" name="comunicVerbal" id="comunicVerbal" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
+                        <td><input type="number" min="1" max="4" step="0.5" name="comunicVerbal" id="comunicVerbal" value = '{{ old('comunicVerbal' , $datos["datosInformes"]->comunicVerbalMultiDisiplinario) }}'></td>
                       </tr>
                       <tr>
                         <td>Comunicación No Verbal</td>
                         <td>4</td>
-                        <td><input type="number" min="1" max="4" step="0.5" name="comunicNoVerbal" id="comunicNoVerbal" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
+                        <td><input type="number" min="1" max="4" step="0.5" name="comunicNoVerbal" id="comunicNoVerbal" value = '{{ old('comunicNoVerbal' , $datos["datosInformes"]->comunicNoVerbalMultiDisiplinario) }}'></td>
                       </tr>
                       <tr>
                         <td>Nivel de Actividad</td>
                         <td>4</td>
-                        <td><input type="number" min="1" max="4" step="0.5" name="nivelAct" id="nivelAct" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
+                        <td><input type="number" min="1" max="4" step="0.5" name="nivelAct" id="nivelAct" value = '{{ old('nivelAct' , $datos["datosInformes"]->nivelActMultiDisiplinario) }}'></td>
                       </tr>
                       <tr>
                         <td>Respuesta Intelectual</td>
                         <td>4</td>
-                        <td><input type="number" min="1" max="4" step="0.5" name="respIntelectual" id="respIntelectual" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
+                        <td><input type="number" min="1" max="4" step="0.5" name="respIntelectual" id="respIntelectual" value = '{{ old('respIntelectual' , $datos["datosInformes"]->respIntelectualMultiDisiplinario) }}'></td>
                       </tr>
                       <tr>
                         <td>Impresiones Generales</td>
                         <td>4</td>
-                        <td><input type="number" min="1" max="4" step="0.5" name="impresGnrl" id="impresGnrl" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
+                        <td><input type="number" min="1" max="4" step="0.5" name="impresGnrl" id="impresGnrl" value = '{{ old('impresGnrl' , $datos["datosInformes"]->impresGnrlMultiDisiplinario) }}'></td>
                       </tr>
                       <tr>
                         <td><b>Total</b></td>
                         <td>60</td>
-                        <td><input type="number" step="0.5" name="total" id="total" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
-                        
+                        <td><input type="number" step="0.5" name="total" id="total" value = '{{ old('total' , $datos["datosInformes"]->totalMultiDisiplinario) }}'></td>
+
                       </tr>
 
                     </table>
@@ -134,22 +134,22 @@
                         <table class="table table-bordered">
                         <tr>
                           <td>Motivo de evaluación</td>
-                          <td ><textarea rows="10" cols="64" id="motivoDeEvaluacion" name="motivoDeEvaluacion">{{old('motivoDeEvaluacion' , $datos["datosInformes"]->motivoDeEvaluacion)}}</textarea></td>
+                          <td ><textarea rows="10" cols="64" id="motivoDeEvaluacion" name="motivoDeEvaluacion">{{old('motivoDeEvaluacion' , $datos["datosInformes"]->motivoDeEvaluacionMultiDisiplinario)}}</textarea></td>
                         </tr>
                       <tr>
                         <td>Antecedentes relevantes</td>
-                        <td ><textarea rows="10" cols="64" id="antecedentesRelevantes" name="antecedentesRelevantes">{{old('antecedentesRelevantes' , $datos["datosInformes"]->antecedentesRelevantes)}}</textarea></td>
+                        <td ><textarea rows="10" cols="64" id="antecedentesRelevantes" name="antecedentesRelevantes">{{old('antecedentesRelevantes' , $datos["datosInformes"]->antecedentesRelevantesMultiDisiplinario)}}</textarea></td>
                       </tr>
 
                       <tr>
                           <td>Conclusiones </td>
-                          <td><textarea rows="10" cols="64" id="conclusiones" name="conclusiones">{{old('conclusiones' , $datos["datosInformes"]->conclusionesFonoaudiologo)}}</textarea></td>
+                          <td><textarea rows="10" cols="64" id="conclusiones" name="conclusiones">{{old('conclusiones' , $datos["datosInformes"]->conclusionesMultiDisiplinario)}}</textarea></td>
                         </tr>
 
                         <tr>
 
                           <td>Sugerencias</td>
-                          <td ><textarea rows="10" cols="64" id="sugerencias" name="sugerencias">{{old('sugerencias' , $datos["datosInformes"]->sugerenciasFonoaudiologo)}}</textarea></td>
+                          <td ><textarea rows="10" cols="64" id="sugerencias" name="sugerencias">{{old('sugerencias' , $datos["datosInformes"]->sugerenciasMultiDisiplinario)}}</textarea></td>
 
                         </tr>
 
@@ -199,23 +199,23 @@
   function sumar()
     {
       alert("shdiahsodjapsd");
-      total=  document.getElementById("relacion").value 
-            + document.getElementById("imitacion").value 
-            + document.getElementById("afecto").value 
-            + document.getElementById("cuerpo").value 
-            + document.getElementById("objetos").value 
-            + document.getElementById("adaptacion").value 
+      total=  document.getElementById("relacion").value
+            + document.getElementById("imitacion").value
+            + document.getElementById("afecto").value
+            + document.getElementById("cuerpo").value
+            + document.getElementById("objetos").value
+            + document.getElementById("adaptacion").value
             + document.getElementById("respVisual").value
-            + document.getElementById("respAuditiva").value 
-            + document.getElementById("gustoOlfatoTacto").value 
-            + document.getElementById("ansiedadMiedo").value 
-            + document.getElementById("comunicVerbal").value 
-            + document.getElementById("comunicNoVerbal").value 
-            + document.getElementById("nivelAct").value 
-            + document.getElementById("respIntelectual").value 
+            + document.getElementById("respAuditiva").value
+            + document.getElementById("gustoOlfatoTacto").value
+            + document.getElementById("ansiedadMiedo").value
+            + document.getElementById("comunicVerbal").value
+            + document.getElementById("comunicNoVerbal").value
+            + document.getElementById("nivelAct").value
+            + document.getElementById("respIntelectual").value
             + document.getElementById("impresGnrl").value;
             document.getElementById("total").innerHTML = total;
-            
+
     };
 
 </script>

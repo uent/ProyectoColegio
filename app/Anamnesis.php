@@ -151,7 +151,7 @@ class Anamnesis extends Model
 
   public static  function ActualizarReporteMultiDisciplinarioPorIdOrden(
                   $idOrden,$tipoEvaluacion,
-                  $imitacion,$afecto,$cuerpo,$objetos,
+                  $imitacion,$afecto,$cuerpo,$objetos,$relacion,
                   $adaptacion,$respVisual,$respAuditiva,$gustoOlfatoTacto,$ansiedadMiedo,$comunicVerbal,
                   $comunicNoVerbal,$nivelAct,$respIntelectual,$impresGnrl,$total,$motivoDeEvaluacion,
                   $sugerencias,$antecedentesRelevantes,$conclusiones)
@@ -167,6 +167,7 @@ class Anamnesis extends Model
     ->update([
 
       'imitacionMultiDisiplinario'=> $imitacion,
+      'relacionMultiDisiplinario'=> $relacion,
       'afectoMultiDisiplinario'=> $afecto,
       'cuerpoMultiDisiplinario'=> $cuerpo,
       'objetosMultiDisiplinario'=> $objetos,

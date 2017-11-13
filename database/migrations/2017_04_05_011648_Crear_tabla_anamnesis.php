@@ -37,11 +37,7 @@ class CrearTablaAnamnesis extends Migration
             $table->text('pensamientoPsicologo')->nullable();
             $table->text('comportamientoGnrlPsicologo')->nullable();
             $table->text('concluPsicologo')->nullable();
-            $table->text('relacionPsicologo')->nullable();
-            $table->text('imitacionPsicologo')->nullable();
-            $table->text('afectoPsicologo')->nullable();
-            $table->text('cuerpoPsicologo')->nullable();
-            $table->text('objetosPsicologo')->nullable();
+
 
             //datos Terapista ocupacional
             $table->text('coordinacionObsTerapeutaOcupacional')->nullable();
@@ -67,6 +63,7 @@ class CrearTablaAnamnesis extends Migration
 
             //MultiDisciplinario
 
+            $table->text('relacionMultiDisiplinario')->nullable();
             $table->text('imitacionMultiDisiplinario')->nullable();
             $table->text('afectoMultiDisiplinario')->nullable();
             $table->text('cuerpoMultiDisiplinario')->nullable();
@@ -86,7 +83,6 @@ class CrearTablaAnamnesis extends Migration
             $table->text('sugerenciasMultiDisiplinario')->nullable();
             $table->text('antecedentesRelevantesMultiDisiplinario')->nullable();
             $table->text('conclusionesMultiDisiplinario')->nullable();
-            
 
             $table->timestamps();
 

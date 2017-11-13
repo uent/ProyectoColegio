@@ -56,14 +56,15 @@ class CitaController extends Controller
 
     }
 
-    public function InsertarCita()
+    /*public function InsertarCita()
     {
       $data = request()->all();
 
       $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
         'dia' => ['required', 'max:30'],
         'tipoCita' => ['required', 'max:30'],
-        'hora' => ['required', 'max:30'],
+        'inicio' => ['required', 'max:50'],
+        'fin' => ['required', 'max:50'],
         'comentarios' => ['nullable', 'max:400'],
         ]);
         if ($validator->fails())
@@ -88,7 +89,7 @@ class CitaController extends Controller
 
       return redirect()->to('Mi_menu');
 
-    }
+    }*/
 
     public function CitasPendientesPorUsuarioActual()
     {
@@ -300,6 +301,7 @@ class CitaController extends Controller
      {
        Citas::AgregarReporteMultiDisciplinario(
                                 $data["idCita"],
+                                $data["relacion"],
                                 $data["imitacion"],
                                 $data["afecto"],
                                 $data["cuerpo"],
