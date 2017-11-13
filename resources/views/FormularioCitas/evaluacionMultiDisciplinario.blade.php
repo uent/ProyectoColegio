@@ -90,7 +90,7 @@
                         <td><input type="number" min="1" max="4" step="0.5" name="gustoOlfatoTacto" id="gustoOlfatoTacto" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
                       </tr>
                       <tr>
-                        <td>Ansiedad y Mierdo</td>
+                        <td>Ansiedad y Miedo</td>
                         <td>4</td>
                         <td><input type="number" min="1" max="4" step="0.5" name="ansiedadMiedo" id="ansiedadMiedo" value = '{{ old('c' , $datos["datosInformes"]->co) }}'></td>
                       </tr>

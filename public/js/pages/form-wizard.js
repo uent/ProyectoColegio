@@ -5,12 +5,23 @@ $(document).ready(function() {
             inputNombre: {
                 required: true
             },
+            inputEscolaridad: {
+                required: true
+            },
 
-            
             inputApellido: {
                 required: true
 		    },
             inputRut: {
+                required: true
+            },
+            inputNombrePadre: {
+                required: true
+            },
+            inputNombreMadre: {
+                required: true
+            },
+            inputDireccion: {
                 required: true
             },
             InputNac: {
@@ -18,11 +29,11 @@ $(document).ready(function() {
                 date: true
             },
             inputCantHrmns: {
-                required: false,
+                required: true,
                 number: true
             },
             inputLugarHrmns: {
-                required: false
+                required: true
             },
 
             inputTelefono: {
@@ -95,7 +106,8 @@ $(document).ready(function() {
             },
             antecedentes3apgar: {
                 required: true,
-                number: true
+                number: false
+                
             },
             antecedentes4: {
                 required: true
@@ -130,6 +142,9 @@ $(document).ready(function() {
                 required: true
             },
             desarrollo8: {
+                required: true
+            },
+            habitosAlimenticios: {
                 required: true
             },
             monto_pago: {
