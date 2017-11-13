@@ -29,9 +29,9 @@ class HomeController extends Controller
 
     public function composer()
     {
-      echo "hola1";
+      //echo "hola1";
       shell_exec('composer update');
       Artisan::call('optimize');
-      echo "hola2";
+      //echo "hola2";
     }
 }
