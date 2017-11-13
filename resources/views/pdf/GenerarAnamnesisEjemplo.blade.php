@@ -12,7 +12,7 @@
 <br><hr/>
 
 <div id="Cabecera" align="center">
-	<h3>INFORME DE EVALUACIÓN</h3>
+	<h3>INFORME DE EVALasfgyskufalishUACIÓN</h3>
 </div>
 <br>
 <div id="identificacionNino">

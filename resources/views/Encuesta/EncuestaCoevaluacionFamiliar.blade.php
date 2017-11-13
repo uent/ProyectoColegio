@@ -3,7 +3,7 @@
 
 
 
-@section('nombrePagina')
+@section('nombrePagina') 
   Ingreso | Coevaluación
 @endsection
 
@@ -17,7 +17,7 @@
 <div class="panel panel-white">
 <div class="panel-body">
 <div id="rootwizard">
-<ul class="nav nav-tabs" role="tablist">
+<ul class="nav nav-tabs" >
 <li role="presentation" class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Identificación niñ@</a></li>
 <li role="presentation"><a href="#tab2" data-toggle="tab"><i class="icon-folder-alt m-r-xs"></i>Motivo de consulta</a></li>
 <li role="presentation"><a href="#tab3" data-toggle="tab"><i class="icon-users m-r-xs"></i>Entorno</a></li>
@@ -55,28 +55,38 @@
                     <label for="inputRut"><small style="color:red">*</small>RUT de niño/a</label>
                     <input type="text" class="form-control" name="inputRut" id="inputRut" value=<?php echo $datos["rutNino"]; ?> readonly>
                 </div>
+                <div class="form-group  col-md-12">
+                                    <label for="antecedentes3apgar">Prvisión de Salud</label>
+                                    <select id="prvision" name="prvision" class="form-group col-md-12">
+                                                  <option value="fonasa">Fonasa</option>
+                                                  <option value="isapre">Isapre</option>
+                                                  <option value="isapre">Ninguno</option>
+                                    
+                                                </select>
+                                    
+                                </div>
 
                 <div class="form-group col-md-12">
-                    <label for="inputEscolaridad">Escolaridad de niño/a</label>
+                    <label for="inputEscolaridad"><small style="color:red">*</small>Escolaridad de niño/a</label>
                     <input type="text" class="form-control" value = "{{ old('inputEscolaridad') }}" name="inputEscolaridad" id="inputEscolaridad"   placeholder="Jardín o Colegio / Nivel o Curso">
                 </div><div class="form-group col-md-12">
-                    <label for="inputCantHrmns">Número de hermanos</label>
+                    <label for="inputCantHrmns"><small style="color:red">*</small>Número de hermanos</label>
                     <input type="text" class="form-control" value = "{{ old('inputCantHrmns') }}" name="inputCantHrmns" id="inputCantHrmns" placeholder="Total considerando a su hijo en evaluación">
                 </div>
                 <div class="form-group col-md-12">
-                    <label for="inputLugarHrmns">Lugar que ocupa entre los hermanos</label>
+                    <label for="inputLugarHrmns"><small style="color:red">*</small>Lugar que ocupa entre los hermanos</label>
                     <input type="text" class="form-control" value = "{{ old('inputLugarHrmns') }}" name="inputLugarHrmns" id="inputLugarHrmns" placeholder="(primero, segundo, etc)">
                 </div>
                 <div class="form-group col-md-12">
-                    <label for="inputNombrePadre">Nombre del padre</label>
+                    <label for="inputNombrePadre"><small style="color:red">*</small>Nombre del padre</label>
                     <input type="text" class="form-control" value = "{{ old('inputNombrePadre') }}" name="inputNombrePadre" id="inputNombrePadre">
                 </div>
                 <div class="form-group col-md-12">
-                    <label for="inputNombreMadre">Nombre de la madre</label>
+                    <label for="inputNombreMadre"><small style="color:red">*</small>Nombre de la madre</label>
                     <input type="text" class="form-control" value = "{{ old('inputNombreMadre') }}" name="inputNombreMadre" id="inputNombreMadre">
                 </div>
                 <div class="form-group col-md-12">
-                    <label for="inputDireccion">Dirección</label>
+                    <label for="inputDireccion"><small style="color:red">*</small>Dirección</label>
                     <input type="text" class="form-control" value = "{{ old('inputDireccion') }}" name="inputDireccion" id="inputDireccion">
                 </div>
                 <div class="form-group col-md-12">
@@ -88,8 +98,8 @@
                     <input type="email" class="form-control"  name="exampleInputEmail" id="exampleInputEmail" value=<?php echo $datos["emailTutor"] ?> readonly>
                 </div>
                 <div class="form-group col-md-12">
-                    <label for="inputNombreTutor">Nombre de quien completa la ficha</label>
-                    <input type="text" class="form-control"  name="inputNombreTutor" id="inputNombreTutor" value=<?php echo ($datos["nombreTutor"] .  ' ' . $datos["apellidosTutor"]); ?> readonly>
+                    <label for="inputNombreCompletaFicha">Nombre de quien completa la ficha</label>
+                    <input type="text" class="form-control"  name="inputNombreCompletaFicha" id="inputNombreCompletaFicha" value=<?php echo ($datos["nombreTutor"] .  ' ' . $datos["apellidosTutor"]); ?> >
                 </div>
 
                 <div class="form-group col-md-12">
@@ -200,7 +210,7 @@
                                 </a>
                             </h4>
                         </div>
-                        <div id="2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo2">
+                        <div id="2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo2">
                             <div class="panel-body">
                                 <div class="form-group col-md-12">
                                     <label for="antecedentes1"><small style="color:red">*</small>¿Cómo fue el desarrollo del embarazo?</label>
@@ -211,7 +221,7 @@
                                     <input type="text" value = "{{ old('antecedentes2') }}" style="width:900px;height:100px" class="form-control" name="antecedentes2" id="antecedentes2">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="antecedentes3"><small style="color:red">*</small>¿Cómo fue el parto? <small style="color:black">si no recuerda Marque 0</small></label>
+                                    <label for="antecedentes3"><small style="color:red">*</small>¿Cómo fue el parto? 
                                     <input type="text" value = "{{ old('antecedentes3') }}" style="width:900px;height:100px" class="form-control" name="antecedentes3" id="antecedentes3" placeholder="(parto normal o cesárea, inducción del parto, fórceps)">
                                 </div>
                                 <div class="form-group col-md-4">
@@ -222,10 +232,14 @@
                                     <label for="antecedentes3talla"><small style="color:red">*</small>Talla</label>
                                     <input type="text" value = "{{ old('antecedentes3talla') }}" class="form-control col-md-4" name="antecedentes3talla" id="antecedentes3talla">
                                 </div>
+
                                 <div class="form-group  col-md-4">
-                                    <label for="antecedentes3apgar"><small style="color:red">*</small>APGAR <br> </label>
-                                    <input type="text" value = "{{ old('antecedentes3apgar') }}" class="form-control col-md-4" name="antecedentes3apgar" id="antecedentes3apgar">
-                                </div>
+                                    <label for="antecedentes3apgar"><small style="color:red">*</small>APGAR<small style="color:black">si no recuerda marque 0</small> </label><br>
+                                    <input type="text" value = "{{ old('antecedentes3apgar') }}" class="form-control"  name="antecedentes3apgar" id="antecedentes3apgar">
+                                                                    </div>
+                                
+                                
+
                                 <div class="form-group col-md-12">
                                     <label for="antecedentes4"><small style="color:red">*</small>¿Cómo transcurrió el primer año de vida de su hijo/a?  </label>
                                     <input type="text" value = "{{ old('antecedentes4') }}" style="width:900px;height:100px" class="form-control" name="antecedentes4" id="antecedentes4" placeholder="(datos relevantes, salud, medicamentos)">
@@ -245,42 +259,42 @@
                                 </a>
                             </h4>
                         </div>
-                        <div id="3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree3">
+                        <div id="3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree3">
                             <div class="panel-body">
                                 <div class="form-group col-md-12">
-                                    <label for="desarrollo1">Marcha, edad de adquisición y posterior evolución.</label>
+                                    <label for="desarrollo1"><small style="color:red">*</small>Marcha, edad de adquisición y posterior evolución.</label>
                                     <input type="text" value = "{{ old('desarrollo1') }}" style="width:900px;height:100px" class="form-control" name="desarrollo1" id="desarrollo1">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="desarrollo2">Control de esfínter diurno y nocturno, edad de adquisición y posterior evolución.</label>
+                                    <label for="desarrollo2"><small style="color:red">*</small>Control de esfínter diurno y nocturno, edad de adquisición y posterior evolución.</label>
                                     <input type="text" value = "{{ old('desarrollo2') }}" style="width:900px;height:100px" class="form-control" name="desarrollo2" id="desarrollo2" >
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="desarrollo3">Habilidades motrices gruesas, ejemplo: coordinación para trasladarse, correr, hacer deportes, etc.</label>
+                                    <label for="desarrollo3"><small style="color:red">*</small>Habilidades motrices gruesas, ejemplo: coordinación para trasladarse, correr, hacer deportes, etc.</label>
                                     <input type="text" value = "{{ old('desarrollo3') }}" style="width:900px;height:100px" class="form-control" name="desarrollo3" id="desarrollo3" >
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="desarrollo4">Habilidades motrices finas, ejemplo: tomar el lápiz, manejar los cubiertos, etc.</label>
+                                    <label for="desarrollo4"><small style="color:red">*</small>Habilidades motrices finas, ejemplo: tomar el lápiz, manejar los cubiertos, etc.</label>
                                     <input type="text" value = "{{ old('desarrollo4') }}" style="width:900px;height:100px" class="form-control" name="desarrollo4" id="desarrollo4" >
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="desarrollo5">Adquisición del lenguaje. Señale si el desarrollo del lenguaje ha sido normal, rápido o con dificultades. </label>
+                                    <label for="desarrollo5"><small style="color:red">*</small>Adquisición del lenguaje. Señale si el desarrollo del lenguaje ha sido normal, rápido o con dificultades. </label>
                                     <input type="text" value = "{{ old('desarrollo5') }}" style="width:900px;height:100px" class="form-control" name="desarrollo5" id="desarrollo5" >
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="desarrollo6">¿Qué dificultades ha presentado en el ámbito del lenguaje? (comprensión, expresión, etc.)</label>
+                                    <label for="desarrollo6"><small style="color:red">*</small>¿Qué dificultades ha presentado en el ámbito del lenguaje? (comprensión, expresión, etc.)</label>
                                     <input type="text" value = "{{ old('desarrollo6') }}" style="width:900px;height:100px" class="form-control" name="desarrollo6" id="desarrollo6" placeholder="(comprensión, expresión, etc.)">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="desarrollo7">Desarrollo social ¿Cómo se relaciona su hijo/a con personas adultas?</label>
+                                    <label for="desarrollo7"><small style="color:red">*</small>Desarrollo social ¿Cómo se relaciona su hijo/a con personas adultas?</label>
                                     <input type="text" value = "{{ old('desarrollo7') }}" style="width:900px;height:100px" class="form-control" name="desarrollo7" id="desarrollo7" >
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="desarrollo8">Desarrollo social ¿Cómo se relaciona su hijo/a con otros niños?</label>
+                                    <label for="desarrollo8"><small style="color:red">*</small>Desarrollo social ¿Cómo se relaciona su hijo/a con otros niños?</label>
                                     <input type="text" value = "{{ old('desarrollo8') }}" style="width:900px;height:100px" class="form-control" name="desarrollo8" id="desarrollo8" >
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="desarrollo9">¿Qué tan autónomo/a es para las siguientes actividades?<small>Marque a continuación</small></label>
+                                    <label for="desarrollo9"><small style="color:red">*</small>¿Qué tan autónomo/a es para las siguientes actividades?<small>Marque a continuación</small></label>
                                     <table><thead>
                                         <tr>
                                             <th>Actividad de la vida diaria (AVD)</th>
@@ -319,7 +333,7 @@
 
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="desarrollo10">¿Cuáles son sus hábitos alimenticios?¿Qué alimentos prefiere?¿Amplio repertorio o restringido?</label>
+                                    <label for="desarrollo10"><small style="color:red">*</small>¿Cuáles son sus hábitos alimenticios?¿Qué alimentos prefiere?¿Amplio repertorio o restringido?</label>
                                     <input type="text" value = "{{ old('habitosAlimenticios') }}" style="width:900px;height:100px" class="form-control" name="habitosAlimenticios" id="habitosAlimenticios" >
                                 </div>
                             </div>
@@ -381,7 +395,7 @@
                         </a>
                     </h4>
                 </div>
-                <div id="2AC" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo2">
+                <div id="2AC" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo2">
                     <div class="panel-body">
                         <div class="form-group col-md-12">
                             <label for="historiaEscolar1">Inicio de escolaridad<small>(año y establecimiento)</small></label>
@@ -418,7 +432,7 @@
                         </a>
                     </h4>
                 </div>
-                <div id="3AC" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree3">
+                <div id="3AC" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree3">
                     <div class="panel-body">
                             <div class="col-md-6">
                                 <h3 class="no-s">Importante !</h3>

@@ -81,7 +81,7 @@ if(Auth::check())
 			"<li class='droplink'>
 				<form name=formEncuestaCoevaluacionFamiliar action='encuesta_coevaluacion_familiar' method='get'></form>
 				<a class='waves-effect waves-button' onclick='document.formEncuestaCoevaluacionFamiliar.submit();return false'>
-			    <span class='menu-icon icon-login'></span><p>Encuesta coevaluacion</p></a>
+			    <span class='menu-icon icon-login'></span><p>Encuesta coevaluación</p></a>
 			</li>";
 		}
 
