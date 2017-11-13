@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Mail\EnvioDatosIngreso;
 use App\Mail\EnvioNotificacionInformeFinal;
 use App\Mail\EnvioNotificacionFechasCitas;
+//use Illuminate\Mail\Mailable;
 use Mail;
 
 class MailController extends Controller

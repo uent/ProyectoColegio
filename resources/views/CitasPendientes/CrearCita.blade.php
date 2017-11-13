@@ -31,6 +31,9 @@
    </div>
 @endif
 
+@if(Session::has('msg_error'))
+<div class="alert">{{ Session::get('msg_error') }}</div>
+@endif
 
 <?php
     echo
@@ -98,7 +101,8 @@
           <input type='hidden' id='tipoCita' name='tipoCita' value='",$datos["datos"]["tipoCita"],"'/>
           <input type='hidden' id='idOrden' name='idOrden' value='",$datos["datos"]["idOrden"],"'/>
         </form>";
-      }else echo "Imposible realizar la cita";
+
+
         echo
       "
       </td>
@@ -115,6 +119,14 @@
     cursor: pointer' name='action' value='Asignar Cita' onClick = 'enviarDatosNuevoEvento();' />
 </table>
     <br>";
+
+      }else
+      {
+         echo "Imposible realizar la cita
+        </table>
+            <br>";
+      }
+
     if($datos["profesionales"] != NULL && $datos["datos"] != NULL)
     {
       echo "

@@ -166,42 +166,46 @@ class AjaxController extends Controller
 
         $now = time();
         $target = strtotime($data["inicio"]);
-        $diff = $now - $target;
+        $diff = $target - $now;
 
-         if($diff <= 0)   //return redirect()->back()->withInput()->
-
-      if((!Citas::obtenerCitaPorIdOrdenYTipoCita($data["idOrden"],$data["tipoCita"])))
+      if($diff <= 0)
       {
-        if($data["comentarios"] == null) $data["comentarios"] = "";
-
-        $data["estado"] = "pendiente";
-
-        $aux = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
-        $data["idNino"] = $aux["idNino"];
-
-        Citas::InsertarCita($data);
-
-        OrdenDiagnostico::ActualizarEstadoPorId($data["idOrden"]);
-
-        $datosOrden = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
-
-        if(strcmp($datosOrden->estado , "evaluando") == 0)
-        {
-          $datosTutor = Tutor::UnTutorPorNinoPorIdNino($aux["idNino"]);
-          MailController::MailEnvioNotificacionDeFechasCitas($datosTutor->email,Citas::obtenerCitasPorIdOrden($data["idOrden"]));
-
-          return redirect()->to('Mi_menu');
-        }
-        else
-        {
-          return redirect()->to('mostrar_citas_nino?action=Asignar+Citas&idOrden=' . $data["idOrden"]);
-        }
+        return redirect()->back()->withInput( $msg_params = array('msg_error' => 'Debe seleccionar una fecha posterior a la actual'));
       }
       else
       {
-        return redirect()->to('PantallaDeErrorProceso');
-      }
+        if((!Citas::obtenerCitaPorIdOrdenYTipoCita($data["idOrden"],$data["tipoCita"])))
+        {
+          if($data["comentarios"] == null) $data["comentarios"] = "";
 
+          $data["estado"] = "pendiente";
+
+          $aux = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
+          $data["idNino"] = $aux["idNino"];
+
+          Citas::InsertarCita($data);
+
+          OrdenDiagnostico::ActualizarEstadoPorId($data["idOrden"]);
+
+          $datosOrden = OrdenDiagnostico::BuscarPorId($data["idOrden"]);
+
+          if(strcmp($datosOrden->estado , "evaluando") == 0)
+          {
+            $datosTutor = Tutor::UnTutorPorNinoPorIdNino($aux["idNino"]);
+            MailController::MailEnvioNotificacionDeFechasCitas($datosTutor->email,Citas::obtenerCitasPorIdOrden($data["idOrden"]));
+
+            return redirect()->to('Mi_menu');
+          }
+          else
+          {
+            return redirect()->to('mostrar_citas_nino?action=Asignar+Citas&idOrden=' . $data["idOrden"]);
+          }
+        }
+        else
+        {
+          return redirect()->to('PantallaDeErrorProceso');
+        }
+      }
     }
 
 
