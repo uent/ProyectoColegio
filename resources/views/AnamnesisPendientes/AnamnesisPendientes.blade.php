@@ -50,7 +50,7 @@
 
       <td>
       <form class='form-horizontal col-md-4' align='center' method='get' action='generar_informe_final_nino' target='_blank'>
-        <input type='hidden' name='idOrden' value='',$d['idOrden'],'>
+        <input type='hidden' name='idOrden' value=",$d['idOrden'],">
       <b>  <input type='submit' name='action' value='Visualizar Informe Final'/><br>
       </form>
 
