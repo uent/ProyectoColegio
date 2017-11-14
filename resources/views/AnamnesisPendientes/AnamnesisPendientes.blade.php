@@ -49,10 +49,12 @@
       "</td>
 
       <td>
-    <form method='get' action='generar_informe_final_nino'>
-      <input type='submit' name='action' value='Visualizar Informe Final'/>
-      <input type='hidden' name='idOrden' value='",$d["idOrden"],"'/>
-    </form>
+      <form class='form-horizontal col-md-4' align='center' method='get' action='generar_informe_final_nino' target='_blank'>
+        <input type='hidden' name='idOrden' value='',$d['idOrden'],'>
+      <b>  <input type='submit' name='action' value='Visualizar Informe Final'/><br>
+      </form>
+
+
 
     <form method='get' action='aprobar_informe_final_nino'>
       <input type='submit' name='action' value='Aprobar Informe Final'/>

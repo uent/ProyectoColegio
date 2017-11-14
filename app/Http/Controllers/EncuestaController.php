@@ -48,6 +48,8 @@ class EncuestaController extends Controller
       $data = request()->all();
 
           $validator=Validator::make($data, [//reglas de validacion de los campos del formulario
+
+            'prevision' => ['required', 'max:5000'],
             'inputEscolaridad' => ['required', 'max:5000'],
             'inputCantHrmns' => ['required', 'max:5000'],
             'inputLugarHrmns' => ['required', 'max:5000'],
@@ -56,7 +58,7 @@ class EncuestaController extends Controller
             'inputDireccion' => ['required', 'max:5000'],
             'inputTelefono' => ['required', 'max:5000'],
             'exampleInputEmail' => ['required', 'max:5000'],
-            'inputNombreTutor' => ['required', 'max:5000'],
+            'inputNombreCompletaFicha' => ['required', 'max:5000'],
             'motivo1' => ['required', 'max:5000'],
             'motivo2' => ['required', 'max:5000'],
             'motivo3' => ['required', 'max:5000'],
@@ -86,10 +88,12 @@ class EncuestaController extends Controller
             'desarrollo6' => ['required', 'max:5000'],
             'desarrollo7' => ['required', 'max:5000'],
             'desarrollo8' => ['required', 'max:5000'],
+            'desarrollo9' => ['required', 'max:5000'],
             //'AVD' => ['required', 'max:5000'],
             'comer' => ['required', 'max:5000'],
             'vestirse' => ['required', 'max:5000'],
             'higiene' => ['required', 'max:5000'],
+
             'habitosAlimenticios' => ['required', 'max:5000'],
             'ambitoConductual1' => ['required', 'max:5000'],
             'ambitoConductual2' => ['required', 'max:5000'],
@@ -102,8 +106,8 @@ class EncuestaController extends Controller
             'historiaEscolar3' => ['required', 'max:5000'],
             'historiaEscolar4' => ['required', 'max:5000'],
             'historiaEscolar5' => ['required', 'max:5000'],
-            'historiaEscolar6' => ['required', 'max:5000']
-            //'monto_pago' => ['required', 'numeric']
+            'historiaEscolar6' => ['required', 'max:5000'],
+            'monto_pago' => ['required', 'numeric']
 
         ]);
 

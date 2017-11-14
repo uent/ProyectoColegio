@@ -3,7 +3,7 @@
 
 
 
-@section('nombrePagina') 
+@section('nombrePagina')
   Ingreso | Coevaluación
 @endsection
 
@@ -56,14 +56,14 @@
                     <input type="text" class="form-control" name="inputRut" id="inputRut" value=<?php echo $datos["rutNino"]; ?> readonly>
                 </div>
                 <div class="form-group  col-md-12">
-                                    <label for="antecedentes3apgar">Prvisión de Salud</label>
-                                    <select id="prvision" name="prvision" class="form-group col-md-12">
-                                                  <option value="fonasa">Fonasa</option>
-                                                  <option value="isapre">Isapre</option>
-                                                  <option value="isapre">Ninguno</option>
-                                    
+                                    <label for="prevision">Previsión de Salud</label>
+                                    <select id="prvision" name="prevision" class="form-group col-md-12">
+                                                  <option value="Fonasa">Fonasa</option>
+                                                  <option value="Isapre">Isapre</option>
+                                                  <option value="Ninguno">Ninguno</option>
+
                                                 </select>
-                                    
+
                                 </div>
 
                 <div class="form-group col-md-12">
@@ -221,7 +221,7 @@
                                     <input type="text" value = "{{ old('antecedentes2') }}" style="width:900px;height:100px" class="form-control" name="antecedentes2" id="antecedentes2">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="antecedentes3"><small style="color:red">*</small>¿Cómo fue el parto? 
+                                    <label for="antecedentes3"><small style="color:red">*</small>¿Cómo fue el parto?
                                     <input type="text" value = "{{ old('antecedentes3') }}" style="width:900px;height:100px" class="form-control" name="antecedentes3" id="antecedentes3" placeholder="(parto normal o cesárea, inducción del parto, fórceps)">
                                 </div>
                                 <div class="form-group col-md-4">
@@ -237,8 +237,8 @@
                                     <label for="antecedentes3apgar"><small style="color:red">*</small>APGAR<small style="color:black">si no recuerda marque 0</small> </label><br>
                                     <input type="text" value = "{{ old('antecedentes3apgar') }}" class="form-control"  name="antecedentes3apgar" id="antecedentes3apgar" placeholder="Ej: 9/10">
                                                                     </div>
-                                
-                                
+
+
 
                                 <div class="form-group col-md-12">
                                     <label for="antecedentes4"><small style="color:red">*</small>¿Cómo transcurrió el primer año de vida de su hijo/a?  </label>
@@ -295,10 +295,12 @@
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="desarrollo9"><small style="color:red">*</small>¿Qué tan autónomo/a es para las siguientes actividades?<small>Marque a continuación</small></label>
+                                    <input type="text" value = "{{ old('desarrollo9') }}" style="width:900px;height:100px" class="form-control" name="desarrollo9" id="desarrollo9" >
+
                                     <table><thead>
                                         <tr>
                                             <th>Actividad de la vida diaria (AVD)</th>
-                                            
+
                                         </tr>
                                         <tr>
                                             <th>Comer</th>
@@ -333,7 +335,7 @@
 
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="desarrollo10"><small style="color:red">*</small>¿Cuáles son sus hábitos alimenticios?¿Qué alimentos prefiere?¿Amplio repertorio o restringido?</label>
+                                    <label for="habitosAlimenticios"><small style="color:red">*</small>¿Cuáles son sus hábitos alimenticios?¿Qué alimentos prefiere?¿Amplio repertorio o restringido?</label>
                                     <input type="text" value = "{{ old('habitosAlimenticios') }}" style="width:900px;height:100px" class="form-control" name="habitosAlimenticios" id="habitosAlimenticios" >
                                 </div>
                             </div>

@@ -17,11 +17,13 @@ class Encuesta extends Model
 
       ->update([
 
+      'prevision'=> $data["prevision"],
+      'escolaridadNino'=> $data["inputEscolaridad"],
       'cantHermanos'=> $data["inputCantHrmns"],
       'nombrePadre'=> $data["inputNombrePadre"],
       'nombreMadre'=> $data["inputNombreMadre"],
       'Dirección'=> $data["inputDireccion"],
-      'nombreLlenadoFicha'=> $data["inputNombreTutor"],
+      'nombreLlenadoFicha'=> $data["inputNombreCompletaFicha"],
       'textoPorqueEvaluacion'=> $data["motivo1"],
       'textoExpectativas'=> $data["motivo2"],
       'textoTipoDificultades'=> $data["motivo3"],
@@ -35,8 +37,8 @@ class Encuesta extends Model
       'peso'=> $data["antecedentes3peso"],
       'talla'=> $data["antecedentes3talla"],
       'apgar'=> $data["antecedentes3apgar"],
-      'textopPrimerAñoVida'=> $data["desarrollo3"],
-      'enfermedadesRelevantes'=> $data["desarrollo4"],
+      'textopPrimerAñoVida'=> $data["antecedentes4"],
+      'enfermedadesRelevantes'=> $data["antecedentes5"],
       'textoMarcha'=> $data["desarrollo1"],
       'textoControlEsfinter'=> $data["desarrollo2"],
       'textoHabilidadesMotricesGruesas'=> $data["desarrollo3"],
@@ -45,6 +47,7 @@ class Encuesta extends Model
       'textoDificultadesLenguaje'=> $data["desarrollo6"],
       'textoDesarrolloSocialAdultos'=> $data["desarrollo7"],
       'textoDesarrolloSocialNinos'=> $data["desarrollo8"],
+      'textoQueTanAutonomo'=> $data["desarrollo9"],
       'opcionComer'=> $data["comer"],
       'opcionVestirse'=> $data["vestirse"],
       'opcionHigiene'=> $data["higiene"],
@@ -62,6 +65,7 @@ class Encuesta extends Model
       //'texto'=> $data[""],
       'textoRepitencias'=> $data["historiaEscolar5"],
       'textoComentarios'=> $data["historiaEscolar6"],
+      'monto'=> $data["monto_pago"],
 
       ]);
 

@@ -38,6 +38,9 @@ class CrearTablaOrdenDiagnostico extends Migration
             //Encuesta Coevaluación Familiar
 
             // IDENTIFICACIÓN I
+
+            $table->text('prevision')->nullable();
+            $table->text('escolaridadNino')->nullable();
             $table->tinyInteger('cantHermanos')->nullable();
             $table->text('nombrePadre')->nullable();
             $table->text('nombreMadre')->nullable();
@@ -77,12 +80,12 @@ class CrearTablaOrdenDiagnostico extends Migration
             $table->text('textoDificultadesLenguaje')->nullable();
             $table->text('textoDesarrolloSocialAdultos')->nullable();
             $table->text('textoDesarrolloSocialNinos')->nullable();
-            //"¿Qué tan autónomo/a es para las siguientes actividades? Marque a continuación"
+            $table->text('textoQueTanAutonomo')->nullable();
             // estos campos pueden tener los valores "Solo", "Con poca ayuda", "Con mucha ayuda"
 
-              $table->text('opcionComer')->nullable();
-              $table->text('opcionVestirse')->nullable();
-              $table->text('opcionHigiene')->nullable();
+            $table->text('opcionComer')->nullable();
+            $table->text('opcionVestirse')->nullable();
+            $table->text('opcionHigiene')->nullable();
 
             //
 
@@ -103,9 +106,11 @@ class CrearTablaOrdenDiagnostico extends Migration
             $table->text('textoOtrosEstablecimientos')->nullable();
             $table->text('textoEstablecimientoActual')->nullable();
             $table->text('textoNivelCursoActual')->nullable();
-            $table->text('texto')->nullable();
+            //$table->text('texto')->nullable();
             $table->text('textoRepitencias')->nullable();
             $table->text('textoComentarios')->nullable();
+            $table->text('monto')->nullable();
+
 
 
             $table->timestamps();
