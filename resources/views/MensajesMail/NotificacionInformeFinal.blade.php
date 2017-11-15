@@ -6,15 +6,13 @@
 <body align="center">
 
 
-<p><b>Estimada Familia:</b><br><br>
-Junto con saludarlos y agradeciendo su confianza les solicitamos dirigirse al siguiente <a href="http://proyectocolegio.dev/public/EncuestaCoevaluacionFamiliar">LINK</a> e iniciar sesión con los siguientes datos.<br>
-<b>Usuario: </br><br>
-<b>Contraseña: </b><br><br>
-Una vez ingresado al sistema se pide completar el cuestionario con la mayor fidelidad posible. Su propósito es favorecer el proceso de evaluación que está por comenzar junto a su hijo/a.
+<p><b>Estimada Familia:</b><br>
+  <br>
+  Te informamos que desde ahora puedes emitir el informe final de Evaluación Multidisciplinaria desde tu portal <a href="http://proyectocolegio.dev/public/EncuestaCoevaluacionFamiliar">LINK</a>.<br>
+  Muchas gracias!
+  Equipo Altavida
+  </p>
 
-Muchas gracias!
-Equipo Altavida
-</p>
 
 </body>
 </html>
