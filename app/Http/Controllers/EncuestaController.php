@@ -77,7 +77,7 @@ class EncuestaController extends Controller
             'antecedentes3' => ['required', 'max:5000'],
             'antecedentes3peso' => ['required', 'Numeric'],
             'antecedentes3talla' => ['required', 'Numeric'],
-            'antecedentes3apgar' => ['Numeric'],
+            'antecedentes3apgar' => ['required'],
             'antecedentes4' => ['required', 'max:5000'],
             'antecedentes5' => ['required', 'max:5000'],
             'desarrollo1' => ['required', 'max:5000'],
