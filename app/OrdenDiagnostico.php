@@ -21,8 +21,8 @@ class OrdenDiagnostico extends Model
       $orden->diagnosticoProfesional = $Diagnostico;
       $orden->derivacion = $Derivacion;
       $orden->solicitud = $Solicitud;
-      $orden->observaciones = $Escolaridad;
-      $orden->escolaridad = $Observaciones;
+      $orden->observaciones = $Observaciones;
+      $orden->escolaridad = $Escolaridad;
 
       $orden->save();
 
