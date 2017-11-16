@@ -122,8 +122,8 @@
                       <tr>
                         <td><b>Total</b></td>
                         <td>60</td>
-                        <td><input type="number" step="0.5" name="total" id="total" value = '{{ old('total' , $datos["datosInformes"]->totalMultiDisiplinario) }}'></td>
-
+                        <td><input type="button" name="total" id="total" onclick="sumar()" value="SUMAR" ></td>
+                        
                       </tr>
 
                     </table>
@@ -198,23 +198,29 @@
 
   function sumar()
     {
-      alert("shdiahsodjapsd");
-      total=  document.getElementById("relacion").value
-            + document.getElementById("imitacion").value
-            + document.getElementById("afecto").value
-            + document.getElementById("cuerpo").value
-            + document.getElementById("objetos").value
-            + document.getElementById("adaptacion").value
-            + document.getElementById("respVisual").value
-            + document.getElementById("respAuditiva").value
-            + document.getElementById("gustoOlfatoTacto").value
-            + document.getElementById("ansiedadMiedo").value
-            + document.getElementById("comunicVerbal").value
-            + document.getElementById("comunicNoVerbal").value
-            + document.getElementById("nivelAct").value
-            + document.getElementById("respIntelectual").value
-            + document.getElementById("impresGnrl").value;
-            document.getElementById("total").innerHTML = total;
+      
+            num1 = document.getElementById("relacion").value;
+           num2 = document.getElementById("imitacion").value;
+           num3 = document.getElementById("afecto").value;
+           num4 = document.getElementById("cuerpo").value;
+           num5 = document.getElementById("objetos").value;
+           num6 = document.getElementById("adaptacion").value;
+           num7 = document.getElementById("respVisual").value;
+           num8 = document.getElementById("respAuditiva").value;
+           num9 = document.getElementById("gustoOlfatoTacto").value;
+           num10 = document.getElementById("ansiedadMiedo").value;
+           num11 = document.getElementById("comunicVerbal").value;
+           num12 = document.getElementById("comunicNoVerbal").value;
+           num13 = document.getElementById("nivelAct").value;
+           num14 = document.getElementById("respIntelectual").value;
+           num15 = document.getElementById("impresGnrl").value;
+           total = parseFloat(num1) + parseFloat(num2) + parseFloat(num3) + parseFloat(num4) +
+           parseFloat(num5) +parseFloat(num6) +parseFloat(num7) +parseFloat(num8) +
+           parseFloat(num9) +parseFloat(num10) +parseFloat(num11) +parseFloat(num12) +
+           parseFloat(num13) +parseFloat(num14) + parseFloat(num15);
+
+           document.getElementById("total").innerHTML = total;
+           document.getElementById("total").value = total;
 
     };
 

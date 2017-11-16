@@ -99,7 +99,7 @@
                 </div>
                 <div class="form-group col-md-12">
                     <label for="inputNombreCompletaFicha">Nombre de quien completa la ficha</label>
-                    <input type="text" class="form-control"  name="inputNombreCompletaFicha" id="inputNombreCompletaFicha" value=<?php echo ($datos["nombreTutor"] .  ' ' . $datos["apellidosTutor"]); ?> >
+                    <input type="text" class="form-control"  name="inputNombreTutor" id="inputNombreTutor" value=<?php echo ($datos["nombreTutor"] .  ' ' . $datos["apellidosTutor"]); ?> readonly>
                 </div>
 
                 <div class="form-group col-md-12">
@@ -110,7 +110,7 @@
         <div class="col-md-6">
             <h3>Información Personal</h3>
             <p>Debe completar este cuestionario con la mayor fidelidad posible. Su propósito es favorecer el proceso de evaluación que está por comenzar junto a su hijo/a</p>
-            <p style="color:red"><small>Los campos con * son obligatorios</small></p>
+            <p style="color:red"><small>Todos los campos son obligatorios ( * )</small></p>
         </div>
     </div>
 </div>
