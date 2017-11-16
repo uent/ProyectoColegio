@@ -61,7 +61,7 @@
                             <td><textarea rows="4" cols="30" id="ComportamientoSug" name="ComportamientoSug">{{ old('ComportamientoSug' , $datos["datosInformes"]->ComportamientoSugPsicopedagogo) }}</textarea></td>
                           </tr>
                           <tr>
-                            <td>Aprendizaje</td>
+                            <td>Competencias Curriculares</td>
                             <td><textarea rows="4" cols="30" id="aprendizajeNivel" name="aprendizajeNivel">{{ old('aprendizajeNivel' , $datos["datosInformes"]->aprendizajeNivelPsicopedagogo) }}</textarea></td>
                             <td><textarea rows="4" cols="30" id="aprendizajeSug" name="aprendizajeSug">{{ old('aprendizajeSug' , $datos["datosInformes"]->aprendizajeSugPsicopedagogo) }}</textarea></td>
                           </tr>

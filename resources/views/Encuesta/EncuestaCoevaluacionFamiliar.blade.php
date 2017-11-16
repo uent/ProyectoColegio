@@ -295,7 +295,7 @@
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="desarrollo9"><small style="color:red">*</small>¿Qué tan autónomo/a es para las siguientes actividades?<small>Marque a continuación</small></label>
-                                    <input type="text" value = "{{ old('desarrollo9') }}" style="width:900px;height:100px" class="form-control" name="desarrollo9" id="desarrollo9" >
+                                    <input type="hidden" value = "." style="width:900px;height:100px" class="form-control" name="desarrollo9" id="desarrollo9" >
 
                                     <table><thead>
                                         <tr>
