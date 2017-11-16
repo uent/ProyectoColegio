@@ -99,7 +99,7 @@
                 </div>
                 <div class="form-group col-md-12">
                     <label for="inputNombreCompletaFicha">Nombre de quien completa la ficha</label>
-                    <input type="text" class="form-control"  name="inputNombreTutor" id="inputNombreTutor" value=<?php echo ($datos["nombreTutor"] .  ' ' . $datos["apellidosTutor"]); ?> readonly>
+                    <input type="text" class="form-control"  name="inputNombreCompletaFicha" id="inputNombreCompletaFicha" value=<?php echo ($datos["nombreTutor"] .  ' ' . $datos["apellidosTutor"]); ?> readonly>
                 </div>
 
                 <div class="form-group col-md-12">
