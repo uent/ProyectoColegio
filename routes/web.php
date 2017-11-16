@@ -106,7 +106,7 @@ Route::get('verCalendarioProfesional', 'CalendarioController@MostrarCalendarioPr
 //
 
 //Generar Informes
-Route::get('pantalla_mostrar_listado_informes', 'AnamnesisController@MostrarInformesNinoListosPorIdTutor');
+Route::get('pantalla_mostrar_listado_informes', 'AnamnesisController@MostrarInformesNinoCompletados');
 //
 
 //mail

@@ -262,12 +262,12 @@ class OrdenDiagnostico extends Model
           ->get();
   }
 
-  public static function OrdenesPendientesDeAnamnesisMasDatosNinosPorIdTutor($idTutor)
+  public static function OrdenesPendientesDeAnamnesisMasDatosNinosPorIdTutor($idTutor) //hace algo distinto a lo que su nombre indica
   {
     $tablas = DB::table('ordendiagnostico')
           ->join('ninos', 'ordendiagnostico.idNino', '=', 'ninos.idNino')
           ->join('nino_tutor', 'ninos.idNino', '=', 'nino_tutor.idNino')
-          ->where('ordendiagnostico.estado', '=', "proceso_finalizado")
+          ->where('ordendiagnostico.estado', '=', "falta_anamnesis")
           ->where('nino_tutor.idTutor', '=', $idTutor)
           ->select('ninos.idNino','ordendiagnostico.idOrdenDiagnostico','ordendiagnostico.prioridad','ninos.nombre','ninos.apellidos','ninos.rut')
           ->get();
@@ -357,7 +357,39 @@ class OrdenDiagnostico extends Model
 
   public static function CambiarEstadoAEvaluandoPorIdOrden($idOrden)
   {
-    OrdenDiagnostico::where('idOrdenDiagnostico',"=", $idOrden)->update(['estado' => "asignar"]);
+    OrdenDiagnostico::where('idOrdenDiagnostico',"=", $idOrden)->update(['estado' => "evaluando"]);
 
   }
+
+  public static function OrdenesFinalizadasMasDatosNinos()
+  {
+    $tablas = DB::table('ordendiagnostico')
+          ->join('ninos', 'ordendiagnostico.idNino', '=', 'ninos.idNino')
+          ->join('nino_tutor', 'ninos.idNino', '=', 'nino_tutor.idNino')
+          ->where('ordendiagnostico.estado', '=', 'proceso_finalizado')
+          ->select('ninos.idNino','ordendiagnostico.idOrdenDiagnostico','ordendiagnostico.prioridad','ninos.nombre','ninos.apellidos','ninos.rut')
+          ->get();
+
+      $i = 0;
+
+      if(count($tablas) == 0) $datos = NULL;
+      else
+      {
+        foreach ($tablas as $t)
+        {
+          $datos[$i]["idNino"] = $t->idNino;
+          $datos[$i]["idOrden"] = $t->idOrdenDiagnostico;
+          $datos[$i]["nombre"] = $t->nombre;
+          $datos[$i]["apellidos"] = $t->apellidos;
+          $datos[$i]["rut"] = $t->rut;
+          $datos[$i]["prioridad"] = $t->prioridad;
+
+          $i++;
+        }
+      }
+
+      return $datos;
+  }
+
+
 }

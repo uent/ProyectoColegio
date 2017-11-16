@@ -122,8 +122,9 @@
                       <tr>
                         <td><b>Total</b></td>
                         <td>60</td>
-                        <td><input type="button" name="total" id="total" onclick="sumar()" value="SUMAR" ></td>
-                        
+                        <td><input type="button" name="totalVisible" id="totalVisible" onclick="sumar()" value="SUMAR" ></td>
+                        <input type='hidden' name='total' id='total'>
+
                       </tr>
 
                     </table>
@@ -198,7 +199,7 @@
 
   function sumar()
     {
-      
+
             num1 = document.getElementById("relacion").value;
            num2 = document.getElementById("imitacion").value;
            num3 = document.getElementById("afecto").value;
@@ -222,6 +223,8 @@
            document.getElementById("total").innerHTML = total;
            document.getElementById("total").value = total;
 
+           document.getElementById("totalVisible").innerHTML = total;
+           document.getElementById("totalVisible").value = total;
     };
 
 </script>

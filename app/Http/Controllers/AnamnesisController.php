@@ -82,12 +82,12 @@ class AnamnesisController extends Controller
         }
       }
 
-    public function MostrarInformesNinoListosPorIdTutor()
+    public function MostrarInformesNinoCompletados()
     {
       //recibe idTutor
       $data = request()->all();
 
-      $datos = OrdenDiagnostico::OrdenesPendientesDeAnamnesisMasDatosNinosPorIdTutor($data["idTutor"]);
+      $datos = OrdenDiagnostico::OrdenesFinalizadasMasDatosNinos();
 
       return View::make('InformesTutor.InformesTutor')->with("datos",$datos);
     }
