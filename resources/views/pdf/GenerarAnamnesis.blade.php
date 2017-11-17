@@ -17,7 +17,7 @@
 <br>
 <div id="identificacionNino">
 	<h4>IDENTIFICACIÓN</h4><br>
-	<table style="border-collapse: collapse">
+	<table style="border-collapse: collapse" align="justify">
 
 
 		<tr>
@@ -30,6 +30,7 @@
 		    <th>:</th>
 		    <th><?php echo $datos['fechaNacimiento'] ?> </th>
 	  	</tr>
+     
 
 		<tr>
 		    <th>Rut</th>
@@ -50,18 +51,21 @@
 </div>
 <div>
 	<h4>MOTIVO DE EVALUACIÓN</h4><br>
-
+  <div align="justify"><?php echo $datos['motivoDeEvaluacionMultiDisiplinario'] ?></div>
 
 </div>
 <div>
 	<h4>ANTECEDENTES RELEVANTES</h4>
-	<br>En relación a apoyos profesionales:
-	<br><br>En relación a la experiencia educativa:
+<div align="justify"><?php echo $datos['antecedentesRelevantesMultiDisiplinario'] ?></div>
+
 </div>
 <br>
 <div>
 	<h4>PROCEDIMEINTOS DE EVALUACIÓN</h4>
 	<ul>
+
+
+
 	  <li>Anamnesis y Entrevista de Co-Evaluación Familiar Altavida</li>
 	  <li>Observación directa en situación clínica.</li>
 	  <li>Evaluación Psicopedagógica: <?php echo $datos['nombrePsicopedagogo'], " ", $datos['apellidosPsicopedagogo'] ?></li>
