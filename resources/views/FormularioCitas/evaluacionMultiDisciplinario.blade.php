@@ -32,9 +32,13 @@
                     <form id="forma" class="form-horizontal col-md-12" align="center" method='post' action='guardar_reporte_multidiciplinario'>
                       <?php echo "<input type='hidden' name='idCita' value=",$datos["idCita"],"> "?>
                         <table class="table table-bordered">
-
+                          <tr>
+                            <td>Procedimiento de Evaluación</td>
+                            <td><textarea rows="10" cols="64" id="procEvaluaMulti" name="procEvaluaMulti"></textarea></td>
+                          </tr>
                     <div>Respecto de la información aportada por la Escala de Valoración del Autismo Infantil (EVAI / CARS) es posible informar la siguiente información cuantitativa</div>
                     <div><small>Los valores ingresados van de 1 a 4</small></div>
+                    
                     <div class=" form-horizontal col-md-12">
                        <table class="table table-bordered col-md-12">
                       <tr align="center">

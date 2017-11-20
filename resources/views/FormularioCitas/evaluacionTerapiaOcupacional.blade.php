@@ -31,6 +31,10 @@
                   <form id="forma" class="form-horizontal col-md-4" align="center" method='post' action='guardar_reporte_terapista_ocupacional'>
                     <?php echo "<input type='hidden' name='idCita' value=",$datos["idCita"],"> "?>
                         <table>
+                        <tr>
+                            <td>Procedimiento de Evaluación</td>
+                            <td colspan="3"><textarea rows="4" cols="64" id="procEvaluaTO" name="procEvaluaTO"></textarea></td>
+                          </tr>
                           <tr align="center">
                             <td><b>Área de Desarrollo</b></td>
                             <td><b>Observaciones</b> </td>

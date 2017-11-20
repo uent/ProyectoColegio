@@ -30,6 +30,10 @@
                         <form id="foma" class="form-horizontal col-md-4" align="center" method='post' action='guardar_reporte_psicopedagogo'>
                             <?php echo "<input type='hidden' name='idCita' value=",$datos["idCita"],"> "?>
                         <table class="table table-bordered">
+                        <tr>
+                            <td>Procedimiento de Evaluación</td>
+                            <td><textarea rows="10" cols="64" id="procEvaluaPsicopedagogo" name="procEvaluaPsicopedagogo"></textarea></td>
+                          </tr>
                           <tr align="center">
                             <td><b>Área de Desarrollo</b></td>
                             <td><b>Nivel de Evolución</b> </td>
