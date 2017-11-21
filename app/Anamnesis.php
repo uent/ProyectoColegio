@@ -57,7 +57,7 @@ class Anamnesis extends Model
         'lengComprensivoFonoaudiologo'=> $lengComprensivo,
         'lengExpresivoFonoaudiologo'=> $lengExpresivo,
         'conclusionesFonoaudiologo'=> $conclusiones,
-        'sugerenciasFonoaudiologo'=> $sugerencias.
+        'sugerenciasFonoaudiologo'=> $sugerencias,
         'procEvaluaFonoaudiologo'=> $procEvaluaFono
       ]);
   }

@@ -43,7 +43,7 @@ class Ninos extends Model
         {
           $datosTutor = Tutor::UnTutorPorNinoPorIdNino($t->idNino);
 
-          var_dump($t->idNino);
+          //var_dump($t->idNino);
 
           $datos[$i]["id"] = $t->idNino;
           $datos[$i]["nombre"] = $t->nombre;
