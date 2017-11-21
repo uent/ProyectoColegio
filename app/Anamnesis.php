@@ -41,7 +41,7 @@ class Anamnesis extends Model
     public static function ActualizarReporteFonoaudiologoPorIdOrden($idOrden,$tipoCita,
                                                         $condSocioComunicativa, $competComunicativa,
                                                         $lengComprensivo, $lengExpresivo,
-                                                        $conclusiones, $sugerencias)
+                                                        $conclusiones, $sugerencias, $procEvaluaFono)
     {
       $datos = Anamnesis::select()->where('idOrden','=',$idOrden)->first();
 
@@ -57,7 +57,9 @@ class Anamnesis extends Model
         'lengComprensivoFonoaudiologo'=> $lengComprensivo,
         'lengExpresivoFonoaudiologo'=> $lengExpresivo,
         'conclusionesFonoaudiologo'=> $conclusiones,
-        'sugerenciasFonoaudiologo'=> $sugerencias]);
+        'sugerenciasFonoaudiologo'=> $sugerencias.
+        'procEvaluaFonoaudiologo'=> $procEvaluaFono
+      ]);
   }
 
 
@@ -65,7 +67,7 @@ class Anamnesis extends Model
                   $idOrden,$tipoEvaluacion,$desarrolloSocial,
                   $respEmocional,$refConjunta,$juego,
                   $conmunicacionLeng,$flexMental,
-                  $pensamiento,$comportamientoGnrl,$conclu)
+                  $pensamiento,$comportamientoGnrl,$conclu,$procEvalua)
   {
     $datos = Anamnesis::select()->where('idOrden','=',$idOrden)->first();
 
@@ -84,7 +86,8 @@ class Anamnesis extends Model
     'flexMentalPsicologo'=> $flexMental ,
     'pensamientoPsicologo'=> $pensamiento ,
     'comportamientoGnrlPsicologo'=> $comportamientoGnrl ,
-    'concluPsicologo'=> $conclu]);
+    'concluPsicologo'=> $conclu,
+    'procEvaluaPsicologo'=> $procEvalua]);
 
   }
 
@@ -95,7 +98,8 @@ class Anamnesis extends Model
                   $coordinacionSug,
                   $procesamientoObs,
                   $procesamientoSug,
-                  $concluSugerencias)
+                  $concluSugerencias,
+                  $procEvaluaTO)
   {
     $datos = Anamnesis::select()->where('idOrden','=',$idOrden)->first();
 
@@ -110,7 +114,8 @@ class Anamnesis extends Model
       'coordinacionSugTerapeutaOcupacional'=> $coordinacionSug,
       'procesamientoObsTerapeutaOcupacional'=> $procesamientoObs,
       'procesamientoSugTerapeutaOcupacional'=> $procesamientoSug,
-      'concluSugereniasTerapeutaOcupacional'=> $concluSugerencias]);
+      'concluSugereniasTerapeutaOcupacional'=> $concluSugerencias,
+      'procEvaluaTerapeutaOcupacional'=> $procEvaluaTO]);
 
   }
 
@@ -122,7 +127,7 @@ class Anamnesis extends Model
                   $FPBNEESug2,$FPBNE3,$FPBNEESug3,
                   $FPBNE4,$FPBNEESug4,$comportamientoNivel,
                   $ComportamientoSug,$aprendizajeNivel,$aprendizajeSug,
-                  $conclusionesSugerencias)
+                  $conclusionesSugerencias,$procEvalua)
   {
     $datos = Anamnesis::select()->where('idOrden','=',$idOrden)->first();
 
@@ -145,7 +150,8 @@ class Anamnesis extends Model
       'ComportamientoSugPsicopedagogo'=> $ComportamientoSug,
       'aprendizajeNivelPsicopedagogo'=> $aprendizajeNivel,
       'aprendizajeSugPsicopedagogo'=> $aprendizajeSug,
-      'conclusionesSugerenciasPsicopedagogo'=> $conclusionesSugerencias]);
+      'conclusionesSugerenciasPsicopedagogo'=> $conclusionesSugerencias,
+      'procEvaluaPsicopedagogo'=> $procEvalua]);
   }
 
 
@@ -154,7 +160,7 @@ class Anamnesis extends Model
                   $imitacion,$afecto,$cuerpo,$objetos,$relacion,
                   $adaptacion,$respVisual,$respAuditiva,$gustoOlfatoTacto,$ansiedadMiedo,$comunicVerbal,
                   $comunicNoVerbal,$nivelAct,$respIntelectual,$impresGnrl,$total,$motivoDeEvaluacion,
-                  $sugerencias,$antecedentesRelevantes,$conclusiones)
+                  $sugerencias,$antecedentesRelevantes,$conclusiones,$procEvaluaMulti)
   {
     $datos = Anamnesis::select()->where('idOrden','=',$idOrden)->first();
 
@@ -185,7 +191,8 @@ class Anamnesis extends Model
       'motivoDeEvaluacionMultiDisiplinario'=> $motivoDeEvaluacion,
       'sugerenciasMultiDisiplinario'=> $sugerencias,
       'antecedentesRelevantesMultiDisiplinario'=> $antecedentesRelevantes,
-      'conclusionesMultiDisiplinario'=> $conclusiones]);
+      'conclusionesMultiDisiplinario'=> $conclusiones,
+      'procEvaluaMultiDisiplinario'=> $procEvaluaMulti]);
 
   }
 

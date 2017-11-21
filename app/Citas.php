@@ -61,7 +61,7 @@ class Citas extends Model
 
   public static function agregarReporteFonoaudiologo($idCita,$condSocioComunicativa, $competComunicativa,
                                                       $lengComprensivo, $lengExpresivo,
-                                                      $conclusiones, $sugerencias)
+                                                      $conclusiones, $sugerencias, $procEvaluaFono)
   {
 
       Citas::where('idCitas',"=", $idCita)->update(['estado' => "completado"]);
@@ -80,7 +80,7 @@ class Citas extends Model
   public static function agregarReportePsicologo($idCita,
                                     $desarrolloSocial,$respEmocional,$refConjunta,$juego,
                                     $conmunicacionLeng,$flexMental,
-                                    $pensamiento,$comportamientoGnrl,$conclu)
+                                    $pensamiento,$comportamientoGnrl,$conclu,$procEvalua)
   {
 
       Citas::where('idCitas',"=", $idCita)->update(['estado' => "completado"]);
@@ -91,7 +91,7 @@ class Citas extends Model
                       $datoCita["idOrden"],$datoCita["tipoEvaluacion"],$desarrolloSocial,
                       $respEmocional,$refConjunta,$juego,
                       $conmunicacionLeng,$flexMental,
-                      $pensamiento,$comportamientoGnrl,$conclu);
+                      $pensamiento,$comportamientoGnrl,$conclu,$procEvalua);
 
       OrdenDiagnostico::ActualizarEstadoPorId($datoCita["idOrden"]);
     }
@@ -102,7 +102,8 @@ class Citas extends Model
                                                             $coordinacionSugTerapeutaOcupacional,
                                                             $procesamientoObsTerapeutaOcupacional,
                                                             $procesamientoSugTerapeutaOcupacional,
-                                                            $concluSugereniasTerapeutaOcupacional)
+                                                            $concluSugereniasTerapeutaOcupacional,
+                                                            $procEvaluaTO)
   {
 
       Citas::where('idCitas',"=", $idCita)->update(['estado' => "completado"]);
@@ -115,7 +116,8 @@ class Citas extends Model
                       $coordinacionSugTerapeutaOcupacional,
                       $procesamientoObsTerapeutaOcupacional,
                       $procesamientoSugTerapeutaOcupacional,
-                      $concluSugereniasTerapeutaOcupacional);
+                      $concluSugereniasTerapeutaOcupacional,
+                      $procEvaluaTO);
 
       OrdenDiagnostico::ActualizarEstadoPorId($datoCita["idOrden"]);
   }
@@ -127,7 +129,7 @@ class Citas extends Model
                                       $FPBNEESug2,$FPBNE3,$FPBNEESug3,
                                       $FPBNE4,$FPBNEESug4,$comportamientoNivel,
                                       $ComportamientoSug,$aprendizajeNivel,$aprendizajeSug,
-                                      $conclusionesSugerencias)
+                                      $conclusionesSugerencias,$procEvaluaPsicopedagogo)
   {
 
       Citas::where('idCitas',"=", $idCita)->update(['estado' => "completado"]);
@@ -140,7 +142,7 @@ class Citas extends Model
                       $FPBNEESug2,$FPBNE3,$FPBNEESug3,
                       $FPBNE4,$FPBNEESug4,$comportamientoNivel,
                       $ComportamientoSug,$aprendizajeNivel,$aprendizajeSug,
-                      $conclusionesSugerencias);
+                      $conclusionesSugerencias,$procEvaluaPsicopedagogo);
 
       OrdenDiagnostico::ActualizarEstadoPorId($datoCita["idOrden"]);
   }
@@ -148,7 +150,7 @@ class Citas extends Model
   public static function AgregarReporteMultiDisciplinario($idCita,$imitacion,$afecto,$cuerpo,$objetos,$relacion,
                             $adaptacion,$respVisual,$respAuditiva,$gustoOlfatoTacto,$ansiedadMiedo,$comunicVerbal,
                             $comunicNoVerbal,$nivelAct,$respIntelectual,$impresGnrl,$total,$motivoDeEvaluacion,
-                            $sugerencias,$antecedentesRelevantes,$conclusiones)
+                            $sugerencias,$antecedentesRelevantes,$conclusiones,$procEvaluaMulti)
   {
 
       Citas::where('idCitas',"=", $idCita)->update(['estado' => "completado"]);
@@ -160,7 +162,7 @@ class Citas extends Model
                       $imitacion,$afecto,$cuerpo,$objetos,$relacion,
                       $adaptacion,$respVisual,$respAuditiva,$gustoOlfatoTacto,$ansiedadMiedo,$comunicVerbal,
                       $comunicNoVerbal,$nivelAct,$respIntelectual,$impresGnrl,$total,$motivoDeEvaluacion,
-                      $sugerencias,$antecedentesRelevantes,$conclusiones);
+                      $sugerencias,$antecedentesRelevantes,$conclusiones,$procEvaluaMulti);
 
       OrdenDiagnostico::ActualizarEstadoPorId($datoCita["idOrden"]);
   }

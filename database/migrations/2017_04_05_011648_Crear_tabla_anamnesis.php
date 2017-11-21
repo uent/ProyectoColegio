@@ -26,6 +26,8 @@ class CrearTablaAnamnesis extends Migration
             $table->text('lengExpresivoFonoaudiologo')->nullable();
             $table->text('conclusionesFonoaudiologo')->nullable();
             $table->text('sugerenciasFonoaudiologo')->nullable();
+            $table->text('procEvaluaFonoaudiologo')->nullable();
+
 
             //datos Psicologico
             $table->text('desarrolloSocialPsicologo')->nullable();
@@ -37,6 +39,7 @@ class CrearTablaAnamnesis extends Migration
             $table->text('pensamientoPsicologo')->nullable();
             $table->text('comportamientoGnrlPsicologo')->nullable();
             $table->text('concluPsicologo')->nullable();
+            $table->text('procEvaluaPsicologo')->nullable();
 
 
             //datos Terapista ocupacional
@@ -45,6 +48,8 @@ class CrearTablaAnamnesis extends Migration
             $table->text('procesamientoObsTerapeutaOcupacional')->nullable();
             $table->text('procesamientoSugTerapeutaOcupacional')->nullable();
             $table->text('concluSugereniasTerapeutaOcupacional')->nullable();
+            $table->text('procEvaluaTerapeutaOcupacional')->nullable();
+
 
             //datos Psicopedagogo
             $table->text('FPBNE1Psicopedagogo')->nullable();
@@ -60,9 +65,9 @@ class CrearTablaAnamnesis extends Migration
             $table->text('aprendizajeNivelPsicopedagogo')->nullable();
             $table->text('aprendizajeSugPsicopedagogo')->nullable();
             $table->text('conclusionesSugerenciasPsicopedagogo')->nullable();
+            $table->text('procEvaluaPsicopedagogo')->nullable();
 
             //MultiDisciplinario
-
             $table->text('relacionMultiDisiplinario')->nullable();
             $table->text('imitacionMultiDisiplinario')->nullable();
             $table->text('afectoMultiDisiplinario')->nullable();
@@ -83,6 +88,8 @@ class CrearTablaAnamnesis extends Migration
             $table->text('sugerenciasMultiDisiplinario')->nullable();
             $table->text('antecedentesRelevantesMultiDisiplinario')->nullable();
             $table->text('conclusionesMultiDisiplinario')->nullable();
+            $table->text('procEvaluaMultiDisiplinario')->nullable();
+
 
             $table->timestamps();
 

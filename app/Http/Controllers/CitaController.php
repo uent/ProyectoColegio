@@ -179,7 +179,7 @@ class CitaController extends Controller
       //falta realizar las validaciones
 
       //recibe idCita, condSocioComunicativa, competComunicativa, lengComprensivo
-      //   lengExpresivo, conclusiones, sugerencias
+      //   lengExpresivo, conclusiones, sugerencias,procEvaluaFono
       $tablaCita = Citas::BuscarPorId($data["idCita"]);
 
       if($tablaCita["estado"] == "pendiente")
@@ -187,7 +187,7 @@ class CitaController extends Controller
         Citas::agregarReporteFonoaudiologo($data["idCita"],
                               $data["condSocioComunicativa"], $data["competComunicativa"],
                               $data["lengComprensivo"], $data["lengExpresivo"],
-                              $data["conclusiones"], $data["sugerencias"]);
+                              $data["conclusiones"], $data["sugerencias"], $data["procEvaluaFono"]);
 
         return redirect()->to('Mi_menu');
       }
@@ -202,7 +202,7 @@ class CitaController extends Controller
       //falta realizar las validaciones
 
       //recibe idCitas, desarrolloSocial,respEmocional,refConjunta,juego,conmunicacionLeng,
-      //flexMental,pensamiento,comportamientoGnrl,conclu,relacion,imitacion,afecto,cuerpo,objetos
+      //flexMental,pensamiento,comportamientoGnrl,conclu,relacion,imitacion,afecto,cuerpo,objetos,procEvaluaPsicologo
       $tablaCita = Citas::BuscarPorId($data["idCita"]);
 
       if($tablaCita["estado"] == "pendiente")
@@ -212,7 +212,7 @@ class CitaController extends Controller
                                           $data["refConjunta"],$data["juego"],
                                           $data["conmunicacionLeng"],$data["flexMental"],
                                           $data["pensamiento"],$data["comportamientoGnrl"],
-                                          $data["conclu"]/*$data["relacion"],*/
+                                          $data["conclu"],$data["procEvaluaPsicologo"]/*$data["relacion"],*/
                                           /*$data["imitacion"],$data["afecto"],*/
                                         /*$data["cuerpo"],$data["objetos"]*/);
 
@@ -229,7 +229,7 @@ class CitaController extends Controller
       //falta realizar las validaciones
 
       //recibe idCitas, coordinacionObs,coordinacionSug,procesamientoObs,
-      //procesamientoSug,concluSugerencias
+      //procesamientoSug,concluSugerencias,procEvaluaTO
 
       $tablaCita = Citas::BuscarPorId($data["idCita"]);
 
@@ -240,7 +240,8 @@ class CitaController extends Controller
                                           $data["coordinacionSug"],
                                           $data["procesamientoObs"],
                                           $data["procesamientoSug"],
-                                          $data["concluSugerencias"]);
+                                          $data["concluSugerencias"],
+                                          $data["procEvaluaTO"]);
 
        return redirect()->to('Mi_menu');
      }
@@ -260,7 +261,7 @@ class CitaController extends Controller
 
   //idCita, FPBNE1, FPBNEESug1, FPBNE2, FPBNEESug2, FPBNE3, FPBNEESug3, FPBNE4,
   //FPBNEESug4, comportamientoNivel, ComportamientoSug, aprendizajeNivel,
-  // aprendizajeSug, conclusionesSugerencias
+  // aprendizajeSug, conclusionesSugerencias,procEvaluaPsicopedagogo
 
       $tablaCita = Citas::BuscarPorId($data["idCita"]);
 
@@ -279,7 +280,8 @@ class CitaController extends Controller
                                           $data["ComportamientoSug"],
                                           $data["aprendizajeNivel"],
                                           $data["aprendizajeSug"],
-                                          $data["conclusionesSugerencias"]);
+                                          $data["conclusionesSugerencias"],
+                                          $data["procEvaluaPsicopedagogo"]);
 
         return redirect()->to('Mi_menu');
       }
@@ -293,7 +295,7 @@ class CitaController extends Controller
      $data = request()->all();
      //falta realizar las validaciones
 
-     //recibe idCita,
+     //recibe idCita,procEvaluaMulti
 
      $tablaCita = Citas::BuscarPorId($data["idCita"]);
 
@@ -321,7 +323,8 @@ class CitaController extends Controller
                                 $data["sugerencias"],
                                 $data["antecedentesRelevantes"],
                                 $data["conclusiones"],
-                                $data["sugerencias"]);
+                                $data["sugerencias"],
+                                $data["procEvaluaMulti"]);
 
        return redirect()->to('Mi_menu');
      }
