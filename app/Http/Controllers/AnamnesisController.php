@@ -26,7 +26,7 @@ class AnamnesisController extends Controller
     $datosProfesionales = OrdenDiagnostico::DatosProfesionalesPorIdOrdenDiagnostico($data["idOrden"]);
 
     $datos["fechaActual"] = date('d/m/Y');
-
+  $datos["escolaridad"] = $datosOrdenes["escolaridad"];
     $datos["nombreNino"] = $datosNino["nombre"];
     $datos["apellidosNino"] = $datosNino["apellidos"];
     $datos["rutNino"] = $datosNino["rut"];

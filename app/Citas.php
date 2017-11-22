@@ -72,7 +72,7 @@ class Citas extends Model
                       $datoCita["idOrden"],$datoCita["tipoEvaluacion"],$condSocioComunicativa,
                       $competComunicativa,
                       $lengComprensivo, $lengExpresivo,
-                      $conclusiones, $sugerencias);
+                      $conclusiones, $sugerencias,$procEvaluaFono);
 
       OrdenDiagnostico::ActualizarEstadoPorId($datoCita["idOrden"]);
   }
