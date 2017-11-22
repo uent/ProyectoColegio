@@ -8,20 +8,24 @@
 		<b><i><small> Lusitania 30 Miraflores Viña del Mar (32)2633320</small></i> </b>
 	</div>
 </div>
-
+<?php $datosNino['edadA'] = date_diff(date_create($datos['fechaNacimiento']), date_create('now'))->y ?>
+     <?php  $datosNino['edadM'] = date_diff(date_create($datos['fechaNacimiento']), date_create('now'))->m ?>
 <br><hr/>
 
-<div id="Cabecera" align="center">
+<div id="Cabecera" font-family: "Times New Roman" align="center">
 	<h3>INFORME DE EVALUACIÓN</h3>
 </div>
 <br>
-<div id="identificacionNino">
+<div  id="identificacionNino">
 	<h4>IDENTIFICACIÓN</h4><br>
+  <br>
+
+
 	<table style="border-collapse: collapse" align="justify">
 
 
 		<tr>
-		    <th>Nombre</th>
+		    <th font-family: "Arial">Nombre</th>
 		    <th>:</th>
 		    <th><?php echo $datos['nombreNino'], " ", $datos['apellidosNino'] ?></th>
 	  	</tr>
@@ -30,16 +34,29 @@
 		    <th>:</th>
 		    <th><?php echo $datos['fechaNacimiento'] ?> </th>
 	  	</tr>
+     <tr>
      
+     
+        <th>Edad Cronológica</th>
+        <th>:</th> 
+        <th><?php echo $datosNino['edadA'] ?> años y <?php echo $datosNino['edadM'] ?> meses</th>
+      </tr>
+      <tr>
+        <th>Escolaridad</th>
+        <th>:</th>
+        <th><?php echo $datos['escolaridad'] ?></th>
+      </tr>
 
 		<tr>
 		    <th>Rut</th>
 		    <th>:</th>
 		    <th><?php echo $datos['rutNino'] ?></th>
 	  	</tr>
-
-
-
+    <tr>
+        <th>Inicio del Proceso</th>
+        <th>:</th>
+        <th> <?php echo $datos['created_at'] ?></th>
+      </tr>
 		<tr>
 		    <th>Fecha Informe</th>
 		    <th>:</th>
@@ -68,11 +85,11 @@
 
 	  <li>Anamnesis y Entrevista de Co-Evaluación Familiar Altavida</li>
 	  <li>Observación directa en situación clínica.</li>
-	  <li>Evaluación Psicopedagógica: <?php echo $datos['nombrePsicopedagogo'], " ", $datos['apellidosPsicopedagogo'] ?></li>
-	  <li>Evaluación Fonoaudiológica: <?php echo $datos['nombreFonoaudiologo'], " ", $datos['apellidosFonoaudiologo'] ?></li>
-	  <li>Evaluación en Terapia Ocupacional: <?php echo $datos['nombreTerapeutaOcupacional'], " ", $datos['apellidosTerapeutaOcupacional'] ?></li>
-	  <li>Evaluación Psicológica: <?php echo $datos['nombrePsicologico'], " ", $datos['apellidosPsicologico'] ?></li>
-	  <li>Evaluación en sesión de Equipo Transdisciplinario. </li>
+	  <li>Evaluación Psicopedagógica: <?php echo $datos['procEvaluaPsicopedagogo'] ?> </li>
+	  <li>Evaluación Fonoaudiológica: <?php echo $datos['procEvaluaFonoaudiologo'] ?></li>
+	  <li>Evaluación en Terapia Ocupacional: <?php echo $datos['procEvaluaTerapeutaOcupacional'] ?></li>
+	  <li>Evaluación Psicológica: <?php echo $datos['procEvaluaPsicologo'] ?></li>
+	  <li>Evaluación en sesión de Equipo Transdisciplinario: <?php echo $datos['procEvaluaMultiDisiplinario'] ?></li>
 
 	</ul>
 </div>
@@ -231,3 +248,144 @@
         </table>
 	</div>
 </div>
+<br>
+Respecto de la información aportada por la Escala de Valoración del Autismo Infantil
+(EVAI / CARS) es posible informar la siguiente información cuantitativa:
+<br>
+<div class=" form-horizontal col-md-12">
+   <table WIDTH="550" border="1" align="center" bordercolor="blue" cellspacing="0" class="table table-bordered col-md-12">
+  <tr align="center">
+    <td><b>Área</b></td>
+    <td><b>Puntaje Máximo</b> </td>
+    <td><b>Puntaje Obtenido</b> </td>
+  </tr>
+  <tr>
+    <td>Relación Con los Demás</td>
+    <td align="center">4</td>
+    <td align="center"> </td>
+ </tr>
+  <tr>
+    <td>Imitación</td>
+    <td align="center">4</td>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td>afecto</td>
+    <td align="center">4</td>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td>Uso del Cuerpo</td>
+    <td align="center">4</td>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td>Uso de Objetos</td>
+    <td align="center">4</td>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td>Adaptación a Cambios</td>
+    <td align="center">4</td>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td>Respuesta Visual</td>
+    <td align="center">4</td>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td>Respuesta Auditiva</td>
+    <td align="center">4</td>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td>Gusto, Olfato y respuesta táctil</td>
+    <td align="center">4</td>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td>Ansiedad y Miedo</td>
+    <td align="center">4</td>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td>Comunicación Verbal</td>
+    <td align="center">4</td>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td>Comunicación No Verbal</td>
+    <td align="center">4</td>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td>Nivel de Actividad</td>
+    <td align="center">4</td>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td>Respuesta Intelectual</td>
+    <td align="center">4</td>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td>Impresiones Generales</td>
+    <td align="center">4</td>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td><b>Total</b></td>
+    <td align="center">60</td>
+    <td align="center"></td>
+  
+
+  </tr>
+
+</table>
+</div>
+<br> <br>
+
+<div>
+      <h4>CONCLUSIONES</h4><br>
+      <?php echo $datos['conclusionesMultiDisiplinario'] ?>
+    
+  </div>
+
+  <div>
+      <h4>SUGERENCIAS</h4><br>
+      <?php echo $datos['sugerenciasMultiDisiplinario'] ?>
+    
+  </div>
+
+<br>
+<br>
+ 
+
+  <table style="border-collapse: collapse" align="justify">
+    <tr>
+        <th><?php echo $datos['nombrePsicopedagogo'], " ", $datos['apellidosPsicopedagogo'] ?></th>
+        <th><?php echo $datos['nombreFonoaudiologo'], " ", $datos['apellidosFonoaudiologo'] ?></th>
+        <th><?php echo $datos['nombreTerapeutaOcupacional'], " ", $datos['apellidosTerapeutaOcupacional'] ?></th>
+      </tr>
+      <tr>
+        <th>Psicopedagoga</th>
+        <th>Fonoaudiologa</th>
+        <th>Terapeura Ocupacional</th>
+      </tr>
+  </table>
+
+  <br><br>
+    <table style="border-collapse: collapse" align="justify">
+    <tr>
+        <th><?php echo $datos['nombrePsicologico'], " ", $datos['apellidosPsicologico'] ?></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <th>Psicóloga</th>
+        <th></th>
+        <th></th>
+      </tr>
+  </table>
+
