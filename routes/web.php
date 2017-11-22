@@ -118,3 +118,8 @@ Route::get('composer','HomeController@composer');
 
 //falta permisos
 Route::post('guardar_reporte_multidiciplinario', 'CitaController@AgregarReporteCitaMultiDisciplinario');//EvaluarCitas
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
