@@ -35,10 +35,10 @@
 		    <th><?php echo $datos['fechaNacimiento'] ?> </th>
 	  	</tr>
      <tr>
-     
-     
+
+
         <th>Edad Cronológica</th>
-        <th>:</th> 
+        <th>:</th>
         <th><?php echo $datosNino['edadA'] ?> años y <?php echo $datosNino['edadM'] ?> meses</th>
       </tr>
       <tr>
@@ -262,83 +262,83 @@ Respecto de la información aportada por la Escala de Valoración del Autismo In
   <tr>
     <td>Relación Con los Demás</td>
     <td align="center">4</td>
-    <td align="center"> </td>
+    <td align="center"><?php echo $datos['relacionMultiDisiplinario'] ?></td>
  </tr>
   <tr>
     <td>Imitación</td>
     <td align="center">4</td>
-    <td align="center"></td>
+    <td align="center"><?php echo $datos['imitacionMultiDisiplinario'] ?></td>
   </tr>
   <tr>
     <td>afecto</td>
     <td align="center">4</td>
-    <td align="center"></td>
+    <td align="center"><?php echo $datos['afectoMultiDisiplinario'] ?></td>
   </tr>
   <tr>
     <td>Uso del Cuerpo</td>
     <td align="center">4</td>
-    <td align="center"></td>
+    <td align="center"><?php echo $datos['cuerpoMultiDisiplinario'] ?></td>
   </tr>
   <tr>
     <td>Uso de Objetos</td>
     <td align="center">4</td>
-    <td align="center"></td>
+    <td align="center"><?php echo $datos['objetosMultiDisiplinario'] ?></td>
   </tr>
   <tr>
     <td>Adaptación a Cambios</td>
     <td align="center">4</td>
-    <td align="center"></td>
+    <td align="center"><?php echo $datos['adaptacionMultiDisiplinario'] ?></td>
   </tr>
   <tr>
     <td>Respuesta Visual</td>
     <td align="center">4</td>
-    <td align="center"></td>
+    <td align="center"><?php echo $datos['respVisualMultiDisiplinario'] ?></td>
   </tr>
   <tr>
     <td>Respuesta Auditiva</td>
     <td align="center">4</td>
-    <td align="center"></td>
+    <td align="center"><?php echo $datos['respAuditivaMultiDisiplinario'] ?></td>
   </tr>
   <tr>
     <td>Gusto, Olfato y respuesta táctil</td>
     <td align="center">4</td>
-    <td align="center"></td>
+    <td align="center"><?php echo $datos['gustoOlfatoTactoMultiDisiplinario'] ?></td>
   </tr>
   <tr>
     <td>Ansiedad y Miedo</td>
     <td align="center">4</td>
-    <td align="center"></td>
+    <td align="center"><?php echo $datos['ansiedadMiedoMultiDisiplinario'] ?></td>
   </tr>
   <tr>
     <td>Comunicación Verbal</td>
     <td align="center">4</td>
-    <td align="center"></td>
+    <td align="center"><?php echo $datos['comunicVerbalMultiDisiplinario'] ?></td>
   </tr>
   <tr>
     <td>Comunicación No Verbal</td>
     <td align="center">4</td>
-    <td align="center"></td>
+    <td align="center"><?php echo $datos['comunicNoVerbalMultiDisiplinario'] ?></td>
   </tr>
   <tr>
     <td>Nivel de Actividad</td>
     <td align="center">4</td>
-    <td align="center"></td>
+    <td align="center"><?php echo $datos['nivelActMultiDisiplinario'] ?></td>
   </tr>
   <tr>
     <td>Respuesta Intelectual</td>
     <td align="center">4</td>
-    <td align="center"></td>
+    <td align="center"><?php echo $datos['respIntelectualMultiDisiplinario'] ?></td>
   </tr>
   <tr>
     <td>Impresiones Generales</td>
     <td align="center">4</td>
-    <td align="center"></td>
+    <td align="center"><?php echo $datos['impresGnrlMultiDisiplinario'] ?></td>
   </tr>
   <tr>
     <td><b>Total</b></td>
     <td align="center">60</td>
-    <td align="center"></td>
-  
+    <td align="center"><?php echo $datos['totalMultiDisiplinario'] ?></td>
+
 
   </tr>
 
@@ -349,18 +349,18 @@ Respecto de la información aportada por la Escala de Valoración del Autismo In
 <div>
       <h4>CONCLUSIONES</h4><br>
       <?php echo $datos['conclusionesMultiDisiplinario'] ?>
-    
+
   </div>
 
   <div>
       <h4>SUGERENCIAS</h4><br>
       <?php echo $datos['sugerenciasMultiDisiplinario'] ?>
-    
+
   </div>
 
 <br>
 <br>
- 
+
 
   <table style="border-collapse: collapse" align="justify">
     <tr>
@@ -388,4 +388,3 @@ Respecto de la información aportada por la Escala de Valoración del Autismo In
         <th></th>
       </tr>
   </table>
-

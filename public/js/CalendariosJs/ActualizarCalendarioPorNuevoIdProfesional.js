@@ -13,7 +13,7 @@ function actualizarCalendarioPorNuevoIdProfesional (){
     //actualizarEventosPorIdUsuario(idNino);
 
     //actualizarEventosRestoProfesionales(idProfesional);
-
-    actualizarEventosPorIdNinoIdProfesional(idNino,idProfesional)
+    
+    actualizarEventosPorIdNinoIdProfesional(idNino,idProfesional);
 
 };

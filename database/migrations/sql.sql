@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `data_rows` (
   CONSTRAINT `data_rows_data_type_id_foreign` FOREIGN KEY (`data_type_id`) REFERENCES `data_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla proyectocolegio.data_rows: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla proyectocolegio.data_rows: ~152 rows (aproximadamente)
 /*!40000 ALTER TABLE `data_rows` DISABLE KEYS */;
 INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, `required`, `browse`, `read`, `edit`, `add`, `delete`, `details`, `order`) VALUES
 	(1, 1, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, '', 1),
@@ -328,7 +328,7 @@ CREATE TABLE IF NOT EXISTS `data_types` (
   UNIQUE KEY `data_types_slug_unique` (`slug`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla proyectocolegio.data_types: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla proyectocolegio.data_types: ~12 rows (aproximadamente)
 /*!40000 ALTER TABLE `data_types` DISABLE KEYS */;
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `created_at`, `updated_at`) VALUES
 	(1, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', '', '', 1, 0, '2017-11-21 16:17:09', '2017-11-21 16:17:09'),
@@ -383,7 +383,7 @@ CREATE TABLE IF NOT EXISTS `menu_items` (
   CONSTRAINT `menu_items_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla proyectocolegio.menu_items: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla proyectocolegio.menu_items: ~19 rows (aproximadamente)
 /*!40000 ALTER TABLE `menu_items` DISABLE KEYS */;
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
 	(1, 1, 'Dashboard', '', '_self', 'voyager-boat', NULL, NULL, 1, '2017-11-21 16:17:15', '2017-11-21 16:17:15', 'voyager.dashboard', NULL),
@@ -417,7 +417,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla proyectocolegio.migrations: ~32 rows (aproximadamente)
+-- Volcando datos para la tabla proyectocolegio.migrations: ~31 rows (aproximadamente)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),
@@ -599,7 +599,7 @@ CREATE TABLE IF NOT EXISTS `perfil` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`idPerfil`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla proyectocolegio.perfil: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `perfil` DISABLE KEYS */;
@@ -610,7 +610,9 @@ INSERT INTO `perfil` (`idPerfil`, `nombrePerfil`, `created_at`, `updated_at`) VA
 	(4, 'Psicopedagogo', '2017-11-21 13:09:47', '2017-11-21 13:09:47'),
 	(5, 'TerapeutaOcupacional', '2017-11-21 13:09:48', '2017-11-21 13:09:48'),
 	(6, 'Administrador', '2017-11-21 13:09:49', '2017-11-21 13:09:49'),
-	(7, 'SuperAdministrador', '2017-11-21 13:09:52', '2017-11-21 13:09:52');
+	(7, 'SuperAdministrador', '2017-11-21 13:09:52', '2017-11-21 13:09:52'),
+	(8, 'Secretaria', '2017-11-22 21:37:52', '2017-11-22 21:37:52'),
+	(9, 'Secretaria', '2017-11-22 21:38:52', '2017-11-22 21:38:52');
 /*!40000 ALTER TABLE `perfil` ENABLE KEYS */;
 
 -- Volcando estructura para tabla proyectocolegio.perfil_usuario
@@ -625,7 +627,7 @@ CREATE TABLE IF NOT EXISTS `perfil_usuario` (
   KEY `perfil_usuario_id_foreign` (`id`),
   CONSTRAINT `perfil_usuario_id_foreign` FOREIGN KEY (`id`) REFERENCES `users` (`id`),
   CONSTRAINT `perfil_usuario_idperfil_foreign` FOREIGN KEY (`idPerfil`) REFERENCES `perfil` (`idPerfil`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla proyectocolegio.perfil_usuario: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `perfil_usuario` DISABLE KEYS */;
@@ -636,7 +638,9 @@ INSERT INTO `perfil_usuario` (`idPerfilUsuario`, `idPerfil`, `id`, `created_at`,
 	(4, 4, 4, '2017-11-21 13:09:48', '2017-11-21 13:09:48'),
 	(5, 5, 5, '2017-11-21 13:09:49', '2017-11-21 13:09:49'),
 	(6, 6, 6, '2017-11-21 13:09:51', '2017-11-21 13:09:51'),
-	(7, 7, 7, '2017-11-21 13:09:53', '2017-11-21 13:09:53');
+	(7, 7, 7, '2017-11-21 13:09:53', '2017-11-21 13:09:53'),
+	(8, 8, 9, '2017-11-22 21:38:53', '2017-11-22 21:38:53'),
+	(9, 9, 9, '2017-11-22 21:38:53', '2017-11-22 21:38:53');
 /*!40000 ALTER TABLE `perfil_usuario` ENABLE KEYS */;
 
 -- Volcando estructura para tabla proyectocolegio.permiso
@@ -682,7 +686,7 @@ CREATE TABLE IF NOT EXISTS `permiso_perfil` (
   KEY `permiso_perfil_idperfil_foreign` (`idPerfil`),
   CONSTRAINT `permiso_perfil_idperfil_foreign` FOREIGN KEY (`idPerfil`) REFERENCES `perfil` (`idPerfil`),
   CONSTRAINT `permiso_perfil_idpermiso_foreign` FOREIGN KEY (`idPermiso`) REFERENCES `permiso` (`idPermiso`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla proyectocolegio.permiso_perfil: ~36 rows (aproximadamente)
 /*!40000 ALTER TABLE `permiso_perfil` DISABLE KEYS */;
@@ -722,7 +726,9 @@ INSERT INTO `permiso_perfil` (`idPermisoPerfil`, `idPermiso`, `idPerfil`, `creat
 	(36, 4, 7, '2017-11-21 13:09:52', '2017-11-21 13:09:52'),
 	(37, 6, 7, '2017-11-21 13:09:52', '2017-11-21 13:09:52'),
 	(38, 3, 7, '2017-11-21 13:09:52', '2017-11-21 13:09:52'),
-	(39, 9, 7, '2017-11-21 13:09:52', '2017-11-21 13:09:52');
+	(39, 9, 7, '2017-11-21 13:09:52', '2017-11-21 13:09:52'),
+	(40, 1, 8, '2017-11-22 21:38:53', '2017-11-22 21:38:53'),
+	(41, 1, 9, '2017-11-22 21:38:53', '2017-11-22 21:38:53');
 /*!40000 ALTER TABLE `permiso_perfil` ENABLE KEYS */;
 
 -- Volcando estructura para tabla proyectocolegio.permissions
@@ -737,7 +743,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   KEY `permissions_key_index` (`key`)
 ) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla proyectocolegio.permissions: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla proyectocolegio.permissions: ~76 rows (aproximadamente)
 /*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
 INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`, `permission_group_id`) VALUES
 	(1, 'browse_admin', NULL, '2017-11-21 16:17:17', '2017-11-21 16:17:17', NULL),
@@ -844,7 +850,7 @@ CREATE TABLE IF NOT EXISTS `permission_role` (
   CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla proyectocolegio.permission_role: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla proyectocolegio.permission_role: ~79 rows (aproximadamente)
 /*!40000 ALTER TABLE `permission_role` DISABLE KEYS */;
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 	(1, 1),
@@ -964,7 +970,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   UNIQUE KEY `roles_name_unique` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla proyectocolegio.roles: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla proyectocolegio.roles: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
 INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', 'Administrator', '2017-11-21 16:11:15', '2017-11-21 16:11:15'),
@@ -1025,7 +1031,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_rut_unique` (`rut`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla proyectocolegio.users: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
@@ -1036,7 +1042,8 @@ INSERT INTO `users` (`id`, `role_id`, `rut`, `name`, `apellidos`, `email`, `avat
 	(4, NULL, '145678912312', 'psicopedagogoNombre', 'psicopedagogoApellido', 'psicopedagogomail@gmail.com', 'users/default.png', '$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe', NULL, 'Psicopedagogo', NULL, '2017-11-21 13:09:48', '2017-11-21 13:09:48'),
 	(5, NULL, '11242567289', 'terapeutaOcupacionalNombre', 'terapeutaOcupacionalApellido', 'terapeutaocupacionalmail@gmail.com', 'users/default.png', '$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe', NULL, 'TerapeutaOcupacional', NULL, '2017-11-21 13:09:48', '2017-11-21 13:09:48'),
 	(6, 1, '12789', 'AdminNombre', 'AdminApellido', 'adminmail@gmail.com', 'users/default.png', '$2y$10$2oT2cRDjQbnJ86qfDahkBe6QxiQlZE7TkRocPnSV1KijVT514P202', NULL, 'Administrador', 'VfNjLo1nuf94ds4DkizHElD3yedSGNCgqi4Hw6CRYO1Nb9uYIbGJcMrzi4em', '2017-11-21 13:09:51', '2017-11-21 16:39:15'),
-	(7, NULL, '1234567893', 'SuperNombre', 'SuperApellido', 'supermail@gmail.com', 'users/default.png', '$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe', NULL, 'SuperAdministrador', NULL, '2017-11-21 13:09:53', '2017-11-21 13:09:53');
+	(7, NULL, '1234567893', 'SuperNombre', 'SuperApellido', 'supermail@gmail.com', 'users/default.png', '$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe', NULL, 'SuperAdministrador', NULL, '2017-11-21 13:09:53', '2017-11-21 13:09:53'),
+	(9, NULL, '1234567894', 'SecretariaNombre', 'SecretariaApellido', 'secretariamail@gmail.com', 'users/default.png', '$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe', NULL, 'Secretaria', NULL, '2017-11-22 21:38:53', '2017-11-22 21:38:53');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

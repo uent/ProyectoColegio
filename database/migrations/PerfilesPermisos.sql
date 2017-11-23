@@ -52,6 +52,27 @@ VALUES ("MostrarCalendarioProfesional",now(),now());
 
 #perfiles
 
+#secretaria
+InSERT InTO Perfil (nombrePerfil,created_at,updated_at)
+VALUES ("Secretaria",now(),now());
+
+InSERT InTO users (rut,name,apellidos,email,password,Profesion,created_at,updated_at)
+VALUES ("1234567894","SecretariaNombre","SecretariaApellido","secretariamail@gmail.com",
+  "$2y$10$oEte2LMx0QW.ikTiGURxWezu76ZELxmSsNfePraAZnBuFEEgusxDe","Secretaria",now(),now());
+
+  InSERT InTO Perfil_Usuario (idPerfil,id,created_at,updated_at)
+  SELECT idPerfil, id, now(),now()
+  FROM Users
+  InnER JOIn Perfil
+  where  Perfil.nombrePerfil = "Secretaria" and Users.email = "secretariamail@gmail.com";
+
+  InSERT InTO Permiso_Perfil (idPerfil,idPermiso,created_at,updated_at)
+  SELECT idPerfil, idPermiso, now(),now()
+  FROM Permiso
+  InnER JOIn Perfil
+  where  Permiso.nombrePermiso = "IngresoNino" and Perfil.nombrePerfil ="Secretaria";
+
+
 #Tutor
 InSERT InTO Perfil (nombrePerfil,created_at,updated_at)
 VALUES ("Tutor",now(),now());
